@@ -474,7 +474,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
       <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
     </div>
   </header>
-  <div class="wrap"><nav class="series" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/cry/index.html">CRY</a><a href="../campuses/prv/index.html">PRV</a><span class="divider" aria-hidden="true">|</span><a href="traditional-cryptography-self-assembled-mooc.html">TRC</a><span class="here" aria-current="page">FHE</span><a href="zkp-self-assembled-mooc.html">ZKP</a><a href="post-quantum-cryptography-self-assembled-mooc.html">PQC</a><a href="mpc-self-assembled-mooc.html">MPC</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/prv/appendix.html">PRA · Appendix</a></nav></div>
+  <div class="wrap"><nav class="series" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/cry/index.html">CRY</a><a href="../campuses/prv/index.html">PRV</a><span class="divider" aria-hidden="true">|</span><a href="trc.html">TRC</a><span class="here" aria-current="page">FHE</span><a href="zkp.html">ZKP</a><a href="pqc.html">PQC</a><a href="mpc.html">MPC</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/prv/appendix.html">PRA · Appendix</a></nav></div>
 
   <div class="hero">
     <div>
@@ -847,8 +847,8 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           <p class="section-intro">First decide whether FHE is the right object. Only then choose a scheme by algebra and data layout—not by whichever library you installed first.</p>
           <h3>When FHE is the wrong primitive</h3>
           <div class="decision"><strong>Use FHE</strong><span>One party should evaluate an agreed function on ciphertexts and return ciphertexts. The evaluator must not learn x or f(x). Typical: outsourced exact/approximate arithmetic with a single data owner.</span></div>
-          <div class="decision"><strong>Use MPC</strong><span>Several parties hold inputs and none of them should see the others’. Secret sharing, OT, and garbled circuits are usually cheaper than FHE when you can afford interaction. See the <a href="mpc-self-assembled-mooc.html">MPC guide</a>.</span></div>
-          <div class="decision"><strong>Use ZK</strong><span>You need a public argument that a computation was done correctly, not a ciphertext the server can keep evaluating. FHE + a SNARK is a composition, not a default. See the <a href="zkp-self-assembled-mooc.html">ZK guide</a>.</span></div>
+          <div class="decision"><strong>Use MPC</strong><span>Several parties hold inputs and none of them should see the others’. Secret sharing, OT, and garbled circuits are usually cheaper than FHE when you can afford interaction. See the <a href="mpc.html">MPC guide</a>.</span></div>
+          <div class="decision"><strong>Use ZK</strong><span>You need a public argument that a computation was done correctly, not a ciphertext the server can keep evaluating. FHE + a SNARK is a composition, not a default. See the <a href="zkp.html">ZK guide</a>.</span></div>
           <div class="decision"><strong>Use a TEE</strong><span>The product actually trusts a hardware TCB, attestation, and a sealed enclave or confidential GPU. That is guide 6, not an FHE optimization. FHE does not need Intel/AMD/NVIDIA to be honest.</span></div>
           <div class="decision"><strong>Use FE / ABE</strong><span>A key should reveal f(x) in the clear and nothing else. That is not homomorphic evaluation. Definitions live in conference extras below; pairings/IBE details belong with ZK extras, not as extra FHE modules.</span></div>
           <h3>Which FHE scheme</h3>
@@ -974,7 +974,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             <article class="card">
               <div class="tag optional">23:55</div>
               <h3><a href="https://www.youtube.com/watch?v=5qss29TCmts">Blind zkSNARKs for Private Proof Delegation</a></h3>
-              <p>Jiayi Kang · FHE.org 2025. The FHE + zero-knowledge overlap: proving that an encrypted computation was done correctly without opening the data. Composition, not a reason to merge this guide with the <a href="zkp-self-assembled-mooc.html">ZK guide</a>.</p>
+              <p>Jiayi Kang · FHE.org 2025. The FHE + zero-knowledge overlap: proving that an encrypted computation was done correctly without opening the data. Composition, not a reason to merge this guide with the <a href="zkp.html">ZK guide</a>.</p>
             </article>
             <article class="card">
               <div class="tag optional">105:08</div>
@@ -1019,7 +1019,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             </article>
             <article class="card">
               <h3>Curation policy</h3>
-              <p>Scope: ciphertext compute. Sibling routes: <a href="zkp-self-assembled-mooc.html">ZKP</a>, <a href="post-quantum-cryptography-self-assembled-mooc.html">PQC</a>, <a href="mpc-self-assembled-mooc.html">MPC</a>, <a href="blockchain-self-assembled-mooc.html">DLT</a>, <a href="confidential-computing-self-assembled-mooc.html">TEE</a>, and <a href="session-messaging-self-assembled-mooc.html">E2E</a>. Priority went to primary instructors and official channels. Conference research talks stay in <a href="#conferences">Conference extras</a> unless they teach a reusable concept that belongs in the core route. Functional encryption is extras only.</p>
+              <p>Scope: ciphertext compute. Sibling routes: <a href="zkp.html">ZKP</a>, <a href="pqc.html">PQC</a>, <a href="mpc.html">MPC</a>, <a href="dlt.html">DLT</a>, <a href="tee.html">TEE</a>, and <a href="e2e.html">E2E</a>. Priority went to primary instructors and official channels. Conference research talks stay in <a href="#conferences">Conference extras</a> unless they teach a reusable concept that belongs in the core route. Functional encryption is extras only.</p>
               <p class="meta">Links and availability checked August 28, 2026.</p>
             </article>
           </div>
