@@ -365,8 +365,7 @@
     "lat-crypto-regev": false,
     "lat-crypto-vinod": false,
     "lat-crypto-pqc": false,
-    "lat-crypto-fhe": false,
-    "lat-poisson-fourier": false
+    "lat-crypto-fhe": false
   },
   "cod": {
     "cod-bounds-hamming": false,

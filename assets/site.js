@@ -54,6 +54,21 @@
         paintChecks();
       }).catch(()=>{});
     }
+    const progressCards=[...document.querySelectorAll('.js-progress')];
+    if(progressCards.length){
+      const src=document.querySelector('script[src*="site.js"]');
+      const url=src?new URL('../progress.json',src.src):new URL('progress.json',location.href);
+      fetch(url,{cache:'no-cache'}).then(r=>r.ok?r.json():{}).then(data=>{
+        if(!data||typeof data!=='object'||Array.isArray(data))return;
+        progressCards.forEach(el=>{
+          const codes=(el.dataset.codes||'').split(',').filter(Boolean);
+          const total=parseInt(el.dataset.total||'0',10);
+          let done=0;
+          codes.forEach(code=>{const block=data[code];if(block&&typeof block==='object'&&!Array.isArray(block))done+=Object.values(block).filter(v=>v===true).length});
+          el.textContent=done+' / '+total;
+        });
+      }).catch(()=>{});
+    }
     // A campus can sit under several domains; prefer the one actually navigated from.
     if(document.body.dataset.level==='campus'&&document.referrer){
       try{
