@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Model a source; approach its entropy rate.">
+  <title>SRC - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#4de1c1;--accent-ink:#17866e;--deep:#186252}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="src">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/inf/index.html" title="Back to Information" aria-label="Back to Information"><span class="arrow" aria-hidden="true">←</span>INF</a><div class="brand">SRC <b>// G13 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/inf/index.html">INF</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">SRC</span><a href="arc.html">ARC</a><a href="scx.html">SCX</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/inf/appendix.html">IFA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Source Coding · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>SRC</em> MOOC</span></h1>
+    <p class="manifesto">Model a source; approach its entropy rate.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>24</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 24</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Entropy Coders</a><a href="#module-1">01 · Entropy Rate &amp; AEP</a><a href="#module-2">02 · Markov Sources</a><a href="#module-3">03 · Universal Lempel–Ziv</a><a href="#module-4">04 · Context Tree Weighting</a><a href="#module-5">05 · Kolmogorov Complexity</a><a href="#module-6">06 · Rate–Distortion</a><a href="#module-7">07 · Finite-Block Redundancy</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Source explorer</h3><p>Take one core unit per module and complete each proof checkpoint.</p><div class="meta"><span>12–16 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Codec builder</h3><p>Complete all core units and every coding, prediction, and benchmarking artifact.</p><div class="meta"><span>24–32 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Universal-coding deep dive</h3><p>Add Spanish reinforcement and prove the principal asymptotic claims from the cited papers.</p><div class="meta"><span>40–55 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Entropy Coders</h2></div>
+  <p class="section-intro">Turn a known symbol law into a near-entropy prefix or interval code.</p><article class="lesson" data-tags="core theory build" data-id="src-entropy-huffman">
+  <input class="check" type="checkbox" aria-label="Mark Huffman and Arithmetic Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=y9jUqbSJF2U">Huffman and Arithmetic Codes</a>
+    <div class="meta">Oxford Mathematics · Information Theory · 51 min</div>
+    <p>Derives Huffman construction and contrasts it with arithmetic coding in a full university lecture.</p>
+    <div class="lab"><strong>After watching:</strong> Derive a canonical code for one skewed alphabet and bound its expected length.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=y9jUqbSJF2U">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="src-entropy-arithmetic">
+  <input class="check" type="checkbox" aria-label="Mark Arithmetic Coding complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=xt3uNibQWlQ">Arithmetic Coding</a>
+    <div class="meta">Bill Bird · University of Victoria Data Compression · 122 min</div>
+    <p>Makes the interval invariant and finite-precision implementation issues concrete before the coding lab.</p>
+    <div class="lab"><strong>After watching:</strong> Build a range coder with an explicit EOF symbol and fuzz its decoder.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=xt3uNibQWlQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-entropy-ct">
+  <input class="check" type="checkbox" aria-label="Mark Cover–Thomas — Chapter 5, Data Compression complete">
+  <div>
+    <a class="lesson-title" href="https://onlinelibrary.wiley.com/doi/book/10.1002/047174882X">Cover–Thomas — Chapter 5, Data Compression</a>
+    <div class="meta">Thomas Cover &amp; Joy Thomas · Wiley · 2nd ed. · read</div>
+    <p>The proof companion for Kraft, source-coding bounds, and Huffman optimality.</p>
+    <div class="lab"><strong>After reading:</strong> Prove the lower bound on expected prefix-code length and identify equality cases.</div>
+  </div>
+  <a class="watch" href="https://onlinelibrary.wiley.com/doi/book/10.1002/047174882X">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement canonical Huffman and a finite-precision range coder; report redundancy and round-trip tests.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Entropy Rate &amp; AEP</h2></div>
+  <p class="section-intro">Replace single-letter entropy with the asymptotic uncertainty of a process.</p><article class="lesson" data-tags="core theory build" data-id="src-aep-stanford">
+  <input class="check" type="checkbox" aria-label="Mark The Asymptotic Equipartition Property complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=gBqxZRzlc7E">The Asymptotic Equipartition Property</a>
+    <div class="meta">NPTEL · Introduction to Information Theory · 57 min</div>
+    <p>Develops typical sets directly and connects them to achievable compression rates.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate typical-set concentration for two IID sources and compare finite-block behavior.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=gBqxZRzlc7E">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="src-aep-mackay">
+  <input class="check" type="checkbox" aria-label="Mark Shannon&#x27;s Source Coding Theorem and the Bent Coin Lottery complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=0SxJl5G2bp0">Shannon&#x27;s Source Coding Theorem and the Bent Coin Lottery</a>
+    <div class="meta">David MacKay · Cambridge Information Theory · 51 min</div>
+    <p>MacKay&#x27;s constructive examples make the asymptotic source-coding argument testable rather than purely formal.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the bent-coin code and measure convergence of bits per symbol.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=0SxJl5G2bp0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-aep-ct">
+  <input class="check" type="checkbox" aria-label="Mark Cover–Thomas — Chapter 3, Asymptotic Equipartition Property complete">
+  <div>
+    <a class="lesson-title" href="https://onlinelibrary.wiley.com/doi/10.1002/047174882X.ch3">Cover–Thomas — Chapter 3, Asymptotic Equipartition Property</a>
+    <div class="meta">Cover &amp; Thomas · Wiley · Chapter 3 · read</div>
+    <p>The written proof reference for typical sets and the AEP.</p>
+    <div class="lab"><strong>After reading:</strong> Prove typical-set concentration and audit every IID assumption.</div>
+  </div>
+  <a class="watch" href="https://onlinelibrary.wiley.com/doi/10.1002/047174882X.ch3">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Estimate the entropy rate of two stationary sources and explain the AEP assumptions.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Markov Sources</h2></div>
+  <p class="section-intro">Encode conditional distributions rather than marginal frequencies.</p><article class="lesson" data-tags="core theory build" data-id="src-markov-conditional">
+  <input class="check" type="checkbox" aria-label="Mark Conditional Information Measures and a Markov Source complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=009MACqEy-k">Conditional Information Measures and a Markov Source</a>
+    <div class="meta">IIT Bombay · Information Theory · 50 min</div>
+    <p>Extends source coding from marginal laws to conditional models and works explicitly with a Markov source.</p>
+    <div class="lab"><strong>After watching:</strong> Code a first-order chain with matched and mismatched transition matrices.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=009MACqEy-k">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="src-markov-context">
+  <input class="check" type="checkbox" aria-label="Mark Context-Based Compression and the PPM Algorithm complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=c0LHyRK83aA">Context-Based Compression and the PPM Algorithm</a>
+    <div class="meta">Rudra Singh · Data Compression · 8 min</div>
+    <p>Shows how predictive context becomes a coding distribution and how fallback handles unseen events.</p>
+    <div class="lab"><strong>After watching:</strong> Train order-k models for k=0…5 and graph cross-entropy.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=c0LHyRK83aA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-markov-mackay">
+  <input class="check" type="checkbox" aria-label="Mark MacKay — Chapters 2, 4, and 6 complete">
+  <div>
+    <a class="lesson-title" href="https://www.inference.org.uk/itprnn/book.pdf">MacKay — Chapters 2, 4, and 6</a>
+    <div class="meta">David MacKay · author PDF · selected chapters</div>
+    <p>The companion reference linking prediction, Markov chains, and coding in one notation.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the stationary entropy rate for your test chain.</div>
+  </div>
+  <a class="watch" href="https://www.inference.org.uk/itprnn/book.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Code a Markov source with matched and mismatched models and graph excess bits per symbol.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Universal Lempel–Ziv</h2></div>
+  <p class="section-intro">Learn a source without sending a parametric model.</p><article class="lesson" data-tags="core theory build" data-id="src-lz-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Universal Source Coding: LZ77 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=QP_PHPbMNMM">Universal Source Coding: LZ77</a>
+    <div class="meta">NPTEL · Introduction to Information Theory · 64 min</div>
+    <p>Builds LZ parsing and its universal-source-coding rationale together.</p>
+    <div class="lab"><strong>After watching:</strong> Implement phrase parsing and plot phrase count and rate against n.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=QP_PHPbMNMM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="src-lz-intro">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to Information Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BCiZc0n6COY">Introduction to Information Theory</a>
+    <div class="meta">David MacKay · Cambridge Information Theory · 62 min</div>
+    <p>Places universal source coding inside the broader inference-and-communication problem before the original paper.</p>
+    <div class="lab"><strong>After watching:</strong> Round-trip three corpora and explain every emitted pointer.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BCiZc0n6COY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="src-lz78-vatedka">
+  <input class="check" type="checkbox" aria-label="Mark Source Coding 2020: Lempel–Ziv Algorithms, Part 2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=3slnMyrextA">Source Coding 2020: Lempel–Ziv Algorithms, Part 2</a>
+    <div class="meta">Shashank Vatedka · source-coding course · 63 min</div>
+    <p>A full lecture on the Lempel–Ziv family supplies the parsing and universality bridge needed to read the original LZ78 result.</p>
+    <div class="lab"><strong>After watching:</strong> Trace the lecture&#x27;s LZ78 dictionary updates on one sequence before mapping them to the paper.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=3slnMyrextA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-lz78-paper">
+  <input class="check" type="checkbox" aria-label="Mark Compression of Individual Sequences via Variable-Rate Coding complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/TIT.1978.1055934">Compression of Individual Sequences via Variable-Rate Coding</a>
+    <div class="meta">Jacob Ziv &amp; Abraham Lempel · IEEE TIT · 1978</div>
+    <p>The defining written reference; it states the individual-sequence universality result precisely.</p>
+    <div class="lab"><strong>After reading:</strong> Map each line of your parser to the paper&#x27;s notation.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/TIT.1978.1055934">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement LZ78 or bounded-window LZ77 and demonstrate convergence on an ergodic source.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Context Tree Weighting</h2></div>
+  <p class="section-intro">Mix variable-order Markov predictors with an exact recursive calculation.</p><article class="lesson" data-tags="core theory build" data-id="src-ctw-context">
+  <input class="check" type="checkbox" aria-label="Mark Context Tree Weighting: Compression as Prediction complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Sx2PVCAiGhQ">Context Tree Weighting: Compression as Prediction</a>
+    <div class="meta">George Hotz · CTW programming lecture · 73 min</div>
+    <p>Implements context-tree weighting from the predictive recursion upward, making the mixture calculation inspectable.</p>
+    <div class="lab"><strong>After watching:</strong> Implement fixed-depth contexts and verify their predictive probabilities.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Sx2PVCAiGhQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-ctw-willems-talk">
+  <input class="check" type="checkbox" aria-label="Mark Lossless Source Coding Algorithms complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=va4OpyGY4vc">Lossless Source Coding Algorithms</a>
+    <div class="meta">Frans M. J. Willems · IEEE ISIT plenary · 60 min</div>
+    <p>CTW&#x27;s co-inventor derives universal coding for tree sources and explicitly reaches the context-tree weighting method.</p>
+    <div class="lab"><strong>After watching:</strong> Write the tree-source probability recursion from the talk and align its terms with the paper.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=va4OpyGY4vc">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="src-ctw-willems">
+  <input class="check" type="checkbox" aria-label="Mark The Context-Tree Weighting Method complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/18.382012">The Context-Tree Weighting Method</a>
+    <div class="meta">Willems, Shtarkov &amp; Tjalkens · IEEE TIT · 1995</div>
+    <p>The defining paper gives the exact recursion and redundancy guarantee behind the implementation lecture.</p>
+    <div class="lab"><strong>After reading:</strong> Implement the weighted recursion and verify probabilities sum to one.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/18.382012">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement binary CTW and compare log loss with fixed-order KT estimators.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Kolmogorov Complexity</h2></div>
+  <p class="section-intro">Separate ideal description length from computable compression.</p><article class="lesson" data-tags="optional theory" data-id="src-kolmogorov-gem">
+  <input class="check" type="checkbox" aria-label="Mark Cryptography and Kolmogorov Complexity: A Quick Tutorial complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ZPuryx9Bnv0">Cryptography and Kolmogorov Complexity: A Quick Tutorial</a>
+    <div class="meta">Eric Allender · Simons Institute · 65 min</div>
+    <p>Introduces description length, incompressibility, and computational qualifications without pretending Kolmogorov complexity is a practical codec.</p>
+    <div class="lab"><strong>After watching:</strong> Turn one coding argument into an explicit counting proof for incompressible strings.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ZPuryx9Bnv0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-kolmogorov-li-vitanyi">
+  <input class="check" type="checkbox" aria-label="Mark Li–Vitányi — Chapters 2 and 3 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-030-11298-1">Li–Vitányi — Chapters 2 and 3</a>
+    <div class="meta">Ming Li &amp; Paul Vitányi · Springer · 4th ed.</div>
+    <p>No catalog lecture covered prefix complexity at theorem depth; this remains the authoritative reference for invariance and incomputability.</p>
+    <div class="lab"><strong>After reading:</strong> Prove the counting incompressibility argument and state the machine constant.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-030-11298-1">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a proof note showing why no compressor can recognize all incompressible strings.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Rate–Distortion</h2></div>
+  <p class="section-intro">State the lossy limit cleanly; implementation depth belongs in XCP.</p><article class="lesson" data-tags="core theory build" data-id="src-rd-function">
+  <input class="check" type="checkbox" aria-label="Mark Rate–Distortion Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=or650NMdFcI">Rate–Distortion Theory</a>
+    <div class="meta">NPTEL · Introduction to Information Theory · 51 min</div>
+    <p>Derives the lossy limit and its information-theoretic optimization in a full lecture.</p>
+    <div class="lab"><strong>After watching:</strong> Derive R(D) for a Bernoulli source under Hamming distortion.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=or650NMdFcI">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="src-rd-gaussian">
+  <input class="check" type="checkbox" aria-label="Mark Calculation of Rate–Distortion Functions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=FjiF-CCyN2s">Calculation of Rate–Distortion Functions</a>
+    <div class="meta">NPTEL · Information Theory and Coding · 54 min</div>
+    <p>Works through concrete rate–distortion calculations that turn the variational definition into a usable method.</p>
+    <div class="lab"><strong>After watching:</strong> Compute and plot a Gaussian rate–distortion curve.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=FjiF-CCyN2s">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="src-rd-ct">
+  <input class="check" type="checkbox" aria-label="Mark Cover–Thomas — Rate Distortion Theory complete">
+  <div>
+    <a class="lesson-title" href="https://static.ias.edu/pitp/archive/2012files/Cover_and_Thomas_Chptr13.pdf">Cover–Thomas — Rate Distortion Theory</a>
+    <div class="meta">Cover &amp; Thomas · IAS course archive · Chapter 13 · read</div>
+    <p>The proof companion for the operational theorem and canonical discrete examples.</p>
+    <div class="lab"><strong>After reading:</strong> Identify each converse and achievability assumption used by your calculation.</div>
+  </div>
+  <a class="watch" href="https://static.ias.edu/pitp/archive/2012files/Cover_and_Thomas_Chptr13.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute a binary-source rate–distortion curve and identify what this theorem omits about real codecs.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>Finite-Block Redundancy</h2></div>
+  <p class="section-intro">Measure the price of universality before asymptopia hides it.</p><article class="lesson" data-tags="core theory build" data-id="src-redundancy-kraft">
+  <input class="check" type="checkbox" aria-label="Mark Kraft–McMillan Inequality complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=yHw1ka-4g0s">Kraft–McMillan Inequality</a>
+    <div class="meta">Mathematicalmonk · Information and Coding · 14 min</div>
+    <p>Provides the finite-code constraint against which excess codelength and regret are measured.</p>
+    <div class="lab"><strong>After watching:</strong> Measure excess codelength versus block size for Bernoulli sequences.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=yHw1ka-4g0s">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="src-redundancy-symbol">
+  <input class="check" type="checkbox" aria-label="Mark Shannon&#x27;s Source Coding Theorem and Symbol Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=eHGqNvkL4n4">Shannon&#x27;s Source Coding Theorem and Symbol Codes</a>
+    <div class="meta">David MacKay · Cambridge Information Theory · 57 min</div>
+    <p>Gives an independent derivation of coding redundancy before the asymptotic minimax refinement.</p>
+    <div class="lab"><strong>After watching:</strong> Compare block and symbol-code redundancy on the same source.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=eHGqNvkL4n4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="src-redundancy-rissanen">
+  <input class="check" type="checkbox" aria-label="Mark Universal Coding, Information, Prediction, and Estimation complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/TIT.1984.1056936">Universal Coding, Information, Prediction, and Estimation</a>
+    <div class="meta">Jorma Rissanen · IEEE TIT · 1984</div>
+    <p>The primary reference connecting minimax redundancy, modeling, and universal prediction.</p>
+    <div class="lab"><strong>After reading:</strong> Estimate regret and compare it with the logarithmic asymptotic.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/TIT.1984.1056936">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Benchmark excess codelength versus block size for KT, CTW, and LZ.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Universal source laboratory</h3><ol><li>Generate stationary Markov and hidden-state sources.</li><li>Implement range, LZ, and CTW pipelines with round-trip tests.</li><li>Compare rate, redundancy, memory, and runtime against entropy-rate estimates.</li><li>Defend where each asymptotic theorem does and does not predict finite-file behavior.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.itsoc.org/resources/videos">Information Theory Society video archive</a></h3><div class="meta">IEEE Information Theory Society · research talks</div><p>Use after the spine for current work in source coding and universal prediction.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Information-theory spine</h3><ul class="source-list"><li><a href="https://onlinelibrary.wiley.com/doi/book/10.1002/047174882X">Cover–Thomas, Elements of Information Theory — Chapters 3–5, 10</a></li><li><a href="https://www.inference.org.uk/itprnn/book.pdf">MacKay, Information Theory, Inference, and Learning Algorithms — Chapters 2–7</a></li></ul></article><article class="card"><h3>Universal sequences</h3><ul class="source-list"><li><a href="https://doi.org/10.1109/TIT.1978.1055934">Ziv–Lempel 1978</a></li><li><a href="https://doi.org/10.1109/18.382012">Willems et al., CTW</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/inf/index.html">← Back to INF</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

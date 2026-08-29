@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Structure first; computation follows.">
+  <title>ALG - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#c2a2ff;--accent-ink:#8b4fff;--deep:#6733cb}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="alg">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/fnd/index.html" title="Back to Foundations" aria-label="Back to Foundations"><span class="arrow" aria-hidden="true">←</span>FND</a><div class="brand">ALG <b>// G3 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/fnd/index.html">FND</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/prerequisites-self-assembled-mooc.html">PRE</a><a href="ana.html">ANA</a><a href="prb.html">PRB</a><span class="here" aria-current="page">ALG</span><a href="csf.html">CSF</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/fnd/appendix.html">FNA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Algebra &amp; Spectra · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>ALG</em> MOOC</span></h1>
+    <p class="manifesto">Structure first; computation follows.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>4</b><span>modules</span></div>
+  <div class="metric"><b>22</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 22</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Groups, Rings &amp; Modules</a><a href="#module-1">01 · Spectral Linear Algebra</a><a href="#module-2">02 · Representation Theory</a><a href="#module-3">03 · Topology for Dynamics</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Structure explorer</h3><p>Take the core groups/rings/modules and spectral-linear-algebra lessons; representation theory and topology remain optional.</p><div class="meta"><span>7–10 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete both core artifacts, including computational classification, spectral conditioning, and iterative eigensolvers.</p><div class="meta"><span>16–22 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add module structure, characters, and topology through fundamental groups, with the optional Spanish lecture routes.</p><div class="meta"><span>28–40 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Groups, Rings &amp; Modules</h2></div>
+  <p class="section-intro">Learn algebra through homomorphisms, quotients, actions, ideals, and modules rather than a list of named structures.</p><article class="lesson" data-tags="core theory" data-id="alg-groups-hom">
+  <input class="check" type="checkbox" aria-label="Mark Homomorfismos de grupos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=XGcod46Wqog">Homomorfismos de grupos</a>
+    <div class="meta">ES · Daniel Labardini · UNAM Álgebra Moderna · 62 min</div>
+    <p>Develops structure-preserving maps before quotient constructions, with the first isomorphism theorem as the organizing result.</p>
+    <div class="lab"><strong>After watching:</strong> Reconstruct the first isomorphism theorem and make every well-definedness check explicit.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=XGcod46Wqog">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="alg-groups-actions">
+  <input class="check" type="checkbox" aria-label="Mark Acciones de grupos en conjuntos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=uTu7E_LTanU">Acciones de grupos en conjuntos</a>
+    <div class="meta">ES · Daniel Labardini · UNAM Álgebra Moderna · 98 min</div>
+    <p>Turns group structure into orbit and stabilizer calculations, the right bridge to classification and representation theory.</p>
+    <div class="lab"><strong>After watching:</strong> Choose a finite action, compute all orbits and stabilizers, and derive the class equation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=uTu7E_LTanU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="alg-rings-ideals">
+  <input class="check" type="checkbox" aria-label="Mark Anillos, ideales y homomorfismos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=RJAqyPfH6EQ">Anillos, ideales y homomorfismos</a>
+    <div class="meta">ES · Daniel Labardini · UNAM Álgebra Moderna · 79 min</div>
+    <p>Carries the homomorphism-and-quotient viewpoint from groups into rings without reducing the subject to examples.</p>
+    <div class="lab"><strong>After watching:</strong> Construct two quotient rings and prove the universal property used by each map.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=RJAqyPfH6EQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="alg-modules-structure">
+  <input class="check" type="checkbox" aria-label="Mark Finitely generated abelian groups complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=L4GEeFMZ99s">Finitely generated abelian groups</a>
+    <div class="meta">ES · Daniel Labardini · UNAM Álgebra Moderna · 10 min</div>
+    <p>Provides a compact entry to structure theorems and the module-over-a-PID viewpoint behind canonical forms.</p>
+    <div class="lab"><strong>After watching:</strong> Classify three finitely generated abelian groups from presentations and verify their invariants computationally.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=L4GEeFMZ99s">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="alg-modules-pid">
+  <input class="check" type="checkbox" aria-label="Mark Structure of finitely generated modules over a PID complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ECKBy9VYoIk">Structure of finitely generated modules over a PID</a>
+    <div class="meta">NPTEL IIT Madras · 13 min · English</div>
+    <p>Focuses the module-over-a-PID structure theorem that organizes Artin&#x27;s abelian-group and canonical-form material.</p>
+    <div class="lab"><strong>After watching:</strong> Convert one finite presentation to invariant factors and prove why the resulting decomposition is unique.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ECKBy9VYoIk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="alg-structures-artin">
+  <input class="check" type="checkbox" aria-label="Mark Artin, Algebra — Chapters 2–12 complete">
+  <div>
+    <a class="lesson-title" href="https://www.pearson.com/en-us/subject-catalog/p/algebra/P200000006202">Artin, Algebra — Chapters 2–12</a>
+    <div class="meta">Michael Artin · Pearson · 2nd ed. · selected chapters · read</div>
+    <p>Uses linear and geometric examples to unify groups, linear groups, rings, fields, and modules.</p>
+    <div class="lab"><strong>After reading:</strong> Choose a finite group action, compute its orbits and stabilizers, and prove the class equation used.</div>
+  </div>
+  <a class="watch" href="https://www.pearson.com/en-us/subject-catalog/p/algebra/P200000006202">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Classify a small family of groups or modules and verify the result computationally without confusing computation with proof.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Spectral Linear Algebra</h2></div>
+  <p class="section-intro">Connect invariant subspaces, Jordan form, normal operators, SVD, Rayleigh quotients, and numerical conditioning.</p><article class="lesson" data-tags="core theory build" data-id="alg-spectral-eigen">
+  <input class="check" type="checkbox" aria-label="Mark Eigenvalues and eigenvectors complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=cdZnhQjJu4I">Eigenvalues and eigenvectors</a>
+    <div class="meta">Gilbert Strang · MIT 18.06 · 51 min</div>
+    <p>Introduces invariant directions and characteristic equations through examples that can be checked in the spectral notebook.</p>
+    <div class="lab"><strong>After watching:</strong> Build matrices with prescribed spectra and compare eigenvalue behavior under structured perturbations.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=cdZnhQjJu4I">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="alg-spectral-svd">
+  <input class="check" type="checkbox" aria-label="Mark Singular value decomposition complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TX_vooSnhm8">Singular value decomposition</a>
+    <div class="meta">Gilbert Strang · MIT 18.06 · 40 min</div>
+    <p>Separates singular values from eigenvalues and supplies the stable factorization used for conditioning experiments.</p>
+    <div class="lab"><strong>After watching:</strong> Compute an SVD by hand and numerically, then connect rank-k truncation error to the omitted singular values.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TX_vooSnhm8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="alg-spectral-es">
+  <input class="check" type="checkbox" aria-label="Mark Teorema espectral: caso complejo complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=oERsRBx9nSM">Teorema espectral: caso complejo</a>
+    <div class="meta">ES · Tardes de Café y Álgebra · UAM-I · 21 min</div>
+    <p>A focused Spanish proof of the normal-operator spectral theorem, beyond merely computing eigenvalues.</p>
+    <div class="lab"><strong>After watching:</strong> Present the complex spectral theorem and prove the induction or Schur-triangularization step used.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=oERsRBx9nSM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="alg-spectral-jordan">
+  <input class="check" type="checkbox" aria-label="Mark Similar matrices and Jordan form complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TSdXJw83kyA">Similar matrices and Jordan form</a>
+    <div class="meta">Gilbert Strang · MIT 18.06 · 46 min</div>
+    <p>Covers the Jordan form this module promises: the canonical form for operators that are not diagonalizable, and the invariant that survives similarity.</p>
+    <div class="lab"><strong>After watching:</strong> Build a defective matrix, compute its Jordan form by hand, and show numerically why its eigenvectors are ill-conditioned.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TSdXJw83kyA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="alg-spectral-rayleigh">
+  <input class="check" type="checkbox" aria-label="Mark Rayleigh quotients and singular value decomposition complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TSUkTnAQGbo">Rayleigh quotients and singular value decomposition</a>
+    <div class="meta">Madhur Tulsiani · Mathematical Toolkit · 76 min · English</div>
+    <p>Adds the Rayleigh-quotient extremal viewpoint explicitly assigned in the Axler companion and connects it to singular values.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the extremal characterization for a self-adjoint matrix and check it numerically on a designed example.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TSUkTnAQGbo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="alg-spectral-axler">
+  <input class="check" type="checkbox" aria-label="Mark Axler, Linear Algebra Done Right — Chapters 5–8 complete">
+  <div>
+    <a class="lesson-title" href="https://linear.axler.net/">Axler, Linear Algebra Done Right — Chapters 5–8</a>
+    <div class="meta">Sheldon Axler · author site · 4th ed. open access · read</div>
+    <p>A proof-first route through eigenvalues, minimal polynomials, inner-product spaces, spectral theorems, and operators.</p>
+    <div class="lab"><strong>After reading:</strong> Prove the finite-dimensional spectral theorem and derive the Rayleigh-quotient extremal characterization.</div>
+  </div>
+  <a class="watch" href="https://linear.axler.net/">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create a spectral notebook comparing exact structure, Schur/Jordan behavior, SVD, and eigenvalue sensitivity on designed matrices.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Representation Theory</h2></div>
+  <p class="section-intro">Treat a representation as a way to linearize symmetry; keep the first pass finite and character-driven.</p><article class="lesson" data-tags="optional theory build" data-id="alg-rep-intro">
+  <input class="check" type="checkbox" aria-label="Mark Representation theory: introduction complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Q9OsEZV5YX8">Representation theory: introduction</a>
+    <div class="meta">Richard Borcherds · Berkeley · 31 min</div>
+    <p>Introduces representations as linearized group actions and sets up the finite-group character viewpoint used by the artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Turn a permutation action into matrices and identify its invariant subspaces.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Q9OsEZV5YX8">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="alg-rep-orthogonality">
+  <input class="check" type="checkbox" aria-label="Mark Character orthogonality relations complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BixUw1oHBec">Character orthogonality relations</a>
+    <div class="meta">Richard Borcherds · Berkeley · 25 min</div>
+    <p>Derives the inner-product machinery that makes character decomposition calculable and provable.</p>
+    <div class="lab"><strong>After watching:</strong> Prove row orthogonality and use it to decompose a permutation character.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BixUw1oHBec">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="alg-rep-examples">
+  <input class="check" type="checkbox" aria-label="Mark Character tables of D8, A4, S4, S5, and A5 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Bvb4eKbyMzc">Character tables of D8, A4, S4, S5, and A5</a>
+    <div class="meta">Richard Borcherds · Berkeley · 23 min</div>
+    <p>Works concrete groups large enough to expose the method without hiding it behind general theory.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the character table of S3 or D8 independently and check every orthogonality relation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Bvb4eKbyMzc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="alg-rep-schur">
+  <input class="check" type="checkbox" aria-label="Mark Schur&#x27;s lemma and beyond complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=4AU8raNO7jE">Schur&#x27;s lemma and beyond</a>
+    <div class="meta">Tamar Lichter Blanks · Rutgers Graduate Algebra and Representation Theory Seminar · 55 min · English</div>
+    <p>Develops the irreducibility tool underlying the character theory in Fulton–Harris and shows why commuting maps become scalar.</p>
+    <div class="lab"><strong>After watching:</strong> Prove Schur&#x27;s lemma over an algebraically closed field and exhibit what changes over a nonclosed field.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=4AU8raNO7jE">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="alg-rep-fulton-harris">
+  <input class="check" type="checkbox" aria-label="Mark Fulton–Harris, Representation Theory — Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4612-0979-9">Fulton–Harris, Representation Theory — Chapters 1–4</a>
+    <div class="meta">William Fulton &amp; Joe Harris · Springer · selected chapters · read</div>
+    <p>The written companion extends the finite-group video spine toward Lie groups and geometric examples.</p>
+    <div class="lab"><strong>After reading:</strong> Compute irreducibles and the character table for S3 or D8, checking orthogonality explicitly.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4612-0979-9">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute the character table of a small finite group and use it to decompose a concrete representation.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Topology for Dynamics</h2></div>
+  <p class="section-intro">Acquire quotient spaces, homotopy, degree, and homology only to the level later dynamics and Conley theory consume.</p><article class="lesson" data-tags="optional theory" data-id="alg-topology-intro">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to algebraic topology complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9hse3g4FthY">Introduction to algebraic topology</a>
+    <div class="meta">ES · Miguel Xicoténcatl · Ciencias TV/UNAM · 69 min</div>
+    <p>A Spanish conceptual entry that motivates homotopy and algebraic invariants before formal calculations.</p>
+    <div class="lab"><strong>After watching:</strong> Build a prerequisite map and give two spaces distinguished by a homotopy invariant.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9hse3g4FthY">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="alg-topology-pi1">
+  <input class="check" type="checkbox" aria-label="Mark Calculating the fundamental group complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BDrKDk8PQ_A">Calculating the fundamental group</a>
+    <div class="meta">Richard Borcherds · Berkeley · 29 min</div>
+    <p>Shows the fundamental group in calculation mode, which is the minimum useful topology for later dynamics.</p>
+    <div class="lab"><strong>After watching:</strong> Compute π1 of a graph or glued surface and justify the chosen generators and relations.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BDrKDk8PQ_A">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="alg-topology-vankampen">
+  <input class="check" type="checkbox" aria-label="Mark Seifert–van Kampen theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=pmNcHER9K9I">Seifert–van Kampen theorem</a>
+    <div class="meta">Math at Andrews University · Algebraic Topology · 77 min</div>
+    <p>Provides the theorem that turns quotient and gluing descriptions into fundamental-group computations.</p>
+    <div class="lab"><strong>After watching:</strong> Apply van Kampen to a wedge or surface and verify all openness and path-connectedness hypotheses.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=pmNcHER9K9I">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="alg-topology-cells">
+  <input class="check" type="checkbox" aria-label="Mark Cell complexes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kCTpfqRJ2kk">Cell complexes</a>
+    <div class="meta">Math at Andrews University · Algebraic Topology 0 · 68 min · English</div>
+    <p>Targets Hatcher&#x27;s Chapter 0 language of cells, attaching maps, and quotient constructions before the fundamental-group chapter.</p>
+    <div class="lab"><strong>After watching:</strong> Give a CW decomposition of two familiar spaces and write each attaching map and quotient explicitly.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kCTpfqRJ2kk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="alg-topology-hatcher">
+  <input class="check" type="checkbox" aria-label="Mark Hatcher, Algebraic Topology — Chapter 0 and Chapter 1 complete">
+  <div>
+    <a class="lesson-title" href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf">Hatcher, Algebraic Topology — Chapter 0 and Chapter 1</a>
+    <div class="meta">Allen Hatcher · Cornell author PDF · read</div>
+    <p>The standard open reference for homotopy, fundamental groups, and cell-complex intuition needed by later dynamics.</p>
+    <div class="lab"><strong>After reading:</strong> Compute π1 of one graph or glued surface with van Kampen and justify every basepoint and path-connectedness condition.</div>
+  </div>
+  <a class="watch" href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a topological dossier for a dynamical example: phase space, quotient or compactification, invariant, and a proved obstruction.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Structure and canonical form</h3><ol><li>Choose a finitely generated module or a linear operator over a specified field.</li><li>Derive its canonical decomposition from the relevant structure theorem.</li><li>Implement a checker and explain why numerical floating-point output is not the proof.</li></ol></article><article class="card"><h3>Symmetry-to-spectrum study</h3><ol><li>Choose a finite group action and form its permutation representation.</li><li>Decompose it using characters or invariant subspaces.</li><li>Relate the decomposition to the spectrum of one equivariant operator.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.birs.ca/events/2022/5-day-workshops/22w5150/videos">Representation Theory and Mathematical Physics recordings</a></h3><div class="meta">BIRS · workshop recordings</div><p>Examples of symmetry and representation language in current mathematics after the optional module.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLu__j_G5qBOm8Iqv4s6IWrLcRPJ06K3h1">UNAM Álgebra Moderna graduate course</a></h3><div class="meta">ES · Daniel Labardini · UNAM · 47 lectures</div><p>A coherent graduate sequence across groups, rings, and fields rather than an unfiltered channel archive.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Algebra spine</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLu__j_G5qBOm8Iqv4s6IWrLcRPJ06K3h1">UNAM Álgebra Moderna recordings (ES)</a></li><li><a href="https://www.pearson.com/en-us/subject-catalog/p/algebra/P200000006202">Artin, Algebra — Chapters 2–12</a></li><li><a href="https://www.youtube.com/playlist?list=PL8yHsr3EFj51AM_VmB0VygPIzcUCH_jUG">Borcherds, Representation Theory recordings</a></li></ul></article><article class="card"><h3>Spectra &amp; optional topology</h3><ul class="source-list"><li><a href="https://linear.axler.net/">Axler, Linear Algebra Done Right — Chapters 5–8</a></li><li><a href="https://www.youtube.com/playlist?list=PLp0hSY2uBeP_HDgkCSrG5pccHYfudTJYI">ICTP Algebraic Topology recordings</a></li><li><a href="https://pi.math.cornell.edu/~hatcher/AT/AT.pdf">Hatcher — Chapters 0–1</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/fnd/index.html">← Back to FND</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

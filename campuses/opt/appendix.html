@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Entry points and dependencies for OPT.">
+  <title>OPA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#6b6b6b;--accent-ink:#6b6b6b;--deep:#212121}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="opa">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Optional Infinity" aria-label="Back to Optional Infinity"><span class="arrow" aria-hidden="true">←</span>OPT</a><div class="brand">OPA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/mat/index.html">MAT</a><a href="index.html">OPT</a><span class="divider" aria-hidden="true">|</span><a href="../../guides/xcp.html">XCP</a><a href="../../guides/xsp.html">XSP</a><a href="../../guides/xds.html">XDS</a><a href="../../guides/xfd.html">XFD</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">OPA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Optional Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>OPA</em> APPENDIX</span></h1>
+    <p class="manifesto">Entry points and dependencies for OPT.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>9</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 9</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">PLC</span><h3>Readiness only</h3><p>Test one optional track and defer it if its parent spine is incomplete.</p><div class="meta"><span>2–3 h</span></div></article><article class="card route"><span class="code">ONE</span><h3>One second career</h3><p>Document prerequisites, artifact, and stop rule for one X-guide.</p><div class="meta"><span>4–6 h</span></div></article><article class="card route"><span class="code">TWO</span><h3>Two-track maximum</h3><p>Prepare two independent optional routes without making either core.</p><div class="meta"><span>7–10 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Optional means dependency-gated, not vague enrichment.</p><article class="lesson" data-tags="core theory build" data-id="opa-use">
+  <input class="check" type="checkbox" aria-label="Mark Optional Infinity map complete">
+  <div>
+    <a class="lesson-title" href="../../guides/xcp.html">Optional Infinity map</a>
+    <div class="meta">OPT bundle · all units optional</div>
+    <p>Prevents optional breadth from blocking completion of the main guides.</p>
+    <div class="lab"><strong>After reading:</strong> Name the question, prerequisite, artifact, and stopping condition for each chosen track.</div>
+  </div>
+  <a class="watch" href="../../guides/xcp.html">Open XCP</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Choose at most two second-career tracks and write a stop rule.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Verify completion of the parent spine before taking its second pass.</p><article class="lesson" data-tags="core theory build" data-id="opa-diagnostic">
+  <input class="check" type="checkbox" aria-label="Mark Parent-spine diagnostic complete">
+  <div>
+    <a class="lesson-title" href="../../index.html">Parent-spine diagnostic</a>
+    <div class="meta">Internal curriculum · ANA/DYN/STO/SRC/ARC dependencies</div>
+    <p>Second-pass material assumes the first pass, not merely familiarity with names.</p>
+    <div class="lab"><strong>After reading:</strong> For each candidate unit, reproduce one theorem and artifact from its parent guide.</div>
+  </div>
+  <a class="watch" href="../../index.html">Open map</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="opa-diagnostico-es">
+  <input class="check" type="checkbox" aria-label="Mark Diagnóstico opcional bilingüe complete">
+  <div>
+    <a class="lesson-title" href="https://ocw.unican.es/">Diagnóstico opcional bilingüe</a>
+    <div class="meta">ES · OCW Universidad de Cantabria</div>
+    <p>Spanish proof and explanation count as first-class evidence.</p>
+    <div class="lab"><strong>After reading:</strong> Present one prerequisite theorem and computational artifact in Spanish.</div>
+  </div>
+  <a class="watch" href="https://ocw.unican.es/">OCW</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Attach evidence for every prerequisite or defer the track.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Compression depends on SRC/ARC; advanced processes on STO/ANA; advanced dynamics on DYN; foundations on G1–G4.</p><article class="lesson" data-tags="core theory" data-id="opa-dependencies">
+  <input class="check" type="checkbox" aria-label="Mark Curriculum dependency map complete">
+  <div>
+    <a class="lesson-title" href="../../index.html">Curriculum dependency map</a>
+    <div class="meta">Central guide map</div>
+    <p>Keeps second careers downstream of coherent foundations.</p>
+    <div class="lab"><strong>After reading:</strong> Annotate each chosen X-guide module with exact parent modules and exit evidence.</div>
+  </div>
+  <a class="watch" href="../../index.html">Open map</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Draw a dependency DAG with no optional-to-core inversion.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Enter only the X-guide whose parent artifact you can already defend.</p><article class="lesson" data-tags="core theory build" data-id="opa-ready-xcp">
+  <input class="check" type="checkbox" aria-label="Mark XCP readiness: SRC + ARC complete">
+  <div>
+    <a class="lesson-title" href="../../guides/xcp.html">XCP readiness: SRC + ARC</a>
+    <div class="meta">G18 · all units optional</div>
+    <p>Lossy, learned, and production tracks require source and implementation literacy.</p>
+    <div class="lab"><strong>After reading:</strong> Show a working lossless codec and an entropy/rate analysis.</div>
+  </div>
+  <a class="watch" href="../../guides/xcp.html">Open XCP</a>
+</article><article class="lesson" data-tags="core theory" data-id="opa-ready-xsp">
+  <input class="check" type="checkbox" aria-label="Mark XSP readiness: STO + analysis complete">
+  <div>
+    <a class="lesson-title" href="../../guides/xsp.html">XSP readiness: STO + analysis</a>
+    <div class="meta">G19 · all units optional</div>
+    <p>SPDE, rough paths, SLE, and random matrices need mature probability.</p>
+    <div class="lab"><strong>After reading:</strong> State a generator, topology, and convergence argument from STO.</div>
+  </div>
+  <a class="watch" href="../../guides/xsp.html">Open XSP</a>
+</article><article class="lesson" data-tags="core theory build" data-id="opa-ready-xds">
+  <input class="check" type="checkbox" aria-label="Mark XDS readiness: DYN + topology/numerics complete">
+  <div>
+    <a class="lesson-title" href="../../guides/xds.html">XDS readiness: DYN + topology/numerics</a>
+    <div class="meta">G20 · all units optional</div>
+    <p>Global geometry and PDE dynamics assume a completed dynamics spine.</p>
+    <div class="lab"><strong>After reading:</strong> Analyze stability and bifurcation in one parent-guide system.</div>
+  </div>
+  <a class="watch" href="../../guides/xds.html">Open XDS</a>
+</article><article class="lesson" data-tags="core theory" data-id="opa-ready-xfd">
+  <input class="check" type="checkbox" aria-label="Mark XFD readiness: G1–G4 complete">
+  <div>
+    <a class="lesson-title" href="../../guides/xfd.html">XFD readiness: G1–G4</a>
+    <div class="meta">G21 · all units optional</div>
+    <p>Modern abstract languages require proof fluency rather than glossary familiarity.</p>
+    <div class="lab"><strong>After reading:</strong> Submit one complete analysis/algebra proof and one dependency statement.</div>
+  </div>
+  <a class="watch" href="../../guides/xfd.html">Open XFD</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete one readiness memo per selected X-guide.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Use optional subjects to deepen existing work, never to rename or clone it.</p><article class="lesson" data-tags="core theory build" data-id="opa-bridge">
+  <input class="check" type="checkbox" aria-label="Mark Bridge back to a core artifact complete">
+  <div>
+    <a class="lesson-title" href="../../index.html">Bridge back to a core artifact</a>
+    <div class="meta">Internal cross-link exercise</div>
+    <p>A second career earns its place by changing a concrete problem in a completed guide.</p>
+    <div class="lab"><strong>After reading:</strong> Apply one optional method to an existing artifact and compare what becomes provable or buildable.</div>
+  </div>
+  <a class="watch" href="../../index.html">Open map</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write one bridge note showing a precise theorem or tool consumed elsewhere.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Optional-study contract</h3><ol><li>Name at most two selected tracks.</li><li>Attach parent-guide completion evidence.</li><li>Define a concrete artifact and stopping condition.</li><li>Confirm that deferring every X-guide leaves the core curriculum complete.</li></ol></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Optional entry points</h3><ul class="source-list"><li><a href="../../guides/xcp.html">XCP</a></li><li><a href="../../guides/xsp.html">XSP</a></li><li><a href="../../guides/xds.html">XDS</a></li><li><a href="../../guides/xfd.html">XFD</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to OPT</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

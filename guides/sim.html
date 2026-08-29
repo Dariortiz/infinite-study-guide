@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Make approximation error part of the theorem.">
+  <title>SIM - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#63e6be;--accent-ink:#168764;--deep:#19624c}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="sim">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/mot/index.html" title="Back to Motion" aria-label="Back to Motion"><span class="arrow" aria-hidden="true">←</span>MOT</a><div class="brand">SIM <b>// G9 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/mot/index.html">MOT</a><span class="divider" aria-hidden="true">|</span><a href="dyn.html">DYN</a><a href="sto.html">STO</a><a href="spz.html">SPZ</a><a href="dsz.html">DSZ</a><span class="here" aria-current="page">SIM</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/mot/appendix.html">MTA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Numerics &amp; Simulation · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>SIM</em> MOOC</span></h1>
+    <p class="manifesto">Make approximation error part of the theorem.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>23</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 23</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Discrete-Event Simulation</a><a href="#module-1">01 · Monte Carlo</a><a href="#module-2">02 · Numerical SDE</a><a href="#module-3">03 · Geometric Integration</a><a href="#module-4">04 · Scientific Workflows</a><a href="#module-5">05 · Parallel &amp; Rare-Event Methods</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Simulation explorer</h3><p>Take two core units each in DES, Monte Carlo, SDE numerics, geometric integration, and workflows.</p><div class="meta"><span>12–16 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Reproducible builder</h3><p>Complete every core artifact with tests, uncertainty, seeded streams, and one-command regeneration.</p><div class="meta"><span>24–34 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Error analyst</h3><p>Add optional stability and rare-event depth and defend asymptotic and finite-sample error separately.</p><div class="meta"><span>38–50 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Discrete-Event Simulation</h2></div>
+  <p class="section-intro">Model state changes as timestamped events and make initialization, termination, and bias visible.</p><article class="lesson" data-tags="core theory build" data-id="sim-des-fundamentals">
+  <input class="check" type="checkbox" aria-label="Mark Fundamental concepts of discrete-event simulation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GKMqti5z_Qs">Fundamental concepts of discrete-event simulation</a>
+    <div class="meta">Ted Pavlic · Arizona State University IEE 475 · 1 h 9 min</div>
+    <p>A current university lecture that makes clocks, events, state transitions, and the event calendar explicit before software abstractions.</p>
+    <div class="lab"><strong>After watching:</strong> Implement an event calendar from scratch and test tie-breaking, warm-up, and conservation invariants.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GKMqti5z_Qs">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sim-des-examples">
+  <input class="check" type="checkbox" aria-label="Mark Discrete-event simulation examples complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ONpjO1uG7JM">Discrete-event simulation examples</a>
+    <div class="meta">Ted Pavlic · Arizona State University IEE 475 · 1 h 7 min</div>
+    <p>Worked examples turn the event-scheduling formalism into executable model logic and expose common state-update mistakes.</p>
+    <div class="lab"><strong>After watching:</strong> Build a single-server queue and reconcile every arrival, departure, and time-average statistic by hand on a short trace.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ONpjO1uG7JM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-des-output-analysis">
+  <input class="check" type="checkbox" aria-label="Mark Lecture 26 - Output analysis of a single system: Introduction complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=rK9_YXojF74">Lecture 26 - Output analysis of a single system: Introduction</a>
+    <div class="meta">Modeling and Simulation of Discrete Event Systems · 36 min</div>
+    <p>Focuses on initialization bias and statistically valid output analysis, the validation layer required by the Banks text.</p>
+    <div class="lab"><strong>After watching:</strong> Run replicated queue simulations, choose a warm-up rule, and attach a confidence interval to the steady-state waiting-time estimate.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=rK9_YXojF74">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-des-banks">
+  <input class="check" type="checkbox" aria-label="Mark Banks et al., Discrete-Event System Simulation — Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://www.pearson.com/en-us/subject-catalog/p/discrete-event-system-simulation/P200000003492">Banks et al., Discrete-Event System Simulation — Chapters 1–4</a>
+    <div class="meta">Banks, Carson, Nelson &amp; Nicol · Pearson · 5th ed. · Chapters 1–4 · read</div>
+    <p>Covers event scheduling, queueing examples, random input, verification, and output analysis.</p>
+    <div class="lab"><strong>After reading:</strong> Reimplement the same queue in SimPy and reconcile every statistic with the scratch simulator.</div>
+  </div>
+  <a class="watch" href="https://www.pearson.com/en-us/subject-catalog/p/discrete-event-system-simulation/P200000003492">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a tested event calendar and validate a queue model against exact steady-state quantities.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Monte Carlo</h2></div>
+  <p class="section-intro">Estimate integrals and expectations with uncertainty, variance reduction, and reproducible random streams.</p><article class="lesson" data-tags="core theory build" data-id="sim-mc-classical">
+  <input class="check" type="checkbox" aria-label="Mark The classical Monte Carlo estimator complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=8fEETchU7NM">The classical Monte Carlo estimator</a>
+    <div class="meta">Miles Chen · UCLA Stats 102C · 50 min</div>
+    <p>Starts from the estimator itself and connects sampling error to repeated simulation, confidence intervals, and empirical coverage.</p>
+    <div class="lab"><strong>After watching:</strong> Build a crude Monte Carlo estimator and test confidence-interval coverage over repeated experiments.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=8fEETchU7NM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sim-mc-importance">
+  <input class="check" type="checkbox" aria-label="Mark Importance sampling complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=zlVzZJ5Rg0g">Importance sampling</a>
+    <div class="meta">Miles Chen · UCLA Stats 102C · 47 min</div>
+    <p>Derives the change-of-measure estimator that anchors variance reduction and the later rare-event module.</p>
+    <div class="lab"><strong>After watching:</strong> Design two proposals for the same integral and compare variance per function evaluation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=zlVzZJ5Rg0g">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-mc-es">
+  <input class="check" type="checkbox" aria-label="Mark Integración Monte Carlo complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ephhIoDzI1w">Integración Monte Carlo</a>
+    <div class="meta">ES · Marco Reyes · Escuela de Física, UNAH · 65 min</div>
+    <p>A full Spanish-language lecture deriving the estimator and its error scaling, so the whole module can be taken in either language.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the 1/√N error scaling numerically and state the dimension dependence it does not have.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ephhIoDzI1w">▶ Watch</a>
+</article><article class="lesson" data-tags="optional build" data-id="sim-mc-importance-es">
+  <input class="check" type="checkbox" aria-label="Mark Muestreo por importancia complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9-h7F_vn49c">Muestreo por importancia</a>
+    <div class="meta">ES · Pablo Huijse · Universidad Austral de Chile, INFO274 · 13 min</div>
+    <p>The Spanish counterpart to the importance-sampling unit, worked directly on the variance-ratio calculation.</p>
+    <div class="lab"><strong>After watching:</strong> Implement one proposal and report the variance ratio against crude Monte Carlo.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9-h7F_vn49c">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-mc-variance-reduction">
+  <input class="check" type="checkbox" aria-label="Mark Variance reduction methods complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=dihn4djMaqw">Variance reduction methods</a>
+    <div class="meta">Michel Bierlaire · EPFL · 33 min</div>
+    <p>Develops variance-reduction estimators as a focused methods lecture, complementing Glasserman&#x27;s treatment of antithetics and control variates.</p>
+    <div class="lab"><strong>After watching:</strong> Implement antithetic and control-variate estimators for one expectation and compare variance per function evaluation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=dihn4djMaqw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-mc-glasserman">
+  <input class="check" type="checkbox" aria-label="Mark Glasserman, Monte Carlo Methods in Financial Engineering — Chapters 2–4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-0-387-21617-1">Glasserman, Monte Carlo Methods in Financial Engineering — Chapters 2–4</a>
+    <div class="meta">Paul Glasserman · Springer · Chapters 2–4 · read</div>
+    <p>Develops random generation, variance reduction, and quasi-Monte Carlo with rigorous error accounting.</p>
+    <div class="lab"><strong>After reading:</strong> Compare crude, antithetic, and control-variate estimators under a fixed compute budget.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-0-387-21617-1">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a Monte Carlo report with confidence intervals, variance reduction, and empirical coverage.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Numerical SDE</h2></div>
+  <p class="section-intro">Separate strong from weak approximation and measure discretization error against stochastic variability.</p><article class="lesson" data-tags="core theory build" data-id="sim-sde-em">
+  <input class="check" type="checkbox" aria-label="Mark The Euler–Maruyama method complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ePDInJYg714">The Euler–Maruyama method</a>
+    <div class="meta">Sean Roberson · numerical SDE lecture · 15 min</div>
+    <p>A compact construction of the baseline SDE integrator, suitable for implementing the first controlled convergence experiment.</p>
+    <div class="lab"><strong>After watching:</strong> Implement Euler–Maruyama for geometric Brownian motion using coupled Brownian increments.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ePDInJYg714">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sim-sde-strong">
+  <input class="check" type="checkbox" aria-label="Mark Strong convergence of the Euler scheme complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=_BWkUaL-Yq0">Strong convergence of the Euler scheme</a>
+    <div class="meta">Christian Bayer · Computational Finance/Numerical Methods · 1 h 28 min</div>
+    <p>Gives a lecture-length treatment of pathwise error, making strong order a theorem to test rather than a fitted slope without hypotheses.</p>
+    <div class="lab"><strong>After watching:</strong> Estimate strong order over nested time steps and put confidence intervals on the fitted slope.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=_BWkUaL-Yq0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-sde-higham">
+  <input class="check" type="checkbox" aria-label="Mark An Algorithmic Introduction to Numerical Simulation of SDEs complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1137/S0036144500378302">An Algorithmic Introduction to Numerical Simulation of SDEs</a>
+    <div class="meta">Desmond Higham · SIAM Review 43(3) · 2001 · DOI</div>
+    <p>A reproducible, code-oriented derivation of Euler–Maruyama, Milstein, and convergence tests.</p>
+    <div class="lab"><strong>After reading:</strong> Recreate the geometric-Brownian experiments and compare strong and weak slopes.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1137/S0036144500378302">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Estimate strong and weak convergence orders for Euler–Maruyama and Milstein on a known SDE.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Geometric Integration</h2></div>
+  <p class="section-intro">Preserve symplectic, reversible, and invariant structure over long trajectories.</p><article class="lesson" data-tags="core theory build" data-id="sim-geo-lubich">
+  <input class="check" type="checkbox" aria-label="Mark Dynamics, numerical analysis, and some geometry complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=bccC-8KHv2U">Dynamics, numerical analysis, and some geometry</a>
+    <div class="meta">Christian Lubich · ICM 2018 · 1 h 1 min</div>
+    <p>An authoritative overview of why geometric structure controls long-time numerical behavior and how integrators can preserve it.</p>
+    <div class="lab"><strong>After watching:</strong> Compare Verlet and Runge–Kutta on a pendulum over 100,000 steps and explain the energy behavior.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=bccC-8KHv2U">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sim-geo-principles">
+  <input class="check" type="checkbox" aria-label="Mark Principles of deterministic and stochastic geometric numerical integration complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=SvcVDrYGd10">Principles of deterministic and stochastic geometric numerical integration</a>
+    <div class="meta">Ghana Numerical Analysis seminar · 56 min</div>
+    <p>Connects deterministic symplectic ideas to stochastic geometric integration, matching the guide&#x27;s simulation emphasis.</p>
+    <div class="lab"><strong>After watching:</strong> Derive a splitting scheme from exactly solvable component flows and test reversibility numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=SvcVDrYGd10">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-geo-hairer">
+  <input class="check" type="checkbox" aria-label="Mark Hairer–Lubich–Wanner, Geometric Numerical Integration — Chapters I–VI complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/3-540-30666-8">Hairer–Lubich–Wanner, Geometric Numerical Integration — Chapters I–VI</a>
+    <div class="meta">Ernst Hairer, Christian Lubich &amp; Gerhard Wanner · Springer · 2nd ed. · Chapters I–VI · read</div>
+    <p>Develops symplectic and symmetric methods, backward error analysis, and long-time conservation.</p>
+    <div class="lab"><strong>After reading:</strong> Use backward-error reasoning to explain a bounded oscillatory energy error in your experiment.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/3-540-30666-8">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compare geometric and generic integrators on long-time energy, phase, and volume diagnostics.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Scientific Workflows</h2></div>
+  <p class="section-intro">Treat seeds, environments, tests, provenance, and regeneration as part of the mathematical artifact.</p><article class="lesson" data-tags="core theory build" data-id="sim-workflow-one-button">
+  <input class="check" type="checkbox" aria-label="Mark Reproducible, one-button workflows with Jupyter and SCons complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Fc2W930NJs8">Reproducible, one-button workflows with Jupyter and SCons</a>
+    <div class="meta">Jessica Hamrick · SciPy 2016 · 28 min</div>
+    <p>Shows how to turn exploratory notebooks into dependency-aware regeneration instead of relying on an undocumented sequence of clicks.</p>
+    <div class="lab"><strong>After watching:</strong> Package one prior simulation so a clean command regenerates data, figures, and report.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Fc2W930NJs8">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="sim-workflow-snakemake">
+  <input class="check" type="checkbox" aria-label="Mark Reproducible and scalable workflows with Snakemake complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9HxTURMP_Uc">Reproducible and scalable workflows with Snakemake</a>
+    <div class="meta">Australian BioCommons · workflow training · 55 min</div>
+    <p>Demonstrates explicit dependencies, environments, and scalable execution in a maintained workflow system.</p>
+    <div class="lab"><strong>After watching:</strong> Express the simulation&#x27;s seed sweep as a DAG and verify that changing one input rebuilds only affected outputs.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9HxTURMP_Uc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-workflow-wilson">
+  <input class="check" type="checkbox" aria-label="Mark Good Enough Practices in Scientific Computing complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a>
+    <div class="meta">Wilson et al. · PLOS Computational Biology · 2017 · open paper</div>
+    <p>Gives practical standards for data, software, collaboration, and project organization.</p>
+    <div class="lab"><strong>After reading:</strong> Refactor a prior simulation into raw/derived outputs, scripted figures, tests, and a machine-readable environment.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1371/journal.pcbi.1005510">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Package one simulation as a one-command, tested, seeded, metadata-rich reproducible study.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Parallel &amp; Rare-Event Methods</h2></div>
+  <p class="section-intro">Allocate independent work safely and change measure when naive simulation almost never sees the event.</p><article class="lesson" data-tags="core theory build" data-id="sim-rare-laub">
+  <input class="check" type="checkbox" aria-label="Mark Rare event estimation — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=vVLmRikSuLA">Rare event estimation — Lecture 1</a>
+    <div class="meta">Patrick Laub · Rare Event Estimation course · 48 min</div>
+    <p>Opens a dedicated eight-lecture course on why crude Monte Carlo fails as probabilities shrink and how efficiency should be measured.</p>
+    <div class="lab"><strong>After watching:</strong> Estimate one tail probability crudely across increasing rarity and plot relative error against cost.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=vVLmRikSuLA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sim-rare-splitting">
+  <input class="check" type="checkbox" aria-label="Mark Dynamic splitting for rare-event simulation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=64bcfxV_Rxo">Dynamic splitting for rare-event simulation</a>
+    <div class="meta">Nadhir Ben Rached · MCQMC 2020 · 26 min</div>
+    <p>Adds a concrete splitting method to the importance-sampling material and shows a distinct way to allocate computation toward rare trajectories.</p>
+    <div class="lab"><strong>After watching:</strong> Implement multilevel splitting and compare cost-normalized variance with crude Monte Carlo.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=64bcfxV_Rxo">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-rare-exponential-tilting">
+  <input class="check" type="checkbox" aria-label="Mark Siegmund&#x27;s algorithm and exponential tilting complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=a1MMA-udV50">Siegmund&#x27;s algorithm and exponential tilting</a>
+    <div class="meta">Patrick Laub · Rare Event Estimation course · 16 min</div>
+    <p>Focuses on exponential tilting as a constructive change of measure, directly preparing Bucklew&#x27;s large-deviation-guided importance sampling.</p>
+    <div class="lab"><strong>After watching:</strong> Derive an exponential tilt for one random-walk boundary event and compare its relative error with crude Monte Carlo.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=a1MMA-udV50">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sim-rare-bucklew">
+  <input class="check" type="checkbox" aria-label="Mark Bucklew, Introduction to Rare Event Simulation — Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4757-4078-3">Bucklew, Introduction to Rare Event Simulation — Chapters 1–4</a>
+    <div class="meta">James Bucklew · Springer · Chapters 1–4 · read</div>
+    <p>Develops importance sampling, large-deviation guidance, and efficiency criteria.</p>
+    <div class="lab"><strong>After reading:</strong> Design an exponential tilt and a seed tree for parallel workers, then estimate relative error across rarity levels.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4757-4078-3">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement a parallel rare-event estimator and compare cost-normalized error against crude Monte Carlo.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Validated simulator</h3><ol><li>Choose a queue, SDE, or Hamiltonian model.</li><li>Implement two independent algorithms.</li><li>Validate against an exact quantity or convergence theorem.</li><li>Package tests, environment, seeds, and regenerated figures.</li></ol></article><article class="card"><h3>Rare-event benchmark</h3><ol><li>Specify a rare event and a crude baseline.</li><li>Derive an importance or splitting strategy.</li><li>Compare variance per unit cost.</li><li>Explain bias, numerical failure, and reproducibility risks.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=64bcfxV_Rxo">Dynamic splitting for rare-event simulation</a></h3><div class="meta">Nadhir Ben Rached · MCQMC 2020 · 26 min</div><p>A focused conference lecture showing a modern splitting method for rare trajectories and its computational motivation.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Simulation foundations</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLKR7271tMEmiX2wcyfbowvGYwCQh6UV46">UCLA Stats 102C Monte Carlo Methods</a></li><li><a href="https://www.pearson.com/en-us/subject-catalog/p/discrete-event-system-simulation/P200000003492">Banks et al. — Chapters 1–4</a></li><li><a href="https://doi.org/10.1007/978-0-387-21617-1">Glasserman — Chapters 2–4</a></li></ul></article><article class="card"><h3>Differential equations</h3><ul class="source-list"><li><a href="https://doi.org/10.1137/S0036144500378302">Higham SDE tutorial</a></li><li><a href="https://doi.org/10.1007/3-540-30666-8">Hairer–Lubich–Wanner — Chapters I–VI</a></li></ul></article><article class="card"><h3>Reproducibility and rare events</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLKsJFg6SO0Ujr6tZHSImQ50vuNPoZ3NOl">Rare Event Estimation lecture series</a></li><li><a href="https://doi.org/10.1371/journal.pcbi.1005510">Good Enough Practices</a></li><li><a href="https://doi.org/10.1007/978-1-4757-4078-3">Bucklew — Chapters 1–4</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/mot/index.html">← Back to MOT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

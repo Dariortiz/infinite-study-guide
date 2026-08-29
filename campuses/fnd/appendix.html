@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement, prerequisites, and readiness for FND.">
+  <title>FNA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#7f7f7f;--accent-ink:#767676;--deep:#2d2d2d}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="fna">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Foundations" aria-label="Back to Foundations"><span class="arrow" aria-hidden="true">←</span>FND</a><div class="brand">FNA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/mat/index.html">MAT</a><a href="index.html">FND</a><span class="divider" aria-hidden="true">|</span><a href="../../crypto/prerequisites-self-assembled-mooc.html">PRE</a><a href="../../guides/ana.html">ANA</a><a href="../../guides/prb.html">PRB</a><a href="../../guides/alg.html">ALG</a><a href="../../guides/csf.html">CSF</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">FNA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Foundations Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>FNA</em> APPENDIX</span></h1>
+    <p class="manifesto">Placement, prerequisites, and readiness for FND.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>16</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 16</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Placement pass</h3><p>Complete the route contract and four diagnostics, then leave FNA with targeted pointers into PRE or G1–G4.</p><div class="meta"><span>4–6 h diagnostics</span></div></article><article class="card route"><span class="code">BLD</span><h3>Evidence builder</h3><p>Add readiness cards and prerequisite graph, attaching a proof or executable artifact to every skip decision.</p><div class="meta"><span>7–10 h diagnostics</span></div></article><article class="card route"><span class="code">DIP</span><h3>Full readiness audit</h3><p>Complete all routing and bridge work, but do not study optional foundation material without a named downstream consumer.</p><div class="meta"><span>10–14 h diagnostics</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Treat Foundations as a placement map: skip anything you can already prove or build, and enter the downstream guide that exposes a real gap.</p><article class="lesson" data-tags="core build" data-id="fna-use-pre">
+  <input class="check" type="checkbox" aria-label="Mark Start with PRE: shared prerequisites complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">Start with PRE: shared prerequisites</a>
+    <div class="meta">PRE · existing prerequisites guide · placement</div>
+    <p>PRE already owns programming, discrete proofs, computational linear algebra, undergraduate probability, algorithms, and systems basics.</p>
+    <div class="lab"><strong>After reading:</strong> Mark only units you can demonstrate today; for every skipped module, name a proof, program, or worked problem as evidence.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-use-contract">
+  <input class="check" type="checkbox" aria-label="Mark Write a skip-by-proof route contract complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/fnd/index.html">Write a skip-by-proof route contract</a>
+    <div class="meta">FNA · local diagnostic · 30–45 min</div>
+    <p>The appendix should prevent duplicate coursework, not become a fifth foundations course.</p>
+    <div class="lab"><strong>After reading:</strong> Create four columns—ANA, PRB, ALG, CSF—and label each module skip, sample, or study with one evidence sentence.</div>
+  </div>
+  <a class="watch" href="../../campuses/fnd/index.html">Use checklist</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a one-page route contract listing what you will skip, sample, or complete—and the evidence behind each decision.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Use short proof and build prompts to reveal gaps; no score is a credential and no familiar-looking theorem counts as mastery.</p><article class="lesson" data-tags="core theory" data-id="fna-diagnostic-analysis">
+  <input class="check" type="checkbox" aria-label="Mark Analysis placement: compactness, convergence, and measure complete">
+  <div>
+    <a class="lesson-title" href="../../guides/ana.html">Analysis placement: compactness, convergence, and measure</a>
+    <div class="meta">Placement · points into ANA · 60–90 min</div>
+    <p>Tests whether the forgotten-bachelor&#x27;s analysis language is actually available for later process and dynamics proofs.</p>
+    <div class="lab"><strong>After reading:</strong> Without notes: prove a compactness consequence, separate pointwise from uniform convergence, and justify one limit/integral interchange.</div>
+  </div>
+  <a class="watch" href="../../guides/ana.html">Open ANA</a>
+</article><article class="lesson" data-tags="core theory" data-id="fna-diagnostic-probability">
+  <input class="check" type="checkbox" aria-label="Mark Probability placement: information, martingales, and weak limits complete">
+  <div>
+    <a class="lesson-title" href="../../guides/prb.html">Probability placement: information, martingales, and weak limits</a>
+    <div class="meta">Placement · points into PRB · 60–90 min</div>
+    <p>Checks I3 specifically. Undergraduate computations—including MIT 6.041 material already housed in PRE—are only the entry condition.</p>
+    <div class="lab"><strong>After reading:</strong> Define E[X|G] by its two properties, prove a stopped-martingale statement with hypotheses, and distinguish convergence in law from probability.</div>
+  </div>
+  <a class="watch" href="../../guides/prb.html">Open PRB</a>
+</article><article class="lesson" data-tags="core theory" data-id="fna-diagnostic-algebra">
+  <input class="check" type="checkbox" aria-label="Mark Algebra placement: quotients, modules, and spectra complete">
+  <div>
+    <a class="lesson-title" href="../../guides/alg.html">Algebra placement: quotients, modules, and spectra</a>
+    <div class="meta">Placement · points into ALG · 60–90 min</div>
+    <p>Detects whether structure proofs and spectral linear algebra are strong enough for arithmetic, coding, and motion.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one quotient is well defined, classify a small module or operator, and explain eigenvalue sensitivity for a nonnormal matrix.</div>
+  </div>
+  <a class="watch" href="../../guides/alg.html">Open ALG</a>
+</article><article class="lesson" data-tags="core theory build" data-id="fna-diagnostic-computing">
+  <input class="check" type="checkbox" aria-label="Mark Computing placement: stability, reductions, and machines complete">
+  <div>
+    <a class="lesson-title" href="../../guides/csf.html">Computing placement: stability, reductions, and machines</a>
+    <div class="meta">Placement · points into CSF · 60–90 min</div>
+    <p>Separates ordinary programming familiarity from numerical and theoretical computing literacy.</p>
+    <div class="lab"><strong>After reading:</strong> Distinguish conditioning from stability, give one mapping reduction with an iff proof, and implement a small automaton or stable QR test.</div>
+  </div>
+  <a class="watch" href="../../guides/csf.html">Open CSF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete a timed diagnostic packet and annotate every miss as definition, theorem choice, proof construction, or implementation evidence.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Route basic gaps back to PRE and proof-language gaps into exactly one of ANA, PRB, ALG, or CSF.</p><article class="lesson" data-tags="core build" data-id="fna-map-pre">
+  <input class="check" type="checkbox" aria-label="Mark Route fundamentals back to PRE complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">Route fundamentals back to PRE</a>
+    <div class="meta">PRE · programming, proofs, linear algebra, undergraduate probability, algorithms</div>
+    <p>Keeps placement-level probability—including MIT 6.041—from being mistaken for PRB&#x27;s measure-theoretic I3.</p>
+    <div class="lab"><strong>After reading:</strong> For each failed basic skill, link one PRE module and define a concrete exit check before entering G1–G4.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-map-foundations">
+  <input class="check" type="checkbox" aria-label="Mark Route proof-language gaps into G1–G4 complete">
+  <div>
+    <a class="lesson-title" href="../../guides/ana.html">Route proof-language gaps into G1–G4</a>
+    <div class="meta">FNA · cross-guide dependency map</div>
+    <p>Most failures need one targeted module, not four complete courses.</p>
+    <div class="lab"><strong>After reading:</strong> Map ε–δ/compactness to ANA, conditional expectation to PRB, quotient/spectrum arguments to ALG, and stability/reductions to CSF.</div>
+  </div>
+  <a class="watch" href="../../guides/ana.html">Open ANA</a>
+</article><article class="lesson" data-tags="optional theory" data-id="fna-map-optional">
+  <input class="check" type="checkbox" aria-label="Mark Identify optional dependencies without pre-studying them complete">
+  <div>
+    <a class="lesson-title" href="../../guides/alg.html">Identify optional dependencies without pre-studying them</a>
+    <div class="meta">FNA · optional readiness map</div>
+    <p>Representation theory, algebraic topology, complex analysis depth, MCMC, and HPC should wait for a consuming project.</p>
+    <div class="lab"><strong>After reading:</strong> Name the downstream guide or project that would trigger each optional module; remove any optional study with no consumer.</div>
+  </div>
+  <a class="watch" href="../../guides/alg.html">Open ALG</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Draw a dependency graph from every failed diagnostic to the smallest prerequisite module that repairs it.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Enter each guide only when its prerequisite evidence is present; exit the appendix as soon as routing is clear.</p><article class="lesson" data-tags="core build" data-id="fna-ready-ana">
+  <input class="check" type="checkbox" aria-label="Mark ANA readiness card complete">
+  <div>
+    <a class="lesson-title" href="../../guides/ana.html">ANA readiness card</a>
+    <div class="meta">G1 · Analysis · guide pointer</div>
+    <p>ANA is ready when elementary proofs and calculus are available but compactness, measure, operators, or Fourier arguments are not.</p>
+    <div class="lab"><strong>After reading:</strong> Attempt ANA&#x27;s first real-analysis artifact for 45 minutes; continue only if the proof gaps are structural rather than notation recall.</div>
+  </div>
+  <a class="watch" href="../../guides/ana.html">Open ANA</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-ready-prb">
+  <input class="check" type="checkbox" aria-label="Mark PRB readiness card complete">
+  <div>
+    <a class="lesson-title" href="../../guides/prb.html">PRB readiness card</a>
+    <div class="meta">G2 · Probability Language · guide pointer</div>
+    <p>PRB begins after undergraduate probability placement and supplies conditional expectation, martingales, and weak convergence as I3.</p>
+    <div class="lab"><strong>After reading:</strong> Write a probability-space model and conditional expectation from definitions; if only density formulas are available, begin PRB.</div>
+  </div>
+  <a class="watch" href="../../guides/prb.html">Open PRB</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-ready-alg">
+  <input class="check" type="checkbox" aria-label="Mark ALG readiness card complete">
+  <div>
+    <a class="lesson-title" href="../../guides/alg.html">ALG readiness card</a>
+    <div class="meta">G3 · Algebra &amp; Spectra · guide pointer</div>
+    <p>ALG is appropriate when matrix computation is familiar but quotient, module, or invariant-subspace proofs are weak.</p>
+    <div class="lab"><strong>After reading:</strong> Solve one homomorphism/quotient problem and one spectral proof; route only the failed half.</div>
+  </div>
+  <a class="watch" href="../../guides/alg.html">Open ALG</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-ready-csf">
+  <input class="check" type="checkbox" aria-label="Mark CSF readiness card complete">
+  <div>
+    <a class="lesson-title" href="../../guides/csf.html">CSF readiness card</a>
+    <div class="meta">G4 · Computing Foundations · guide pointer</div>
+    <p>CSF is not introductory programming; it begins at numerical error and formal models of computation.</p>
+    <div class="lab"><strong>After reading:</strong> Explain backward stability and write one reduction. If either explanation is slogan-only, route to that CSF module.</div>
+  </div>
+  <a class="watch" href="../../guides/csf.html">Open CSF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create four readiness cards, each with prerequisites, a cold-start task, and an explicit stop/continue rule.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Use Foundations as feeder infrastructure: point to the consuming campus and avoid repeating its subject matter here.</p><article class="lesson" data-tags="core build" data-id="fna-bridge-motion">
+  <input class="check" type="checkbox" aria-label="Mark Bridge to Motion: ANA + PRB + spectral ALG complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/mot/index.html">Bridge to Motion: ANA + PRB + spectral ALG</a>
+    <div class="meta">MOT · DYN/STO/SPZ/DSZ/SIM · bundle pointer</div>
+    <p>Motion consumes compactness and fixed points, conditional expectation and weak limits, spectra, and stable numerics.</p>
+    <div class="lab"><strong>After reading:</strong> For your first Motion guide, list the exact ANA/PRB/ALG/CSF artifacts it assumes and close only demonstrated gaps.</div>
+  </div>
+  <a class="watch" href="../../campuses/mot/index.html">Open MOT</a>
+</article><article class="lesson" data-tags="core build" data-id="fna-bridge-arithmetic-info">
+  <input class="check" type="checkbox" aria-label="Mark Bridge to Arithmetic and Information complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/art/index.html">Bridge to Arithmetic and Information</a>
+    <div class="meta">ART/INF · bundle pointers</div>
+    <p>Arithmetic primarily consumes proof algebra and spectra; Information consumes probability language, automata, and numerical experimentation.</p>
+    <div class="lab"><strong>After reading:</strong> Choose one target guide and trace a minimal prerequisite path without adding unrelated optional modules.</div>
+  </div>
+  <a class="watch" href="../../campuses/art/index.html">Open ART</a>
+</article><article class="lesson" data-tags="optional build" data-id="fna-bridge-crypto-systems">
+  <input class="check" type="checkbox" aria-label="Mark Bridge to Privacy and Systems through PRE complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">Bridge to Privacy and Systems through PRE</a>
+    <div class="meta">PRE → PRV/SYS · existing crypto prerequisite pointer</div>
+    <p>Existing crypto guides already own their applied prerequisites and should not be reconstructed in FNA.</p>
+    <div class="lab"><strong>After reading:</strong> Audit one intended crypto guide against PRE; add ANA/PRB/ALG/CSF only where that guide&#x27;s mathematics or verification work truly demands it.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Publish a dependency matrix showing which completed foundation artifact unlocks each intended Motion, Arithmetic, Information, Privacy, or Systems guide.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Foundations route contract</h3><ol><li>List each PRE and G1–G4 module as skip, sample, or study.</li><li>Attach evidence to every skip and a diagnostic miss to every study choice.</li><li>Choose the smallest coherent first route and a date to reassess it.</li></ol></article><article class="card"><h3>Dependency matrix</h3><ol><li>Select intended downstream guides across the campuses.</li><li>Map each prerequisite to an existing PRE, ANA, PRB, ALG, or CSF artifact.</li><li>Delete duplicated study and identify optional modules with no current consumer.</li></ol></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Placement and shared prerequisites</h3><ul class="source-list"><li><a href="../../crypto/prerequisites-self-assembled-mooc.html">PRE — existing prerequisites guide</a></li><li><a href="../../guides/ana.html">ANA — Analysis</a></li><li><a href="../../guides/prb.html">PRB — Probability Language</a></li></ul></article><article class="card"><h3>Structure and computing routes</h3><ul class="source-list"><li><a href="../../guides/alg.html">ALG — Algebra &amp; Spectra</a></li><li><a href="../../guides/csf.html">CSF — Computing Foundations</a></li><li><a href="index.html">Foundations bundle home</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to FND</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

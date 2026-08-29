@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Global geometry and infinite-dimensional motion.">
+  <title>XDS - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#bd9bff;--accent-ink:#8b4fff;--deep:#6633cb}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="xds">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/opt/index.html" title="Back to Optional Infinity" aria-label="Back to Optional Infinity"><span class="arrow" aria-hidden="true">←</span>OPT</a><div class="brand">XDS <b>// G20 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/opt/index.html">OPT</a><span class="divider" aria-hidden="true">|</span><a href="xcp.html">XCP</a><a href="xsp.html">XSP</a><span class="here" aria-current="page">XDS</span><a href="xfd.html">XFD</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/opt/appendix.html">OPA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Dynamics: Second Pass · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>XDS</em> MOOC</span></h1>
+    <p class="manifesto">Global geometry and infinite-dimensional motion.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>10</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 10</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · KAM in Depth</a><a href="#module-1">01 · Symplectic Geometry</a><a href="#module-2">02 · Conley Theory</a><a href="#module-3">03 · Navier–Stokes as Dynamics</a><a href="#module-4">04 · Complex Dynamics in Depth</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">OPT</span><h3>One geometry</h3><p>Choose one optional module after DYN.</p><div class="meta"><span>12–20 h + reading</span></div></article><article class="card route"><span class="code">PAIR</span><h3>Geometry plus computation</h3><p>Pair a geometric module with Conley, PDE, or complex computation.</p><div class="meta"><span>30–45 h</span></div></article><article class="card route"><span class="code">INF</span><h3>Infinite dynamics</h3><p>Complete every optional unit; none is required by DYN or DSZ.</p><div class="meta"><span>65–95 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>KAM in Depth</h2></div>
+  <p class="section-intro">Study persistence of invariant tori through small divisors and iterative normal forms.</p><article class="lesson" data-tags="optional theory build" data-id="xds-kam-video">
+  <input class="check" type="checkbox" aria-label="Mark KAM Theory and the Stability of the Solar System complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=CcefNoSTQio">KAM Theory and the Stability of the Solar System</a>
+    <div class="meta">Nils Berglund · KAM tutorial · 78 min</div>
+    <p>The tutorial connects Diophantine frequencies, perturbation size, and invariant-torus persistence to a concrete Hamiltonian system.</p>
+    <div class="lab"><strong>After watching:</strong> Solve one homological equation and visualize resonant gaps in a standard-map parameter sweep.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=CcefNoSTQio">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xds-kam-poschel">
+  <input class="check" type="checkbox" aria-label="Mark A Lecture on the Classical KAM Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1090/pspum/069/1858539">A Lecture on the Classical KAM Theorem</a>
+    <div class="meta">Jürgen Pöschel · AMS proceedings</div>
+    <p>A concise proof route through Diophantine conditions and the iteration.</p>
+    <div class="lab"><strong>After reading:</strong> Carry out one homological-equation step and track the small-divisor estimate.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1090/pspum/069/1858539">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Work a finite KAM iteration for a near-integrable map and visualize surviving tori.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Symplectic Geometry</h2></div>
+  <p class="section-intro">Use symplectic manifolds, Hamiltonian vector fields, and moment maps as dynamics language.</p><article class="lesson" data-tags="optional theory build" data-id="xds-symplectic-video">
+  <input class="check" type="checkbox" aria-label="Mark Symplectic Geometry and Classical Mechanics — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=pXGTevGJ01o">Symplectic Geometry and Classical Mechanics — Lecture 1</a>
+    <div class="meta">Tobias Osborne · recorded lecture course · 85 min</div>
+    <p>Begins from Hamiltonian mechanics and derives the symplectic structures used throughout the geometric module.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the Hamiltonian vector field for two explicit systems and verify flow preservation of the symplectic form.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=pXGTevGJ01o">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xds-symplectic-cannas">
+  <input class="check" type="checkbox" aria-label="Mark Lectures on Symplectic Geometry complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-540-45330-7">Lectures on Symplectic Geometry</a>
+    <div class="meta">Ana Cannas da Silva · Springer LNM 1764</div>
+    <p>A direct route from forms and Darboux to Hamiltonian actions and reduction.</p>
+    <div class="lab"><strong>After reading:</strong> Verify a map is symplectic, derive its Hamiltonian field, and compute a moment map.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-540-45330-7">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute Hamiltonian flows and symplectic reductions for explicit examples.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Conley Theory</h2></div>
+  <p class="section-intro">Describe global dynamics with isolating neighborhoods and index invariants.</p><article class="lesson" data-tags="optional theory build" data-id="xds-conley-video">
+  <input class="check" type="checkbox" aria-label="Mark Conley Theory and the Global Dynamics of Games complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YC6hnhRRM_A">Conley Theory and the Global Dynamics of Games</a>
+    <div class="meta">Fields Institute · research lecture · 33 min</div>
+    <p>A concrete application shows how isolating neighborhoods and Conley-type invariants encode global behavior beyond local linearization.</p>
+    <div class="lab"><strong>After watching:</strong> Construct an isolating neighborhood for a planar flow and compute the homology of a candidate index pair.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YC6hnhRRM_A">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xds-conley-mischaikow">
+  <input class="check" type="checkbox" aria-label="Mark Computational Homology complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4612-0261-2">Computational Homology</a>
+    <div class="meta">Kaczynski, Mischaikow &amp; Mrozek · Springer</div>
+    <p>Connects cubical homology and rigorous computation to Conley-index methods.</p>
+    <div class="lab"><strong>After reading:</strong> Build a cubical enclosure for a map and calculate homology of an index pair.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4612-0261-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute a Conley index for a planar isolated invariant set and validate it numerically.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Navier–Stokes as Dynamics</h2></div>
+  <p class="section-intro">Treat dissipative PDE evolution, absorbing sets, and attractors as an infinite-dimensional flow.</p><article class="lesson" data-tags="optional theory build" data-id="xds-ns-video">
+  <input class="check" type="checkbox" aria-label="Mark Mathematical Aspects of Turbulence — Part I complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kWyJQh1Z6rk">Mathematical Aspects of Turbulence — Part I</a>
+    <div class="meta">Theodore Drivas · Simons Center minicourse · 88 min</div>
+    <p>The minicourse frames Navier–Stokes through energy transfer and turbulent dynamics, supplying the analytic interpretation needed for the spectral artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a dealiased 2D pseudospectral solver and audit its discrete energy and enstrophy balances.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kWyJQh1Z6rk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xds-ns-temam">
+  <input class="check" type="checkbox" aria-label="Mark Infinite-Dimensional Dynamical Systems — selected chapters complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4612-0645-3">Infinite-Dimensional Dynamical Systems — selected chapters</a>
+    <div class="meta">Roger Temam · Springer</div>
+    <p>Supplies semigroup, dissipativity, and global-attractor language for PDE dynamics.</p>
+    <div class="lab"><strong>After reading:</strong> Prove an absorbing-ball estimate for a simplified dissipative equation.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4612-0645-3">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement a spectral 2D flow and estimate energy/enstrophy balances and attractor diagnostics.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Complex Dynamics in Depth</h2></div>
+  <p class="section-intro">Move from iteration pictures to normal families, Julia sets, and parameter space.</p><article class="lesson" data-tags="optional theory build" data-id="xds-complex-video">
+  <input class="check" type="checkbox" aria-label="Mark Complex Dynamics — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=JaWJPmZu9D8">Complex Dynamics — Lecture 1</a>
+    <div class="meta">Juliette Bruce · MMUSSL lecture · 59 min</div>
+    <p>A full introductory lecture moves from iteration to Fatou and Julia behavior rather than stopping at rendered fractals.</p>
+    <div class="lab"><strong>After watching:</strong> Render a polynomial Julia set and prove complete invariance for the same map.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=JaWJPmZu9D8">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xds-complex-milnor">
+  <input class="check" type="checkbox" aria-label="Mark Dynamics in One Complex Variable — Chapters 4–14 complete">
+  <div>
+    <a class="lesson-title" href="https://press.princeton.edu/books/paperback/9780691124889/dynamics-in-one-complex-variable">Dynamics in One Complex Variable — Chapters 4–14</a>
+    <div class="meta">John Milnor · Princeton · 3rd ed.</div>
+    <p>The standard rigorous route through rational dynamics and Julia sets.</p>
+    <div class="lab"><strong>After reading:</strong> Prove complete invariance of the Julia set and implement interval-guarded escape tests.</div>
+  </div>
+  <a class="watch" href="https://press.princeton.edu/books/paperback/9780691124889/dynamics-in-one-complex-variable">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Render certified escape sets and prove one structural statement about Julia/Fatou behavior.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Global-dynamics dossier</h3><ol><li>Choose one optional global or infinite-dimensional setting.</li><li>State the phase space, invariant object, and topology.</li><li>Prove one structural claim and implement one validated computation.</li><li>Map prerequisites to DYN, ALG, ANA, and numerical guides.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=JaWJPmZu9D8">Complex Dynamics — Lecture 1</a></h3><div class="meta">Juliette Bruce · MMUSSL · 59 min</div><p>A specific recorded lecture replaces a workshop listing and provides a coherent entry before research talks.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Geometry and global dynamics</h3><ul class="source-list"><li><a href="https://link.springer.com/book/10.1007/978-3-540-45330-7">Cannas da Silva, Symplectic Geometry</a></li><li><a href="https://link.springer.com/book/10.1007/978-1-4612-0645-3">Temam, Infinite-Dimensional Dynamical Systems</a></li><li><a href="https://press.princeton.edu/books/paperback/9780691124889/dynamics-in-one-complex-variable">Milnor, Complex Dynamics</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/opt/index.html">← Back to OPT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

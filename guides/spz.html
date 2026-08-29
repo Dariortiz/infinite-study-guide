@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Families first; named creatures second.">
+  <title>SPZ - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#e08dff;--accent-ink:#bd0dff;--deep:#862aa8}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="spz">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/mot/index.html" title="Back to Motion" aria-label="Back to Motion"><span class="arrow" aria-hidden="true">←</span>MOT</a><div class="brand">SPZ <b>// G7 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/mot/index.html">MOT</a><span class="divider" aria-hidden="true">|</span><a href="dyn.html">DYN</a><a href="sto.html">STO</a><span class="here" aria-current="page">SPZ</span><a href="dsz.html">DSZ</a><a href="sim.html">SIM</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/mot/appendix.html">MTA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Stochastic Process Zoo · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>SPZ</em> MOOC</span></h1>
+    <p class="manifesto">Families first; named creatures second.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>24</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 24</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Jump &amp; Counting</a><a href="#module-1">01 · Phase-Type &amp; Additive</a><a href="#module-2">02 · Branching</a><a href="#module-3">03 · Coalescence</a><a href="#module-4">04 · Diffusions</a><a href="#module-5">05 · Lévy Processes</a><a href="#module-6">06 · Interacting Systems</a><a href="#module-7">07 · Queues &amp; Limits</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Zoo sampler</h3><p>Take the single core creature in each family and complete four contrasting artifacts.</p><div class="meta"><span>12–16 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Process naturalist</h3><p>Complete every core artifact and compare at least two construction or simulation methods.</p><div class="meta"><span>24–32 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Family specialist</h3><p>Add optional chapters in four families and connect their generators, limits, or genealogies.</p><div class="meta"><span>40–55 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Jump &amp; Counting</h2></div>
+  <p class="section-intro">Recognize point processes by intensities, compensators, and Palm viewpoints.</p><article class="lesson" data-tags="core theory build" data-id="spz-point-poisson">
+  <input class="check" type="checkbox" aria-label="Mark Poisson: the perfect arrival process complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=qxaBDDib9_A">Poisson: the perfect arrival process</a>
+    <div class="meta">Robert Gallager · MIT 6.262 · 1 h 17 min</div>
+    <p>Builds the counting-process model from independent stationary increments and exponential interarrival times before any point-process generalization.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate arrivals by counts and by exponential gaps, then verify that the two constructions agree.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=qxaBDDib9_A">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-point-splitting">
+  <input class="check" type="checkbox" aria-label="Mark Poisson combining and splitting complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ct0QGoi3n4Q">Poisson combining and splitting</a>
+    <div class="meta">Robert Gallager · MIT 6.262 · 1 h 25 min</div>
+    <p>Superposition and thinning are the basic closure operations behind marked point processes and simulation by domination.</p>
+    <div class="lab"><strong>After watching:</strong> Implement independent thinning and superposition, then compare empirical rates and interarrival laws.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ct0QGoi3n4Q">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-point-dvj">
+  <input class="check" type="checkbox" aria-label="Mark Daley–Vere-Jones, Point Processes, Vol. I — Chapters 5–7 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/b97277">Daley–Vere-Jones, Point Processes, Vol. I — Chapters 5–7</a>
+    <div class="meta">D. J. Daley &amp; David Vere-Jones · Springer · 2nd ed. · Chapters 5–7 · read</div>
+    <p>Adds conditional intensities, compensators, likelihoods, and non-Poisson model families.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the likelihood of a Hawkes or renewal process and implement a residual diagnostic.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/b97277">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Fit and diagnose a point-process model, including time-rescaling and residual checks.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Phase-Type &amp; Additive</h2></div>
+  <p class="section-intro">Use finite Markov structure to represent absorption times and matrix-valued distributions.</p><article class="lesson" data-tags="core theory build" data-id="spz-phase-erlang">
+  <input class="check" type="checkbox" aria-label="Mark Erlang and phase-type distributions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=hCvz25zHRtw">Erlang and phase-type distributions</a>
+    <div class="meta">NPTEL faculty · IIT Guwahati · 50 min</div>
+    <p>Introduces absorption-time representations through Erlang stages and finite continuous-time Markov chains, the constructive core of phase-type modeling.</p>
+    <div class="lab"><strong>After watching:</strong> Build Erlang and Coxian representations and verify their survival functions numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=hCvz25zHRtw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-phase-bladt-book">
+  <input class="check" type="checkbox" aria-label="Mark Bladt–Nielsen, Matrix-Exponential Distributions — Chapters 1–3, 8–10 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4939-8379-7">Bladt–Nielsen, Matrix-Exponential Distributions — Chapters 1–3, 8–10</a>
+    <div class="meta">Mogens Bladt &amp; Bo Friis Nielsen · Springer · 2017 · selected chapters · read</div>
+    <p>The rigorous written companion for transforms, moments, fitting, and the matrix machinery behind phase-type and arrival-process models.</p>
+    <div class="lab"><strong>After reading:</strong> Fit a phase-type approximation, then simulate a two-state MAP and audit moment, tail, and dispersion error.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4939-8379-7">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Construct a phase-type approximation and compare its moments and tail against a target law.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Branching</h2></div>
+  <p class="section-intro">Track extinction, total progeny, and growth through generating functions and martingales.</p><article class="lesson" data-tags="core theory build" data-id="spz-branching-gw">
+  <input class="check" type="checkbox" aria-label="Mark Galton–Watson process complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=nHllRxAfwDM">Galton–Watson process</a>
+    <div class="meta">NPTEL faculty · Stochastic Processes course · 44 min</div>
+    <p>Develops extinction through the offspring generating function, giving the fixed-point calculation this module needs.</p>
+    <div class="lab"><strong>After watching:</strong> Solve the extinction fixed point for three offspring laws and check it with simulated family trees.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=nHllRxAfwDM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-branching-markov">
+  <input class="check" type="checkbox" aria-label="Mark Markovian branching process complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=uwlCgt_Ov58">Markovian branching process</a>
+    <div class="meta">NPTEL faculty · Stochastic Processes course · 46 min</div>
+    <p>Extends the discrete-generation model into continuous time and makes the branching property operational.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate a continuous-time birth–death branching process and estimate extinction by horizon.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=uwlCgt_Ov58">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-branching-athreya">
+  <input class="check" type="checkbox" aria-label="Mark Athreya–Ney, Branching Processes — Chapters I–II complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-642-65371-1">Athreya–Ney, Branching Processes — Chapters I–II</a>
+    <div class="meta">Krishna Athreya &amp; Peter Ney · Springer · Chapters I–II · read</div>
+    <p>Adds classical limit theorems and multitype structure beyond the single-creature core.</p>
+    <div class="lab"><strong>After reading:</strong> Implement a two-type process and relate its survival behavior to the Perron eigenvalue.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-642-65371-1">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a Galton–Watson laboratory that estimates extinction and exposes critical finite-sample behavior.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Coalescence</h2></div>
+  <p class="section-intro">Run ancestry backward through exchangeable mergers and connect genealogies to population samples.</p><article class="lesson" data-tags="core theory build" data-id="spz-coalescent-nordborg-1">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to coalescent theory — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=0j0jW0stbB8">Introduction to coalescent theory — Lecture 1</a>
+    <div class="meta">Magnus Nordborg · ICTS · 1 h 32 min</div>
+    <p>Starts from random genealogies and Kingman&#x27;s merger mechanism, matching the module&#x27;s backward-time viewpoint.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate exponential merger epochs and verify the expected time to the most recent common ancestor.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=0j0jW0stbB8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-coalescent-nordborg-2">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to coalescent theory — Lecture 2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=hHPuPsdb_Jk">Introduction to coalescent theory — Lecture 2</a>
+    <div class="meta">Magnus Nordborg · ICTS · 1 h 27 min</div>
+    <p>Continues the course from the basic process to population-genetic consequences and sampled genealogies.</p>
+    <div class="lab"><strong>After watching:</strong> Overlay a mutation process on a coalescent tree and estimate segregating-site counts.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=hHPuPsdb_Jk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-coalescent-berestycki">
+  <input class="check" type="checkbox" aria-label="Mark Recent Progress in Coalescent Theory complete">
+  <div>
+    <a class="lesson-title" href="https://arxiv.org/abs/0909.3985">Recent Progress in Coalescent Theory</a>
+    <div class="meta">Nathanaël Berestycki · Ensaios Matemáticos 16 · arXiv:0909.3985 · selected §§1–2</div>
+    <p>A self-contained survey of Kingman&#x27;s coalescent, partitions, and basic genealogy statistics.</p>
+    <div class="lab"><strong>After reading:</strong> Derive expected total branch length and reconcile the formula with simulation.</div>
+  </div>
+  <a class="watch" href="https://arxiv.org/abs/0909.3985">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate Kingman&#x27;s coalescent and compare tree length and time-to-MRCA with exact expectations.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Diffusions</h2></div>
+  <p class="section-intro">Classify one-dimensional diffusions through scale, speed, boundaries, and generators.</p><article class="lesson" data-tags="core theory build" data-id="spz-diffusion-fokker-planck">
+  <input class="check" type="checkbox" aria-label="Mark Diffusion processes and the Fokker–Planck equation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=-5XcSPsd6IA">Diffusion processes and the Fokker–Planck equation</a>
+    <div class="meta">Physics of Life course · LMU Munich · 54 min</div>
+    <p>Connects the stochastic dynamics to density evolution and stationary laws, complementing pathwise scale-and-speed analysis.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a named diffusion, derive its generator and stationary density, and verify the latter with a long simulation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=-5XcSPsd6IA">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-diffusion-pavliotis">
+  <input class="check" type="checkbox" aria-label="Mark Pavliotis, Stochastic Processes and Applications — Chapters 4–6 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4939-1323-7">Pavliotis, Stochastic Processes and Applications — Chapters 4–6</a>
+    <div class="meta">Grigorios Pavliotis · Springer · Chapters 4–6 · read</div>
+    <p>The written companion supplies scale, speed, generators, Fokker–Planck equations, and reversible diffusion theory in a unified treatment.</p>
+    <div class="lab"><strong>After reading:</strong> Derive scale and speed for a named diffusion and use them to classify both boundaries.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4939-1323-7">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Classify the boundaries and estimate a hitting probability for a named diffusion.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Lévy Processes</h2></div>
+  <p class="section-intro">Understand stationary independent increments through the Lévy–Khintchine formula and jump decomposition.</p><article class="lesson" data-tags="core theory" data-id="spz-levy-id">
+  <input class="check" type="checkbox" aria-label="Mark Infinitely divisible distributions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=gMw4kfIAieo">Infinitely divisible distributions</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 22 min</div>
+    <p>Infinitely divisible laws are the one-time marginals behind Lévy processes and lead directly to characteristic exponents.</p>
+    <div class="lab"><strong>After watching:</strong> Test infinite divisibility for three law families and identify the corresponding convolution roots.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=gMw4kfIAieo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-levy-session-1">
+  <input class="check" type="checkbox" aria-label="Mark Lévy Processes — Session 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YV22ffqPLQA">Lévy Processes — Session 1</a>
+    <div class="meta">Erfan Salavati · Lévy Processes course · 1 h 1 min</div>
+    <p>A dedicated introductory lecture develops stationary independent increments and the basic path structure before fluctuation theory.</p>
+    <div class="lab"><strong>After watching:</strong> Match three characteristic exponents to Lévy triplets and simulate compound-Poisson paths.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YV22ffqPLQA">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-levy-session-4">
+  <input class="check" type="checkbox" aria-label="Mark Levy Processes - Session 4 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=78wAGu1u-Sc">Levy Processes - Session 4</a>
+    <div class="meta">Erfan Salavati · Lévy Processes course · 69 min</div>
+    <p>Continues the dedicated course to the Lévy–Itō decomposition, directly matching the construction developed in Kyprianou&#x27;s opening chapters.</p>
+    <div class="lab"><strong>After watching:</strong> Separate drift, Brownian, large-jump, and compensated small-jump terms for one Lévy triplet and simulate its finite-activity truncation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=78wAGu1u-Sc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-levy-kyprianou">
+  <input class="check" type="checkbox" aria-label="Mark Kyprianou, Fluctuations of Lévy Processes — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-642-37632-0">Kyprianou, Fluctuations of Lévy Processes — Chapters 1–2</a>
+    <div class="meta">Andreas Kyprianou · Springer · 2nd ed. · Chapters 1–2 · read</div>
+    <p>Builds Lévy processes from characteristic exponents and the Lévy–Itô decomposition.</p>
+    <div class="lab"><strong>After reading:</strong> Construct a stable subordinator numerically and test its scaling relation.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-642-37632-0">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate finite- and infinite-activity examples and identify drift, Gaussian, and jump contributions.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Interacting Systems</h2></div>
+  <p class="section-intro">Move from one chain to infinitely many local components using generators, couplings, and graphical constructions.</p><article class="lesson" data-tags="core theory build" data-id="spz-ips-kundu-1">
+  <input class="check" type="checkbox" aria-label="Mark Interacting particle systems — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=x2upvBoimOY">Interacting particle systems — Lecture 1</a>
+    <div class="meta">Anupam Kundu · ICTS · 1 h 34 min</div>
+    <p>Introduces many-particle state spaces and stochastic dynamics in a full lecture-series setting rather than as an isolated research talk.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a finite-ring exclusion process and check conservation of particle number.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=x2upvBoimOY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-ips-kundu-2">
+  <input class="check" type="checkbox" aria-label="Mark Interacting particle systems — Lecture 2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=3YmwX_oLJuU">Interacting particle systems — Lecture 2</a>
+    <div class="meta">Anupam Kundu · ICTS · 1 h 32 min</div>
+    <p>Continues the construction and analysis of interacting systems, supporting comparisons of local rules and collective behavior.</p>
+    <div class="lab"><strong>After watching:</strong> Couple two initial configurations under shared clocks and track an order or discrepancy statistic.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=3YmwX_oLJuU">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-ips-liggett">
+  <input class="check" type="checkbox" aria-label="Mark Liggett, Interacting Particle Systems — Chapters I–III complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4613-8542-4">Liggett, Interacting Particle Systems — Chapters I–III</a>
+    <div class="meta">Thomas Liggett · Springer · Chapters I–III · read</div>
+    <p>Introduces generators, construction, invariant measures, contact processes, and exclusion.</p>
+    <div class="lab"><strong>After reading:</strong> Build a graphical construction for the contact process and audit monotonicity.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4613-8542-4">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement a finite-window contact or exclusion process and study one coupling or invariant law.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>Queues &amp; Limits</h2></div>
+  <p class="section-intro">Translate arrival and service primitives into workloads, waiting times, networks, and asymptotic regimes.</p><article class="lesson" data-tags="core theory build" data-id="spz-queue-gallager">
+  <input class="check" type="checkbox" aria-label="Mark Little&#x27;s theorem and M/G/1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=pOhZUJ5BQXk">Little&#x27;s theorem and M/G/1</a>
+    <div class="meta">Robert Gallager · MIT 6.262 · 1 h 15 min</div>
+    <p>Derives the conservation relation behind queue performance and develops the single-server M/G/1 model from renewal rewards.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate M/G/1 and verify Little&#x27;s theorem with confidence intervals.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=pOhZUJ5BQXk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="spz-queue-erlang">
+  <input class="check" type="checkbox" aria-label="Mark Queues with Erlang arrivals and service times complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=t_DrTb6qDfk">Queues with Erlang arrivals and service times</a>
+    <div class="meta">NPTEL faculty · IIT Guwahati · 46 min</div>
+    <p>Moves beyond memoryless M/M/1 primitives while retaining a finite-phase Markov representation that can be simulated exactly.</p>
+    <div class="lab"><strong>After watching:</strong> Compare M/M/1 and Erlang-service queues at matched load and explain the delay difference.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=t_DrTb6qDfk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-queue-skorohod-rbm">
+  <input class="check" type="checkbox" aria-label="Mark GSS Spring 2016 - Kevin Ou: Queueing, Skorohod Map, and Reflected Brownian Motion complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=zOtJ6Rdr_ck">GSS Spring 2016 - Kevin Ou: Queueing, Skorohod Map, and Reflected Brownian Motion</a>
+    <div class="meta">Kevin Ou · Graduate Student Seminar · 64 min</div>
+    <p>Derives the Skorohod reflection map that turns a net-input limit into the reflected-Brownian heavy-traffic approximation used in Asmussen.</p>
+    <div class="lab"><strong>After watching:</strong> Apply the one-dimensional reflection map to a simulated near-critical workload and compare its scaled law with reflected Brownian motion.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=zOtJ6Rdr_ck">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="spz-queue-asmussen">
+  <input class="check" type="checkbox" aria-label="Mark Asmussen, Applied Probability and Queues — Chapters III and X complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/b97236">Asmussen, Applied Probability and Queues — Chapters III and X</a>
+    <div class="meta">Søren Asmussen · Springer · 2nd ed. · Chapters III, X · read</div>
+    <p>Adds regenerative analysis, workload processes, and heavy-traffic limits.</p>
+    <div class="lab"><strong>After reading:</strong> Rescale a near-critical workload and compare its empirical law with a reflected-Brownian approximation.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/b97236">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build and validate a queue simulator against exact M/M/1 results and one heavy-traffic prediction.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Comparative process field guide</h3><ol><li>Choose four process families.</li><li>For each, state state space, filtration, generator or characteristic object.</li><li>Implement one exact or controlled simulation.</li><li>Write a comparison keyed by dependence, jumps, scaling, and inference.</li></ol></article><article class="card"><h3>Approximation bridge</h3><ol><li>Choose one process and an asymptotic approximation.</li><li>State the scaling and topology.</li><li>Test finite-size error computationally.</li><li>Identify precisely which theorem would justify the bridge.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=0j0jW0stbB8">Introduction to coalescent theory</a></h3><div class="meta">Magnus Nordborg · ICTS lecture series · 1 h 32 min</div><p>A research-school lecture that opens a coherent three-part coalescent series and connects the process to population genetics.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Points, phases, and populations</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLEEF5322B331C1B98">MIT 6.262 Discrete Stochastic Processes</a></li><li><a href="https://link.springer.com/book/10.1007/978-1-4939-8379-7">Bladt–Nielsen — Chapters 1–3, 8–10</a></li><li><a href="https://arxiv.org/abs/0909.3985">Berestycki coalescent survey</a></li></ul></article><article class="card"><h3>Jumps and interactions</h3><ul class="source-list"><li><a href="https://doi.org/10.1007/978-3-642-37632-0">Kyprianou — Chapters 1–2</a></li><li><a href="https://doi.org/10.1007/978-1-4613-8542-4">Liggett — Chapters I–III</a></li></ul></article><article class="card"><h3>Queues and diffusion families</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PL59NBu6N8dUqYClaKpoozyzK3Kpcm5eou">FAU MAP6264 Queueing Theory</a></li><li><a href="https://doi.org/10.1007/b97236">Asmussen — Chapters III and X</a></li><li><a href="https://doi.org/10.1007/978-1-4939-1323-7">Pavliotis — Chapters 4–6</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/mot/index.html">← Back to MOT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

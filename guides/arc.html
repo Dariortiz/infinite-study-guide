@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dictionaries, contexts, transforms, and bits.">
+  <title>ARC - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#ff91b4;--accent-ink:#ec004b;--deep:#a0284e}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="arc">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/inf/index.html" title="Back to Information" aria-label="Back to Information"><span class="arrow" aria-hidden="true">←</span>INF</a><div class="brand">ARC <b>// G14 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/inf/index.html">INF</a><span class="divider" aria-hidden="true">|</span><a href="src.html">SRC</a><span class="here" aria-current="page">ARC</span><a href="scx.html">SCX</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/inf/appendix.html">IFA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Compression Algorithms · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>ARC</em> MOOC</span></h1>
+    <p class="manifesto">Dictionaries, contexts, transforms, and bits.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>22</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 22</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · LZ Dictionaries</a><a href="#module-1">01 · Range Coding &amp; ANS</a><a href="#module-2">02 · PPM &amp; Context Mixing</a><a href="#module-3">03 · Burrows–Wheeler</a><a href="#module-4">04 · Grammar Compression</a><a href="#module-5">05 · Executable Filters</a><a href="#module-6">06 · String Algorithms</a><a href="#module-7">07 · Streaming</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Algorithm explorer</h3><p>Study one primary specification per family and trace a tiny example.</p><div class="meta"><span>10–14 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Codec builder</h3><p>Complete every core implementation and round-trip/property test.</p><div class="meta"><span>30–45 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Format deep dive</h3><p>Add optional material, optimize match finding, and profile a production-format subset.</p><div class="meta"><span>55–75 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>LZ Dictionaries</h2></div>
+  <p class="section-intro">Treat parsing, matching, and token formats as separate design decisions.</p><article class="lesson" data-tags="core theory build" data-id="arc-lz-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Lempel–Ziv Compression complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=RV5aUr8sZD0">Lempel–Ziv Compression</a>
+    <div class="meta">Art of the Problem · Lossless Compression · 11 min</div>
+    <p>Visualizes dictionary parsing and back-references clearly enough to make token choices inspectable.</p>
+    <div class="lab"><strong>After watching:</strong> Trace LZ77 and LZ78 by hand, then build a round-trip implementation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=RV5aUr8sZD0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="arc-lz-basics">
+  <input class="check" type="checkbox" aria-label="Mark Lossless Data Compression Basics complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=FF7DRogZZdY">Lossless Data Compression Basics</a>
+    <div class="meta">Tsachy Weissman · Stanford EE274 · 63 min</div>
+    <p>Establishes the rate and correctness criteria used to compare practical dictionary designs.</p>
+    <div class="lab"><strong>After watching:</strong> Benchmark a naive and hash-chain match finder on disclosed corpora.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=FF7DRogZZdY">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="arc-lzma-sdk">
+  <input class="check" type="checkbox" aria-label="Mark LZMA SDK documentation complete">
+  <div>
+    <a class="lesson-title" href="https://www.7-zip.org/sdk.html">LZMA SDK documentation</a>
+    <div class="meta">Igor Pavlov · official SDK and specification</div>
+    <p>Documents the range-coded LZ design without beginning in the full 7-Zip tree.</p>
+    <div class="lab"><strong>After reading:</strong> Decode one token stream and diagram literal, match, distance, and state fields.</div>
+  </div>
+  <a class="watch" href="https://www.7-zip.org/sdk.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement bounded-window LZ77 and compare hash-chain and naive match finders.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Range Coding &amp; ANS</h2></div>
+  <p class="section-intro">Separate probability modeling from the integer machine that emits bits.</p><article class="lesson" data-tags="core theory build" data-id="arc-range-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Infinite-Precision Arithmetic Coding in Finite Bits complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=WT57qXMpKjQ">Infinite-Precision Arithmetic Coding in Finite Bits</a>
+    <div class="meta">Bill Bird · University of Victoria Data Compression · 70 min</div>
+    <p>Works through renormalization and finite-bit emission at implementation depth.</p>
+    <div class="lab"><strong>After watching:</strong> Implement encode/decode invariants and property-test random distributions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=WT57qXMpKjQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-ans-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Stream Codes: Asymmetric Numeral Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=CiSdUE4JRgY">Stream Codes: Asymmetric Numeral Systems</a>
+    <div class="meta">Tübingen Machine Learning · Neural Compression · 142 min</div>
+    <p>Introduces ANS as an integer state machine and develops the stream-coding implementation in depth.</p>
+    <div class="lab"><strong>After watching:</strong> Implement static rANS and compare size and throughput with range coding.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=CiSdUE4JRgY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-ans-duda-talk">
+  <input class="check" type="checkbox" aria-label="Mark ANS Coding Replacing Huffman and AC—from Introduction to Patent Issues complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=i5jOHBwu5zw">ANS Coding Replacing Huffman and AC—from Introduction to Patent Issues</a>
+    <div class="meta">Jarosław Duda · LibrePlanet 2022 · 45 min</div>
+    <p>ANS&#x27;s inventor explains the coding state and how the family replaces Huffman and arithmetic coding before the original technical paper.</p>
+    <div class="lab"><strong>After watching:</strong> Extract the encoder and decoder state transitions and compare them with your rANS implementation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=i5jOHBwu5zw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-ans-duda">
+  <input class="check" type="checkbox" aria-label="Mark Asymmetric Numeral Systems complete">
+  <div>
+    <a class="lesson-title" href="https://arxiv.org/abs/0902.0271">Asymmetric Numeral Systems</a>
+    <div class="meta">Jarosław Duda · arXiv · paper</div>
+    <p>Introduces the state machine underlying modern tabled and range ANS.</p>
+    <div class="lab"><strong>After reading:</strong> Implement static rANS and compare size and throughput with range coding.</div>
+  </div>
+  <a class="watch" href="https://arxiv.org/abs/0902.0271">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a reference range coder and rANS coder with identical adaptive models.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>PPM &amp; Context Mixing</h2></div>
+  <p class="section-intro">Predict the next symbol from bounded context and combine experts without hidden magic.</p><article class="lesson" data-tags="core theory build" data-id="arc-ppm-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Prediction by Partial Matching complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=sstF8FHgY3g">Prediction by Partial Matching</a>
+    <div class="meta">Bill Bird · University of Victoria Data Compression · 15 min</div>
+    <p>A focused walk-through of bounded contexts and fallback prepares the exact coding trace this module requires.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce a short PPM coding trace and test three escape schemes.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=sstF8FHgY3g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-context-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Compression Contexts complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=cEJT1jfpovI">Compression Contexts</a>
+    <div class="meta">Sebastian Wild · COMP526 Data Compression · 25 min</div>
+    <p>Shows how context predictors feed an entropy coder and how model mismatch appears in the bitstream.</p>
+    <div class="lab"><strong>After watching:</strong> Add a two-model logistic mixer and measure cross-entropy.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=cEJT1jfpovI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="arc-ppm-cleary-witten">
+  <input class="check" type="checkbox" aria-label="Mark Data Compression Using Adaptive Coding and Partial String Matching complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/TC.1984.1676475">Data Compression Using Adaptive Coding and Partial String Matching</a>
+    <div class="meta">Cleary &amp; Witten · IEEE Transactions on Computers · 1984</div>
+    <p>The defining written reference makes escape probabilities and context fallback precise.</p>
+    <div class="lab"><strong>After reading:</strong> Map your implementation&#x27;s escape cases to the paper.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/TC.1984.1676475">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement PPM with explicit escape handling and a two-model logistic mixer.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Burrows–Wheeler</h2></div>
+  <p class="section-intro">Transform local contexts into runs, then code the runs.</p><article class="lesson" data-tags="core theory build" data-id="arc-bwt-lecture">
+  <input class="check" type="checkbox" aria-label="Mark Burrows–Wheeler Transform complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=4n7NPk5lwbI">Burrows–Wheeler Transform</a>
+    <div class="meta">Ben Langmead · Johns Hopkins Algorithms for DNA Sequencing · 37 min</div>
+    <p>A complete visual derivation of the transform and inverse, including the sorting structure needed by the lab.</p>
+    <div class="lab"><strong>After watching:</strong> Prove invertibility with a sentinel and implement both directions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=4n7NPk5lwbI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-bwt-pipeline">
+  <input class="check" type="checkbox" aria-label="Mark How Bzip2 Uses the Burrows–Wheeler Transform complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GYbCttCF25A">How Bzip2 Uses the Burrows–Wheeler Transform</a>
+    <div class="meta">Computerphile · University of Nottingham · 11 min</div>
+    <p>Connects BWT to move-to-front, runs, and entropy coding as an actual compression pipeline.</p>
+    <div class="lab"><strong>After watching:</strong> Compose BWT, MTF, RLE, and entropy coding and test round trips.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GYbCttCF25A">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="arc-bwt-paper">
+  <input class="check" type="checkbox" aria-label="Mark A Block-sorting Lossless Data Compression Algorithm complete">
+  <div>
+    <a class="lesson-title" href="http://bitsavers.retropc.se/pdf/dec/tech_reports/SRC-RR-124.pdf">A Block-sorting Lossless Data Compression Algorithm</a>
+    <div class="meta">Michael Burrows &amp; David Wheeler · DEC SRC report · 1994</div>
+    <p>The original report remains the written reference for the transform and practical coding pipeline.</p>
+    <div class="lab"><strong>After reading:</strong> Reconcile your inverse transform with the report&#x27;s notation.</div>
+  </div>
+  <a class="watch" href="http://bitsavers.retropc.se/pdf/dec/tech_reports/SRC-RR-124.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement BWT, inverse BWT, MTF, RLE, and entropy coding as one tested pipeline.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Grammar Compression</h2></div>
+  <p class="section-intro">Represent repeated substrings by a compact generative structure.</p><article class="lesson" data-tags="core theory" data-id="arc-grammar-lohrey">
+  <input class="check" type="checkbox" aria-label="Mark Grammar-based compression: combinatorics and algorithms complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=pDX2-O4lgHk">Grammar-based compression: combinatorics and algorithms</a>
+    <div class="meta">Markus Lohrey · AofA 2024 invited talk · 68 min</div>
+    <p>Lohrey is the main authority on grammar-based compression, and the talk sets straight-line grammars against the approximation bounds that make the greedy heuristics defensible.</p>
+    <div class="lab"><strong>After watching:</strong> State the smallest-grammar approximation bound from the talk and check your own implementation against it.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=pDX2-O4lgHk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-sequitur">
+  <input class="check" type="checkbox" aria-label="Mark Identifying Hierarchical Structure in Sequences complete">
+  <div>
+    <a class="lesson-title" href="https://arxiv.org/abs/cs/9709102">Identifying Hierarchical Structure in Sequences</a>
+    <div class="meta">Nevill-Manning &amp; Witten · arXiv</div>
+    <p>The defining Sequitur paper is unusually executable and states both maintained invariants explicitly, which the survey talk does not.</p>
+    <div class="lab"><strong>After reading:</strong> Implement digram uniqueness and rule utility and verify them after every symbol.</div>
+  </div>
+  <a class="watch" href="https://arxiv.org/abs/cs/9709102">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement Sequitur or RePair and inspect grammar size on repetitive and random inputs.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Executable Filters</h2></div>
+  <p class="section-intro">Use reversible preprocessing to expose regularity in machine code and numeric streams.</p><article class="lesson" data-tags="core theory build" data-id="arc-filters-transform">
+  <input class="check" type="checkbox" aria-label="Mark Move-to-Front Transform complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Q2pinaj3i9Y">Move-to-Front Transform</a>
+    <div class="meta">Sebastian Wild · COMP526 Data Compression · 22 min</div>
+    <p>Shows a reversible preprocessing transform that exposes locality before entropy coding.</p>
+    <div class="lab"><strong>After watching:</strong> Design a reversible delta or branch-address transform and test boundaries.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Q2pinaj3i9Y">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="arc-xz-filters">
+  <input class="check" type="checkbox" aria-label="Mark XZ embedded filters documentation complete">
+  <div>
+    <a class="lesson-title" href="https://tukaani.org/xz/embedded.html">XZ embedded filters documentation</a>
+    <div class="meta">XZ Utils · official documentation</div>
+    <p>The production companion showing how BCJ and delta filters compose with LZMA2.</p>
+    <div class="lab"><strong>After reading:</strong> Specify the decoder order and error behavior for a filtered stream.</div>
+  </div>
+  <a class="watch" href="https://tukaani.org/xz/embedded.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Design and benchmark a reversible delta or branch-address filter.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>String Algorithms</h2></div>
+  <p class="section-intro">Build the suffix and rank machinery that makes transforms and indexes practical.</p><article class="lesson" data-tags="core theory build" data-id="arc-string-suffix">
+  <input class="check" type="checkbox" aria-label="Mark Suffix Arrays: Definition and Size complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=-qmvbpmS2bE">Suffix Arrays: Definition and Size</a>
+    <div class="meta">Ben Langmead · Johns Hopkins Algorithms for DNA Sequencing · 13 min</div>
+    <p>Introduces the rank structure used by BWT construction and compressed indexes with a concrete example.</p>
+    <div class="lab"><strong>After watching:</strong> Build a suffix array by doubling and validate against naive sorting.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=-qmvbpmS2bE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-string-fm">
+  <input class="check" type="checkbox" aria-label="Mark FM Index complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kvVGj5V65io">FM Index</a>
+    <div class="meta">Ben Langmead · Johns Hopkins Algorithms for DNA Sequencing · 38 min</div>
+    <p>Builds count and locate operations directly on BWT-derived structures.</p>
+    <div class="lab"><strong>After watching:</strong> Implement an FM-index and test count and locate queries.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kvVGj5V65io">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="arc-string-gusfield">
+  <input class="check" type="checkbox" aria-label="Mark Gusfield, Algorithms on Strings — Chapters 5, 7, 12 complete">
+  <div>
+    <a class="lesson-title" href="https://www.cambridge.org/core/books/algorithms-on-strings-trees-and-sequences/F0B095049C7E6EF5356F0A26686C20D3">Gusfield, Algorithms on Strings — Chapters 5, 7, 12</a>
+    <div class="meta">Dan Gusfield · Cambridge · selected chapters</div>
+    <p>The written reference for suffix trees, matching, and the vocabulary behind compressed indexes.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one suffix-array invariant used by your implementation.</div>
+  </div>
+  <a class="watch" href="https://www.cambridge.org/core/books/algorithms-on-strings-trees-and-sequences/F0B095049C7E6EF5356F0A26686C20D3">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Construct a suffix array and FM-index; test count and locate queries.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>Streaming</h2></div>
+  <p class="section-intro">Make memory, latency, reset, and corruption recovery explicit parts of the format.</p><article class="lesson" data-tags="optional theory" data-id="arc-streaming-video">
+  <input class="check" type="checkbox" aria-label="Mark DEFLATE (gzip) complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=SJPvNi4HrWQ">DEFLATE (gzip)</a>
+    <div class="meta">Bill Bird · University of Victoria Data Compression · 158 min</div>
+    <p>A production lossless format makes blocks, reset points, coding tables, and decoder state concrete.</p>
+    <div class="lab"><strong>After watching:</strong> List state that must persist or reset at every block boundary.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=SJPvNi4HrWQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="arc-zstd-format">
+  <input class="check" type="checkbox" aria-label="Mark Zstandard Compression Format complete">
+  <div>
+    <a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8878">Zstandard Compression Format</a>
+    <div class="meta">RFC 8878 · IETF standard</div>
+    <p>No focused lecture matched general lossless framing; this production standard precisely exposes windows, blocks, checksums, and skippable frames.</p>
+    <div class="lab"><strong>After reading:</strong> Write a streaming frame-header parser and a failure/recovery matrix.</div>
+  </div>
+  <a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8878">RFC</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Turn one batch codec into a bounded-memory streaming codec with framed recovery.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Inspectable compressor</h3><ol><li>Combine reversible filtering, LZ parsing, and range or ANS entropy coding.</li><li>Specify a framed binary format and deterministic decoder.</li><li>Fuzz round trips and malformed inputs.</li><li>Benchmark ratio, speed, peak memory, and latency on disclosed corpora.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.cs.brandeis.edu/~dcc/">Data Compression Conference archive</a></h3><div class="meta">IEEE DCC · conference home</div><p>Research follow-up for learned models, indexes, and implementation advances.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Compression references</h3><ul class="source-list"><li><a href="https://link.springer.com/book/10.1007/978-1-84628-603-2">Salomon, Data Compression</a></li><li><a href="https://www.7-zip.org/sdk.html">LZMA SDK</a></li><li><a href="https://datatracker.ietf.org/doc/html/rfc8878">RFC 8878: Zstandard</a></li></ul></article><article class="card"><h3>Defining papers</h3><ul class="source-list"><li><a href="http://bitsavers.retropc.se/pdf/dec/tech_reports/SRC-RR-124.pdf">Burrows–Wheeler report</a></li><li><a href="https://arxiv.org/abs/0902.0271">Duda, ANS</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/inf/index.html">← Back to INF</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement, prerequisites, and readiness for ART.">
+  <title>ARA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#868686;--accent-ink:#767676;--deep:#323232}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="ara">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Arithmetic" aria-label="Back to Arithmetic"><span class="arrow" aria-hidden="true">←</span>ART</a><div class="brand">ARA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/mat/index.html">MAT</a><a href="index.html">ART</a><span class="divider" aria-hidden="true">|</span><a href="../../guides/num.html">NUM</a><a href="../../guides/lat.html">LAT</a><a href="../../guides/cod.html">COD</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">ARA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Arithmetic Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>ARA</em> APPENDIX</span></h1>
+    <p class="manifesto">Placement, prerequisites, and readiness for ART.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>13</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 13</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Placement pass</h3><p>Read the campus map, take the proof/build diagnostic, audit prerequisites, and pass the readiness gate for each guide you intend to enter.</p><div class="meta"><span>4–6 h</span></div></article><article class="card route"><span class="code">BLD</span><h3>Evidence-based entry</h3><p>Complete every core appendix unit and retain solved proofs, exact computations, dependency graph, and route contract.</p><div class="meta"><span>8–12 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Cross-campus planner</h3><p>Add the Spanish diagnostic and all bridge dossiers, then pre-register where crypto, dynamics, and information study will resume.</p><div class="meta"><span>12–16 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Treat Arithmetic as three connected guides: integers and fields in NUM, geometric lattices and homogeneous flows in LAT, and noisy-channel redundancy in COD.</p><article class="lesson" data-tags="core theory" data-id="ara-use-map">
+  <input class="check" type="checkbox" aria-label="Mark Arithmetic campus map: NUM → LAT ↔ COD complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/art/index.html">Arithmetic campus map: NUM → LAT ↔ COD</a>
+    <div class="meta">ARA curriculum map · internal guide</div>
+    <p>Prevents the campus from becoming one undifferentiated sequence: NUM is the arithmetic spine, LAT the geometry/dynamics bridge, and COD the channel-coding elective.</p>
+    <div class="lab"><strong>After reading:</strong> Choose explorer, builder, or deep-dive depth separately for NUM, LAT, and COD; justify each choice in four sentences.</div>
+  </div>
+  <a class="watch" href="../../campuses/art/index.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="ara-use-plan">
+  <input class="check" type="checkbox" aria-label="Mark Personal master&#x27;s plan — §7 Arithmetic spine complete">
+  <div>
+    <a class="lesson-title" href="../../personal-masters-plan.md">Personal master&#x27;s plan — §7 Arithmetic spine</a>
+    <div class="meta">Curriculum rationale · §7.1–7.3 · read</div>
+    <p>States the intended boundaries: number theory is not modular-arithmetic review, lattices are not LWE again, and channel coding is not source compression.</p>
+    <div class="lab"><strong>After reading:</strong> Write three &#x27;belongs here / belongs elsewhere&#x27; pairs, including homogeneous dynamics in LAT and lossless compression in SRC.</div>
+  </div>
+  <a class="watch" href="../../personal-masters-plan.md">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a one-page route contract naming your starting guide, skipped units, build artifacts, and the crypto or information guide you intend to revisit.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Skip material only when you can prove or build the checkpoint unaided; familiarity with vocabulary is not placement.</p><article class="lesson" data-tags="core theory" data-id="ara-placement-proof">
+  <input class="check" type="checkbox" aria-label="Mark MIT 18.781 problem sets complete">
+  <div>
+    <a class="lesson-title" href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/pages/assignments/">MIT 18.781 problem sets</a>
+    <div class="meta">Andrew Sutherland · MIT OpenCourseWare · official assignments</div>
+    <p>Tests elementary congruences, arithmetic functions, quadratic residues, and Diophantine proof fluency at the right entry level.</p>
+    <div class="lab"><strong>After reading:</strong> In 120 minutes attempt one problem each on congruences, orders, reciprocity, and continued fractions; score proof completeness, not answers.</div>
+  </div>
+  <a class="watch" href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/pages/assignments/">Read</a>
+</article><article class="lesson" data-tags="core build" data-id="ara-placement-build">
+  <input class="check" type="checkbox" aria-label="Mark SageMath Coding Theory and Lattices reference complete">
+  <div>
+    <a class="lesson-title" href="https://doc.sagemath.org/html/en/reference/">SageMath Coding Theory and Lattices reference</a>
+    <div class="meta">SageMath · official documentation · build diagnostic</div>
+    <p>Checks whether finite-field linear algebra and exact integer computation are usable tools rather than remembered course names.</p>
+    <div class="lab"><strong>After reading:</strong> Without copying an example, construct GF(2^4), encode a small linear code, compute a lattice determinant, and verify every result independently.</div>
+  </div>
+  <a class="watch" href="https://doc.sagemath.org/html/en/reference/">Read</a>
+</article><article class="lesson" data-tags="optional theory" data-id="ara-placement-es">
+  <input class="check" type="checkbox" aria-label="Mark Enigmas y patrones de los números primos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ZPFPTymX3c4">Enigmas y patrones de los números primos</a>
+    <div class="meta">ES · Harald Helfgott · ICMAT · 89 min</div>
+    <p>A Spanish-language calibration: mathematical listening and explanation count as first-class study skills throughout the campus.</p>
+    <div class="lab"><strong>After watching:</strong> After listening, give a five-minute explanation in Spanish of two distinct questions about primes and translate the key terms into English.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ZPFPTymX3c4">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete a timed diagnostic and retain a proof-and-code packet showing every skipped prerequisite.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Arithmetic draws on proof, algebra, analysis, probability, and scientific computing; repair only the missing dependency before returning.</p><article class="lesson" data-tags="core theory build" data-id="ara-prereq-pre">
+  <input class="check" type="checkbox" aria-label="Mark PRE · Prerequisites guide complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">PRE · Prerequisites guide</a>
+    <div class="meta">Existing prerequisites guide · outbound curriculum pointer</div>
+    <p>Use PRE for proof habits, modular arithmetic, computational linear algebra, probability, and algorithms; do not reproduce those modules in ARA.</p>
+    <div class="lab"><strong>After reading:</strong> Audit PRE modules 1–4 and attach one solved proof or notebook as evidence for every module you skip.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="ara-prereq-guides">
+  <input class="check" type="checkbox" aria-label="Mark FND guides: Analysis, Probability, Algebra &amp; Spectra, Computing Foundations complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/fnd/index.html">FND guides: Analysis, Probability, Algebra &amp; Spectra, Computing Foundations</a>
+    <div class="meta">Foundations campus · internal guide map</div>
+    <p>LAT Poisson summation needs Fourier analysis, homogeneous dynamics needs measure/ergodic language, and COD needs probability and finite-field algebra.</p>
+    <div class="lab"><strong>After reading:</strong> Make a table from each planned arithmetic module to its ANA, PRB, ALG, or CSF dependency; schedule only genuine gaps.</div>
+  </div>
+  <a class="watch" href="../../campuses/fnd/index.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a dependency graph with evidence links for each prerequisite you claim to have satisfied.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Use theorem-sized gates: NUM begins with reciprocity and ideals, LAT with convex bodies and duals, COD with distance bounds and finite fields.</p><article class="lesson" data-tags="core theory build" data-id="ara-ready-num">
+  <input class="check" type="checkbox" aria-label="Mark NUM readiness gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/num.html">NUM readiness gate</a>
+    <div class="meta">G10 Number Theory · internal guide</div>
+    <p>NUM is ready when elementary proofs are live and abstract algebra is sufficient for rings, ideals, and field extensions.</p>
+    <div class="lab"><strong>After reading:</strong> Prove CRT and quadratic reciprocity&#x27;s statement-level consequences; compute the ring of integers in one quadratic example. If either fails, start at NUM Module 0.</div>
+  </div>
+  <a class="watch" href="../../guides/num.html">Read</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ara-ready-lat">
+  <input class="check" type="checkbox" aria-label="Mark LAT readiness gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/lat.html">LAT readiness gate</a>
+    <div class="meta">G11 Lattices as Mathematics · internal guide</div>
+    <p>LAT requires determinants, dual spaces, Fourier transforms, and compactness/measure language before homogeneous dynamics.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the covolume under a basis change, compute a dual lattice, and state Poisson summation for Schwartz functions; route gaps to ALG or ANA.</div>
+  </div>
+  <a class="watch" href="../../guides/lat.html">Read</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ara-ready-cod">
+  <input class="check" type="checkbox" aria-label="Mark COD readiness gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/cod.html">COD readiness gate</a>
+    <div class="meta">G12 Channel Coding · internal guide</div>
+    <p>COD requires finite-field linear algebra and probability but not prior cryptography or source coding.</p>
+    <div class="lab"><strong>After reading:</strong> Construct a parity-check matrix, compute minimum distance for a tiny code, and derive a BSC likelihood metric; route gaps to ALG or PRB.</div>
+  </div>
+  <a class="watch" href="../../guides/cod.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Pass one readiness gate per intended guide and record a remediation decision for every failed gate.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Return to existing crypto and information guides only after learning the mathematical input; pointers prevent duplicated schemes and protocols.</p><article class="lesson" data-tags="core theory" data-id="ara-bridge-pqc-fhe">
+  <input class="check" type="checkbox" aria-label="Mark LAT → PQC and FHE complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/prv/index.html">LAT → PQC and FHE</a>
+    <div class="meta">Existing Mathematical Privacy campus · PQC/FHE pointers</div>
+    <p>Minkowski, dual lattices, Gaussians, and LLL live in LAT; SIS/LWE reductions, schemes, parameters, and implementation live in PQC/FHE.</p>
+    <div class="lab"><strong>After reading:</strong> Follow one LAT theorem into PQC or FHE and write the exact interface: hypothesis, imported conclusion, and cryptographic use.</div>
+  </div>
+  <a class="watch" href="../../campuses/prv/index.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="ara-bridge-zkp-chain">
+  <input class="check" type="checkbox" aria-label="Mark COD → ZKP and Consensus &amp; Settlement complete">
+  <div>
+    <a class="lesson-title" href="../../campuses/sys/index.html">COD → ZKP and Consensus &amp; Settlement</a>
+    <div class="meta">Existing ZKP and blockchain guides · outbound pointers</div>
+    <p>Reed–Solomon distance supports FRI, while erasure codes support data availability; proof systems and adversarial sampling stay in their destination guides.</p>
+    <div class="lab"><strong>After reading:</strong> Choose FRI or data availability and separate the coding theorem from the protocol soundness or availability argument.</div>
+  </div>
+  <a class="watch" href="../../campuses/sys/index.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="ara-bridge-information">
+  <input class="check" type="checkbox" aria-label="Mark COD ↔ SRC: channel coding is not source coding complete">
+  <div>
+    <a class="lesson-title" href="../../guides/src.html">COD ↔ SRC: channel coding is not source coding</a>
+    <div class="meta">G13 Source Coding · cross-campus pointer</div>
+    <p>Both use entropy and typicality, but COD adds redundancy against channel noise while SRC removes redundancy from a source.</p>
+    <div class="lab"><strong>After reading:</strong> For one Bernoulli model, write side-by-side operational problems, rates, converses, and artifacts for source and channel coding.</div>
+  </div>
+  <a class="watch" href="../../guides/src.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Deliver a crossing dossier that names one theorem imported by each destination and one topic intentionally left there.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Arithmetic route contract</h3><ol><li>Name your depth and starting module in NUM, LAT, and COD.</li><li>Attach proof or code evidence for every prerequisite and module you skip.</li><li>Schedule repairs through PRE/FND rather than duplicating them inside Arithmetic.</li><li>Name the first artifact and exit criterion for each guide you will take.</li></ol></article><article class="card"><h3>Boundary defense</h3><ol><li>Explain why homogeneous dynamics belongs in LAT rather than DSZ.</li><li>Explain why LWE and FHE schemes remain in their existing crypto guides.</li><li>Explain why Reed–Solomon algebra is in COD while FRI is in ZKP.</li><li>Explain why channel coding and source coding remain separate guides.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://canal.uned.es/multimediaobjects/tag/U120500">Spanish mathematical media: Teoría de números</a></h3><div class="meta">ES · Canal UNED · institutional collection</div><p>Optional Spanish listening across prime numbers and mathematical culture after the placement work is complete.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Placement materials</h3><ul class="source-list"><li><a href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/pages/assignments/">MIT 18.781 assignments</a></li><li><a href="https://ocw.mit.edu/courses/18-785-number-theory-i-fall-2021/pages/assignments/">MIT 18.785 assignments</a></li><li><a href="https://doc.sagemath.org/html/en/reference/">SageMath official reference</a></li><li><a href="https://canal.uned.es/multimediaobjects/tag/U120500">Canal UNED: Teoría de números</a></li></ul></article><article class="card"><h3>Campus entry points</h3><ul class="source-list"><li><a href="../../guides/num.html">NUM · Number Theory</a></li><li><a href="../../guides/lat.html">LAT · Lattices as Mathematics</a></li><li><a href="../../guides/cod.html">COD · Channel Coding</a></li><li><a href="../../crypto/prerequisites-self-assembled-mooc.html">PRE · Prerequisites</a></li></ul></article><article class="card"><h3>Destination pointers</h3><ul class="source-list"><li><a href="../../crypto/post-quantum-cryptography-self-assembled-mooc.html">PQC · Post-Quantum Cryptography</a></li><li><a href="../../crypto/fhe-self-assembled-mooc.html">FHE · Fully Homomorphic Encryption</a></li><li><a href="../../crypto/zkp-self-assembled-mooc.html">ZKP · Zero-Knowledge Proofs</a></li><li><a href="../../crypto/blockchain-self-assembled-mooc.html">Consensus &amp; Settlement</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to ART</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Specify the machine, then prove the transition.">
+  <title>PLV - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#f6cc66;--accent-ink:#9a6f09;--deep:#6b541b}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="plv">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/sys/index.html" title="Back to Systems &amp; Protocols" aria-label="Back to Systems &amp; Protocols"><span class="arrow" aria-hidden="true">←</span>SYS</a><div class="brand">PLV <b>// G16 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/csc/index.html">CSC</a><a href="../campuses/sys/index.html">SYS</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/blockchain-self-assembled-mooc.html">DLT</a><a href="../crypto/confidential-computing-self-assembled-mooc.html">TEE</a><a href="../crypto/session-messaging-self-assembled-mooc.html">E2E</a><span class="here" aria-current="page">PLV</span><a href="cth.html">CTH</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/sys/appendix.html">SYA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Languages &amp; Verification · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>PLV</em> MOOC</span></h1>
+    <p class="manifesto">Specify the machine, then prove the transition.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>20</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 20</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Programming-Language Semantics</a><a href="#module-1">01 · Interpreters &amp; IR</a><a href="#module-2">02 · Compiler Construction</a><a href="#module-3">03 · Model Checking</a><a href="#module-4">04 · Proof Assistants</a><a href="#module-5">05 · SAT &amp; SMT</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Semantics explorer</h3><p>Take semantics, one interpreter, model checking, one assistant, and SAT/SMT foundations.</p><div class="meta"><span>18–24 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Verified builder</h3><p>Complete all core artifacts around one language or protocol.</p><div class="meta"><span>45–65 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Mechanization deep dive</h3><p>Add optional SSA and Lean work and mechanize a substantial metatheory or refinement.</p><div class="meta"><span>80–110 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Programming-Language Semantics</h2></div>
+  <p class="section-intro">Specify syntax, evaluation, typing, and soundness before trusting an implementation.</p><article class="lesson" data-tags="core theory" data-id="plv-semantics-operational">
+  <input class="check" type="checkbox" aria-label="Mark Basic Mechanics of Operational Semantics complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TU16mA5-i-g">Basic Mechanics of Operational Semantics</a>
+    <div class="meta">Robert Harper · OPLSS/ICFP Video · 47 min</div>
+    <p>A focused derivation of operational semantics gives the judgment discipline needed before proving type safety.</p>
+    <div class="lab"><strong>After watching:</strong> Write small-step rules and derive three complete evaluation trees.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TU16mA5-i-g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-semantics-types">
+  <input class="check" type="checkbox" aria-label="Mark The Semantic Phase and Type Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=5pA-qlWIg48">The Semantic Phase and Type Systems</a>
+    <div class="meta">Thomas Padron-McCarthy · university compiler course · 87 min</div>
+    <p>Connects static semantics to compiler checking and makes stuck terms operationally visible.</p>
+    <div class="lab"><strong>After watching:</strong> Prove progress and preservation for booleans and functions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=5pA-qlWIg48">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="plv-semantics-tapl">
+  <input class="check" type="checkbox" aria-label="Mark Types and Programming Languages — Chapters 3, 8, 9 complete">
+  <div>
+    <a class="lesson-title" href="https://www.cis.upenn.edu/~bcpierce/tapl/">Types and Programming Languages — Chapters 3, 8, 9</a>
+    <div class="meta">Benjamin Pierce · MIT Press · selected chapters</div>
+    <p>Builds operational semantics and the canonical type-safety proof.</p>
+    <div class="lab"><strong>After reading:</strong> Write small-step rules and prove progress/preservation for booleans and functions.</div>
+  </div>
+  <a class="watch" href="https://www.cis.upenn.edu/~bcpierce/tapl/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Formalize a typed expression language and prove progress and preservation.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Interpreters &amp; IR</h2></div>
+  <p class="section-intro">Make environments, continuations, control flow, and SSA visible.</p><article class="lesson" data-tags="core theory build" data-id="plv-interpreters-closures">
+  <input class="check" type="checkbox" aria-label="Mark CS 152: Environments and Closures complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=gwz76Ww67R0">CS 152: Environments and Closures</a>
+    <div class="meta">Jon Pearce · San José State CS 152 · 71 min</div>
+    <p>Works through environments and closure representation in a full programming-languages lecture.</p>
+    <div class="lab"><strong>After watching:</strong> Implement lexical scope, closures, mutation, and tests that distinguish scope rules.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=gwz76Ww67R0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-ir-ssa">
+  <input class="check" type="checkbox" aria-label="Mark Compiler Construction: SSA and Optimization complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=egfdA98LMXg">Compiler Construction: SSA and Optimization</a>
+    <div class="meta">NTNU TDT4205 · Compiler Construction · 53 min</div>
+    <p>Moves from control-flow analysis to an optimization-ready intermediate representation.</p>
+    <div class="lab"><strong>After watching:</strong> Lower conditionals and loops to three-address code and validate dominance.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=egfdA98LMXg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-llvm-vellvm">
+  <input class="check" type="checkbox" aria-label="Mark Verified LLVM: Formalizing the Semantics of the LLVM IR complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=cnwPI07R8Iw">Verified LLVM: Formalizing the Semantics of the LLVM IR</a>
+    <div class="meta">Santosh Nagarakatte · LLVM Developers&#x27; Meeting 2012 · 39 min</div>
+    <p>Presents a mechanized operational semantics, type system, and SSA properties for LLVM IR, exposing the proof obligations hidden behind the reference manual.</p>
+    <div class="lab"><strong>After watching:</strong> Select one LangRef rule used by your generated IR and restate it as an executable semantic check.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=cnwPI07R8Iw">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="plv-llvm-langref">
+  <input class="check" type="checkbox" aria-label="Mark LLVM Language Reference Manual complete">
+  <div>
+    <a class="lesson-title" href="https://llvm.org/docs/LangRef.html">LLVM Language Reference Manual</a>
+    <div class="meta">LLVM Project · official reference</div>
+    <p>The written contract for types, control flow, SSA values, and undefined behavior.</p>
+    <div class="lab"><strong>After reading:</strong> Generate LLVM IR and validate it with LLVM tools.</div>
+  </div>
+  <a class="watch" href="https://llvm.org/docs/LangRef.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build an interpreter and lower its typed AST into a verified three-address IR.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Compiler Construction</h2></div>
+  <p class="section-intro">Connect parsing, analysis, optimization, and code generation in one small compiler.</p><article class="lesson" data-tags="core theory build" data-id="plv-compilers-opt">
+  <input class="check" type="checkbox" aria-label="Mark Compiler Optimisation: Foundations complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=c6csK4Z_U98">Compiler Optimisation: Foundations</a>
+    <div class="meta">Compiler Optimisation Lectures · university course · 9 min</div>
+    <p>Introduces the semantic obligations behind optimization before implementing a pass.</p>
+    <div class="lab"><strong>After watching:</strong> State and test a semantic-preservation claim for constant folding.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=c6csK4Z_U98">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="plv-ssa-oplss">
+  <input class="check" type="checkbox" aria-label="Mark Verified Compilation and SSA complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=RklmEycKQdU">Verified Compilation and SSA</a>
+    <div class="meta">Steve Zdancewic · OPLSS 2024 · 81 min</div>
+    <p>Connects SSA-based compilation to machine-checked semantic preservation at research-course depth.</p>
+    <div class="lab"><strong>After watching:</strong> Compute dominators and place phi nodes for a nontrivial CFG.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=RklmEycKQdU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-ssa-cytron">
+  <input class="check" type="checkbox" aria-label="Mark Efficiently Computing Static Single Assignment Form complete">
+  <div>
+    <a class="lesson-title" href="https://dl.acm.org/doi/10.1145/115372.115320">Efficiently Computing Static Single Assignment Form</a>
+    <div class="meta">Cytron et al. · ACM TOPLAS · 1991</div>
+    <p>The defining written reference for dominance-frontier SSA construction.</p>
+    <div class="lab"><strong>After reading:</strong> Map your phi-placement implementation to the paper&#x27;s algorithm.</div>
+  </div>
+  <a class="watch" href="https://dl.acm.org/doi/10.1145/115372.115320">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compile a typed language through SSA to executable code and document one sound optimization.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Model Checking</h2></div>
+  <p class="section-intro">Explore transition systems exhaustively while stating temporal properties precisely.</p><article class="lesson" data-tags="core theory" data-id="plv-ltl-intuition">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to LTL: Basic Intuition complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=a9fo3dUly8A">Introduction to LTL: Basic Intuition</a>
+    <div class="meta">Andrei Popescu · Middlesex University LTL series · 8 min</div>
+    <p>Starts from trace properties and separates safety from liveness before introducing syntax.</p>
+    <div class="lab"><strong>After watching:</strong> Classify ten protocol claims as safety, liveness, or neither.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=a9fo3dUly8A">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-ltl-transitions">
+  <input class="check" type="checkbox" aria-label="Mark LTL over Labeled Transition Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=L54o8ohJCiA">LTL over Labeled Transition Systems</a>
+    <div class="meta">Andrei Popescu · Middlesex University LTL series · 10 min</div>
+    <p>Defines satisfaction over transition-system paths, the semantic bridge required by model checking.</p>
+    <div class="lab"><strong>After watching:</strong> Translate a liveness claim into LTL and evaluate it on three traces.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=L54o8ohJCiA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-tla-course">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to TLA+ complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=p54W-XOIEF8">Introduction to TLA+</a>
+    <div class="meta">Leslie Lamport · TLA+ video course · 20 min</div>
+    <p>Lamport introduces state-machine specification in TLA+ directly before the book-length treatment of invariants, actions, and temporal reasoning.</p>
+    <div class="lab"><strong>After watching:</strong> Translate the lossy-handshake state machine into initial-state and next-state predicates.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=p54W-XOIEF8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-tla">
+  <input class="check" type="checkbox" aria-label="Mark Specifying Systems complete">
+  <div>
+    <a class="lesson-title" href="https://lamport.azurewebsites.net/tla/book.html">Specifying Systems</a>
+    <div class="meta">Leslie Lamport · author PDF and TLA+ resources</div>
+    <p>The written companion connects state machines, invariants, refinement, and temporal properties.</p>
+    <div class="lab"><strong>After reading:</strong> Model a lossy handshake and check two invariants with TLC.</div>
+  </div>
+  <a class="watch" href="https://lamport.azurewebsites.net/tla/book.html">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Model a protocol state machine, check safety and liveness, and interpret a counterexample trace.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Proof Assistants</h2></div>
+  <p class="section-intro">Turn definitions and invariants into machine-checked objects.</p><article class="lesson" data-tags="core theory build" data-id="plv-coq-pierce">
+  <input class="check" type="checkbox" aria-label="Mark Software Foundations in Coq: Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YlPPjC0o-bg">Software Foundations in Coq: Lecture 1</a>
+    <div class="meta">Benjamin Pierce · University of Pennsylvania · 92 min</div>
+    <p>The author introduces proof scripts, inductive data, and the mechanization workflow behind Software Foundations.</p>
+    <div class="lab"><strong>After watching:</strong> Mechanize a small-step relation and prove determinism.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YlPPjC0o-bg">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="plv-coq-types">
+  <input class="check" type="checkbox" aria-label="Mark Types and Pattern Matching in Coq complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=14uFHMjTqoQ">Types and Pattern Matching in Coq</a>
+    <div class="meta">Michael Ryan Clarkson · Cornell Software Foundations · 8 min</div>
+    <p>A concise implementation-focused pass through the typed functional core used by later proofs.</p>
+    <div class="lab"><strong>After watching:</strong> Define one inductive language and eliminate every admitted goal.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=14uFHMjTqoQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-coq-sf">
+  <input class="check" type="checkbox" aria-label="Mark Software Foundations, Volume 1: Logical Foundations complete">
+  <div>
+    <a class="lesson-title" href="https://softwarefoundations.cis.upenn.edu/">Software Foundations, Volume 1: Logical Foundations</a>
+    <div class="meta">Pierce et al. · free Coq text</div>
+    <p>The exercise-driven companion integrates functional programming, inductive propositions, and mechanized metatheory.</p>
+    <div class="lab"><strong>After reading:</strong> Complete Basics through IndProp.</div>
+  </div>
+  <a class="watch" href="https://softwarefoundations.cis.upenn.edu/">Online</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Mechanize one semantics theorem or protocol invariant with no admitted goals.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>SAT &amp; SMT</h2></div>
+  <p class="section-intro">Understand propagation, learning, theories, and models behind automated constraint solving.</p><article class="lesson" data-tags="core theory build" data-id="plv-sat-effectiveness">
+  <input class="check" type="checkbox" aria-label="Mark The Unreasonable Effectiveness of SAT Solvers complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=lY-aJWVTN6s">The Unreasonable Effectiveness of SAT Solvers</a>
+    <div class="meta">Vijay Ganesh · Waterloo Engineering · 52 min</div>
+    <p>Explains CDCL&#x27;s propagation, learning, and engineering impact through concrete verification applications.</p>
+    <div class="lab"><strong>After watching:</strong> Trace conflict analysis to a learned clause and implement watched literals.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=lY-aJWVTN6s">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="plv-smt-video">
+  <input class="check" type="checkbox" aria-label="Mark Programming Z3 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TgAVIqraCHo">Programming Z3</a>
+    <div class="meta">Nikolaj Bjørner · Simons Institute · 51 min</div>
+    <p>The solver&#x27;s author demonstrates theories, APIs, models, and executable verification patterns.</p>
+    <div class="lab"><strong>After watching:</strong> Encode bounded equivalence of two IR transformations and inspect a countermodel.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TgAVIqraCHo">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="plv-smt-z3">
+  <input class="check" type="checkbox" aria-label="Mark Programming Z3 complete">
+  <div>
+    <a class="lesson-title" href="https://theory.stanford.edu/~nikolaj/programmingz3.html">Programming Z3</a>
+    <div class="meta">Nikolaj Bjørner et al. · official tutorial</div>
+    <p>The written API companion supports exact reconstruction of the lecture examples.</p>
+    <div class="lab"><strong>After reading:</strong> Turn one solver query into a reproducible regression test.</div>
+  </div>
+  <a class="watch" href="https://theory.stanford.edu/~nikolaj/programmingz3.html">Tutorial</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a small CDCL solver or verified encoding and use an SMT solver to discharge a program property.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Verified language pipeline</h3><ol><li>Define a typed source language and executable interpreter.</li><li>Lower programs to an explicit IR and implement one optimization.</li><li>State safety and semantic-preservation claims.</li><li>Use proof assistance, model checking, and SAT/SMT where each is strongest.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://satcompetition.github.io/">SAT Competition</a></h3><div class="meta">Annual solver competition · reports and proceedings</div><p>Follow after CDCL fundamentals to compare current solver engineering on disclosed benchmarks.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Languages and compilers</h3><ul class="source-list"><li><a href="https://www.cis.upenn.edu/~bcpierce/tapl/">Pierce, TAPL</a></li><li><a href="https://www.plai.org/">PLAI</a></li><li><a href="https://web.stanford.edu/class/cs143/">Stanford CS143</a></li></ul></article><article class="card"><h3>Verification</h3><ul class="source-list"><li><a href="https://softwarefoundations.cis.upenn.edu/">Software Foundations</a></li><li><a href="https://lamport.azurewebsites.net/tla/book.html">Specifying Systems</a></li><li><a href="https://theory.stanford.edu/~nikolaj/programmingz3.html">Programming Z3</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/sys/index.html">← Back to SYS</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

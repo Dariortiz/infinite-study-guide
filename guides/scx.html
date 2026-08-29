@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ciphertext hides content; length still speaks.">
+  <title>SCX - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#9fa1ff;--accent-ink:#5e61ff;--deep:#4042cf}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="scx">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/inf/index.html" title="Back to Information" aria-label="Back to Information"><span class="arrow" aria-hidden="true">←</span>INF</a><div class="brand">SCX <b>// G15 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/inf/index.html">INF</a><span class="divider" aria-hidden="true">|</span><a href="src.html">SRC</a><a href="arc.html">ARC</a><span class="here" aria-current="page">SCX</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/inf/appendix.html">IFA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Compression × Cryptography · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>SCX</em> MOOC</span></h1>
+    <p class="manifesto">Ciphertext hides content; length still speaks.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>18</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 18</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Length Leakage</a><a href="#module-1">01 · Compression Oracles</a><a href="#module-2">02 · Ciphertext Incompressibility</a><a href="#module-3">03 · Extractors Are Not Compressors</a><a href="#module-4">04 · Encrypted Deduplication</a><a href="#module-5">05 · Resource &amp; Timing Oracles</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Leakage modeler</h3><p>Take all core theory units and write a leakage function for each composition.</p><div class="meta"><span>9–12 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Defensive builder</h3><p>Complete the synthetic oracle, ciphertext test, backup model, and bounded decoder.</p><div class="meta"><span>20–28 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Composition deep dive</h3><p>Add optional Spanish material and formalize adversaries, advantage, and mitigation limits.</p><div class="meta"><span>32–45 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Length Leakage</h2></div>
+  <p class="section-intro">Model ciphertext length as an explicit observation channel. AEAD mechanics remain in Session/E2E.</p><article class="lesson" data-tags="core theory build" data-id="scx-length-vpn">
+  <input class="check" type="checkbox" aria-label="Mark Compression Oracle Attacks on VPN Networks complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=C6yUfzGmNrk">Compression Oracle Attacks on VPN Networks</a>
+    <div class="meta">Velimir Radlovački · Black Hat USA · 44 min</div>
+    <p>Shows how compressed length becomes an observable channel in a deployed encrypted tunnel, making the leakage function concrete.</p>
+    <div class="lab"><strong>After watching:</strong> Define the adversary&#x27;s observations and estimate leakage on a controlled corpus.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=C6yUfzGmNrk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="scx-length-kelsey">
+  <input class="check" type="checkbox" aria-label="Mark Compression and Information Leakage of Plaintext complete">
+  <div>
+    <a class="lesson-title" href="https://www.iacr.org/archive/fse2002/23650264/23650264.pdf">Compression and Information Leakage of Plaintext</a>
+    <div class="meta">John Kelsey · FSE 2002 · paper</div>
+    <p>Frames compression ratio and compressed length as information available to an adversary.</p>
+    <div class="lab"><strong>After reading:</strong> Define the adversary&#x27;s observations and estimate leakage on a controlled corpus.</div>
+  </div>
+  <a class="watch" href="https://www.iacr.org/archive/fse2002/23650264/23650264.pdf">PDF</a>
+</article><article class="lesson" data-tags="core theory" data-id="scx-length-record-layer">
+  <input class="check" type="checkbox" aria-label="Mark Symmetric Encryption: Record Layer Security complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YqDjDGDmGsM">Symmetric Encryption: Record Layer Security</a>
+    <div class="meta">Kenny Paterson · Bar-Ilan Winter School on Cryptography · 50 min</div>
+    <p>A research-level record-layer lecture makes the encryption boundary, per-record metadata, and attacker-visible lengths explicit before the prerequisite guide.</p>
+    <div class="lab"><strong>After watching:</strong> Write the record syntax and mark every field or length observable to an on-path adversary.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YqDjDGDmGsM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="scx-length-e2e">
+  <input class="check" type="checkbox" aria-label="Mark Session/E2E guide — authenticated-encryption prerequisite complete">
+  <div>
+    <a class="lesson-title" href="../crypto/session-messaging-self-assembled-mooc.html">Session/E2E guide — authenticated-encryption prerequisite</a>
+    <div class="meta">Existing C7 guide · prerequisite pointer</div>
+    <p>SCX assumes nonce, integrity, record, and transcript literacy; it does not re-teach AEAD.</p>
+    <div class="lab"><strong>After reading:</strong> Pass the Session/E2E AEAD and record-layer checkpoints, then return with a concrete length function.</div>
+  </div>
+  <a class="watch" href="../crypto/session-messaging-self-assembled-mooc.html">Open guide</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a leakage function for a padded messaging format and quantify distinguishability among candidate plaintext classes.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Compression Oracles</h2></div>
+  <p class="section-intro">Study chosen-input adaptation when attacker-controlled and secret bytes share one compression context.</p><article class="lesson" data-tags="core theory build" data-id="scx-crime">
+  <input class="check" type="checkbox" aria-label="Mark The CRIME Attack complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BysvLotMrwY">The CRIME Attack</a>
+    <div class="meta">Juliano Rizzo &amp; Thai Duong · ekoparty 2012 · 98 min</div>
+    <p>The original presenters explain adaptive compression leakage across encrypted web records and the assumptions behind exploitation.</p>
+    <div class="lab"><strong>After watching:</strong> Implement only a synthetic local oracle; vary noise, padding, and context separation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BysvLotMrwY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="scx-breach-video">
+  <input class="check" type="checkbox" aria-label="Mark SSL, Gone in 30 Seconds: A BREACH Beyond CRIME complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=DMOxV1Up21g">SSL, Gone in 30 Seconds: A BREACH Beyond CRIME</a>
+    <div class="meta">Yoel Gluck, Neal Harris &amp; Angelo Prado · Black Hat · 56 min</div>
+    <p>The conference recording demonstrates how chosen reflection and response compression survive transport encryption.</p>
+    <div class="lab"><strong>After watching:</strong> Build an assumption/mitigation table from the attack narrative.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=DMOxV1Up21g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="scx-breach">
+  <input class="check" type="checkbox" aria-label="Mark BREACH: Reviving the CRIME Attack complete">
+  <div>
+    <a class="lesson-title" href="https://breachattack.com/resources/BREACH%20-%20SSL,%20gone%20in%2030%20seconds.pdf">BREACH: Reviving the CRIME Attack</a>
+    <div class="meta">Gluck, Harris &amp; Prado · Black Hat USA 2013 · paper</div>
+    <p>Shows that response compression and chosen reflection can leak secrets despite transport encryption.</p>
+    <div class="lab"><strong>After reading:</strong> Produce an assumption/mitigation table; point protocol details back to Session/E2E.</div>
+  </div>
+  <a class="watch" href="https://breachattack.com/resources/BREACH%20-%20SSL,%20gone%20in%2030%20seconds.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a toy local oracle, recover a synthetic secret, and list every assumption required for the attack.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Ciphertext Incompressibility</h2></div>
+  <p class="section-intro">Use successful ciphertext compression as a distinguisher, not as an optimization target.</p><article class="lesson" data-tags="core theory build" data-id="scx-incompressibility-prg">
+  <input class="check" type="checkbox" aria-label="Mark The Pseudorandomness Toolkit complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=riBnuMMGwWg">The Pseudorandomness Toolkit</a>
+    <div class="meta">Salil Vadhan · Simons Institute · 86 min</div>
+    <p>Builds the computational indistinguishability language needed to treat successful ciphertext compression as a distinguisher.</p>
+    <div class="lab"><strong>After watching:</strong> Turn a length-saving compressor into a distinguisher and bound its advantage.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=riBnuMMGwWg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="scx-incompressibility-katz">
+  <input class="check" type="checkbox" aria-label="Mark Katz–Lindell — computational security and pseudorandomness chapters complete">
+  <div>
+    <a class="lesson-title" href="https://www.routledge.com/Introduction-to-Modern-Cryptography-Revised-Third-Edition/Katz-Lindell/p/book/9781032496795">Katz–Lindell — computational security and pseudorandomness chapters</a>
+    <div class="meta">Jonathan Katz &amp; Yehuda Lindell · CRC Press · revised 3rd ed.</div>
+    <p>The written companion states games, reductions, and advantage bounds precisely.</p>
+    <div class="lab"><strong>After reading:</strong> Write the compressor distinguisher as a formal security game.</div>
+  </div>
+  <a class="watch" href="https://www.routledge.com/Introduction-to-Modern-Cryptography-Revised-Third-Edition/Katz-Lindell/p/book/9781032496795">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Test a compressor on random bytes, secure ciphertext, and deliberately flawed envelopes with proper confidence intervals.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Extractors Are Not Compressors</h2></div>
+  <p class="section-intro">Separate min-entropy extraction from model-based removal of Shannon redundancy.</p><article class="lesson" data-tags="core theory" data-id="scx-extractors-survey">
+  <input class="check" type="checkbox" aria-label="Mark Randomness Extraction: A Survey complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=B4vBvPr0wow">Randomness Extraction: A Survey</a>
+    <div class="meta">David Zuckerman · Institute for Advanced Study · 105 min</div>
+    <p>A theorem-level survey separates min-entropy extraction from removal of Shannon redundancy.</p>
+    <div class="lab"><strong>After watching:</strong> Work one leftover-hash parameter calculation and contrast it with a source-coding bound.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=B4vBvPr0wow">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="scx-extractors-dependent">
+  <input class="check" type="checkbox" aria-label="Mark Randomness Extraction from Somewhat Dependent Sources complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=DU1Kdvsmns8">Randomness Extraction from Somewhat Dependent Sources</a>
+    <div class="meta">Xin Li · Simons Institute · 31 min</div>
+    <p>Shows why source assumptions, not compressibility, control extractor guarantees.</p>
+    <div class="lab"><strong>After watching:</strong> Construct two source families with similar Shannon entropy but different min-entropy.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=DU1Kdvsmns8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="scx-extractors-vadhan">
+  <input class="check" type="checkbox" aria-label="Mark Pseudorandomness — Chapter 6, Randomness Extractors complete">
+  <div>
+    <a class="lesson-title" href="https://people.seas.harvard.edu/~salil/pseudorandomness/">Pseudorandomness — Chapter 6, Randomness Extractors</a>
+    <div class="meta">Salil Vadhan · Foundations and Trends · author PDF</div>
+    <p>The written reference states seeded-extractor and leftover-hash guarantees against explicit min-entropy assumptions.</p>
+    <div class="lab"><strong>After reading:</strong> Write a precise extractor definition and compare it with a source-code guarantee.</div>
+  </div>
+  <a class="watch" href="https://people.seas.harvard.edu/~salil/pseudorandomness/">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create two source families with similar Shannon entropy but different min-entropy and explain the incompatible guarantees.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Encrypted Deduplication</h2></div>
+  <p class="section-intro">Understand equality and confirmation leakage introduced by convergent encryption and client-side deduplication.</p><article class="lesson" data-tags="core theory" data-id="scx-dedup-harnik">
+  <input class="check" type="checkbox" aria-label="Mark Security and deduplication in the cloud complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YMhsY8E6LnY">Security and deduplication in the cloud</a>
+    <div class="meta">Danny Harnik · IBM Research · Technion lecture · 46 min</div>
+    <p>Harnik&#x27;s own work established the deduplication side channel, and the lecture walks the confirmation-of-file and cross-user leakage attacks before naming the defenses.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the response-time distinguisher from the talk on a toy client-side deduplication design.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YMhsY8E6LnY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="scx-mle">
+  <input class="check" type="checkbox" aria-label="Mark Message-Locked Encryption and Secure Deduplication complete">
+  <div>
+    <a class="lesson-title" href="https://eprint.iacr.org/2012/631">Message-Locked Encryption and Secure Deduplication</a>
+    <div class="meta">Bellare, Keelveedhi &amp; Ristenpart · EUROCRYPT 2013</div>
+    <p>The formal counterpart to the lecture: it defines MLE and pins the security claim to message unpredictability.</p>
+    <div class="lab"><strong>After reading:</strong> Analyze a low-entropy file space and test an offline confirmation attack against a toy design.</div>
+  </div>
+  <a class="watch" href="https://eprint.iacr.org/2012/631">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Threat-model an encrypted backup design, including equality, length, membership, and access-pattern leakage.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Resource &amp; Timing Oracles</h2></div>
+  <p class="section-intro">Treat decompression work, allocation, and table access as adversarially observable behavior.</p><article class="lesson" data-tags="core theory build" data-id="scx-timing-video">
+  <input class="check" type="checkbox" aria-label="Mark Time Trial: Racing Towards Practical Timing Attacks complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=md6NEmq1n-A">Time Trial: Racing Towards Practical Timing Attacks</a>
+    <div class="meta">Daniel Mayer · Black Hat · 50 min</div>
+    <p>Demonstrates the measurement discipline and noise controls needed before claiming a timing oracle.</p>
+    <div class="lab"><strong>After watching:</strong> Audit an entropy decoder&#x27;s lookup and branch behavior and quantify timing classes.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=md6NEmq1n-A">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="scx-cachebleed">
+  <input class="check" type="checkbox" aria-label="Mark CacheBleed: A Timing Attack on Constant-Time RSA complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Fjz4dkU2N3g">CacheBleed: A Timing Attack on Constant-Time RSA</a>
+    <div class="meta">Yuval Yarom · IACR · 21 min</div>
+    <p>Shows that resource contention can defeat simplistic constant-time claims even without secret-dependent cache-line addresses.</p>
+    <div class="lab"><strong>After watching:</strong> Add allocation, recursion, and time budgets to a decoder harness.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Fjz4dkU2N3g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="scx-zip-bomb-video">
+  <input class="check" type="checkbox" aria-label="Mark I Came to Drop Bombs: Auditing the Compression Algorithm Weapon Cache complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=IXkX2ojrKZQ">I Came to Drop Bombs: Auditing the Compression Algorithm Weapon Cache</a>
+    <div class="meta">Cara Marie · Black Hat USA 2016 · 28 min</div>
+    <p>Audits decompression bombs across archive and stream formats and turns expansion, parser, and resource limits into concrete defensive requirements.</p>
+    <div class="lab"><strong>After watching:</strong> Build a matrix of each demonstrated bomb class, exhausted resource, and enforceable decoder budget.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=IXkX2ojrKZQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="scx-zip-bomb">
+  <input class="check" type="checkbox" aria-label="Mark A Better Zip Bomb complete">
+  <div>
+    <a class="lesson-title" href="https://www.bamsoftware.com/hacks/zipbomb/">A Better Zip Bomb</a>
+    <div class="meta">David Fifield · technical article · 2019</div>
+    <p>The implementation companion makes extreme expansion and parser composition concrete without conflating denial of service with cryptanalysis.</p>
+    <div class="lab"><strong>After reading:</strong> Enforce compressed-size, expanded-size, ratio, depth, and time limits independently.</div>
+  </div>
+  <a class="watch" href="https://www.bamsoftware.com/hacks/zipbomb/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Harden a decoder harness with input, output, memory, recursion, and time budgets; measure residual timing classes.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Length-safe composition review</h3><ol><li>Choose a compressed encrypted application and link its transport assumptions to Session/E2E.</li><li>Specify attacker control, observations, secret distribution, and adaptive queries.</li><li>Reproduce leakage only in a local synthetic harness.</li><li>Evaluate context separation, padding, rate limits, and resource bounds without claiming perfect concealment.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=CoNKarq1IYA">BREACH: SSL, gone in 30 seconds</a></h3><div class="meta">Black Hat USA · 2013 · conference talk</div><p>Watch after the paper for the operational attack narrative; use Session/E2E for protocol mechanics.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Compression leakage</h3><ul class="source-list"><li><a href="https://www.iacr.org/archive/fse2002/23650264/23650264.pdf">Kelsey, Compression and Information Leakage</a></li><li><a href="https://breachattack.com/resources/BREACH%20-%20SSL,%20gone%20in%2030%20seconds.pdf">BREACH paper</a></li></ul></article><article class="card"><h3>Crypto prerequisites and boundaries</h3><ul class="source-list"><li><a href="../crypto/session-messaging-self-assembled-mooc.html">Session/E2E guide</a></li><li><a href="https://people.seas.harvard.edu/~salil/pseudorandomness/">Vadhan, Pseudorandomness</a></li><li><a href="https://eprint.iacr.org/2012/631">Message-Locked Encryption</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/inf/index.html">← Back to INF</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

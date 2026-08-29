@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Condition on information, not on formulas.">
+  <title>PRB - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#ff83ad;--accent-ink:#ec0050;--deep:#a02850}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="prb">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/fnd/index.html" title="Back to Foundations" aria-label="Back to Foundations"><span class="arrow" aria-hidden="true">←</span>FND</a><div class="brand">PRB <b>// G2 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/fnd/index.html">FND</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/prerequisites-self-assembled-mooc.html">PRE</a><a href="ana.html">ANA</a><span class="here" aria-current="page">PRB</span><a href="alg.html">ALG</a><a href="csf.html">CSF</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/fnd/appendix.html">FNA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Probability Language · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>PRB</em> MOOC</span></h1>
+    <p class="manifesto">Condition on information, not on formulas.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>40</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 40</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Probability Spaces</a><a href="#module-1">01 · Conditional Expectation</a><a href="#module-2">02 · Martingales</a><a href="#module-3">03 · Weak Convergence</a><a href="#module-4">04 · Characteristic Functions</a><a href="#module-5">05 · Continuous-Time Extensions</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Probability explorer</h3><p>Take every core video through characteristic functions; the continuous-time module is optional and MIT 6.041 remains placement in PRE.</p><div class="meta"><span>9–12 h video</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete all core videos, the Durrett chapters behind them, and the five artifacts.</p><div class="meta"><span>18–26 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add regular conditional laws, uniform integrability, Lindeberg–Feller, Billingsley tightness, and the continuous-time module in full.</p><div class="meta"><span>32–45 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Probability Spaces</h2></div>
+  <p class="section-intro">Start from measures, random variables, independence, and laws—not from density manipulation.</p><article class="lesson" data-tags="core theory" data-id="prb-spaces-sigma">
+  <input class="check" type="checkbox" aria-label="Mark σ-Fields complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/htsROghTuiw">σ-Fields</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 27 min</div>
+    <p>Fixes the event structure as the primitive object so that every later theorem has somewhere to attach its hypotheses.</p>
+    <div class="lab"><strong>After watching:</strong> Show that the intersection of σ-fields is a σ-field and exhibit two σ-fields whose union is not one.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/htsROghTuiw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-measures">
+  <input class="check" type="checkbox" aria-label="Mark Measures: Definition and Examples complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/DW524mWM_jE">Measures: Definition and Examples</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 21 min</div>
+    <p>Separates the measure axioms from probability&#x27;s normalization so countable additivity does the work rather than intuition.</p>
+    <div class="lab"><strong>After watching:</strong> Verify countable additivity for a counting measure and for a Stieltjes measure you define yourself.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/DW524mWM_jE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-rv">
+  <input class="check" type="checkbox" aria-label="Mark Measurable Functions complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/L7a3Kn4NW_A">Measurable Functions</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 36 min</div>
+    <p>Defines random variables as measurable maps, which is the step that makes induced laws and conditioning well posed.</p>
+    <div class="lab"><strong>After watching:</strong> Prove measurability of a random variable you construct, then push its law forward onto the Borel line.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/L7a3Kn4NW_A">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-independence">
+  <input class="check" type="checkbox" aria-label="Mark Independence complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/pIepIfg4iII">Independence</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 38 min</div>
+    <p>Treats independence as a statement about generated σ-fields, which is what the π–λ extension argument actually needs.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the π–λ independence extension and give a triple of events that is pairwise but not mutually independent.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/pIepIfg4iII">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-rincon">
+  <input class="check" type="checkbox" aria-label="Mark Sigma álgebras, medidas de probabilidad e independencia complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=oJr_-CyspXM">Sigma álgebras, medidas de probabilidad e independencia</a>
+    <div class="meta">ES · Luis Rincón · UNAM Probabilidad II · serie de clases cortas</div>
+    <p>A Spanish pass over the same foundations; useful for checking whether the concepts survive a change of language and exposition.</p>
+    <div class="lab"><strong>After watching:</strong> Formalize one lecture example as (Ω,F,P), define its random variables, and prove their measurability in both languages.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=oJr_-CyspXM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-slln">
+  <input class="check" type="checkbox" aria-label="Mark Strong law of large numbers, part 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=KDIzDv0jwfE">Strong law of large numbers, part 1</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 21 min · English</div>
+    <p>Targets the strong-law material assigned in Durrett and begins the proof at the same measure-theoretic level as the written chapter.</p>
+    <div class="lab"><strong>After watching:</strong> State the integrability and independence assumptions precisely, then reconstruct the first proof reduction without appealing to simulation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=KDIzDv0jwfE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-spaces-durrett">
+  <input class="check" type="checkbox" aria-label="Mark Durrett, Probability: Theory and Examples — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett, Probability: Theory and Examples — Chapters 1–2</a>
+    <div class="meta">Rick Durrett · 5th ed. author PDF · read</div>
+    <p>The written spine behind the videos: measure foundations, independence, laws of large numbers, and theorem-level hypotheses.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one strong-law result for a stated class of variables and mark exactly where independence is used.</div>
+  </div>
+  <a class="watch" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Specify a probability model from sample space through induced laws and prove every measurability and independence claim.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Conditional Expectation</h2></div>
+  <p class="section-intro">Define conditioning as a σ-algebra-measurable projection and derive familiar formulas only afterward.</p><article class="lesson" data-tags="core theory" data-id="prb-cond-defn">
+  <input class="check" type="checkbox" aria-label="Mark Conditional Expectation (I) complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/b9_4RY_QvkE">Conditional Expectation (I)</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 27 min</div>
+    <p>Builds E[X|G] from the defining integral identity rather than from a formula, which is the definition every later theorem uses.</p>
+    <div class="lab"><strong>After watching:</strong> For a finite partition and its generated σ-algebra, derive E[X|G] and verify the defining identity on every atom.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/b9_4RY_QvkE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="prb-cond-projection">
+  <input class="check" type="checkbox" aria-label="Mark Orthogonal Projection complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/fUgkVK-Az7U">Orthogonal Projection</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 29 min</div>
+    <p>Gives the L2 geometry that makes conditioning a projection, connecting this module to the Hilbert-space work in ANA.</p>
+    <div class="lab"><strong>After watching:</strong> Compute one conditional expectation as an L2 projection and confirm it matches the Radon–Nikodym construction.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/fUgkVK-Az7U">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cond-properties">
+  <input class="check" type="checkbox" aria-label="Mark Conditional MCT, Fatou, DCT, Jensen complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/ETX6fSmcaD8">Conditional MCT, Fatou, DCT, Jensen</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 27 min</div>
+    <p>Ports the convergence theorems through the conditional operator, which is where most informal arguments quietly break.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the conditional Jensen inequality and construct a case where dropping integrability defeats it.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/ETX6fSmcaD8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cond-rincon">
+  <input class="check" type="checkbox" aria-label="Mark Esperanza condicional: definición y propiedades complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=hoCEBM2cBZk">Esperanza condicional: definición y propiedades</a>
+    <div class="meta">ES · Luis Rincón · UNAM Probabilidad II · 24 min</div>
+    <p>A Spanish theorem-level treatment reinforcing conditioning on information rather than on events or memorized densities.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the tower property from the defining identity and state it precisely in both languages.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=hoCEBM2cBZk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-cond-regular">
+  <input class="check" type="checkbox" aria-label="Mark Regular Conditional Distributions complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/FhM8EQFQ5DE">Regular Conditional Distributions</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 27 min</div>
+    <p>Covers the kernel and disintegration machinery needed before conditioning on a continuous variable is legitimate.</p>
+    <div class="lab"><strong>After watching:</strong> State conditions for a regular conditional distribution and work one example where conditioning on X=x requires it.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/FhM8EQFQ5DE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cond-radon-nikodym">
+  <input class="check" type="checkbox" aria-label="Mark Radon–Nikodym theorem and conditional expectation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=N5G5_Xg7jDs">Radon–Nikodym theorem and conditional expectation</a>
+    <div class="meta">Professor Nicolas Lanchier · The Probability Channel · 31 min · English</div>
+    <p>Directly connects the Radon–Nikodym theorem to the construction used in Durrett&#x27;s conditional-expectation chapter.</p>
+    <div class="lab"><strong>After watching:</strong> Define the signed measure induced by an integrable variable and derive the conditional expectation from its density.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=N5G5_Xg7jDs">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cond-durrett">
+  <input class="check" type="checkbox" aria-label="Mark Durrett — Chapter 4, Conditional Expectation complete">
+  <div>
+    <a class="lesson-title" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett — Chapter 4, Conditional Expectation</a>
+    <div class="meta">Rick Durrett · 5th ed. author PDF · Chapter 4 · read</div>
+    <p>The written construction from Radon–Nikodym plus the algebraic and convergence properties in proof form.</p>
+    <div class="lab"><strong>After reading:</strong> Reprove the tower property and interpret conditioning as orthogonal projection for an explicit L2 example.</div>
+  </div>
+  <a class="watch" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute one conditional expectation three ways—Radon–Nikodym, L2 projection, and simulation—and prove the versions agree.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Martingales</h2></div>
+  <p class="section-intro">Use filtrations to encode revealed information and convergence theorems to control limits and stopping.</p><article class="lesson" data-tags="core theory" data-id="prb-martingale-defn">
+  <input class="check" type="checkbox" aria-label="Mark Martingales complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/PFKEe2sQI0M">Martingales</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 21 min</div>
+    <p>Defines the martingale property against a filtration, making adaptedness and integrability explicit obligations.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a Doob martingale and prove adaptedness, integrability, and the conditional expectation identity.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/PFKEe2sQI0M">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-martingale-stopping">
+  <input class="check" type="checkbox" aria-label="Mark Stopping Times complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/HKMqlRbAau0">Stopping Times</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 15 min</div>
+    <p>Introduces stopping times as the measurable notion of &#x27;decide with information available now&#x27;.</p>
+    <div class="lab"><strong>After watching:</strong> Show a natural rule is a stopping time and a lookahead rule is not, using the filtration directly.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/HKMqlRbAau0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-martingale-optional">
+  <input class="check" type="checkbox" aria-label="Mark Optional Stopping and Sampling complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/C1QvXR1JAGo">Optional Stopping and Sampling</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 36 min</div>
+    <p>The theorem most often misapplied; the lecture isolates which hypothesis fails in each classic counterexample.</p>
+    <div class="lab"><strong>After watching:</strong> Diagnose a failed optional-stopping argument and repair it with the weakest sufficient condition you can prove.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/C1QvXR1JAGo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="prb-martingale-maximal">
+  <input class="check" type="checkbox" aria-label="Mark Submartingale Maximal Inequalities complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/oO1KU9hS4V0">Submartingale Maximal Inequalities</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 22 min</div>
+    <p>Supplies the maximal inequalities that convert pointwise control into uniform control over a whole path.</p>
+    <div class="lab"><strong>After watching:</strong> Prove one maximal inequality and use it to bound the running maximum of a concrete martingale.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/oO1KU9hS4V0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-martingale-convergence">
+  <input class="check" type="checkbox" aria-label="Mark Martingale Convergence Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/rL1lNLN6lvY">Martingale Convergence Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 28 min</div>
+    <p>Closes the module with the convergence result and the upcrossing argument that powers it.</p>
+    <div class="lab"><strong>After watching:</strong> Establish convergence of a concrete nonnegative martingale and identify its limit.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/rL1lNLN6lvY">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-martingale-ui">
+  <input class="check" type="checkbox" aria-label="Mark Uniform Integrability complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/rYTMDv_7Rsk">Uniform Integrability</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 36 min</div>
+    <p>The condition separating almost-sure convergence from L1 convergence, and the usual missing hypothesis.</p>
+    <div class="lab"><strong>After watching:</strong> Give a martingale converging almost surely but not in L1 and verify exactly which UI condition fails.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/rYTMDv_7Rsk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="prb-martingale-durrett">
+  <input class="check" type="checkbox" aria-label="Mark Durrett — Chapter 5, Martingales complete">
+  <div>
+    <a class="lesson-title" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett — Chapter 5, Martingales</a>
+    <div class="meta">Rick Durrett · 5th ed. author PDF · Chapter 5 · read</div>
+    <p>The discrete-time reference for stopping, maximal inequalities, uniform integrability, and convergence.</p>
+    <div class="lab"><strong>After reading:</strong> Work the chapter exercises on upcrossings and reconcile them with the recorded proof.</div>
+  </div>
+  <a class="watch" href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a stopped-martingale proof with a complete hypothesis audit, then simulate a nearby case where a hypothesis fails.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Weak Convergence</h2></div>
+  <p class="section-intro">Separate convergence of laws from convergence of variables and make tightness the missing compactness principle.</p><article class="lesson" data-tags="core theory" data-id="prb-weak-defn">
+  <input class="check" type="checkbox" aria-label="Mark Weak Convergence complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/7DmiaSqauzQ">Weak Convergence</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 34 min</div>
+    <p>Defines convergence of laws through test functions, which is what makes Portmanteau a theorem rather than a definition.</p>
+    <div class="lab"><strong>After watching:</strong> Prove one direction of Portmanteau and apply it to a normalized-sum example.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/7DmiaSqauzQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-weak-prokhorov">
+  <input class="check" type="checkbox" aria-label="Mark Prokhorov&#x27;s Compactness Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/maWKk5Np3Jo">Prokhorov&#x27;s Compactness Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 15 min</div>
+    <p>Supplies the compactness principle: tightness is what lets you extract a convergent subsequence of laws.</p>
+    <div class="lab"><strong>After watching:</strong> Prove tightness of a family of laws and identify a subsequential limit without invoking a density.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/maWKk5Np3Jo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-weak-skorohod">
+  <input class="check" type="checkbox" aria-label="Mark Skorohod&#x27;s Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/deH3tnm0_bI">Skorohod&#x27;s Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 24 min</div>
+    <p>Converts convergence of laws into almost-sure convergence on a common space, which is how mapping arguments are made rigorous.</p>
+    <div class="lab"><strong>After watching:</strong> Use a Skorohod representation to prove a continuous mapping result you first believed for the wrong reason.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/deH3tnm0_bI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-weak-rincon">
+  <input class="check" type="checkbox" aria-label="Mark Convergencia en distribución y relaciones entre los tipos de convergencia complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=bTMnnrw0v2Y">Convergencia en distribución y relaciones entre los tipos de convergencia</a>
+    <div class="meta">ES · Luis Rincón · UNAM Probabilidad II · 16 min</div>
+    <p>A Spanish treatment that lays the convergence modes side by side and proves the implications between them.</p>
+    <div class="lab"><strong>After watching:</strong> Draw the implication diagram among the convergence modes and give a counterexample for each non-implication.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=bTMnnrw0v2Y">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-weak-tv">
+  <input class="check" type="checkbox" aria-label="Mark Total Variation complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/2Lpg7AITvnU">Total Variation</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 26 min</div>
+    <p>Contrasts a strong metric on laws with weak convergence, clarifying which limit theorems need which topology.</p>
+    <div class="lab"><strong>After watching:</strong> Exhibit laws converging weakly but not in total variation and explain the mechanism.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/2Lpg7AITvnU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-weak-billingsley">
+  <input class="check" type="checkbox" aria-label="Mark Billingsley, Convergence of Probability Measures — Chapters 1–2 and 5 complete">
+  <div>
+    <a class="lesson-title" href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316962">Billingsley, Convergence of Probability Measures — Chapters 1–2 and 5</a>
+    <div class="meta">Patrick Billingsley · Wiley · 2nd ed. · read</div>
+    <p>Makes mapping theorems, Prokhorov-style tightness, and weak convergence in general metric spaces precise.</p>
+    <div class="lab"><strong>After reading:</strong> Extend one tightness argument from the real line to a path space and note the new obligations.</div>
+  </div>
+  <a class="watch" href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316962">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Prove a weak-convergence result using tightness and convergence-determining functions, then test it empirically without treating plots as proof.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Characteristic Functions</h2></div>
+  <p class="section-intro">Turn probability laws into Fourier transforms and use continuity and inversion to prove limit theorems.</p><article class="lesson" data-tags="core theory build" data-id="prb-cf-defn">
+  <input class="check" type="checkbox" aria-label="Mark Characteristic Function complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/fzSyVI-dM6g">Characteristic Function</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 27 min</div>
+    <p>Sets up the transform and its basic properties as the bridge between probability and Fourier analysis.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the characteristic function of three law families and verify each against a numerical integral.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/fzSyVI-dM6g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="prb-cf-inversion">
+  <input class="check" type="checkbox" aria-label="Mark Fourier Inversion complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/acbyyM7d6vI">Fourier Inversion</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 23 min</div>
+    <p>Proves uniqueness and recovers the law from the transform, with the analytic conditions stated explicitly.</p>
+    <div class="lab"><strong>After watching:</strong> Numerically invert a characteristic function and run an explicit truncation-error study.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/acbyyM7d6vI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cf-continuity">
+  <input class="check" type="checkbox" aria-label="Mark The Continuity Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/AvVjMWxo4Wo">The Continuity Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 18 min</div>
+    <p>Lévy&#x27;s continuity theorem is the engine converting pointwise transform limits into weak convergence.</p>
+    <div class="lab"><strong>After watching:</strong> State the continuity theorem with all hypotheses and show why continuity at zero cannot be dropped.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/AvVjMWxo4Wo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-cf-clt">
+  <input class="check" type="checkbox" aria-label="Mark The Central Limit Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/Fwh5tBcaOa8">The Central Limit Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 21 min</div>
+    <p>Assembles the transform machinery into the CLT proof, making visible which step each earlier lemma supports.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the characteristic function of a normalized sum and prove its pointwise limit with a controlled remainder.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/Fwh5tBcaOa8">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-cf-rincon">
+  <input class="check" type="checkbox" aria-label="Mark Función característica: fórmula de inversión complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=hvSuEZuhQRw">Función característica: fórmula de inversión</a>
+    <div class="meta">ES · Luis Rincón · UNAM Probabilidad II · 20 min</div>
+    <p>A Spanish derivation of the inversion formula worked in full detail.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the inversion computation by hand and identify every interchange of limit and integral.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=hvSuEZuhQRw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-cf-lindeberg">
+  <input class="check" type="checkbox" aria-label="Mark Lindberg-Feller CLT complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/CwqQLYr0nIE">Lindberg-Feller CLT</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 14 min</div>
+    <p>Generalizes the CLT to triangular arrays, which is the version applied by later process limit theorems.</p>
+    <div class="lab"><strong>After watching:</strong> Check the Lindeberg condition for a triangular array where the classical CLT does not apply.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/CwqQLYr0nIE">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a characteristic-function notebook that checks inversion and convergence for three law families and explains all analytic justifications.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Continuous-Time Extensions</h2></div>
+  <p class="section-intro">Extend filtrations, stopping, and martingale convergence to continuous time without duplicating the STO process course.</p><article class="lesson" data-tags="core theory" data-id="prb-ct-processes">
+  <input class="check" type="checkbox" aria-label="Mark Stochastic Processes complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/WZ5kC5pNT1o">Stochastic Processes</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 21 min</div>
+    <p>Moves from single variables to indexed families and to the path-space viewpoint continuous time requires.</p>
+    <div class="lab"><strong>After watching:</strong> Write down a process, its natural filtration, and the σ-field on path space it induces.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/WZ5kC5pNT1o">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-ct-progressive">
+  <input class="check" type="checkbox" aria-label="Mark Progressively Measurable Processes complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/ak6-qLJ2hNY">Progressively Measurable Processes</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 15 min</div>
+    <p>Progressive measurability is the continuous-time repair for adaptedness; without it stopped processes need not be measurable.</p>
+    <div class="lab"><strong>After watching:</strong> Show an adapted process that is not progressively measurable and explain what breaks when it is stopped.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/ak6-qLJ2hNY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="prb-ct-stopping">
+  <input class="check" type="checkbox" aria-label="Mark Stopping and Optional times complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/OvdPkWtX9bI">Stopping and Optional times</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 32 min</div>
+    <p>Distinguishes stopping from optional times and shows where right-continuity of the filtration is used.</p>
+    <div class="lab"><strong>After watching:</strong> Prove that a named process is a martingale for its augmented filtration and justify each augmentation.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/OvdPkWtX9bI">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-ct-continuity">
+  <input class="check" type="checkbox" aria-label="Mark Kolmogorov Continuity Criteria complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/GDcWKf6wjVU">Kolmogorov Continuity Criteria</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 24 min</div>
+    <p>Gives the moment condition producing a continuous modification, the theorem that makes path regularity available.</p>
+    <div class="lab"><strong>After watching:</strong> Apply the criterion to obtain a continuous version of a process and state the exponents you used.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/GDcWKf6wjVU">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-ct-strongmarkov">
+  <input class="check" type="checkbox" aria-label="Mark Strong Markov Property (I) complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/wGEWbcoCtmU">Strong Markov Property (I)</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · measure-theoretic probability · 18 min</div>
+    <p>Extends the Markov property to stopping times, which is the form every hitting-time computation relies on.</p>
+    <div class="lab"><strong>After watching:</strong> Work one hitting-time computation and mark the exact step where the strong Markov property is invoked.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/wGEWbcoCtmU">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-ct-local-martingales">
+  <input class="check" type="checkbox" aria-label="Mark Local martingales complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=F915MIREmu0">Local martingales</a>
+    <div class="meta">Mathe Mannheim · C2.3.1 · 56 min · English</div>
+    <p>Focuses on the localization concept assigned with Revuz–Yor and distinguishes local martingales from true martingales.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a localization sequence, prove the stopped processes are martingales, and identify why the original process need not be one.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=F915MIREmu0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="prb-ct-revuz-yor">
+  <input class="check" type="checkbox" aria-label="Mark Revuz–Yor, Continuous Martingales and Brownian Motion — Chapters I–II complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-662-06400-9">Revuz–Yor, Continuous Martingales and Brownian Motion — Chapters I–II</a>
+    <div class="meta">Daniel Revuz &amp; Marc Yor · Springer · 3rd ed. · read</div>
+    <p>A deep optional entry into continuous martingales, stopping, and path regularity before Brownian calculus.</p>
+    <div class="lab"><strong>After reading:</strong> Work one localization proof and explain why a local martingale need not be a martingale.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-662-06400-9">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Audit a continuous-time martingale statement for filtration regularity, path regularity, localization, and integrability.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Conditioning and information dossier</h3><ol><li>Specify a filtration generated by sequential observations.</li><li>Construct the associated Doob martingale and prove convergence under explicit assumptions.</li><li>Compare exact conditional expectations with Monte Carlo estimates and report uncertainty.</li></ol></article><article class="card"><h3>Weak-limit defense</h3><ol><li>Choose a nontrivial sequence of probability laws.</li><li>Prove tightness and identify every subsequential limit.</li><li>Use characteristic functions or a mapping theorem to establish uniqueness, then present a ten-minute proof talk.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLc_ATubXG-STZcgeyYs0TlPh7YU6I9X48">Luis Rincón — UNAM probability course archive</a></h3><div class="meta">ES · UNAM · 63 lectures</div><p>A complete Spanish-language probability course to run alongside or instead of the English spine.</p></article><article class="card conference-card"><h3><a href="https://mathweb.ucsd.edu/~tkemp/ProbabilityTube/">UCSD Math 280 full lecture archive</a></h3><div class="meta">Todd Kemp · 135 videos · 57 hours</div><p>The full year, with slides before and after each lecture, when you want more than the selected spine.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video spine</h3><ul class="source-list"><li><a href="https://mathweb.ucsd.edu/~tkemp/ProbabilityTube/">Todd Kemp, UCSD Math 280 — 135 lecture videos</a></li><li><a href="https://www.youtube.com/playlist?list=PLc_ATubXG-STZcgeyYs0TlPh7YU6I9X48">Luis Rincón, UNAM Probabilidad II (ES)</a></li></ul></article><article class="card"><h3>Written spine</h3><ul class="source-list"><li><a href="https://sites.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett, Probability: Theory and Examples — Chapters 1–5</a></li><li><a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316962">Billingsley, Convergence of Probability Measures — Chapters 1–2, 5</a></li><li><a href="https://link.springer.com/book/10.1007/978-3-662-06400-9">Revuz–Yor — Chapters I–II</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/fnd/index.html">← Back to FND</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

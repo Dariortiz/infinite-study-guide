@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Follow the orbit. Explain the change.">
+  <title>DYN - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#ff866f;--accent-ink:#e82500;--deep:#973826}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="dyn">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/mot/index.html" title="Back to Motion" aria-label="Back to Motion"><span class="arrow" aria-hidden="true">←</span>MOT</a><div class="brand">DYN <b>// G5 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/mot/index.html">MOT</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">DYN</span><a href="sto.html">STO</a><a href="spz.html">SPZ</a><a href="dsz.html">DSZ</a><a href="sim.html">SIM</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/mot/appendix.html">MTA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Dynamical Systems Spine · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>DYN</em> MOOC</span></h1>
+    <p class="manifesto">Follow the orbit. Explain the change.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>26</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 26</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · ODE Foundations</a><a href="#module-1">01 · Linear Systems</a><a href="#module-2">02 · Nonlinear Systems</a><a href="#module-3">03 · Lyapunov Theory</a><a href="#module-4">04 · Bifurcation</a><a href="#module-5">05 · Hyperbolicity</a><a href="#module-6">06 · Ergodic Dynamics</a><a href="#module-7">07 · PDE &amp; Delay</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Dynamics explorer</h3><p>Take both core units in ODE, linear, nonlinear, Lyapunov, bifurcation, and ergodic dynamics.</p><div class="meta"><span>18–24 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Phase-portrait builder</h3><p>Complete every core unit and artifact, including continuation, manifolds, and PDE or delay simulation.</p><div class="meta"><span>30–40 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Proof deep dive</h3><p>Add full selected chapters, prove stable-manifold and ergodic results, and audit every numerical claim.</p><div class="meta"><span>45–60 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>ODE Foundations</h2></div>
+  <p class="section-intro">Turn vector fields into local flows and keep existence, uniqueness, continuation, and dependence hypotheses explicit.</p><article class="lesson" data-tags="core theory" data-id="dyn-ode-existence">
+  <input class="check" type="checkbox" aria-label="Mark Existence and Uniqueness complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=xTi_DCBjGeg">Existence and Uniqueness</a>
+    <div class="meta">Jason Bramburger · Dynamical Systems course · 14 min</div>
+    <p>Starts the spine with the theorem that turns a vector field into a locally well-defined evolution.</p>
+    <div class="lab"><strong>After watching:</strong> Check the theorem&#x27;s hypotheses for three vector fields and exhibit one IVP where uniqueness fails.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=xTi_DCBjGeg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-ode-strogatz">
+  <input class="check" type="checkbox" aria-label="Mark One-Dimensional Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YNIm2Op7UPg">One-Dimensional Systems</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 77 min</div>
+    <p>Develops flows, equilibria, stability, and phase lines where the geometry is fully visible.</p>
+    <div class="lab"><strong>After watching:</strong> Draw phase lines for a parameterized scalar ODE and verify the predicted basins by integration.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YNIm2Op7UPg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-ode-mit">
+  <input class="check" type="checkbox" aria-label="Mark MIT 18.03SC — First-Order Systems notes complete">
+  <div>
+    <a class="lesson-title" href="https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/pages/unit-iv-first-order-systems/">MIT 18.03SC — First-Order Systems notes</a>
+    <div class="meta">MIT OpenCourseWare · 18.03SC Unit IV · read</div>
+    <p>The written companion consolidates autonomous systems, matrix flows, and phase portraits with worked problems.</p>
+    <div class="lab"><strong>After reading:</strong> Write a complete flow proof for one system, then compare exact and numerical trajectories.</div>
+  </div>
+  <a class="watch" href="https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/pages/unit-iv-first-order-systems/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a proof-and-computation dossier for one nonlinear IVP, including its maximal interval and a numerical convergence check.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Linear Systems</h2></div>
+  <p class="section-intro">Read stability and geometry from spectra, invariant subspaces, and matrix exponentials.</p><article class="lesson" data-tags="core theory build" data-id="dyn-linear-strogatz">
+  <input class="check" type="checkbox" aria-label="Mark Two-Dimensional Linear Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=QrHRaA93Nrg">Two-Dimensional Linear Systems</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 75 min</div>
+    <p>Connects eigenstructure directly to the geometry and stability of planar flows.</p>
+    <div class="lab"><strong>After watching:</strong> Classify six matrices and reproduce each phase portrait from its eigendata.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=QrHRaA93Nrg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-linear-bramburger">
+  <input class="check" type="checkbox" aria-label="Mark Linear Planar Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=b8eJb5uwNZI">Linear Planar Systems</a>
+    <div class="meta">Jason Bramburger · Dynamical Systems course · 45 min</div>
+    <p>Handles nodes, saddles, spirals, centers, and exceptional cases systematically.</p>
+    <div class="lab"><strong>After watching:</strong> Compute e^{tA} for a defective matrix and verify its generalized-eigenvector term numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=b8eJb5uwNZI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-linear-wiggins-subspaces">
+  <input class="check" type="checkbox" aria-label="Mark Stable, Unstable, and Center Subspaces Explained: Examples Included (Wiggins Ch. 3) complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=gN_yOgWReEo">Stable, Unstable, and Center Subspaces Explained: Examples Included (Wiggins Ch. 3)</a>
+    <div class="meta">Shane Ross · Virginia Tech ESM/AOE 6314 · 74 min</div>
+    <p>Develops the invariant-subspace decomposition used in Hirsch–Smale–Devaney&#x27;s flow and manifold arguments, with explicit linear examples.</p>
+    <div class="lab"><strong>After watching:</strong> Decompose three matrices into stable, unstable, and center subspaces and verify invariance under e^{tA}.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=gN_yOgWReEo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-linear-hsd">
+  <input class="check" type="checkbox" aria-label="Mark Hirsch–Smale–Devaney — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1016/C2009-0-61160-0">Hirsch–Smale–Devaney — Chapters 1–3</a>
+    <div class="meta">Hirsch, Smale &amp; Devaney · Academic Press · 3rd ed. · Chapters 1–3 · read</div>
+    <p>Places linear systems inside the language of flows and prepares stable/unstable manifold arguments.</p>
+    <div class="lab"><strong>After reading:</strong> Classify six 2×2 matrices and prove the claimed stability directly from e^{tA}.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1016/C2009-0-61160-0">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Classify and visualize every real two-dimensional linear flow, including defective and complex-spectrum cases.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Nonlinear Systems</h2></div>
+  <p class="section-intro">Use nullclines, invariant regions, linearization, and planar topology without mistaking pictures for proofs.</p><article class="lesson" data-tags="core theory build" data-id="dyn-nonlinear-strogatz">
+  <input class="check" type="checkbox" aria-label="Mark Two-Dimensional Nonlinear Systems and Fixed Points complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9yh9DmNqdk4">Two-Dimensional Nonlinear Systems and Fixed Points</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 67 min</div>
+    <p>Moves from linear classification to nullclines, linearization, and nonlinear fixed-point geometry.</p>
+    <div class="lab"><strong>After watching:</strong> Analyze a predator–prey or competition model and compare a hand phase portrait with integrated trajectories.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9yh9DmNqdk4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-nonlinear-cycles">
+  <input class="check" type="checkbox" aria-label="Mark Index Theory and Introduction to Limit Cycles complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=O2fcpxLT5wk">Index Theory and Introduction to Limit Cycles</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 74 min</div>
+    <p>Adds the index constraints that keep a plausible phase portrait from becoming a proof by picture.</p>
+    <div class="lab"><strong>After watching:</strong> Use index theory to rule in or out a proposed periodic orbit around a collection of equilibria.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=O2fcpxLT5wk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-nonlinear-perko">
+  <input class="check" type="checkbox" aria-label="Mark Perko — Chapters 2–3: local and planar nonlinear systems complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4613-0003-8">Perko — Chapters 2–3: local and planar nonlinear systems</a>
+    <div class="meta">Lawrence Perko · Springer · 3rd ed. · Chapters 2–3 · read</div>
+    <p>Adds linearization, invariant manifolds, Poincaré–Bendixson theory, and rigorous planar classification.</p>
+    <div class="lab"><strong>After reading:</strong> Prove an invariant region and use Poincaré–Bendixson to constrain its omega-limit sets.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4613-0003-8">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a defensible phase portrait for a nonlinear planar model with nullclines, invariant sets, and numerical orbits.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Lyapunov Theory</h2></div>
+  <p class="section-intro">Prove stability and asymptotic behavior with scalar functions, invariance principles, and comparison arguments.</p><article class="lesson" data-tags="core theory build" data-id="dyn-lyapunov-wiggins">
+  <input class="check" type="checkbox" aria-label="Mark Lyapunov&#x27;s Method complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=tVFfEaPsA4M">Lyapunov&#x27;s Method</a>
+    <div class="meta">Stephen Wiggins · Ordinary Differential Equations course · 8 min</div>
+    <p>Gives a theorem-first introduction to certifying stability with a decreasing scalar function.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a quadratic candidate for a nonlinear equilibrium and prove each sign condition.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=tVFfEaPsA4M">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-lyapunov-lasalle">
+  <input class="check" type="checkbox" aria-label="Mark The LaSalle Invariance Principle complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=XDBwAfbavxU">The LaSalle Invariance Principle</a>
+    <div class="meta">Stephen Wiggins · Ordinary Differential Equations course · 11 min</div>
+    <p>Extends strict Lyapunov decrease to semidefinite decay by identifying the largest invariant subset.</p>
+    <div class="lab"><strong>After watching:</strong> Apply LaSalle to a damped mechanical system and compute the invariant set inside V-dot = 0.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=XDBwAfbavxU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-lyapunov-khalil">
+  <input class="check" type="checkbox" aria-label="Mark Khalil, Nonlinear Systems — Chapters 4–5 complete">
+  <div>
+    <a class="lesson-title" href="https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003506">Khalil, Nonlinear Systems — Chapters 4–5</a>
+    <div class="meta">Hassan Khalil · Pearson · 3rd ed. · Chapters 4–5 · read</div>
+    <p>Gives direct and converse Lyapunov theorems, LaSalle invariance, and practical construction methods.</p>
+    <div class="lab"><strong>After reading:</strong> Verify all hypotheses of LaSalle&#x27;s principle for a damped mechanical system.</div>
+  </div>
+  <a class="watch" href="https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003506">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Design and verify a Lyapunov function for one nonlinear system, then map its certified basin numerically.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Bifurcation</h2></div>
+  <p class="section-intro">Explain qualitative change through normal forms, center manifolds, and parameter-dependent invariant sets.</p><article class="lesson" data-tags="core theory build" data-id="dyn-bifurcation-strogatz">
+  <input class="check" type="checkbox" aria-label="Mark Bifurcations in Two-Dimensional Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=oqKAVqe71vw">Bifurcations in Two-Dimensional Systems</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 47 min</div>
+    <p>Develops planar local bifurcations from concrete vector fields and parameter-dependent equilibria.</p>
+    <div class="lab"><strong>After watching:</strong> Continue equilibria in one parameter and annotate stability changes and normal-form predictions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=oqKAVqe71vw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-bifurcation-hopf">
+  <input class="check" type="checkbox" aria-label="Mark Hopf Bifurcations in Aeroelastic and Chemical Oscillators complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=qV0tCroLOHk">Hopf Bifurcations in Aeroelastic and Chemical Oscillators</a>
+    <div class="meta">Steven Strogatz · Cornell MAE 5790 · 68 min</div>
+    <p>Makes Hopf bifurcation concrete in two physical models while retaining the eigenvalue-crossing mechanism.</p>
+    <div class="lab"><strong>After watching:</strong> Locate a Hopf point, derive its leading amplitude equation, and compare the predicted cycle with simulation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=qV0tCroLOHk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-bifurcation-center-manifold">
+  <input class="check" type="checkbox" aria-label="Mark Bifurcation Theory: All Types Explained — Saddle-Node, Hopf &amp; More | Center Manifold L10 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=X4oRAZClpzg">Bifurcation Theory: All Types Explained — Saddle-Node, Hopf &amp; More | Center Manifold L10</a>
+    <div class="meta">Shane Ross · Virginia Tech ESM/AOE 6314 · 77 min</div>
+    <p>Uses center-manifold reduction and normal forms to classify the local bifurcations treated abstractly in Guckenheimer–Holmes.</p>
+    <div class="lab"><strong>After watching:</strong> Reduce one nonhyperbolic system to its center manifold, identify the normal form, and compare its prediction with numerical continuation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=X4oRAZClpzg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-bifurcation-gh">
+  <input class="check" type="checkbox" aria-label="Mark Guckenheimer–Holmes — Chapters 3–4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4612-1140-2">Guckenheimer–Holmes — Chapters 3–4</a>
+    <div class="meta">John Guckenheimer &amp; Philip Holmes · Springer · Chapters 3–4 · read</div>
+    <p>Adds center manifolds, normal forms, Hopf theory, and global bifurcation examples.</p>
+    <div class="lab"><strong>After reading:</strong> Reduce a two-dimensional system at a nonhyperbolic equilibrium and compute its leading normal form.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4612-1140-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a bifurcation diagram whose numerical branches are matched to a normal-form derivation.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Hyperbolicity</h2></div>
+  <p class="section-intro">Use invariant splittings and stable manifolds to identify robust dynamics and the limits of linearization.</p><article class="lesson" data-tags="core theory build" data-id="dyn-hyperbolic-fixed">
+  <input class="check" type="checkbox" aria-label="Mark Hyperbolic Fixed Points complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=P5zQ1uUysGA">Hyperbolic Fixed Points</a>
+    <div class="meta">Jason Bramburger · Dynamical Systems course · 33 min</div>
+    <p>Introduces hyperbolicity through spectral separation and explains why nonhyperbolic points need different tools.</p>
+    <div class="lab"><strong>After watching:</strong> Classify fixed points of three maps and verify contraction and expansion numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=P5zQ1uUysGA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-hyperbolic-manifolds">
+  <input class="check" type="checkbox" aria-label="Mark Stable and Unstable Manifolds complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ahFVZJwRdwM">Stable and Unstable Manifolds</a>
+    <div class="meta">Jason Bramburger · Chaos Theory course · 21 min</div>
+    <p>Turns the stable-manifold theorem into computable invariant curves near a saddle.</p>
+    <div class="lab"><strong>After watching:</strong> Approximate both manifolds of a saddle map and test local invariance under forward and backward iteration.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ahFVZJwRdwM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-hyperbolic-katok">
+  <input class="check" type="checkbox" aria-label="Mark Katok–Hasselblatt — Chapters 6 and 17–18 complete">
+  <div>
+    <a class="lesson-title" href="https://www.cambridge.org/core/books/introduction-to-the-modern-theory-of-dynamical-systems/2D6CF65297378C2704A4A56D0F77B503">Katok–Hasselblatt — Chapters 6 and 17–18</a>
+    <div class="meta">Anatole Katok &amp; Boris Hasselblatt · Cambridge University Press · read</div>
+    <p>The written companion supplies theorem-level invariant splittings, hyperbolic sets, and structural stability.</p>
+    <div class="lab"><strong>After reading:</strong> Check cone invariance for a toral automorphism and derive exponential contraction bounds.</div>
+  </div>
+  <a class="watch" href="https://www.cambridge.org/core/books/introduction-to-the-modern-theory-of-dynamical-systems/2D6CF65297378C2704A4A56D0F77B503">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute stable and unstable manifolds for a saddle map and document a transverse homoclinic intersection.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Ergodic Dynamics</h2></div>
+  <p class="section-intro">Relate invariant measures and time averages without importing homogeneous dynamics, which belongs in G11.</p><article class="lesson" data-tags="core theory build" data-id="dyn-ergodic-basics">
+  <input class="check" type="checkbox" aria-label="Mark Basics of Ergodic Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=LX-CyxMrrHs">Basics of Ergodic Theory</a>
+    <div class="meta">Jason Bramburger · Dynamical Systems course · 38 min</div>
+    <p>Introduces invariant measures and ergodicity specifically as properties of iterated dynamical systems.</p>
+    <div class="lab"><strong>After watching:</strong> Test invariant densities for two maps and compare long orbit averages from several initial points.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=LX-CyxMrrHs">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-ergodic-theorems">
+  <input class="check" type="checkbox" aria-label="Mark Intuitive Proofs of Ergodic Theorems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kou4YeKJIEI">Intuitive Proofs of Ergodic Theorems</a>
+    <div class="meta">Microsoft Research · probability seminar · 66 min</div>
+    <p>Explains the mechanism behind time-average convergence rather than presenting Birkhoff&#x27;s theorem as a black box.</p>
+    <div class="lab"><strong>After watching:</strong> Write a rigorous proof outline for one theorem in the talk and identify every integrability assumption.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kou4YeKJIEI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="dyn-ergodic-brin-stuck">
+  <input class="check" type="checkbox" aria-label="Mark Brin–Stuck, Introduction to Dynamical Systems — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511755316">Brin–Stuck, Introduction to Dynamical Systems — Chapters 1–2</a>
+    <div class="meta">Michael Brin &amp; Garrett Stuck · Cambridge University Press · Chapters 1–2 · read</div>
+    <p>Connects topological and measurable viewpoints while staying on the general dynamics spine.</p>
+    <div class="lab"><strong>After reading:</strong> Construct an invariant measure example and distinguish transitivity, minimality, mixing, and ergodicity.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511755316">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Estimate time and space averages for two maps and explain agreement or failure using ergodic hypotheses.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>PDE &amp; Delay</h2></div>
+  <p class="section-intro">Meet infinite-dimensional state spaces through semigroup PDE evolution and retarded functional equations.</p><article class="lesson" data-tags="core theory build" data-id="dyn-pde-reaction">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to Reaction–Diffusion Systems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Fl4VYzRGBOI">Introduction to Reaction–Diffusion Systems</a>
+    <div class="meta">E. Carlon · Eindhoven University of Technology lecture · 54 min</div>
+    <p>Shows how diffusion and nonlinear reaction generate an evolution on a function space and pattern-forming instabilities.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate a two-species reaction–diffusion model and separate temporal from diffusion-driven instability.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Fl4VYzRGBOI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-delay-icts">
+  <input class="check" type="checkbox" aria-label="Mark Delay Dynamical Systems — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=pmuatY851Fo">Delay Dynamical Systems — Lecture 1</a>
+    <div class="meta">Debabrata Biswas · ICTS lecture series · 78 min</div>
+    <p>Introduces delay equations as dynamical systems whose state is a history segment rather than a point.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the characteristic equation of a scalar delay model and locate its first stability crossing.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=pmuatY851Fo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="dyn-delay-hale">
+  <input class="check" type="checkbox" aria-label="Mark Hale–Verduyn Lunel, Introduction to Functional Differential Equations — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4612-4342-7">Hale–Verduyn Lunel, Introduction to Functional Differential Equations — Chapters 1–3</a>
+    <div class="meta">Jack Hale &amp; Sjoerd Verduyn Lunel · Springer · Chapters 1–3 · read</div>
+    <p>Introduces phase spaces, solution operators, and stability for delay equations.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the characteristic equation of a scalar delay model and locate its first stability crossing.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4612-4342-7">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate one reaction–diffusion or delay equation and pair every observed stability claim with an analytic criterion.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Model-to-invariant dossier</h3><ol><li>Choose a nonlinear model and state its phase space and flow hypotheses.</li><li>Classify equilibria and invariant sets analytically.</li><li>Track one bifurcation or global transition numerically.</li><li>Deliver reproducible code and a proof map separating evidence from theorem.</li></ol></article><article class="card"><h3>Robust dynamics study</h3><ol><li>Choose a hyperbolic map or flow.</li><li>Compute invariant directions and stable/unstable manifolds.</li><li>Perturb the model and test the predicted persistence.</li><li>Give a ten-minute defense of every robustness claim.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.birs.ca/videos/">Dynamics and Differential Equations archive</a></h3><div class="meta">BIRS · public workshop recordings</div><p>Research-level talks to sample only after completing the relevant spine module.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video spine</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">Strogatz, Nonlinear Dynamics and Chaos — 25 lectures</a></li><li><a href="https://www.youtube.com/playlist?list=PLLq_gUfXAnkmC-VWIJ_HW8cdOZLEtHfXJ">Luzzatto, Dynamical Systems — 20 lectures</a></li><li><a href="https://www.youtube.com/playlist?list=PLLq_gUfXAnknPu2yX0RR_nlHzohmko_t9">Luzzatto, Ergodic Theory — 10 lectures</a></li></ul></article><article class="card"><h3>Written companions</h3><ul class="source-list"><li><a href="https://doi.org/10.1007/978-1-4613-0003-8">Perko — Chapters 2–3</a></li><li><a href="https://doi.org/10.1016/C2009-0-61160-0">Hirsch–Smale–Devaney — Chapters 1–3</a></li><li><a href="https://doi.org/10.1007/978-1-4612-1140-2">Guckenheimer–Holmes — Chapters 3–4</a></li><li><a href="https://www.cambridge.org/core/books/introduction-to-the-modern-theory-of-dynamical-systems/2D6CF65297378C2704A4A56D0F77B503">Katok–Hasselblatt — Chapters 6, 17–18</a></li><li><a href="https://doi.org/10.1017/CBO9780511755316">Brin–Stuck — Chapters 1–2</a></li><li><a href="https://doi.org/10.1007/978-1-4612-4342-7">Hale–Verduyn Lunel — Chapters 1–3</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/mot/index.html">← Back to MOT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

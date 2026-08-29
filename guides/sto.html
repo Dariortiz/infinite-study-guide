@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A process is a law, a filtration, and a generator.">
+  <title>STO - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#58d3ff;--accent-ink:#0080ad;--deep:#1d5e75}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="sto">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/mot/index.html" title="Back to Motion" aria-label="Back to Motion"><span class="arrow" aria-hidden="true">←</span>MOT</a><div class="brand">STO <b>// G6 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/mot/index.html">MOT</a><span class="divider" aria-hidden="true">|</span><a href="dyn.html">DYN</a><span class="here" aria-current="page">STO</span><a href="spz.html">SPZ</a><a href="dsz.html">DSZ</a><a href="sim.html">SIM</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/mot/appendix.html">MTA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Stochastic Processes Spine · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>STO</em> MOOC</span></h1>
+    <p class="manifesto">A process is a law, a filtration, and a generator.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>40</b><span>study units</span></div>
+  <div class="metric"><b>11.1 h</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 40</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Markov Chains</a><a href="#module-1">01 · Martingales</a><a href="#module-2">02 · Poisson &amp; CTMC</a><a href="#module-3">03 · Generators &amp; Semigroups</a><a href="#module-4">04 · Renewal Theory</a><a href="#module-5">05 · Brownian Motion</a><a href="#module-6">06 · Itô &amp; SDE</a><a href="#module-7">07 · Weak Process Limits</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Process explorer</h3><p>Take every core unit in Markov chains, martingales, Poisson/CTMC, renewal, Brownian motion, and Itô/SDE; read only the named core sections.</p><div class="meta"><span>11–13 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete every core unit and every module artifact, including both CTMC simulators, renewal experiments, Brownian checks, and the SDE convergence lab.</p><div class="meta"><span>18–24 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add all optional units, full generator domains, Karatzas–Shreve depth, and Skorokhod topology; defend a process-limit proof end to end.</p><div class="meta"><span>30–40 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Markov Chains</h2></div>
+  <p class="section-intro">Classify states, compute invariant laws, and connect long-run behavior to coupling and spectral structure.</p><article class="lesson" data-tags="core theory build" data-id="sto-markov-gallager-7">
+  <input class="check" type="checkbox" aria-label="Mark Finite-state Markov Chains; the Matrix Approach complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=0aqgeLTNfQ0">Finite-state Markov Chains; the Matrix Approach</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 7 · 56 min</div>
+    <p>Starts from transition matrices but keeps recurrence and steady state tied to sample paths.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a three-state chain; compute Pⁿ, classify its states, and compare the predicted law with 10,000 simulated paths.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=0aqgeLTNfQ0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-markov-gallager-8">
+  <input class="check" type="checkbox" aria-label="Mark Markov Eigenvalues and Eigenvectors complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GCFd0VVnWTw">Markov Eigenvalues and Eigenvectors</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 8 · 84 min</div>
+    <p>Explains why the spectral gap, not the stationary vector alone, is what governs the rate of convergence.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the second-largest eigenvalue modulus of your chain and compare its predicted decay with the measured mixing curve.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GCFd0VVnWTw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-markov-norris">
+  <input class="check" type="checkbox" aria-label="Mark Norris, Markov Chains — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511810633">Norris, Markov Chains — Chapters 1–3</a>
+    <div class="meta">J. R. Norris · Cambridge University Press · 1997 · read</div>
+    <p>Supplies the countable-state recurrence, hitting-time, invariant-measure, and convergence proofs behind the computational lectures.</p>
+    <div class="lab"><strong>After reading:</strong> Prove the first-step equations for a hitting probability and expected hitting time, then solve both for your notebook chain.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511810633">Read</a>
+</article><article class="lesson" data-tags="optional build" data-id="sto-markov-es">
+  <input class="check" type="checkbox" aria-label="Mark Cadenas de Markov — estado estacionario y transición a n pasos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=MtNQGat1heg">Cadenas de Markov — estado estacionario y transición a n pasos</a>
+    <div class="meta">ES · Pablo Huijse · Universidad Austral de Chile, INFO274 · 10 min</div>
+    <p>A Spanish-language computational pass over powers of P and stationary behavior, paired with the course&#x27;s open notebooks.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce one example in Python and explain, in either language, why stationarity is not the same as convergence.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=MtNQGat1heg">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a finite-chain notebook that finds communicating classes, stationary laws, periods, and empirical mixing curves.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Martingales</h2></div>
+  <p class="section-intro">Treat conditional expectation as information and stopping as a theorem with hypotheses, not a betting slogan.</p><article class="lesson" data-tags="core theory build" data-id="sto-martingale-gallager-23">
+  <input class="check" type="checkbox" aria-label="Mark Martingales: Plain, Sub, and Super complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GwVjWQykCDw">Martingales: Plain, Sub, and Super</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 23 · 83 min</div>
+    <p>Develops martingales from random walks and sequential decisions before using stopping arguments.</p>
+    <div class="lab"><strong>After watching:</strong> Construct the Doob martingale of a revealed sum and verify the conditional-expectation identity numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GwVjWQykCDw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-martingale-gallager-24">
+  <input class="check" type="checkbox" aria-label="Mark Martingales: Stopping and Converging complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TOvSJkC1nRI">Martingales: Stopping and Converging</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 24 · 81 min</div>
+    <p>Separates valid stopping arguments from the seductive but false unrestricted version.</p>
+    <div class="lab"><strong>After watching:</strong> Choose a bounded stopping time, prove optional stopping for it, and compare the theorem with a doubling-strategy counterexample.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TOvSJkC1nRI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-martingale-oxford-convergence">
+  <input class="check" type="checkbox" aria-label="Mark Probability Measure Martingales: Vitali’s convergence theorem, martingale inequalities: Yr 3 Lecture complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=MMZNmI6xp3s">Probability Measure Martingales: Vitali’s convergence theorem, martingale inequalities: Yr 3 Lecture</a>
+    <div class="meta">Oxford Mathematics · 54 min</div>
+    <p>Develops martingale inequalities and convergence at the same measure-theoretic level as Durrett&#x27;s chapter, including the uniform-integrability mechanism behind L¹ convergence.</p>
+    <div class="lab"><strong>After watching:</strong> Extract the lecture&#x27;s convergence hypotheses, then test them on one nonnegative martingale and one almost-surely convergent counterexample.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=MMZNmI6xp3s">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-martingale-durrett">
+  <input class="check" type="checkbox" aria-label="Mark Durrett, Probability: Theory and Examples — Chapter 5 complete">
+  <div>
+    <a class="lesson-title" href="https://services.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett, Probability: Theory and Examples — Chapter 5</a>
+    <div class="meta">Rick Durrett · 5th ed. author PDF · Chapter 5 · read</div>
+    <p>Adds convergence theorems, maximal inequalities, and uniformly integrable martingales at the measure-theoretic level.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one maximal inequality and use it to justify almost-sure convergence in a concrete nonnegative martingale.</div>
+  </div>
+  <a class="watch" href="https://services.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a stopped-process proof and a simulation showing exactly what fails when an optional-stopping hypothesis is removed.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Poisson &amp; CTMC</h2></div>
+  <p class="section-intro">Move between arrivals, exponential holding times, jump chains, Q-matrices, and Kolmogorov equations.</p><article class="lesson" data-tags="core theory build" data-id="sto-poisson-kemp">
+  <input class="check" type="checkbox" aria-label="Mark The Poisson Process complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/Sd3IcImHPcs">The Poisson Process</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 37 min</div>
+    <p>Constructs the process on a measure-theoretic footing, so counts, gaps, and the jump structure come from one definition.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate by gaps and by conditional order statistics; compare count and arrival-time histograms.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/Sd3IcImHPcs">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-ctmc-gallager-6">
+  <input class="check" type="checkbox" aria-label="Mark From Poisson to Markov complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=cE6OD7DkCSU">From Poisson to Markov</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 6 · 79 min</div>
+    <p>Makes the holding-time construction the bridge from counting processes to continuous-time chains.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the generator of a two-state chain and verify the small-time transition expansion P(t)=I+tQ+o(t).</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=cE6OD7DkCSU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-ctmc-nptel-kolmogorov">
+  <input class="check" type="checkbox" aria-label="Mark Lec 11: Continuous-Time Markov Chains, Generator Matrix, Kolmogorov Equations complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kSKUBXRN0DI">Lec 11: Continuous-Time Markov Chains, Generator Matrix, Kolmogorov Equations</a>
+    <div class="meta">NPTEL IIT Guwahati · 41 min</div>
+    <p>Focuses on the generator matrix and forward/backward Kolmogorov equations that organize Norris&#x27;s rigorous CTMC treatment.</p>
+    <div class="lab"><strong>After watching:</strong> Derive both equations for a three-state generator and verify the resulting transition matrix against simulation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kSKUBXRN0DI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-ctmc-norris">
+  <input class="check" type="checkbox" aria-label="Mark Norris, Markov Chains — Chapters 2–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511810633">Norris, Markov Chains — Chapters 2–3</a>
+    <div class="meta">J. R. Norris · Cambridge University Press · 1997 · read</div>
+    <p>Gives the rigorous jump-chain construction, explosion questions, Q-matrices, and forward/backward equations.</p>
+    <div class="lab"><strong>After reading:</strong> Solve both Kolmogorov equations for a birth–death chain and reconcile the solution with simulation.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511810633">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement two equivalent CTMC simulators—holding-time and uniformization—and statistically compare their transition laws.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Generators &amp; Semigroups</h2></div>
+  <p class="section-intro">Use generators as infinitesimal models and semigroups as the law&#x27;s time evolution; keep domains visible.</p><article class="lesson" data-tags="core theory build" data-id="sto-generators-kemp">
+  <input class="check" type="checkbox" aria-label="Mark The Markov Generator complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/JOTz-gZ-Qs4">The Markov Generator</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 39 min</div>
+    <p>Derives the generator as the derivative of the semigroup at zero, which is the step that makes the domain question unavoidable.</p>
+    <div class="lab"><strong>After watching:</strong> For a finite Q-matrix, verify the semigroup law and recover Q as the derivative at zero.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/JOTz-gZ-Qs4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-generators-bounded">
+  <input class="check" type="checkbox" aria-label="Mark Bounded Generators complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/qlFrNDSVSXQ">Bounded Generators</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 24 min</div>
+    <p>Shows what the bounded case buys you—exponentiation of the generator—and therefore what breaks without it.</p>
+    <div class="lab"><strong>After watching:</strong> Exponentiate a bounded generator to recover the semigroup, then identify where the series argument fails for an unbounded example.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/qlFrNDSVSXQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-generators-kurtz">
+  <input class="check" type="checkbox" aria-label="Mark Ethier–Kurtz, Markov Processes — Chapters 1 and 4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1002/9780470316658">Ethier–Kurtz, Markov Processes — Chapters 1 and 4</a>
+    <div class="meta">Stewart Ethier &amp; Thomas Kurtz · Wiley · 1986 · read</div>
+    <p>Establishes the generator/semigroup language used for Markov-process characterization and approximation, including martingale problems.</p>
+    <div class="lab"><strong>After reading:</strong> Show that f(Xₜ)−f(X₀)−∫Lf(Xₛ)ds is a martingale for one finite chain and one diffusion test function.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1002/9780470316658">Read</a>
+</article><article class="lesson" data-tags="optional theory" data-id="sto-feller-renesse">
+  <input class="check" type="checkbox" aria-label="Mark Generator of a Feller Semigroup and Resolvent complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ILiJwUtEOJc">Generator of a Feller Semigroup and Resolvent</a>
+    <div class="meta">Max von Renesse · Stochastic Processes Lecture 28 · 67 min</div>
+    <p>Directly develops Feller-semigroup generators, resolvents, and the Brownian generator before the optional Liggett treatment.</p>
+    <div class="lab"><strong>After watching:</strong> Recover the Brownian generator from the semigroup and write the corresponding resolvent identity.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ILiJwUtEOJc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="sto-feller-optional">
+  <input class="check" type="checkbox" aria-label="Mark Liggett, Continuous Time Markov Processes — Chapters 2–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1090/gsm/113">Liggett, Continuous Time Markov Processes — Chapters 2–3</a>
+    <div class="meta">Thomas Liggett · AMS Graduate Studies in Mathematics 113 · 2010 · read</div>
+    <p>Optional Feller-semigroup depth: strong continuity, Hille–Yosida intuition, and construction from generators.</p>
+    <div class="lab"><strong>After reading:</strong> Write a one-page domain audit for a candidate generator: space, core, positive maximum principle, and conservativity.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1090/gsm/113">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Derive a generator three ways—from a transition law, an SDE, and a simulation—and state its domain assumptions.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Renewal Theory</h2></div>
+  <p class="section-intro">Understand regenerative structure, reward rates, equilibrium delay, and the inspection paradox.</p><article class="lesson" data-tags="core theory build" data-id="sto-renewal-gallager-10">
+  <input class="check" type="checkbox" aria-label="Mark Renewals and the Strong Law of Large Numbers complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=uHMVJJHsym4">Renewals and the Strong Law of Large Numbers</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 10 · 82 min</div>
+    <p>Introduces renewal epochs and proves the first long-run rate theorem by inverting sums.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate three interarrival laws with equal mean and verify N(t)/t→1/E[X].</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=uHMVJJHsym4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-renewal-gallager-12">
+  <input class="check" type="checkbox" aria-label="Mark Renewal Rewards, Stopping Trials, and Wald&#x27;s Inequality complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=8KQR4NAl3Iw">Renewal Rewards, Stopping Trials, and Wald&#x27;s Inequality</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 12 · 86 min</div>
+    <p>Connects regenerative cycles to time averages and makes the reward theorem operational.</p>
+    <div class="lab"><strong>After watching:</strong> Model uptime as a renewal-reward process and derive its availability before checking it by simulation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=8KQR4NAl3Iw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-renewal-last">
+  <input class="check" type="checkbox" aria-label="Mark The Last Renewal complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=fY7NgCWCWoQ">The Last Renewal</a>
+    <div class="meta">Robert Gallager · MIT 6.262 Lecture 15 · 76 min</div>
+    <p>Builds age, residual life, delayed renewal, and the inspection paradox from one picture.</p>
+    <div class="lab"><strong>After watching:</strong> Sample a random observation time and compare the observed interval-length distribution with the original interarrival law.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=fY7NgCWCWoQ">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate ordinary and equilibrium renewal processes and explain the observed length bias analytically.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Brownian Motion</h2></div>
+  <p class="section-intro">Construct the canonical continuous process, then use scaling, reflection, Markov structure, and martingales.</p><article class="lesson" data-tags="core theory" data-id="sto-bm-wiener">
+  <input class="check" type="checkbox" aria-label="Mark Wiener Measure complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/QDhj_M4ANJA">Wiener Measure</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 20 min</div>
+    <p>Puts the process on path space first, so that later path properties are statements about a measure rather than about pictures.</p>
+    <div class="lab"><strong>After watching:</strong> State the finite-dimensional consistency conditions the measure must satisfy and check them for the Gaussian kernel.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/QDhj_M4ANJA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-bm-morters-peres">
+  <input class="check" type="checkbox" aria-label="Mark Mörters–Peres, Brownian Motion — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.yuval-peres-books.com/brownian-motion/">Mörters–Peres, Brownian Motion — Chapters 1–2</a>
+    <div class="meta">Peter Mörters &amp; Yuval Peres · Cambridge · author page with draft PDF · Chapters 1–2 · read</div>
+    <p>A rigorous, geometric entry through construction, invariance, Markov properties, and one-dimensional path behavior.</p>
+    <div class="lab"><strong>After reading:</strong> Work the construction by random-walk interpolation and state precisely where continuity is obtained.</div>
+  </div>
+  <a class="watch" href="https://www.yuval-peres-books.com/brownian-motion/">Read</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-bm-scaling">
+  <input class="check" type="checkbox" aria-label="Mark Scaling Properties of Brownian Motion complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/vk7keCVzsyY">Scaling Properties of Brownian Motion</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 20 min</div>
+    <p>Scaling invariance is the single most useful computational identity in the subject and the source of the √t intuition.</p>
+    <div class="lab"><strong>After watching:</strong> Verify the scaling identity numerically on 20,000 paths and use it to predict a hitting-time distribution.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/vk7keCVzsyY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-bm-reflection">
+  <input class="check" type="checkbox" aria-label="Mark The Reflection Principle complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/fFNIaKe_WLg">The Reflection Principle</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 18 min</div>
+    <p>Derives the maximum and hitting-time laws from the strong Markov property instead of from a formula to memorize.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the reflection-principle maximum formula and compare it with 20,000 discretized paths.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/fFNIaKe_WLg">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="sto-bm-karatzas">
+  <input class="check" type="checkbox" aria-label="Mark Karatzas–Shreve — Chapter 2, Brownian Motion complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4612-0949-2">Karatzas–Shreve — Chapter 2, Brownian Motion</a>
+    <div class="meta">Ioannis Karatzas &amp; Steven Shreve · Springer · 2nd ed. · Chapter 2 · read</div>
+    <p>Adds augmentation, strong Markov property, Gaussian processes, and martingale characterizations needed for SDE theory.</p>
+    <div class="lab"><strong>After reading:</strong> State Lévy&#x27;s characterization precisely and apply it to identify one transformed process as Brownian motion.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4612-0949-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a Brownian simulation notebook with scaling, reflection-principle, hitting-time, and quadratic-variation checks.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Itô &amp; SDE</h2></div>
+  <p class="section-intro">Build stochastic integration, Itô&#x27;s formula, existence/uniqueness, generators, Feynman–Kac, and change of measure.</p><article class="lesson" data-tags="core theory" data-id="sto-ito-swissmap">
+  <input class="check" type="checkbox" aria-label="Mark Brownian Motion and Stochastic Calculus complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=elXM24Oe9C0">Brownian Motion and Stochastic Calculus</a>
+    <div class="meta">NCCR SwissMAP · graduate lecture · 101 min</div>
+    <p>A single self-contained lecture that carries the construction of the integral through to Itô&#x27;s formula.</p>
+    <div class="lab"><strong>After watching:</strong> Follow the isometry argument and reproduce the quadratic-variation computation it depends on.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=elXM24Oe9C0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-ito-formula-es">
+  <input class="check" type="checkbox" aria-label="Mark La fórmula de Itô complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=YbeWXREjJTU">La fórmula de Itô</a>
+    <div class="meta">ES · Miguel Ángel García Álvarez · UNAM, Integración Estocástica · 101 min</div>
+    <p>A full Spanish-language derivation of Itô&#x27;s formula from the course that builds the integral from elementary processes.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the correction term yourself and explain, in either language, why it has no counterpart in ordinary calculus.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=YbeWXREjJTU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-feynman-kac">
+  <input class="check" type="checkbox" aria-label="Mark The Feynman–Kac Formula complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=RFN7e35o3yU">The Feynman–Kac Formula</a>
+    <div class="meta">NPTEL · IIT Madras · Lecture 60 · 41 min</div>
+    <p>Makes the probabilistic representation of a parabolic PDE explicit, which is the bridge the generator language was built for.</p>
+    <div class="lab"><strong>After watching:</strong> Price one terminal payoff two ways—by expectation and by solving the PDE—and reconcile the two answers.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=RFN7e35o3yU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-ito-mit-calculus">
+  <input class="check" type="checkbox" aria-label="Mark 18. Itō Calculus complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Z5yRMMVUC5w">18. Itō Calculus</a>
+    <div class="meta">MIT OpenCourseWare · 78 min</div>
+    <p>Constructs the Itō integral and its calculus in a full university lecture, directly preparing the isometry and adapted-sum arguments in Lawler.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the Itō-isometry calculation and compare adapted left-point sums with an anticipative discretization.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Z5yRMMVUC5w">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-ito-lawler">
+  <input class="check" type="checkbox" aria-label="Mark Lawler, Stochastic Calculus — Chapter 3 complete">
+  <div>
+    <a class="lesson-title" href="https://math.uchicago.edu/~lawler/finbook.pdf">Lawler, Stochastic Calculus — Chapter 3</a>
+    <div class="meta">Gregory Lawler · University of Chicago author PDF · Chapter 3 · read</div>
+    <p>Constructs the integral from adapted step processes and foregrounds the isometry that controls the limit.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the Itô isometry for step integrands and numerically compare left-point and anticipative sums.</div>
+  </div>
+  <a class="watch" href="https://math.uchicago.edu/~lawler/finbook.pdf">PDF</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-sde-existence-uniqueness">
+  <input class="check" type="checkbox" aria-label="Mark Lecture 17 (Part 2): Existence and Uniqueness of Solution of Ito SDEs complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Di-0OrEtKMc">Lecture 17 (Part 2): Existence and Uniqueness of Solution of Ito SDEs</a>
+    <div class="meta">Sukkur IBA University Mathematics · 19 min</div>
+    <p>Targets the existence-and-uniqueness theorem for Itō SDEs, making the Lipschitz and growth assumptions explicit before Øksendal&#x27;s broader treatment.</p>
+    <div class="lab"><strong>After watching:</strong> Check the theorem&#x27;s assumptions for geometric Brownian motion and for a diffusion where pathwise uniqueness fails.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Di-0OrEtKMc">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-sde-oksendal">
+  <input class="check" type="checkbox" aria-label="Mark Øksendal, Stochastic Differential Equations — Chapters 3–8 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-642-14394-6">Øksendal, Stochastic Differential Equations — Chapters 3–8</a>
+    <div class="meta">Bernt Øksendal · Springer · 6th ed. · Chapters 3–8 · read</div>
+    <p>The compact spine for Itô formula, SDE existence, diffusion generators, Feynman–Kac, and Girsanov.</p>
+    <div class="lab"><strong>After reading:</strong> Solve geometric Brownian motion by Itô&#x27;s formula; derive its generator; then price a terminal payoff via Feynman–Kac.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-642-14394-6">Read</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="sto-stratonovich-video">
+  <input class="check" type="checkbox" aria-label="Mark The Stratonovich Integral complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Z50AoRgK8wo">The Stratonovich Integral</a>
+    <div class="meta">Sukkur IBA University Mathematics · Stochastic Calculus Lecture 16, Part 3 · 30 min</div>
+    <p>Targets the Stratonovich construction and its relation to Itô integration rather than treating the conversion as an aside.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the one-dimensional Itô correction used in the lecture and test it on multiplicative noise.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Z50AoRgK8wo">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="sto-stratonovich">
+  <input class="check" type="checkbox" aria-label="Mark Karatzas–Shreve — Chapter 3, stochastic integration complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4612-0949-2">Karatzas–Shreve — Chapter 3, stochastic integration</a>
+    <div class="meta">Karatzas–Shreve · Springer · 2nd ed. · Chapter 3, §§3–5 · read</div>
+    <p>Optional depth on local martingales, quadratic covariation, and the Itô/Stratonovich conversion.</p>
+    <div class="lab"><strong>After reading:</strong> Convert a one-dimensional Stratonovich SDE to Itô form and explain the correction geometrically.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4612-0949-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Solve and simulate one SDE, derive its generator and Fokker–Planck equation, and validate weak/strong error empirically.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>Weak Process Limits</h2></div>
+  <p class="section-intro">Use tightness and finite-dimensional convergence to justify diffusion approximations rather than merely plotting them.</p><article class="lesson" data-tags="core theory" data-id="sto-weak-processes">
+  <input class="check" type="checkbox" aria-label="Mark Weak Convergence of Stochastic Processes complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/XfubFDfJECI">Weak Convergence of Stochastic Processes</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 14 min</div>
+    <p>Sets up convergence on path space, which is the point where finite-dimensional intuition stops being sufficient.</p>
+    <div class="lab"><strong>After watching:</strong> State the topology being used and give two processes that agree finite-dimensionally but not in path space.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/XfubFDfJECI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="sto-donsker-kemp">
+  <input class="check" type="checkbox" aria-label="Mark Donsker&#x27;s Functional Central Limit Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://youtu.be/cRm3KA3jX-o">Donsker&#x27;s Functional Central Limit Theorem</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 36 min</div>
+    <p>Proves the invariance principle itself, naming the tightness step that the ordinary CLT never needs.</p>
+    <div class="lab"><strong>After watching:</strong> Rescale simple random walks, compare a path functional with Brownian motion, and mark where ordinary CLT reasoning is insufficient.</div>
+  </div>
+  <a class="watch" href="https://youtu.be/cRm3KA3jX-o">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-donsker-durrett">
+  <input class="check" type="checkbox" aria-label="Mark Durrett, Probability: Theory and Examples — Chapter 8 complete">
+  <div>
+    <a class="lesson-title" href="https://services.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett, Probability: Theory and Examples — Chapter 8</a>
+    <div class="meta">Rick Durrett · 5th ed. author PDF · Chapter 8 · read</div>
+    <p>Provides a direct written route from random walks to Donsker&#x27;s theorem with the minimum process topology needed for the spine.</p>
+    <div class="lab"><strong>After reading:</strong> Reconstruct the proof outline and mark every place tightness is invoked.</div>
+  </div>
+  <a class="watch" href="https://services.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">PDF</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-limits-kolmogorov-tightness">
+  <input class="check" type="checkbox" aria-label="Mark 52.2 Kolmogorov Tightness Criteria complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=gT5CIeBDokc">52.2 Kolmogorov Tightness Criteria</a>
+    <div class="meta">Todd Kemp · UCSD Math 280 · 18 min</div>
+    <p>Isolates the path-space tightness criterion needed to pass from finite-dimensional convergence to weak convergence in C[0,1].</p>
+    <div class="lab"><strong>After watching:</strong> Verify the criterion for an interpolated random walk and identify which moment bound controls its modulus of continuity.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=gT5CIeBDokc">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="sto-convergence-billingsley">
+  <input class="check" type="checkbox" aria-label="Mark Convergence of Probability Measures — Chapters 2, 5, and 8 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1002/9780470316962">Convergence of Probability Measures — Chapters 2, 5, and 8</a>
+    <div class="meta">Patrick Billingsley · Wiley · 2nd ed. · selected chapters · read</div>
+    <p>Makes weak convergence, mapping theorems, tightness, and convergence in C[0,1] precise.</p>
+    <div class="lab"><strong>After reading:</strong> Prove tightness for interpolated random walks using a modulus-of-continuity bound, then invoke the mapping theorem for the maximum.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1002/9780470316962">Read</a>
+</article><article class="lesson" data-tags="optional theory" data-id="sto-skorokhod-whitt">
+  <input class="check" type="checkbox" aria-label="Mark Stochastic-Process Limits — Chapters 3 and 11–13 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/b97479">Stochastic-Process Limits — Chapters 3 and 11–13</a>
+    <div class="meta">Ward Whitt · Springer · 2002 · selected chapters · read</div>
+    <p>Optional deep route through D-spaces, Skorokhod topologies, and queueing-process limits.</p>
+    <div class="lab"><strong>After reading:</strong> Construct two càdlàg paths that are close in J₁ but not uniformly close and explain the time change.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/b97479">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Demonstrate a functional central-limit theorem computationally and write a proof map naming every tightness step.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Generator-to-simulator dossier</h3><ol><li>Choose a CTMC or diffusion and state its filtration, state space, generator, and domain.</li><li>Construct it by simulation and independently through its martingale problem or Kolmogorov equation.</li><li>Estimate one invariant or hitting-time quantity, attach uncertainty, and reconcile it with theory.</li><li>Document every approximation, convergence claim, and failure mode in a reproducible notebook.</li></ol></article><article class="card"><h3>Functional-limit study</h3><ol><li>Choose a scaled random walk, renewal count, or queue-length process.</li><li>State the candidate limit and topology; prove finite-dimensional convergence and give the tightness argument.</li><li>Test a continuous path functional numerically and identify where the mapping theorem is used.</li><li>Deliver a ten-minute proof talk plus code that regenerates every figure.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://av.tib.eu/media/62975">Minkowski content and exceptional sets for Brownian paths</a></h3><div class="meta">Gregory Lawler · BIRS · 2017</div><p>A research bridge from Brownian paths to exceptional sets, dimension, and SLE; take after the Brownian module.</p></article><article class="card conference-card"><h3><a href="https://wordpress.lehigh.edu/ssp2022/videos-photos/">Seminar on Stochastic Processes 2022 recordings</a></h3><div class="meta">Lehigh University · tutorial and plenary videos</div><p>Research snapshots across random matrices, interacting systems, growth, and conformal probability.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video spines</h3><ul class="source-list"><li><a href="https://ocw.mit.edu/courses/6-262-discrete-stochastic-processes-spring-2011/resources/lecture-videos/">Gallager, MIT 6.262 — 25 lecture videos</a></li><li><a href="https://mathweb.ucsd.edu/~tkemp/ProbabilityTube/">Todd Kemp, UCSD Math 280 — 135 lecture videos</a></li><li><a href="https://www.youtube.com/playlist?list=PLiD-IJzweXR_i_VM7cefl930M2t75y4oS">García Álvarez, UNAM — Integración Estocástica (ES)</a></li></ul></article><article class="card"><h3>Discrete processes</h3><ul class="source-list"><li><a href="https://doi.org/10.1007/978-1-4615-2329-1">Gallager, Discrete Stochastic Processes — Chapters 2–6</a></li><li><a href="https://doi.org/10.1017/CBO9780511810633">Norris, Markov Chains — Chapters 1–3</a></li><li><a href="https://services.math.duke.edu/~rtd/PTE/PTE5_011119.pdf">Durrett, Probability: Theory and Examples</a></li></ul></article><article class="card"><h3>Brownian motion &amp; stochastic calculus</h3><ul class="source-list"><li><a href="https://www.yuval-peres-books.com/brownian-motion/">Mörters–Peres, Brownian Motion — Chapters 1–5</a></li><li><a href="https://doi.org/10.1007/978-1-4612-0949-2">Karatzas–Shreve, Brownian Motion and Stochastic Calculus — Chapters 2–5</a></li><li><a href="https://doi.org/10.1007/978-3-642-14394-6">Øksendal, Stochastic Differential Equations — Chapters 3–8</a></li></ul></article><article class="card"><h3>Generators &amp; limits</h3><ul class="source-list"><li><a href="https://doi.org/10.1002/9780470316658">Ethier–Kurtz, Markov Processes — Chapters 1 and 4</a></li><li><a href="https://doi.org/10.1002/9780470316962">Billingsley, Convergence of Probability Measures — Chapters 2, 5, 8</a></li><li><a href="https://doi.org/10.1007/b97479">Whitt, Stochastic-Process Limits — Chapters 3, 11–13</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/mot/index.html">← Back to MOT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

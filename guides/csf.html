@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Know what can be computed—and at what numerical cost.">
+  <title>CSF - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#72e0a5;--accent-ink:#1e874f;--deep:#19643b}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="csf">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/fnd/index.html" title="Back to Foundations" aria-label="Back to Foundations"><span class="arrow" aria-hidden="true">←</span>FND</a><div class="brand">CSF <b>// G4 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/fnd/index.html">FND</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/prerequisites-self-assembled-mooc.html">PRE</a><a href="ana.html">ANA</a><a href="prb.html">PRB</a><a href="alg.html">ALG</a><span class="here" aria-current="page">CSF</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/fnd/appendix.html">FNA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Computing Foundations · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>CSF</em> MOOC</span></h1>
+    <p class="manifesto">Know what can be computed—and at what numerical cost.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>29</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 29</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Scientific Computing</a><a href="#module-1">01 · Automata</a><a href="#module-2">02 · Computability</a><a href="#module-3">03 · Complexity</a><a href="#module-4">04 · MCMC &amp; HPC Extras</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Computing explorer</h3><p>Take scientific computing plus the core Sipser-range automata, computability, and complexity units.</p><div class="meta"><span>12–16 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete every core unit and artifact: stable numerics, automata interpreters, a reduction dossier, and NP-completeness proof.</p><div class="meta"><span>24–32 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add advanced complexity and either MCMC or HPC, including diagnostics or scaling evidence.</p><div class="meta"><span>38–55 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Scientific Computing</h2></div>
+  <p class="section-intro">Make stability, conditioning, residuals, convergence, and reproducibility part of every numerical answer.</p><article class="lesson" data-tags="core theory build" data-id="csf-scicomp-error">
+  <input class="check" type="checkbox" aria-label="Mark Condition numbers and stable computation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=j9kYMz3Ogjg">Condition numbers and stable computation</a>
+    <div class="meta">NPTEL IIT Bombay · Numerical Analysis · 31 min</div>
+    <p>Separates problem conditioning from algorithmic stability, the distinction every numerical report in this module must preserve.</p>
+    <div class="lab"><strong>After watching:</strong> Perturb a linear system and report forward error, backward error, residual, and condition-number predictions separately.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=j9kYMz3Ogjg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-scicomp-qr">
+  <input class="check" type="checkbox" aria-label="Mark Householder triangularization complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=yyOXDSlY8d4">Householder triangularization</a>
+    <div class="meta">Chris Rycroft · Harvard AM205 · 21 min</div>
+    <p>Gives a concrete stable orthogonalization algorithm rather than relying on black-box QR output.</p>
+    <div class="lab"><strong>After watching:</strong> Implement Householder QR and compare orthogonality and residuals with classical Gram–Schmidt.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=yyOXDSlY8d4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-scicomp-quad">
+  <input class="check" type="checkbox" aria-label="Mark Numerical integration complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=otkxMA7LIpA">Numerical integration</a>
+    <div class="meta">Chris Rycroft · Harvard AM205 · 20 min</div>
+    <p>Provides a clean setting for deriving convergence order and separating truncation from floating-point error.</p>
+    <div class="lab"><strong>After watching:</strong> Implement two quadrature rules, estimate observed order, and explain departure from asymptotic theory.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=otkxMA7LIpA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-scicomp-es">
+  <input class="check" type="checkbox" aria-label="Mark Condicionamiento numérico complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=HwCAAukqnjU">Condicionamiento numérico</a>
+    <div class="meta">ES · Universitat Politècnica de València · 11 min</div>
+    <p>A focused Spanish explanation reinforces why a small residual does not by itself guarantee a small forward error.</p>
+    <div class="lab"><strong>After watching:</strong> Create an ill-conditioned example and explain its residual and forward error in both numerical and conceptual terms.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=HwCAAukqnjU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-scicomp-least-squares">
+  <input class="check" type="checkbox" aria-label="Mark Four ways to solve least-squares problems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ZUU57Q3CFOU">Four ways to solve least-squares problems</a>
+    <div class="meta">MIT OpenCourseWare · 49 min · English</div>
+    <p>Compares normal equations, QR, SVD, and iterative approaches, extending the Trefethen–Bau reading beyond a single factorization.</p>
+    <div class="lab"><strong>After watching:</strong> Solve one ill-conditioned least-squares problem four ways and compare residual, forward error, and stability.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ZUU57Q3CFOU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-scicomp-trefethen">
+  <input class="check" type="checkbox" aria-label="Mark Trefethen–Bau, Numerical Linear Algebra — Lectures 1–23 complete">
+  <div>
+    <a class="lesson-title" href="https://people.maths.ox.ac.uk/trefethen/text.html">Trefethen–Bau, Numerical Linear Algebra — Lectures 1–23</a>
+    <div class="meta">Lloyd Trefethen &amp; David Bau III · SIAM · read</div>
+    <p>The compact reference for QR, least squares, conditioning, and stable matrix algorithms.</p>
+    <div class="lab"><strong>After reading:</strong> Implement Householder QR and compare orthogonality and residuals with classical Gram–Schmidt.</div>
+  </div>
+  <a class="watch" href="https://people.maths.ox.ac.uk/trefethen/text.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a numerical experiment report that separates model error, discretization error, conditioning, and floating-point error.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Automata</h2></div>
+  <p class="section-intro">Move from finite-state recognition through pushdown automata to the boundary between regular, context-free, and computable.</p><article class="lesson" data-tags="core theory build" data-id="csf-automata-finite">
+  <input class="check" type="checkbox" aria-label="Mark Finite automata and regular expressions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9syvZr-9xwk">Finite automata and regular expressions</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 61 min</div>
+    <p>Sipser&#x27;s own opening lecture establishes the machine-language correspondence used by every later construction.</p>
+    <div class="lab"><strong>After watching:</strong> Construct and minimize a DFA, convert a regular expression, and prove the accepted language by induction.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9syvZr-9xwk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-automata-pumping">
+  <input class="check" type="checkbox" aria-label="Mark Regular pumping lemma and FA-to-regex conversion complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=KAySmSEGc9U">Regular pumping lemma and FA-to-regex conversion</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 70 min</div>
+    <p>Pairs the pumping lemma with a constructive equivalence result, making it easier to distinguish proof tools from conversion algorithms.</p>
+    <div class="lab"><strong>After watching:</strong> Give one correct nonregularity proof and document a tempting but invalid pumping-lemma argument.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=KAySmSEGc9U">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-automata-pda">
+  <input class="check" type="checkbox" aria-label="Mark Pushdown automata and context-free grammars complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=m9eHViDPAJQ">Pushdown automata and context-free grammars</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 69 min</div>
+    <p>Completes the module&#x27;s regular-to-context-free progression with conversions in both directions.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a PDA interpreter and prove its equivalence to a grammar for one nonregular language.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=m9eHViDPAJQ">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="csf-automata-es">
+  <input class="check" type="checkbox" aria-label="Mark Autómatas y lenguajes formales complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=OJ9uhCm9_QQ">Autómatas y lenguajes formales</a>
+    <div class="meta">ES · Moisés Vázquez · Ciencias TV/UNAM · 39 min</div>
+    <p>A genuine Spanish lecture frames formal languages as mathematical objects rather than parser implementation details.</p>
+    <div class="lab"><strong>After watching:</strong> Produce a bilingual glossary and classify each example language by the weakest machine model that recognizes it.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=OJ9uhCm9_QQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-automata-myhill-nerode">
+  <input class="check" type="checkbox" aria-label="Mark Ultimate periodicity and the Myhill–Nerode relation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=FtYKdbrqdxg">Ultimate periodicity and the Myhill–Nerode relation</a>
+    <div class="meta">STCS TIFR · Automata and Computability Lecture 9 · 99 min · English</div>
+    <p>Adds the Myhill–Nerode characterization requested by the Sipser reading lab, not merely another DFA construction.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the theorem in both directions and use distinguishable suffixes to show one language is not regular.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=FtYKdbrqdxg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-automata-sipser">
+  <input class="check" type="checkbox" aria-label="Mark Sipser — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://mitpress.mit.edu/9780262538052/introduction-to-the-theory-of-computation/">Sipser — Chapters 1–2</a>
+    <div class="meta">Michael Sipser · MIT Press · 3rd ed. · read</div>
+    <p>The reference spine for finite automata, regular languages, context-free grammars, and pushdown automata.</p>
+    <div class="lab"><strong>After reading:</strong> Give a correct pumping-lemma proof and a Myhill–Nerode proof for two different languages.</div>
+  </div>
+  <a class="watch" href="https://mitpress.mit.edu/9780262538052/introduction-to-the-theory-of-computation/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement interpreters for a DFA and PDA, prove one language classification, and document a pumping-lemma misuse.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Computability</h2></div>
+  <p class="section-intro">Define algorithms as machines, reductions as translations, and undecidability as a theorem about specifications.</p><article class="lesson" data-tags="core theory build" data-id="csf-computability-tm">
+  <input class="check" type="checkbox" aria-label="Mark Turing machines and the context-free pumping lemma complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=IycOPFmEQk8">Turing machines and the context-free pumping lemma</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 74 min</div>
+    <p>Introduces Turing machines directly after the weaker language models, making the increase in expressive power explicit.</p>
+    <div class="lab"><strong>After watching:</strong> Design a Turing machine at implementation-description level and prove its language invariant.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=IycOPFmEQk8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-computability-undecidable">
+  <input class="check" type="checkbox" aria-label="Mark Undecidability complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=3PzuSPQPEU4">Undecidability</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 77 min</div>
+    <p>Builds undecidability from diagonalization and recognizable languages instead of treating the halting problem as folklore.</p>
+    <div class="lab"><strong>After watching:</strong> Reproduce the diagonal argument and distinguish undecidable from unrecognizable languages.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=3PzuSPQPEU4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-computability-reductions">
+  <input class="check" type="checkbox" aria-label="Mark Reducibility complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=N28g_YBXY8Y">Reducibility</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 77 min</div>
+    <p>Provides the translation method the module artifact requires, including the direction that reduction proofs often reverse.</p>
+    <div class="lab"><strong>After watching:</strong> Write a mapping reduction with a total computable transformer and prove both directions of the iff.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=N28g_YBXY8Y">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="csf-computability-es">
+  <input class="check" type="checkbox" aria-label="Mark Máquinas de Turing para todo complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=jHz-TpMw0SE">Máquinas de Turing para todo</a>
+    <div class="meta">ES · Francisco Hernández Quiroz · Ciencias TV/UNAM · 69 min</div>
+    <p>A Spanish university lecture gives a second conceptual route into universal computation and machine descriptions.</p>
+    <div class="lab"><strong>After watching:</strong> Specify one machine in Spanish or English, then prove its transition invariant formally.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=jHz-TpMw0SE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-computability-church-turing">
+  <input class="check" type="checkbox" aria-label="Mark Proving the Church–Turing thesis complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=vsdoPRVhv8k">Proving the Church–Turing thesis</a>
+    <div class="meta">Nachum Dershowitz · Israel Institute for Advanced Studies · 76 min · English</div>
+    <p>Examines the thesis named by the written reference and separates mathematical equivalence results from the broader claim about effective computation.</p>
+    <div class="lab"><strong>After watching:</strong> Compare two formal models and identify which claims are theorems, simulations, or formulations of the thesis.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=vsdoPRVhv8k">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-computability-reference">
+  <input class="check" type="checkbox" aria-label="Mark Computability and complexity complete">
+  <div>
+    <a class="lesson-title" href="https://plato.stanford.edu/entries/computability/">Computability and complexity</a>
+    <div class="meta">Stanford Encyclopedia of Philosophy · written reference · read</div>
+    <p>This openly accessible companion places machine computability, the Church–Turing thesis, and reducibility in their precise mathematical and historical context.</p>
+    <div class="lab"><strong>After reading:</strong> Compare two formal models of computability and prove the simulation claim needed for one direction of equivalence.</div>
+  </div>
+  <a class="watch" href="https://plato.stanford.edu/entries/computability/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a reduction dossier with a source problem, computable transformation, iff proof, and a catalog of invalid shortcuts.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Complexity</h2></div>
+  <p class="section-intro">Use resource bounds and reductions to compare problems; keep average-case and cryptographic hardness for later guides.</p><article class="lesson" data-tags="core theory build" data-id="csf-complexity-time">
+  <input class="check" type="checkbox" aria-label="Mark Time complexity complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=asjAc90L8rE">Time complexity</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 86 min</div>
+    <p>Defines asymptotic machine time carefully enough to support later class and reduction claims.</p>
+    <div class="lab"><strong>After watching:</strong> Analyze one multitape algorithm and account for encoding size and simulation overhead.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=asjAc90L8rE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-complexity-pnp">
+  <input class="check" type="checkbox" aria-label="Mark P, NP, SAT, and polynomial-time reducibility complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=1VhnDdQsELo">P, NP, SAT, and polynomial-time reducibility</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 79 min</div>
+    <p>Connects verifiers, nondeterminism, SAT, and reductions in the sequence needed for a valid NP-completeness proof.</p>
+    <div class="lab"><strong>After watching:</strong> Write a verifier and a polynomial reduction, including explicit encoding-size bounds.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=1VhnDdQsELo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="csf-complexity-npc">
+  <input class="check" type="checkbox" aria-label="Mark NP-completeness complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=iZPzBHGDsWI">NP-completeness</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 86 min</div>
+    <p>Moves from definitions to complete problems and emphasizes the proof obligations behind hardness claims.</p>
+    <div class="lab"><strong>After watching:</strong> Give a complete NP-completeness proof and audit membership, reduction direction, correctness, and running time.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=iZPzBHGDsWI">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="csf-complexity-space">
+  <input class="check" type="checkbox" aria-label="Mark Space complexity, PSPACE, and Savitch&#x27;s theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=cT_qwkTigv4">Space complexity, PSPACE, and Savitch&#x27;s theorem</a>
+    <div class="meta">Michael Sipser · MIT 18.404J · 80 min</div>
+    <p>Extends resource bounds beyond time and shows how a nontrivial containment proof controls configurations.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the reachability recurrence behind Savitch&#x27;s theorem and derive its space bound.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=cT_qwkTigv4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-complexity-hierarchy">
+  <input class="check" type="checkbox" aria-label="Mark Hierarchy theorems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=vqFRAWeEcUs">Hierarchy theorems</a>
+    <div class="meta">MIT OpenCourseWare · Graduate Complexity Lecture 21 · 81 min · English</div>
+    <p>Directly covers the time- and space-hierarchy consequences assigned in Arora–Barak rather than repeating NP-completeness.</p>
+    <div class="lab"><strong>After watching:</strong> Reconstruct the diagonal language and account for the constructibility and simulation-overhead hypotheses.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=vqFRAWeEcUs">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="csf-complexity-arora">
+  <input class="check" type="checkbox" aria-label="Mark Arora–Barak, Computational Complexity — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://theory.cs.princeton.edu/complexity/book.pdf">Arora–Barak, Computational Complexity — Chapters 1–3</a>
+    <div class="meta">Sanjeev Arora &amp; Boaz Barak · author-hosted draft · PDF</div>
+    <p>Adds modern machine-independent definitions, reductions, diagonalization, and nondeterminism.</p>
+    <div class="lab"><strong>After reading:</strong> Prove robustness under a reasonable machine-model change and one time-hierarchy consequence.</div>
+  </div>
+  <a class="watch" href="https://theory.cs.princeton.edu/complexity/book.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a complete NP-completeness proof and benchmark only the solver behavior the theorem does and does not predict.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>MCMC &amp; HPC Extras</h2></div>
+  <p class="section-intro">Add Markov-chain computation and parallel performance only when a later project needs them.</p><article class="lesson" data-tags="optional theory build" data-id="csf-mcmc-mh">
+  <input class="check" type="checkbox" aria-label="Mark Metropolis–Hastings complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=yCv2N7wGDCw">Metropolis–Hastings</a>
+    <div class="meta">Ritvikmath · Data Science Concepts · 18 min</div>
+    <p>Gives a compact derivation of the acceptance ratio before diagnostics are applied to generated chains.</p>
+    <div class="lab"><strong>After watching:</strong> Implement random-walk Metropolis, derive detailed balance, and compare autocorrelation under two proposals.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=yCv2N7wGDCw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="csf-mcmc-diagnostics">
+  <input class="check" type="checkbox" aria-label="Mark MCMC diagnostics complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BvCgMf5_nHU">MCMC diagnostics</a>
+    <div class="meta">Jingchen Hu · Vassar College · 36 min</div>
+    <p>Focuses on diagnosing correlated chains rather than treating a trace plot as proof of convergence.</p>
+    <div class="lab"><strong>After watching:</strong> Run multiple chains and report autocorrelation, effective sample size, and sensitivity to initialization.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BvCgMf5_nHU">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="csf-hpc-parallelism">
+  <input class="check" type="checkbox" aria-label="Mark Why parallelism and efficiency? complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=V1tINV2-9p4">Why parallelism and efficiency?</a>
+    <div class="meta">Kayvon Fatahalian · Stanford CS149 · 72 min</div>
+    <p>Introduces parallel speedup through efficiency and hardware constraints, giving scaling plots a cost-model foundation.</p>
+    <div class="lab"><strong>After watching:</strong> Parallelize one kernel and predict speedup before measuring strong and weak scaling.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=V1tINV2-9p4">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="csf-mcmc-workflow">
+  <input class="check" type="checkbox" aria-label="Mark On Bayesian workflow complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ppKpwtGy8KQ">On Bayesian workflow</a>
+    <div class="meta">Aki Vehtari · Generable · 65 min · English</div>
+    <p>An author-level talk situates diagnostics inside iterative model building, predictive checking, and sensitivity analysis before the Stan workflow reference.</p>
+    <div class="lab"><strong>After watching:</strong> Design a workflow for one small model with prior checks, chain diagnostics, predictive checks, and one documented revision.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ppKpwtGy8KQ">▶ Watch</a>
+</article><article class="lesson" data-tags="optional build" data-id="csf-mcmc-stan">
+  <input class="check" type="checkbox" aria-label="Mark Stan User&#x27;s Guide — MCMC workflow complete">
+  <div>
+    <a class="lesson-title" href="https://mc-stan.org/docs/stan-users-guide/">Stan User&#x27;s Guide — MCMC workflow</a>
+    <div class="meta">Stan Development Team · official documentation · read</div>
+    <p>The written companion provides current implementation guidance and diagnostics for a reproducible MCMC study.</p>
+    <div class="lab"><strong>After reading:</strong> Fit a small model with multiple chains; report R-hat, effective sample size, divergences, and sensitivity to parameterization.</div>
+  </div>
+  <a class="watch" href="https://mc-stan.org/docs/stan-users-guide/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Run one MCMC or parallel-computing study with diagnostics, scaling plots, and an explicit account of invalid conclusions.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Verified numerical pipeline</h3><ol><li>Choose a numerical problem with a known reference solution or invariant.</li><li>Implement two algorithms and separate conditioning from stability.</li><li>Package tests, environment metadata, seeds, and a reproducible report.</li></ol></article><article class="card"><h3>Reduction and solver study</h3><ol><li>Prove an NP-completeness result with full encoding-size analysis.</li><li>Implement the reduction and validate it on generated instances.</li><li>Benchmark a solver while stating clearly what worst-case theory does not predict.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp">Stanford CS149 Parallel Computing</a></h3><div class="meta">Stanford Online · 19 lectures</div><p>A coherent architecture-aware course for extending the optional HPC work.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY">MIT 18.404J Theory of Computation</a></h3><div class="meta">Michael Sipser · MIT OpenCourseWare · 23 lectures</div><p>The complete recorded course behind the selected automata, computability, and complexity spine.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Scientific computing</h3><ul class="source-list"><li><a href="https://people.maths.ox.ac.uk/trefethen/text.html">Trefethen–Bau — Lectures 1–23</a></li><li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp">Stanford CS149 recordings</a></li><li><a href="https://mc-stan.org/docs/stan-users-guide/">Stan User&#x27;s Guide</a></li></ul></article><article class="card"><h3>Theory of computation</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY">MIT 18.404J Theory of Computation recordings</a></li><li><a href="https://mitpress.mit.edu/9780262538052/introduction-to-the-theory-of-computation/">Sipser — Chapters 1–9</a></li><li><a href="https://theory.cs.princeton.edu/complexity/book.pdf">Arora–Barak author-hosted draft</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/fnd/index.html">← Back to FND</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

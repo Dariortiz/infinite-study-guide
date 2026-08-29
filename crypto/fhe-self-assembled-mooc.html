@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free, video-first, self-assembled MOOC for learning fully homomorphic encryption theory and implementation.">
+  <title>FHE - Infinite Study Guide</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%2307100f'/%3E%3Crect x='.9' y='.9' width='46.2' height='46.2' rx='10.2' fill='none' stroke='%2355e6ce' stroke-opacity='.4' stroke-width='1.8'/%3E%3Cg fill='%2355e6ce'%3E%3Crect x='6' y='12.5' width='3' height='23'/%3E%3Crect x='6' y='12.5' width='9.6' height='3'/%3E%3Crect x='6' y='22.5' width='7.7' height='3'/%3E%3Crect x='19.2' y='12.5' width='3' height='23'/%3E%3Crect x='25.8' y='12.5' width='3' height='23'/%3E%3Crect x='19.2' y='22.5' width='9.6' height='3'/%3E%3Crect x='32.4' y='12.5' width='3' height='23'/%3E%3Crect x='32.4' y='12.5' width='9.6' height='3'/%3E%3Crect x='32.4' y='22.5' width='7.7' height='3'/%3E%3Crect x='32.4' y='32.5' width='9.6' height='3'/%3E%3C/g%3E%3C/svg%3E">
+  <script>(function(){var K='mooc-theme';function read(){try{var q=new URLSearchParams(location.search).get('theme');if(q==='light'||q==='dark')return q;var t=localStorage.getItem(K);if(t==='light'||t==='dark')return t}catch(e){}try{return matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}catch(e){return'dark'}}function stamp(t){document.querySelectorAll('a[href]').forEach(function(a){var raw=a.getAttribute('href');if(!raw||/^(https?:|mailto:|javascript:|data:|#)/i.test(raw))return;var m=raw.match(/^([^?#]+\.html)(\?[^#]*)?(#.*)?$/i);if(!m)return;var p=new URLSearchParams((m[2]||'').replace(/^\?/,''));p.set('theme',t);a.setAttribute('href',m[1]+'?'+p.toString()+(m[3]||''))})}function apply(t,persist){document.documentElement.dataset.theme=t;try{if(persist!==false)localStorage.setItem(K,t)}catch(e){}stamp(t)}apply(read(),true);document.addEventListener('DOMContentLoaded',function(){stamp(document.documentElement.dataset.theme);var btn=document.getElementById('theme');if(btn)btn.addEventListener('click',function(){apply(document.documentElement.dataset.theme==='light'?'dark':'light')})});window.addEventListener('storage',function(e){if(e.key===K&&(e.newValue==='light'||e.newValue==='dark'))apply(e.newValue,false)})})();</script>
+  <script>document.documentElement.className+=' fonts-loading';</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&amp;family=DM+Serif+Display&amp;family=Fraunces:opsz,wght@9..144,600;9..144,750&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,750&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #eaf7f5;
+      --muted: #91aaa7;
+      --bg: #07100f;
+      --bg-2: #0a1715;
+      --panel: #0e1d1b;
+      --panel-2: #122421;
+      --line: #23413c;
+      --cyan: #55e6ce;
+      --lime: #c8f26b;
+      --violet: #bca7ff;
+      --amber: #ffc96b;
+      --red: #ff8d88;
+      --burgundy: #a51b3d;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .35);
+      --radius: 17px;
+      --max: 1240px;
+    }
+    [data-theme="light"] {
+      --ink: #12201e;
+      --muted: #59716d;
+      --bg: #edf5f1;
+      --bg-2: #e4efea;
+      --panel: #fbfffd;
+      --panel-2: #f0f8f4;
+      --line: #c9ddd6;
+      --cyan: #007f70;
+      --lime: #557800;
+      --violet: #684fc0;
+      --amber: #9b6200;
+      --red: #b53d38;
+      --burgundy: #7b0f26;
+      --shadow: 0 24px 70px rgba(30, 70, 58, .12);
+    }
+    [data-theme="dark"] { color-scheme: dark; }
+    [data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 8%, color-mix(in srgb, var(--cyan) 11%, transparent), transparent 28rem),
+        radial-gradient(circle at 90% 18%, color-mix(in srgb, var(--violet) 9%, transparent), transparent 30rem),
+        var(--bg);
+      font: 16px/1.66 Manrope, ui-sans-serif, system-ui, sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .34;
+      background-image: radial-gradient(circle, color-mix(in srgb, var(--cyan) 34%, transparent) 1.1px, transparent 1.1px);
+      background-size: 30px 30px;
+      background-position: 2px 2px;
+      mask-image: linear-gradient(to bottom, #000, transparent 78%);
+    }
+    a { color: var(--cyan); text-underline-offset: 3px; }
+    button, input { font: inherit; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 87%, transparent);
+      backdrop-filter: blur(16px);
+    }
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 66px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .brand { font-weight: 800; letter-spacing: -.025em; white-space: nowrap; }
+    .brand-topic { display: inline-block; width: 2.19em; }
+    .brand b { color: var(--cyan); }
+    .search {
+      width: min(390px, 34%);
+      margin-left: auto;
+      padding: 9px 15px;
+      color: var(--ink);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      outline: none;
+    }
+    .search:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cyan) 15%, transparent); }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      color: var(--ink);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .hero {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 76px auto 44px;
+      display: grid;
+      grid-template-columns: 1.28fr .72fr;
+      gap: 34px;
+      align-items: end;
+    }
+    .kicker, .mono {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: .74rem;
+    }
+    .kicker { color: var(--lime); }
+    h1 {
+      max-width: 920px;
+      margin: 8px 0 17px;
+      font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(2.7rem, 6.4vw, 5.7rem);
+      line-height: clamp(2.565rem, 6.08vw, 5.415rem);
+      letter-spacing: -.052em;
+    }
+    h1 .title-text { font-family: "DM Serif Display", serif; font-size: 1.0492em; font-weight: 400; }
+    h1 em { display: inline-block; width: 1.83em; text-align: center; color: var(--cyan); font-style: normal; }
+    h1 .signature {
+      font-family: "Allura", cursive;
+      color: var(--burgundy);
+      font-size: 1.12em;
+      font-weight: 400;
+      letter-spacing: 0;
+      padding-right: .08em;
+    }
+    .manifesto {
+      max-width: 780px;
+      margin: -5px 0 14px;
+      color: var(--ink);
+      font-size: clamp(1.35rem, 2.3vw, 1.95rem);
+      font-weight: 780;
+      letter-spacing: -.035em;
+      line-height: 1.18;
+      min-height: 1.18em;
+    }
+    .manifesto em { color: var(--cyan); font-style: normal; }
+    .lede { max-width: 790px; color: var(--muted); font-size: 1.08rem; min-height: 6.64em; }
+    .formula {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 16.2em;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, var(--panel-2), var(--panel));
+      box-shadow: var(--shadow);
+    }
+    .formula::after {
+      content: "01 10 11 00";
+      position: absolute;
+      right: -12px;
+      bottom: -15px;
+      color: color-mix(in srgb, var(--cyan) 8%, transparent);
+      font: 800 3rem "IBM Plex Mono", monospace;
+      transform: rotate(-8deg);
+    }
+    .formula code { display: block; position: relative; z-index: 1; color: var(--cyan); font: 600 1rem/1.8 "IBM Plex Mono", monospace; }
+    .formula p { position: relative; z-index: 1; margin-bottom: 0; color: var(--muted); }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+    .metric {
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+    }
+    .metric b { display: block; color: var(--lime); font-size: 1.35rem; line-height: 1.1; }
+    .metric span { color: var(--muted); font-size: .82rem; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--panel);
+    }
+    .filter {
+      padding: 8px 12px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .filter.active { color: var(--bg); background: var(--cyan); border-color: var(--cyan); font-weight: 800; }
+    .progress-label { margin-left: auto; align-self: center; color: var(--muted); font-size: .84rem; }
+    .layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 35px; align-items: start; }
+    .layout nav {
+      position: sticky;
+      top: 90px;
+      max-height: calc(100vh - 110px);
+      overflow: auto;
+      padding-right: 17px;
+      border-right: 1px solid var(--line);
+    }
+    .layout nav .mono { margin: 0 0 9px 10px; color: var(--muted); }
+    .layout nav a {
+      display: block;
+      padding: 7px 10px;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: .88rem;
+    }
+    .layout nav a:hover { color: var(--ink); background: var(--panel); }
+    main { min-width: 0; }
+    section { margin: 0 0 68px; }
+    h2 { margin: 0 0 8px; font-family: "Source Serif 4", serif; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.06; letter-spacing: -.03em; }
+    #routes h2 { font-family: Fraunces, serif; }
+    h3 { margin: 25px 0 10px; font-size: 1.22rem; letter-spacing: -.02em; }
+    p { margin: 8px 0 13px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.25rem; }
+    li { margin: 5px 0; }
+    .section-intro { max-width: 890px; margin-top: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(155deg, var(--panel), color-mix(in srgb, var(--panel-2) 72%, var(--panel)));
+      box-shadow: 0 9px 28px rgba(0, 0, 0, .1);
+    }
+    .card h3 { margin-top: 0; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .path { border-top: 3px solid var(--cyan); }
+    .path:nth-child(2) { border-color: var(--lime); }
+    .path:nth-child(3) { border-color: var(--violet); }
+    .tag {
+      display: inline-flex;
+      margin: 2px 3px 2px 0;
+      padding: 3px 7px;
+      color: var(--muted);
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      font: 600 .67rem/1.2 "IBM Plex Mono", monospace;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .theory { color: var(--violet); }
+    .build { color: var(--lime); }
+    .core { color: var(--cyan); }
+    .optional { color: var(--amber); }
+    .warning { color: var(--red); }
+    .tag.hours { color: var(--muted); }
+    .tag.core { background: color-mix(in srgb, var(--cyan) 12%, transparent); }
+    .tag.theory { background: color-mix(in srgb, var(--violet) 12%, transparent); }
+    .tag.build { background: color-mix(in srgb, var(--lime) 12%, transparent); }
+    .tag.optional { background: color-mix(in srgb, var(--amber) 12%, transparent); }
+    button.tag { cursor: pointer; font-family: "IBM Plex Mono", monospace; }
+    button.tag:hover { filter: brightness(1.25); }
+    .lesson-tags { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 7px; }
+    .muted { color: var(--muted); font-size: .92rem; }
+    .key { display: grid; gap: 10px; }
+    .key div { display: grid; grid-template-columns: 118px 1fr; gap: 12px; align-items: baseline; }
+    .key span:last-child { color: var(--muted); font-size: .92rem; }
+    .module-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .module-no { color: var(--cyan); font: 600 .8rem "IBM Plex Mono", monospace; }
+    .module-head h2 { margin: 0; }
+    .lesson {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto;
+      gap: 15px;
+      align-items: start;
+      margin: 11px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--panel);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .lesson:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--cyan) 55%, var(--line)); }
+    .lesson.done { opacity: .58; }
+    .lesson.done .lesson-title { text-decoration: line-through; }
+    .check {
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      margin: 2px 0 0;
+      border: 1px solid var(--cyan);
+      border-radius: 7px;
+      cursor: pointer;
+    }
+    .check:checked { background: var(--cyan); box-shadow: inset 0 0 0 5px var(--panel); }
+    .lesson-title { display: block; color: var(--ink); font-weight: 780; text-decoration: none; line-height: 1.35; }
+    .lesson-title:hover { color: var(--cyan); }
+    .meta { margin-top: 4px; color: var(--muted); font: 500 .76rem "IBM Plex Mono", monospace; }
+    .lesson p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      color: var(--bg);
+      background: var(--cyan);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .77rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .lab {
+      margin-top: 9px;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: color-mix(in srgb, var(--lime) 7%, var(--panel-2));
+      border-left: 3px solid var(--lime);
+      border-radius: 0 9px 9px 0;
+      font-size: .87rem;
+    }
+    .callout {
+      margin: 16px 0;
+      padding: 16px 18px;
+      background: color-mix(in srgb, var(--cyan) 7%, var(--panel));
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 12px 12px 0;
+    }
+    .callout.warn { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 7%, var(--panel)); }
+    .decision {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .decision:last-child { border-bottom: 0; }
+    .decision strong { color: var(--cyan); }
+    details { margin: 10px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    summary { padding: 13px 16px; cursor: pointer; font-weight: 750; }
+    details > div { padding: 0 16px 15px; color: var(--muted); }
+    .hidden { display: none !important; }
+    .no-results { display: none; padding: 30px; text-align: center; color: var(--muted); }
+    footer { margin-top: 45px; padding: 34px 0 70px; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
+    .series { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 22px; }
+    .series a, .series span {
+      padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px;
+      text-decoration: none; color: var(--muted);
+      font: 600 .7rem/1.2 "IBM Plex Mono", monospace; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .series a:hover { color: var(--ink); border-color: var(--cyan); }
+    .series .here { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+    .series .soon { opacity: .55; }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; margin-top: 48px; }
+      .layout { grid-template-columns: 1fr; }
+      .layout nav { display: none; }
+      .dashboard { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 660px) {
+      .topbar-inner { flex-wrap: wrap; padding: 9px 0; }
+      .search { order: 3; width: 100%; }
+      .grid { grid-template-columns: 1fr; }
+      .lesson { grid-template-columns: 32px 1fr; }
+      .watch { grid-column: 2; justify-self: start; }
+      .progress-label { width: 100%; margin-left: 0; }
+      .decision { grid-template-columns: 1fr; gap: 2px; }
+      .key div { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media print {
+      :root { --ink:#111; --muted:#444; --bg:#fff; --panel:#fff; --panel-2:#f7f7f7; --line:#ccc; --cyan:#066; --lime:#496800; }
+      body { background: #fff; font-size: 10pt; }
+      body::before, .topbar, .controls, .layout nav, .series, .watch { display: none; }
+      .hero, .wrap { width: 100%; margin: 0; }
+      .hero { display: block; }
+      .layout { display: block; }
+      section { margin-bottom: 28px; }
+      .card, .lesson, details { break-inside: avoid; box-shadow: none; }
+      details > div { display: block !important; }
+    }
+      html.fonts-loading body > * { visibility: hidden; }
+  </style>
+<style>
+.backlink{display:inline-flex;align-items:center;gap:7px;padding:7px 13px 7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);text-decoration:none;font:700 .72rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+.backlink:hover{border-color:var(--sky);color:var(--sky)}.backlink .arrow{font-size:1.02rem;line-height:1}
+a.icon-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-size:1.02rem}a.icon-btn:hover{border-color:var(--sky);color:var(--sky)}
+.wrap>.series:first-child{margin:24px 0 0}.series .divider{padding:6px 2px;border:0;background:none;opacity:.45}
+/* These pages were laid out on their own measurements before they joined the site, which left their hero
+   starting lower and its box a column-width off from every generated guide. The frame is taken from the
+   generated pages so a guide is framed the same way whichever kind it is. */
+.hero{margin-top:34px;margin-bottom:36px}
+/* Scoped to the generated pages' own breakpoint: these pages collapse the hero twenty pixels later, and an
+   unscoped two-column rule here would hold the columns open past the point where they stop fitting. */
+@media(min-width:901px){.hero{grid-template-columns:1.35fr .65fr;gap:32px}}
+@media print{.hero{margin:0}}
+.formula{min-height:14rem}
+.topbar-inner{gap:12px}
+.search{width:min(370px,40%)}
+/* Headline metrics, also from the generated pages. These pages set the h1 in Manrope and then scale the serif
+   span inside it by 1.02em, on a slightly smaller clamp and tighter tracking, and their kicker takes the body
+   line height where the generated one resets it. The kicker was the taller of the two, which is what pushed
+   the title down. The stone code and burgundy signature are theirs and stay; only the measurements change. */
+.hero .kicker{font:600 .73rem/normal "IBM Plex Mono",monospace;letter-spacing:.13em}
+h1{max-width:none;margin:8px 0 15px;font:400 clamp(2.8rem,6vw,5.7rem)/.95 "DM Serif Display",serif;letter-spacing:-.045em}
+h1 .title-text{font-size:1em}
+/* The script also opts out of the headline's tracking and pads its own gap, which set the signature 36px wider
+   than the generated one and pushed the code and word along with it. */
+h1 .signature{font-size:1.08em;letter-spacing:inherit;padding-right:0}
+/* The negative top margin here closed a gap under a headline that no longer sits where it did. */
+.manifesto{margin-top:0}
+html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:0}
+html.motion-in .motion-line{animation:legacy-line-in .2s cubic-bezier(.22,1,.36,1) var(--motion-delay,0ms) both}
+html.motion-in .motion-pop{animation:legacy-surface-in .36s cubic-bezier(.22,1,.36,1) var(--motion-delay,0ms) both}
+@keyframes legacy-line-in{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(3px)}to{opacity:1;clip-path:inset(0);transform:none}}
+@keyframes legacy-surface-in{0%{opacity:0;transform:scale(var(--pop-in,.93)) translateY(var(--pop-lift,10px))}58%{opacity:1;transform:scale(var(--pop-over,1.02)) translateY(calc(var(--pop-lift,10px) * -.2))}100%{opacity:1;transform:none}}
+.series>.motion-pop,.motion-pop:is(.backlink,.icon-btn,.search){--pop-in:.96;--pop-lift:3px;--pop-over:1.012}
+body.is-leaving>:not(script){opacity:0;transition:opacity .12s cubic-bezier(.4,0,.2,1)}
+.brand.is-typing{position:relative}.brand.is-typing>.brand-source{visibility:hidden}
+.typed-path{position:absolute;inset:0 auto auto 0;white-space:nowrap}.typed-path b{color:var(--stone,var(--sky))}
+.typed-path.is-active::after{content:"|";display:inline-block;margin-left:2px;color:var(--stone,var(--sky));font-weight:500;animation:legacy-type-cursor .7s steps(1,end) infinite}
+@keyframes legacy-type-cursor{50%{opacity:0}}
+::view-transition-old(root),::view-transition-new(root){animation-duration:380ms;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+::view-transition-old(root){animation-name:legacy-theme-old}::view-transition-new(root){animation-name:legacy-theme-new}
+@keyframes legacy-theme-old{to{opacity:0}}@keyframes legacy-theme-new{from{opacity:0}}
+.card,.lesson,.backlink,.icon-btn,.series a,.pill,.filter,.tag,.watch,.side a,.search,.check,.topbar{transition:color 160ms ease,background-color 260ms ease,border-color 260ms ease,box-shadow 260ms ease,transform 260ms cubic-bezier(.22,1,.36,1),filter 260ms ease,opacity 260ms ease}
+.card:hover,.lesson:hover{transform:translateY(-3px)}.backlink:hover,.series a:hover,.pill:hover,.watch:hover{transform:translateY(-1px)}
+.settle{opacity:0}.settle.is-in{animation:legacy-surface-in .36s cubic-bezier(.22,1,.36,1) both}
+.topbar.is-scrolled{box-shadow:0 10px 30px -18px rgba(0,0,0,.55)}
+nav[aria-label="On this page"] a.is-current{color:var(--ink);box-shadow:inset 2px 0 0 var(--sky,currentColor)}
+:focus-visible{outline:2px solid var(--sky,currentColor);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:1}html.motion-in :is(.motion-line,.motion-pop){animation:none}.typed-path{display:none}.brand.is-typing>.brand-source{visibility:visible}body.is-leaving>:not(script){opacity:1;transition:none}::view-transition-old(root),::view-transition-new(root){animation:none}.card,.lesson,.backlink,.icon-btn,.series a,.pill,.filter,.tag,.watch,.side a,.search,.check,.topbar{transition:none}.settle,.settle.is-in{opacity:1;transform:none;animation:none}}
+@media print{.settle,.settle.is-in{opacity:1;transform:none;animation:none}html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:1}html.motion-in :is(.motion-line,.motion-pop){animation:none}}
+</style>
+<script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+<script defer src="../assets/motion.js"></script>
+</head>
+<body data-guide="fhe">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="backlink" href="../campuses/prv/index.html" title="Back to Mathematical Privacy" aria-label="Back to Mathematical Privacy"><span class="arrow" aria-hidden="true">←</span>PRV</a>
+      <div class="brand"><span class="brand-topic">FHE</span> <b>// SELF-ASSEMBLED MOOC</b></div>
+      <input id="search" class="search" type="search" placeholder="Search schemes, speakers, libraries…" aria-label="Search the guide">
+      <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a>
+      <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+  <div class="wrap"><nav class="series" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/cry/index.html">CRY</a><a href="../campuses/prv/index.html">PRV</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">FHE</span><a href="zkp-self-assembled-mooc.html">ZKP</a><a href="post-quantum-cryptography-self-assembled-mooc.html">PQC</a><a href="mpc-self-assembled-mooc.html">MPC</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/prv/appendix.html">PRA · Appendix</a></nav></div>
+
+  <div class="hero">
+    <div>
+      <div class="kicker">Ciphertext compute · video-first</div>
+      <h1><span class="signature">Darío's</span> <span class="title-text"><em>FHE</em> MOOC</span></h1>
+      <p class="manifesto">Compute on data you <em>cannot see.</em></p>
+      <p class="lede">A personalized, non-centralized course assembled from Simons Institute, FHE.org, Microsoft Research, OpenFHE, Zama, IACR, NIST, and HEIR. The focus is compute on ciphertext. TEEs, MPC, proofs, chains, and live sessions are sibling guides—not extra FHE modules.</p>
+    </div>
+    <aside class="formula">
+      <code>Dec<sub>sk</sub>(Eval(f, Enc<sub>pk</sub>(x)))<br>= f(x)</code>
+      <p>The evaluator learns neither <em>x</em> nor the result. Noise, depth, precision, packing, and performance are the engineering price.</p>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="dashboard">
+      <div class="metric"><b>~18 h</b><span>core video route</span></div>
+      <div class="metric"><b>~24 h</b><span>full deep route</span></div>
+      <div class="metric"><b>7</b><span>sequenced modules</span></div>
+      <div class="metric"><b id="done-count">0 / 26</b><span>watch units completed</span></div>
+    </div>
+
+    <div class="controls" aria-label="Content filters">
+      <button class="filter active" data-filter="all">All units</button>
+      <button class="filter" data-filter="core">Core route</button>
+      <button class="filter" data-filter="theory">Theory &amp; math</button>
+      <button class="filter" data-filter="build">Implementation</button>
+      <button class="filter" data-filter="optional">Optional depth</button>
+      <span class="progress-label">Checks are read from progress.json.</span>
+    </div>
+
+    <div class="layout">
+      <nav aria-label="On this page">
+        <div class="mono">Course map</div>
+        <a href="#routes">Choose a route</a>
+        <a href="#module-0">0 · Orientation</a>
+        <a href="#module-1">1 · Lattices & LWE</a>
+        <a href="#module-2">2 · First encrypted program</a>
+        <a href="#module-3">3 · Bootstrapping</a>
+        <a href="#module-4">4 · BGV / BFV / CKKS</a>
+        <a href="#module-5">5 · TFHE</a>
+        <a href="#module-6">6 · Compilers & security</a>
+        <a href="#scheme-map">Scheme &amp; primitive chooser</a>
+        <a href="#practice">Capstone & study loop</a>
+        <a href="#conferences">Conference extras</a>
+        <a href="#sources">Reference shelf</a>
+      </nav>
+
+      <main id="content">
+        <div id="no-results" class="no-results">No matching section. Clear the search or choose another filter.</div>
+
+        <section id="routes">
+          <h2>Choose your route</h2>
+          <p class="section-intro">The default route is intentionally broad. Use the filters above to isolate theory or implementation, but keep at least one video from each side in every study week.</p>
+          <div class="grid-3">
+            <article class="card path">
+              <div class="tag hours">~12 hours</div>
+              <h3>Systems explorer</h3>
+              <p>Watch all items marked <span class="tag core">core</span>, but choose only one lattice overview and one TFHE introduction. Best for understanding the landscape quickly.</p>
+            </article>
+            <article class="card path">
+              <div class="tag hours">~18 hours</div>
+              <h3>Balanced builder</h3>
+              <p>The recommended route: every core video plus OpenFHE Python, Concrete ML, and the TFHE-rs speedrun. Build each small exercise before moving on.</p>
+            </article>
+            <article class="card path">
+              <div class="tag hours">~24 hours</div>
+              <h3>Cryptography deep dive</h3>
+              <p>Complete everything, including alternate explanations, both retrospectives, security parameters, and compiler architecture.</p>
+            </article>
+          </div>
+          <h3>What the labels mean</h3>
+          <p>Every video in the seven modules carries one or more of these pills. Click a pill—or use the filter buttons at the top—to show only that kind of video. The conference extras at the end sit outside the route and are unlabeled.</p>
+          <div class="card key">
+            <div><span class="tag core">core</span><span>On the default route. Together these form the shortest path that still covers both the math and the implementation side.</span></div>
+            <div><span class="tag theory">theory</span><span>Explains why a construction works: lattices, LWE, noise, bootstrapping, scheme design.</span></div>
+            <div><span class="tag build">build</span><span>Shows or motivates working code—libraries, compilers, parameters, benchmarks. Each has an exercise attached.</span></div>
+            <div><span class="tag optional">optional</span><span>Extra depth or a second explanation of something already covered. Skip on a first pass without losing the thread.</span></div>
+          </div>
+          <p class="muted">Twenty of the twenty-six videos are <span class="tag core">core</span>; the other six are <span class="tag optional">optional</span>, so a pill combination like <span class="tag core">core</span> <span class="tag optional">optional</span> never appears. A handful of talks that both explain a construction and demo it carry three pills.</p>
+          <div class="callout"><strong>Prerequisites:</strong> comfort with linear algebra, modular arithmetic, basic probability, and one programming language. You do not need prior lattice cryptography. Rust is useful only for the TFHE-rs branch; Python is enough for the first implementation pass.</div>
+          <div class="callout warn"><strong>Stay in this guide:</strong> this guide is ciphertext compute—schemes, noise, compilers, parameters. Functional encryption is extras only (the output is in the clear). Do not wait here for proofs (guide 2), MPC (4), consensus (5), TEEs (6), or Signal (7).</div>
+        </section>
+
+        <section id="module-0" data-topic="core theory">
+          <div class="module-head"><span class="module-no">MODULE 00</span><h2>Orientation: the problem and the price</h2></div>
+          <p class="section-intro">Goal: explain the client/server threat model, the homomorphic promise, and why ordinary encryption cannot support computation.</p>
+          <article class="lesson" data-tags="core theory" data-id="paillier-intro">
+            <input class="check" type="checkbox" aria-label="Mark Paillier introduction complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=umqz7kKWxyw">Introduction to Homomorphic Encryption</a>
+              <div class="meta">Pascal Paillier · FHE.org · 60:56</div>
+              <p>The strongest zero-to-one overview in the draft. Listen for the trust model, noise growth, leveled vs. fully homomorphic encryption, and application constraints.</p>
+              <div class="lab"><strong>After watching:</strong> draw the four-step protocol—key generation, encryption, server evaluation, client decryption—and label who can see each key and value.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=umqz7kKWxyw">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-1" data-topic="core theory optional">
+          <div class="module-head"><span class="module-no">MODULE 01</span><h2>Math: lattices, LWE, and noisy linear algebra</h2></div>
+          <p class="section-intro">Goal: recognize a lattice basis, the geometry behind SVP/BDD, the LWE sample form, and the role of noise in both security and correctness.</p>
+          <article class="lesson" data-tags="core theory" data-id="lattices-1">
+            <input class="check" type="checkbox" aria-label="Mark Mathematics of Lattices I complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=LlPXfy6bKIY">The Mathematics of Lattices I</a>
+              <div class="meta">Vinod Vaikuntanathan · Simons Institute · 68:25</div>
+              <p>Point lattices, bases, fundamental geometry, and the computational problems that later become assumptions.</p>
+              <div class="lab"><strong>Checkpoint:</strong> explain why a lattice has many bases but one determinant, and distinguish SVP from CVP/BDD.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=LlPXfy6bKIY">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory" data-id="lattices-2">
+            <input class="check" type="checkbox" aria-label="Mark Mathematics of Lattices II complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=SZkTJMorxnM">The Mathematics of Lattices II</a>
+              <div class="meta">Vinod Vaikuntanathan · Simons Institute · 64:14</div>
+              <p>Moves into lattice cryptography and LWE. This is the technical substrate for the schemes in later modules.</p>
+              <div class="lab"><strong>Checkpoint:</strong> write an LWE sample as (a, ⟨a,s⟩ + e mod q) and identify which term gives security and which threatens decryption.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=SZkTJMorxnM">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional theory" data-id="micciancio-karp">
+            <input class="check" type="checkbox" aria-label="Mark Micciancio Karp lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=OUVs_NdiY5Q">Lattices, Post-Quantum Security and Homomorphic Encryption</a>
+              <div class="meta">Daniele Micciancio · Simons Institute · 58:53 · alternate explanation</div>
+              <p>A cleaner single-lecture arc from subset sum to lattices, LWE, multiplication, and bootstrapping. Watch after the pair above, or substitute it on the faster route.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=OUVs_NdiY5Q">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-2" data-topic="core build">
+          <div class="module-head"><span class="module-no">MODULE 02</span><h2>Implementation: first encrypted arithmetic</h2></div>
+          <p class="section-intro">Goal: connect schemes, parameters, keys, encoding, encryption, evaluation, and decryption to a real library workflow before returning to deeper theory.</p>
+          <article class="lesson" data-tags="core build" data-id="ms-intro">
+            <input class="check" type="checkbox" aria-label="Mark Microsoft HE introduction complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=SEBdYXxijSo">Intro to Homomorphic Encryption</a>
+              <div class="meta">Wei Dai · Microsoft Research Private AI Bootcamp · 52:54</div>
+              <p>Uses BFV and CKKS to explain the five-stage library workflow, batching, levels, and practical scheme choice. More implementation-oriented than Module 0.</p>
+              <div class="lab"><strong>Build:</strong> run a library’s basic integer example; record plaintext modulus, ring dimension, ciphertext size, key-generation time, and evaluation time.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=SEBdYXxijSo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build" data-id="openfhe-python">
+            <input class="check" type="checkbox" aria-label="Mark OpenFHE Python talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=PqR4_9jpSPs">Encrypted Computing in Python Using OpenFHE</a>
+              <div class="meta">Sukanya Mandal · EuroPython 2024 · 29:39</div>
+              <p>A compact tour of the official Python wrapper with concrete examples. Use it as the entry point to BFV/BGV/CKKS without starting in C++.</p>
+              <div class="lab"><strong>Build:</strong> adapt the current <a href="https://github.com/openfheorg/openfhe-python/tree/main/examples">official example</a> to evaluate a small polynomial and compare clear vs. decrypted output.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=PqR4_9jpSPs">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional build" data-id="openfhe-code">
+            <input class="check" type="checkbox" aria-label="Mark OpenFHE implementation tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=1aeasUAoUAA">Homomorphic Encryption Using OpenFHE</a>
+              <div class="meta">Bill Buchanan · 2024 · 57:40 · code-along depth</div>
+              <p>A longer implementation walkthrough than the EuroPython overview. Reproduce the current CKKS simple-real-numbers example, then extend it to a packed dot product using rotations.</p>
+              <div class="lab"><strong>Version rule:</strong> preserve the workflow, but take class names and defaults from the current OpenFHE examples; advanced APIs such as scheme switching have changed.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=1aeasUAoUAA">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional build" data-id="seal-apps">
+            <input class="check" type="checkbox" aria-label="Mark Microsoft SEAL applications complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=GUOBxFKM5a8">Homomorphic Encryption with Microsoft SEAL</a>
+              <div class="meta">Microsoft Research Private AI Bootcamp · 52:58</div>
+              <p>The stronger C++/C# implementation branch: contexts, encoders, evaluation keys, rotations, relinearization, depth, and serialization. Pair it with the current SEAL examples; treat its 2019 API details as historical.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=GUOBxFKM5a8">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-3" data-topic="core theory">
+          <div class="module-head"><span class="module-no">MODULE 03</span><h2>Theory: Gentry’s blueprint and bootstrapping</h2></div>
+          <p class="section-intro">Goal: understand somewhat homomorphic encryption, noise budgets, squashing in the historical construction, and the modern “evaluate decryption” view of bootstrapping.</p>
+          <article class="lesson" data-tags="core theory" data-id="halevi-1">
+            <input class="check" type="checkbox" aria-label="Mark FHE I complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=xlcb_G1_rzk">Fully Homomorphic Encryption I</a>
+              <div class="meta">Shai Halevi · Simons Institute · 44:57</div>
+              <p>Definitions and the path from limited-depth homomorphism toward Gentry’s construction. Keep a running “noise ledger” as operations accumulate.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=xlcb_G1_rzk">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory" data-id="halevi-2">
+            <input class="check" type="checkbox" aria-label="Mark FHE II complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=iER9RkD05Oc">Fully Homomorphic Encryption II</a>
+              <div class="meta">Shai Halevi · Simons Institute · 63:37</div>
+              <p>Completes the bootstrapping story. Focus on why homomorphically evaluating decryption refreshes a ciphertext and why circular security appears.</p>
+              <div class="lab"><strong>Checkpoint:</strong> explain bootstrapping without saying “it removes noise.” State what is encrypted, what function is evaluated, and why the output is a fresh encryption.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=iER9RkD05Oc">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory" data-id="micciancio-10">
+            <input class="check" type="checkbox" aria-label="Mark ten years later lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=HIJad2TS1iM">Fully Homomorphic Encryption, 10 Years Later: Definitions and Open Problems</a>
+              <div class="meta">Daniele Micciancio · Simons Institute · 33:00</div>
+              <p>A concise consolidation of traditional FHE, composability, bootstrapping, circular security, and approximate encryption.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=HIJad2TS1iM">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-4" data-topic="core theory build optional">
+          <div class="module-head"><span class="module-no">MODULE 04</span><h2>Modern packed schemes: BGV, BFV, and CKKS</h2></div>
+          <p class="section-intro">Goal: distinguish exact modular arithmetic from approximate arithmetic; understand RLWE packing, relinearization/key switching, modulus switching, rescaling, rotations, and multiplicative depth.</p>
+          <article class="lesson" data-tags="core theory" data-id="brakerski-modern">
+            <input class="check" type="checkbox" aria-label="Mark Brakerski FHE lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=O8IvJAIvGJo">Fully Homomorphic Encryption</a>
+              <div class="meta">Zvika Brakerski · Simons Institute · 53:40</div>
+              <p>The bridge from the original blueprint to cleaner LWE/RLWE-era constructions. Best watched after Halevi, not as a replacement.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=O8IvJAIvGJo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory build" data-id="ckks-song">
+            <input class="check" type="checkbox" aria-label="Mark CKKS introduction complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=iQlgeL64vfo">Introduction to CKKS (Approximate Homomorphic Encryption)</a>
+              <div class="meta">Yongsoo Song · Microsoft Research · 44:12</div>
+              <p>The standard CKKS teaching lecture: canonical embedding, encoding, scale, rescaling, levels, and approximate error.</p>
+              <div class="lab"><strong>Build:</strong> evaluate a degree-3 polynomial on a packed CKKS vector. Track scale and level after every multiplication, then report maximum absolute error.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=iQlgeL64vfo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build" data-id="concrete-compiler">
+            <input class="check" type="checkbox" aria-label="Mark Concrete compiler tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=AH8Q1SPfCDA">Dive into Concrete, Zama’s FHE Compiler</a>
+              <div class="meta">Zama · 6:45</div>
+              <p>A short compiler-level look at FHE dialects, generated artifacts, parameters, and lowering. It gives context that the original ML-only sequence lacked.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=AH8Q1SPfCDA">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build" data-id="concrete-sklearn">
+            <input class="check" type="checkbox" aria-label="Mark Concrete ML conversion tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=p5Y25FWLrH0">Convert a scikit-learn Model to Its Homomorphic Equivalent</a>
+              <div class="meta">Roman Bredehoft · Zama · 6:21</div>
+              <p>Keep this from the draft, but treat it as a guided demo. Focus on quantization and what the compiler accepts.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=p5Y25FWLrH0">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build" data-id="concrete-deploy">
+            <input class="check" type="checkbox" aria-label="Mark Concrete ML deployment tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=TmCg-e_dPJo">Deploy Trained scikit-learn Models on Encrypted Data</a>
+              <div class="meta">Zama · 2:02</div>
+              <p>A quick view of client/server deployment artifacts. Use it to identify the trust boundary, not as complete deployment training.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=TmCg-e_dPJo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional build" data-id="concrete-dataframes">
+            <input class="check" type="checkbox" aria-label="Mark encrypted DataFrames tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=IC-hr5nscq0">Work with Encrypted DataFrames Using Concrete ML</a>
+              <div class="meta">Zama · 3:51 · optional workflow demo</div>
+              <p>Useful for seeing a higher-level encrypted-data interface, but less foundational than the model and compiler videos.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=IC-hr5nscq0">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-5" data-topic="core theory build optional">
+          <div class="module-head"><span class="module-no">MODULE 05</span><h2>TFHE: programmable bootstrapping to Rust</h2></div>
+          <p class="section-intro">Goal: understand LWE/GLWE ciphertexts, gadget decomposition, key switching, external products, blind rotation, programmable bootstrapping, and how those ideas surface in TFHE-rs.</p>
+          <article class="lesson" data-tags="core theory" data-id="tfhe-intro">
+            <input class="check" type="checkbox" aria-label="Mark TFHE deep dive complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=npoHSR6-oRw">TFHE Deep Dive</a>
+              <div class="meta">Ilaria Chillotti · FHE.org · 118:21</div>
+              <p>The authoritative conceptual introduction by a TFHE co-author. This direct FHE.org upload replaces the duplicate Zama mirror in the draft.</p>
+              <div class="lab"><strong>Checkpoint:</strong> contrast “bootstrap occasionally after a deep arithmetic circuit” with “bootstrap as a frequent programmable function evaluation.”</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=npoHSR6-oRw">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build theory" data-id="tfhe-speedrun-1">
+            <input class="check" type="checkbox" aria-label="Mark TFHE-rs speedrun part 1 complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=LV606ZmVsfE">I Tried to Speedrun Fully Homomorphic Encryption — Part 1</a>
+              <div class="meta">David Wong · 2025 · 84:23</div>
+              <p>A modern, code-connected reconstruction of TFHE-rs fundamentals. Watch after Chillotti so the fast pacing reinforces rather than introduces the concepts.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=LV606ZmVsfE">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build theory" data-id="tfhe-speedrun-2">
+            <input class="check" type="checkbox" aria-label="Mark TFHE-rs speedrun part 2 complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=o_xGuJFhzgQ">Speedrunning TFHE-rs — Part 2: Key Switching &amp; External Products</a>
+              <div class="meta">David Wong · 2025 · 35:08</div>
+              <p>Connects decomposition and key switching to the mechanics needed for TFHE bootstrapping.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=o_xGuJFhzgQ">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build theory" data-id="tfhe-speedrun-3">
+            <input class="check" type="checkbox" aria-label="Mark TFHE-rs speedrun part 3 complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=lD5xH4Sx0yE">TFHE-rs Speedrun — Part 3: Negacyclic Polynomials, Blind Rotation &amp; the Carry Bit</a>
+              <div class="meta">David Wong · 2025 · 102:28</div>
+              <p>Finishes the lower-level journey through blind rotation and integer representation.</p>
+              <div class="lab"><strong>Build:</strong> using the current TFHE-rs quick start, implement encrypted min/max or a small lookup-driven classifier; benchmark key generation, one arithmetic operation, and one comparison in release mode.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=lD5xH4Sx0yE">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="module-6" data-topic="core optional theory build">
+          <div class="module-head"><span class="module-no">MODULE 06</span><h2>Systems, compilers, and secure parameters</h2></div>
+          <p class="section-intro">Goal: see why FHE needs compilers and automated parameter selection—and why “it decrypts correctly” is not a security argument.</p>
+          <article class="lesson" data-tags="core build" data-id="heir-research">
+            <input class="check" type="checkbox" aria-label="Mark HEIR compiler talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=t_XHw7LVy8s">HEIR as a Platform for Research</a>
+              <div class="meta">Jeremy Kun · HEIR Compiler · 26:10</div>
+              <p>A much more current compiler overview than the 2021 talk in the draft: MLIR abstractions, scheme/backend diversity, optimization, and hardware targets.</p>
+              <div class="lab"><strong>Design exercise:</strong> sketch a compiler pipeline from a high-level dot product to rotations, multiply-adds, relinearization/rescaling, and a chosen backend.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=t_XHw7LVy8s">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional build" data-id="heir-optimizations">
+            <input class="check" type="checkbox" aria-label="Mark HEIR optimization tutorial complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=ne5D_kqlxYg">The HEIR Compiler</a>
+              <div class="meta">Jeremy Kun · FHE.org · 23:41 · optimization tutorial</div>
+              <p>Moves from project architecture into writing and reasoning about compiler optimizations. Use the current HEIR Python frontend and quickstart because the project’s interfaces evolve rapidly.</p>
+              <div class="lab"><strong>Build:</strong> run a current BGV/OpenFHE quickstart, inspect the lowered IR, and identify one canonicalization or packing opportunity.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=ne5D_kqlxYg">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory build" data-id="nist-security">
+            <input class="check" type="checkbox" aria-label="Mark NIST security guidelines talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.nist.gov/video/wpec-2024-session-2b">Security Guidelines for Implementing Homomorphic Encryption</a>
+              <div class="meta">Erin Hales · NIST WPEC 2024 · free hosted video · session talk</div>
+              <p>Introduces the standardization process, concrete LWE security estimation, functional parameter sets, and why parameter choice is inseparable from correctness and performance.</p>
+              <div class="lab"><strong>Audit:</strong> for one earlier experiment, identify which parameters came from library defaults and which security claim those defaults actually support.</div>
+            </div>
+            <a class="watch" href="https://www.nist.gov/video/wpec-2024-session-2b">▶ Watch</a>
+          </article>
+          <article class="lesson" data-tags="core theory build" data-id="parameter-tools">
+            <input class="check" type="checkbox" aria-label="Mark parameter selection tools talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=3CKGn-JMgz4">Precision Tools for FHE Parameter Selection</a>
+              <div class="meta">Beatrice Biasioli &amp; Chiara Marcolla · FHE.org 2025 · 23:29</div>
+              <p>A practical update to the NIST overview: formula- and solver-based parameter selection across common secret distributions and both RLWE-style and CGGI-style regimes.</p>
+              <div class="lab"><strong>Checkpoint:</strong> separate functional parameters—precision, depth, plaintext space—from security parameters, then explain where the two constrain each other.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=3CKGn-JMgz4">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional theory" data-id="gentry-decade">
+            <input class="check" type="checkbox" aria-label="Mark Gentry retrospective complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=487AjvFW1lk">A Decade (or So) of Fully Homomorphic Encryption</a>
+              <div class="meta">Craig Gentry · IACR / Eurocrypt 2021 · 79:11</div>
+              <p>A field-level retrospective from FHE’s originator: generations of schemes, common structure, practical progress, applications, and open directions. Finish here, not at Module 2.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=487AjvFW1lk">▶ YouTube</a>
+          </article>
+        </section>
+
+        <section id="scheme-map">
+          <h2>Scheme and primitive chooser</h2>
+          <p class="section-intro">First decide whether FHE is the right object. Only then choose a scheme by algebra and data layout—not by whichever library you installed first.</p>
+          <h3>When FHE is the wrong primitive</h3>
+          <div class="decision"><strong>Use FHE</strong><span>One party should evaluate an agreed function on ciphertexts and return ciphertexts. The evaluator must not learn x or f(x). Typical: outsourced exact/approximate arithmetic with a single data owner.</span></div>
+          <div class="decision"><strong>Use MPC</strong><span>Several parties hold inputs and none of them should see the others’. Secret sharing, OT, and garbled circuits are usually cheaper than FHE when you can afford interaction. See the <a href="mpc-self-assembled-mooc.html">MPC guide</a>.</span></div>
+          <div class="decision"><strong>Use ZK</strong><span>You need a public argument that a computation was done correctly, not a ciphertext the server can keep evaluating. FHE + a SNARK is a composition, not a default. See the <a href="zkp-self-assembled-mooc.html">ZK guide</a>.</span></div>
+          <div class="decision"><strong>Use a TEE</strong><span>The product actually trusts a hardware TCB, attestation, and a sealed enclave or confidential GPU. That is guide 6, not an FHE optimization. FHE does not need Intel/AMD/NVIDIA to be honest.</span></div>
+          <div class="decision"><strong>Use FE / ABE</strong><span>A key should reveal f(x) in the clear and nothing else. That is not homomorphic evaluation. Definitions live in conference extras below; pairings/IBE details belong with ZK extras, not as extra FHE modules.</span></div>
+          <h3>Which FHE scheme</h3>
+          <div class="decision"><strong>BFV / BGV</strong><span>Exact modular integer arithmetic, usually SIMD-packed. Good when exactness and modular semantics are natural; comparisons and arbitrary nonlinear functions remain awkward.</span></div>
+          <div class="decision"><strong>CKKS</strong><span>Approximate real/complex vector arithmetic. Usually the first choice for linear algebra and many ML inference workloads; precision, scale, rescaling, and polynomial approximations are part of program design.</span></div>
+          <div class="decision"><strong>TFHE / FHEW</strong><span>Boolean or fixed-width integer work with fast functional/programmable bootstrapping. Strong for comparisons, bitwise logic, and lookup tables; large vector arithmetic may favor CKKS/BFV/BGV.</span></div>
+          <div class="decision"><strong>Hybrid schemes</strong><span>Switch schemes when a workload combines vectorized smooth arithmetic with a few non-smooth operations. OpenFHE, for example, supports CKKS↔FHEW/TFHE scheme switching, but conversion is not free.</span></div>
+          <div class="callout warn"><strong>Common mistake:</strong> “fully homomorphic” means arbitrary circuits are possible in principle. It does not mean every operation is practical, that the library chose secure parameters, or that FHE beats MPC, a TEE, or a proof for this product.</div>
+        </section>
+
+        <section id="practice">
+          <h2>Capstone and study loop</h2>
+          <p class="section-intro">The videos are the instruction; the prompts below turn each implementation video into deliberate practice.</p>
+          <div class="grid">
+            <article class="card">
+              <h3>Balanced capstone</h3>
+              <ol>
+                <li>Choose a small model or scoring rule with a documented client/server threat model.</li>
+                <li>Implement a cleartext baseline and define acceptable numerical error.</li>
+                <li>Build one CKKS or exact-integer version and one TFHE-style version.</li>
+                <li>Measure key sizes, ciphertext expansion, compile/keygen/evaluation latency, precision, and throughput.</li>
+                <li>Explain which operations dominate and redesign one circuit to reduce depth or bootstraps.</li>
+                <li>Document the security level and where every parameter came from.</li>
+                <li>Write one page on why this workload is FHE rather than MPC, a TEE, or a SNARK—or admit that it is not.</li>
+              </ol>
+            </article>
+            <article class="card">
+              <h3>One-week cadence per module</h3>
+              <ul>
+                <li><strong>Watch:</strong> pause and predict the next construction or API step.</li>
+                <li><strong>Reconstruct:</strong> redraw the key equations or type the demo without copying.</li>
+                <li><strong>Break:</strong> exceed depth, use a bad scale, or run debug mode and observe failure/performance.</li>
+                <li><strong>Explain:</strong> produce a five-minute verbal summary with no slides.</li>
+                <li><strong>Connect:</strong> state how the math predicts the behavior you measured.</li>
+              </ul>
+            </article>
+          </div>
+          <h3>Exit criteria</h3>
+          <details open><summary>Foundations</summary><div>You can define correctness, compactness, semantic security, leveled FHE, and bootstrapping; explain LWE noise; and distinguish the main lattice problems without conflating them.</div></details>
+          <details><summary>Scheme literacy</summary><div>Given an operation graph and data type, you can justify BGV/BFV vs. CKKS vs. TFHE, estimate multiplicative depth, identify costly operations, and describe the packing strategy.</div></details>
+          <details><summary>Implementation</summary><div>You can run encrypted computation in a maintained library, validate against cleartext, measure error and latency, separate client/server artifacts, and avoid inventing parameters.</div></details>
+          <details><summary>Systems judgment</summary><div>You can explain what the compiler must lower and optimize, what the security estimator contributes, and why API success does not establish deployment security.</div></details>
+          <details><summary>Place in the seven</summary><div>You can reject FHE when several parties hold inputs (MPC), when you only need a public proof (ZK), when the product is a hardware TCB (TEE), or when a key must reveal f(x) in the clear (functional encryption). You do not treat those as missing FHE lectures.</div></details>
+        </section>
+
+        <section id="conferences">
+          <h2>Conference extras</h2>
+          <p class="section-intro">These talks are worth watching after the MOOC, not instead of it. They are research snapshots: sharper on one result, thinner on prerequisites, and they date faster than the sequenced lectures. Skip them until the scheme chooser and capstone feel natural. Functional encryption lives only here—not as extra modules.</p>
+          <div class="callout">Full archives: <a href="https://www.youtube.com/playlist?list=PLnbmMskCVh1cCnWbmgxI0BM0UD2JHH9fz">FHE.org Sofia 2025</a> · <a href="https://www.youtube.com/playlist?list=PLnbmMskCVh1fZy00EZQnFSezctvwYmlRM">FHE.org Toronto 2024</a> · <a href="https://fhe.org/conferences/conference-2026/resources.html">FHE.org Taipei 2026 resources</a> · <a href="https://www.youtube.com/@TheIACR">IACR channel</a>. The list below is a shortlist, not a dump of those playlists.</div>
+
+          <h3>Functional encryption — parent idea, not an FHE module</h3>
+          <p class="section-intro">FHE evaluates f on ciphertexts and returns a ciphertext. Functional encryption issues a key for f and reveals f(x) in the clear. That is a different primitive. These talks are enough to see the distinction; they are not a substitute for pairings depth (ZK extras) or TEEs (guide 6).</p>
+          <div class="grid">
+            <article class="card">
+              <h3><a href="https://www.youtube.com/watch?v=PrsF_17TTrU">Functional Encryption</a></h3>
+              <p>Allison Lewko · Bar-Ilan Winter School 2013. Definitions, collusion, and why “compute on encrypted data” is not one object. Watch after the primitive chooser. <a href="https://cryptobiu.github.io/assets/pdf/2017/01/AllisonLewko-BIU2013-2-8.pdf">Slides</a>.</p>
+            </article>
+            <article class="card">
+              <h3><a href="https://www.youtube.com/watch?v=Tt7cJnZDth0">Identity-Based Encryption and Variants</a></h3>
+              <p>Dan Boneh · same school. IBE as the simplest functional-encryption special case: the key is for an identity, not an arbitrary circuit. Do not treat this as an FHE construction. Pairings stay in the ZK extras, not here.</p>
+            </article>
+          </div>
+
+          <h3>Invited overviews</h3>
+          <div class="grid">
+            <article class="card">
+              <div class="tag optional">66:31</div>
+              <h3><a href="https://www.youtube.com/watch?v=V3FcM1B4mcg">FHE: Inside Out</a></h3>
+              <p>Craig Gentry · FHE.org 2025 invited talk. A later field-level view than the Eurocrypt 2021 retrospective already in Module 6: where the abstractions sit, what is still awkward, and what a new scheme would have to beat.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">75:49</div>
+              <h3><a href="https://www.youtube.com/watch?v=BIDBfVFzuck">Estimating the Difficulty of Breaking Lattice-Based Cryptography</a></h3>
+              <p>Martin Albrecht · FHE.org. The Lattice Estimator in practice: primal, dual, and hybrid attacks, cost models, and how to read a security claim. Pair with the parameter-selection talk in Module 6.</p>
+            </article>
+          </div>
+
+          <h3>Security notions that the core course only flags</h3>
+          <div class="grid">
+            <article class="card">
+              <div class="tag optional">23:45</div>
+              <h3><a href="https://www.youtube.com/watch?v=1pcNGXqyiTo">On the Security of Homomorphic Encryption on Approximate Numbers</a></h3>
+              <p>Eurocrypt / IACR. Why CKKS is not just “BFV with rounding”: decryption oracles, IND-CPA<sup>D</sup>, and key-recovery attacks on approximate schemes. Watch this before treating CKKS decryption output as a public log.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">23:57</div>
+              <h3><a href="https://www.youtube.com/watch?v=zKw41oxN4ok">Strong IND-CPA<sup>D</sup> Security for FHE (Essentially) for Free</a></h3>
+              <p>Marc Joye · FHE.org 2025. How exact schemes can be made robust against decryption-oracle attacks without throwing away the usual FHE API.</p>
+            </article>
+          </div>
+
+          <h3>Libraries, deployment, hardware</h3>
+          <div class="grid">
+            <article class="card">
+              <div class="tag optional">21:58</div>
+              <h3><a href="https://www.youtube.com/watch?v=uiI8bSdNkrg">OpenFHE: Open-Source Fully Homomorphic Encryption Library</a></h3>
+              <p>Yuriy Polyakov · FHE.org 2025. Current multi-scheme map: BFV/BGV/CKKS, FHEW/TFHE, bootstrapping, scheme switching, and threshold FHE. Overview, not a coding lab.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">25:28</div>
+              <h3><a href="https://www.youtube.com/watch?v=7Ns6nl4iI_Y">FHE Deployment Challenges for Secure Cloud Computing</a></h3>
+              <p>Flavio Bergamaschi · FHE.org 2025. What breaks between a working notebook and a cloud service: keys, latency, engineering constraints, and operational reality.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">29:49</div>
+              <h3><a href="https://www.youtube.com/watch?v=-12xxt5BqUU">BASALISC: Integrated Hardware Acceleration for BGV, CKKS, and BFV</a></h3>
+              <p>David Archer · FHE.org 2024. How packed RLWE schemes map onto dedicated hardware, and why compilers and accelerators are now a single design problem.</p>
+            </article>
+          </div>
+
+          <h3>Research directions, not syllabus</h3>
+          <div class="grid">
+            <article class="card">
+              <div class="tag optional">48:28</div>
+              <h3><a href="https://www.youtube.com/watch?v=kRDij3TJROs">General Functional Bootstrapping using CKKS</a></h3>
+              <p>Yuriy Polyakov · FHE.org meetup, 2025. Programmable/lookup-table bootstrapping with CKKS throughput instead of TFHE’s scalar style. Best after Modules 4 and 5.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">39:37</div>
+              <h3><a href="https://www.youtube.com/watch?v=ebwaE1mGY3E">Reducing Encrypted Matrix Multiplication to Plaintext Matrix Multiplication</a></h3>
+              <p>Craig Gentry · FHE.org 2025. A concrete attack on the “matrix multiply is the bottleneck” story: how to farm the heavy linear algebra out of the encrypted domain.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">23:55</div>
+              <h3><a href="https://www.youtube.com/watch?v=5qss29TCmts">Blind zkSNARKs for Private Proof Delegation</a></h3>
+              <p>Jiayi Kang · FHE.org 2025. The FHE + zero-knowledge overlap: proving that an encrypted computation was done correctly without opening the data. Composition, not a reason to merge this guide with the <a href="zkp-self-assembled-mooc.html">ZK guide</a>.</p>
+            </article>
+            <article class="card">
+              <div class="tag optional">105:08</div>
+              <h3><a href="https://www.youtube.com/watch?v=IiNhxgc8wAY">Fully Homomorphic Encryption (Asiacrypt 2023)</a></h3>
+              <p>IACR. A long conference-session treatment of modern bootstrapping machinery (LWE ↔ RLWE, GSW accumulators, functional bootstrapping). Use it as a second pass over Module 3–5, not as a first lecture.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="sources">
+          <h2>Reference shelf</h2>
+          <p class="section-intro">These are companions, not hidden course steps. The sequenced curriculum above remains entirely video-first.</p>
+          <div class="grid">
+            <article class="card">
+              <h3>Math and theory</h3>
+              <ul>
+                <li><a href="https://shaih.github.io/lattices-and-HE-class/">Shai Halevi’s lattices and HE course notes</a></li>
+                <li><a href="https://intensecrypto.org/public/lec_15_FHE.html">Boaz Barak’s FHE lecture notes</a></li>
+                <li><a href="https://cseweb.ucsd.edu/classes/wi23/cse208-a/">UCSD CSE 208A — Micciancio</a></li>
+                <li><a href="https://eprint.iacr.org/2023/1402.pdf">Fully Homomorphic Encryption: A Mathematical Introduction</a></li>
+                <li><a href="https://eprint.iacr.org/2010/543">Boneh–Sahai–Waters · Functional Encryption (definitions)</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Code and current APIs</h3>
+              <ul>
+                <li><a href="https://openfhe-development.readthedocs.io/">OpenFHE documentation</a> and <a href="https://github.com/openfheorg/openfhe-python">Python wrapper</a></li>
+                <li><a href="https://github.com/microsoft/SEAL">Microsoft SEAL</a></li>
+                <li><a href="https://docs.zama.org/tfhe-rs/get-started/getting-started">TFHE-rs getting started</a></li>
+                <li><a href="https://docs.zama.ai/concrete-ml">Concrete ML documentation</a></li>
+                <li><a href="https://heir.dev/">HEIR compiler</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Security and the field</h3>
+              <ul>
+                <li><a href="https://fhe.org/resources/">FHE.org resource archive</a></li>
+                <li><a href="https://homomorphicencryption.org/standard/">Homomorphic Encryption Standardization</a></li>
+                <li><a href="https://eprint.iacr.org/2024/463.pdf">Security Guidelines for Implementing HE</a></li>
+                <li><a href="https://github.com/zama-ai/awesome-zama">awesome-zama</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Curation policy</h3>
+              <p>Scope: ciphertext compute. Sibling routes: <a href="zkp-self-assembled-mooc.html">ZKP</a>, <a href="post-quantum-cryptography-self-assembled-mooc.html">PQC</a>, <a href="mpc-self-assembled-mooc.html">MPC</a>, <a href="blockchain-self-assembled-mooc.html">DLT</a>, <a href="confidential-computing-self-assembled-mooc.html">TEE</a>, and <a href="session-messaging-self-assembled-mooc.html">E2E</a>. Priority went to primary instructors and official channels. Conference research talks stay in <a href="#conferences">Conference extras</a> unless they teach a reusable concept that belongs in the core route. Functional encryption is extras only.</p>
+              <p class="meta">Links and availability checked August 28, 2026.</p>
+            </article>
+          </div>
+          <div class="callout warn"><strong>Current-tool snapshot:</strong> use Microsoft SEAL 4.4 or later for direct applications because 4.4 included security hardening. OpenFHE, TFHE-rs, Concrete, Concrete ML, TenSEAL, and HEIR evolve independently—pin versions for a lab and record them with your results. Zama software is source-available under BSD-3-Clause-Clear with additional patent-license terms relevant to commercial use.</div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      Independent study guide; not affiliated with any listed institution. Video copyrights remain with their publishers. Progress is stored in progress.json, which this page only reads. Part of Darío’s applied-cryptography sequence.
+    </footer>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.getElementById('theme');
+    const search = document.getElementById('search');
+    const noResults = document.getElementById('no-results');
+    const lessons = [...document.querySelectorAll('.lesson')];
+    const sections = [...document.querySelectorAll('main section')];
+    const doneCount = document.getElementById('done-count');
+    const progressKey = 'fhe-mooc-progress-v1';
+    let activeFilter = 'all';
+    let savedProgress = {};
+
+
+    function updateProgress() {
+      const complete = lessons.filter(lesson => lesson.querySelector('.check').checked).length;
+      doneCount.textContent = `${complete} / ${lessons.length}`;
+    }
+
+    const tagOrder = ['core', 'theory', 'build', 'optional'];
+    const tagTitles = {
+      core: 'On the default route',
+      theory: 'Explains why a construction works',
+      build: 'Code, tooling, parameters, benchmarks',
+      optional: 'Extra depth or a second explanation'
+    };
+
+    lessons.forEach(lesson => {
+      const tags = tagOrder.filter(tag => (lesson.dataset.tags || '').split(' ').includes(tag));
+      const meta = lesson.querySelector('.meta');
+      if (!tags.length || !meta) return;
+      const row = document.createElement('div');
+      row.className = 'lesson-tags';
+      tags.forEach(tag => {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = `tag ${tag}`;
+        pill.textContent = tag;
+        pill.title = `${tagTitles[tag]} — click to filter`;
+        pill.addEventListener('click', () => setFilter(tag));
+        row.append(pill);
+      });
+      meta.after(row);
+    });
+
+    lessons.forEach(lesson => {
+      const box = lesson.querySelector('.check');
+      box.checked = Boolean(savedProgress[lesson.dataset.id]);
+      lesson.classList.toggle('done', box.checked);
+      box.addEventListener('change', () => {
+        savedProgress[lesson.dataset.id] = box.checked;
+        lesson.classList.toggle('done', box.checked);
+        updateProgress();
+      });
+    });
+    updateProgress();
+
+    function applyFilters() {
+      const query = search.value.trim().toLowerCase();
+      let visibleLessons = 0;
+      let visibleStandaloneSections = 0;
+      lessons.forEach(lesson => {
+        const tags = (lesson.dataset.tags || '').split(' ');
+        const filterMatch = activeFilter === 'all' || tags.includes(activeFilter);
+        const textMatch = !query || lesson.textContent.toLowerCase().includes(query);
+        const show = filterMatch && textMatch;
+        lesson.classList.toggle('hidden', !show);
+        if (show) visibleLessons++;
+      });
+
+      sections.forEach(section => {
+        const sectionLessons = [...section.querySelectorAll('.lesson')];
+        if (sectionLessons.length) {
+          section.classList.toggle('hidden', !sectionLessons.some(lesson => !lesson.classList.contains('hidden')));
+        } else {
+          const textMatch = !query || section.textContent.toLowerCase().includes(query);
+          section.classList.toggle('hidden', query && !textMatch);
+          if (!query || textMatch) visibleStandaloneSections++;
+        }
+      });
+      noResults.style.display = visibleLessons || visibleStandaloneSections ? 'none' : 'block';
+    }
+
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.querySelectorAll('.filter').forEach(item => {
+        item.classList.toggle('active', item.dataset.filter === filter);
+      });
+      applyFilters();
+    }
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => setFilter(button.dataset.filter));
+    });
+    search.addEventListener('input', applyFilters);
+  </script>
+  <script>(function(){var d=document.documentElement,done=false;function reveal(){if(done)return;done=true;d.classList.remove('fonts-loading')}setTimeout(reveal,1200);if(document.fonts&&document.fonts.ready){var f=document.fonts,n=function(p){return p.catch(function(){})};Promise.all([n(f.load('1em Allura')),n(f.load('400 4rem "DM Serif Display"')),n(f.load('800 1rem Manrope')),n(f.load('600 1rem "Source Serif 4"')),n(f.load('600 1rem Fraunces'))]).then(function(){return f.ready}).then(reveal)}else{reveal()}})();</script>
+<script>(function(){
+  var guide=(document.body.getAttribute('data-guide')||'').toLowerCase();
+  if(!guide)return;
+  var src=document.querySelector('script[src*="motion.js"]');
+  var url=src?new URL('../progress.json',src.src):new URL('../progress.json',location.href);
+  function paint(saved){
+    var lessons=document.querySelectorAll('.lesson'), n=0;
+    Array.prototype.forEach.call(lessons,function(lesson){
+      var box=lesson.querySelector('.check');
+      if(!box)return;
+      box.checked=Boolean(saved[lesson.getAttribute('data-id')]);
+      lesson.classList.toggle('done',box.checked);
+      if(box.checked)n++;
+    });
+    var done=document.getElementById('done-count');
+    if(done)done.textContent=n+' / '+lessons.length;
+  }
+  fetch(url,{cache:'no-cache'}).then(function(r){return r.ok?r.json():{}}).then(function(data){
+    var block=data&&typeof data==='object'?data[guide]:null;
+    paint(block&&typeof block==='object'?block:{});
+  }).catch(function(){});
+})();</script>
+</body>
+</html>

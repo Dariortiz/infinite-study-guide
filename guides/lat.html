@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="From Minkowski bodies to homogeneous spaces.">
+  <title>LAT - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#7db7ff;--accent-ink:#0070fa;--deep:#255896}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="lat">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/art/index.html" title="Back to Arithmetic" aria-label="Back to Arithmetic"><span class="arrow" aria-hidden="true">←</span>ART</a><div class="brand">LAT <b>// G11 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/art/index.html">ART</a><span class="divider" aria-hidden="true">|</span><a href="num.html">NUM</a><span class="here" aria-current="page">LAT</span><a href="cod.html">COD</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/art/appendix.html">ARA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Lattices as Mathematics · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>LAT</em> MOOC</span></h1>
+    <p class="manifesto">From Minkowski bodies to homogeneous spaces.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>7</b><span>modules</span></div>
+  <div class="metric"><b>23</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 23</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Geometry of Numbers</a><a href="#module-1">01 · Successive Minima &amp; Duality</a><a href="#module-2">02 · Gaussians &amp; Poisson Summation</a><a href="#module-3">03 · Lattice Reduction</a><a href="#module-4">04 · Packing &amp; Root Lattices</a><a href="#module-5">05 · Homogeneous Dynamics</a><a href="#module-6">06 · Crypto Crossings</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Geometry explorer</h3><p>Take all core units through geometry, minima, Poisson summation, LLL, homogeneous dynamics, and the two crypto pointers.</p><div class="meta"><span>9–12 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete every core artifact: convex-body visualizations, dual calculations, theta checks, exact LLL, and a modular-surface orbit study.</p><div class="meta"><span>20–30 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add packing and root lattices, theta series, approximation complexity, and a research-school lecture; keep cryptosystem study in PQC/FHE.</p><div class="meta"><span>40–60 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Geometry of Numbers</h2></div>
+  <p class="section-intro">Turn volume into arithmetic existence through Blichfeldt, Minkowski&#x27;s convex-body theorem, lattice determinants, and number-field embeddings.</p><article class="lesson" data-tags="core theory build" data-id="lat-geometry-simons">
+  <input class="check" type="checkbox" aria-label="Mark Mathematics of Lattices complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=21IzHN9-CjE">Mathematics of Lattices</a>
+    <div class="meta">Daniele Micciancio · Simons Institute lattice boot camp · 102 min</div>
+    <p>A substantial boot-camp lecture develops lattice geometry and its central quantitative parameters from first principles.</p>
+    <div class="lab"><strong>After watching:</strong> For three planar bases, compute determinant and shortest vectors, then compare the algebraic data with a plot.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=21IzHN9-CjE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-geometry-mit">
+  <input class="check" type="checkbox" aria-label="Mark Minkowski&#x27;s Geometry of Numbers complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=2ZqNnGE1lMw">Minkowski&#x27;s Geometry of Numbers</a>
+    <div class="meta">Billy Woods · Algebraic Number Theory lecture · 16 min</div>
+    <p>A focused proof-level bridge from convex bodies and covolume to arithmetic existence statements.</p>
+    <div class="lab"><strong>After watching:</strong> Embed a quadratic field as a lattice and derive the numerical Minkowski bound for its ideal classes.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=2ZqNnGE1lMw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="lat-geometry-cassels">
+  <input class="check" type="checkbox" aria-label="Mark Cassels, An Introduction to the Geometry of Numbers — Chapters I–III complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-642-62035-5">Cassels, An Introduction to the Geometry of Numbers — Chapters I–III</a>
+    <div class="meta">J. W. S. Cassels · Springer Classics in Mathematics · read</div>
+    <p>The classical proof spine for fundamental regions, Blichfeldt&#x27;s lemma, convex bodies, and Minkowski&#x27;s theorem.</p>
+    <div class="lab"><strong>After reading:</strong> Prove Blichfeldt&#x27;s lemma and Minkowski&#x27;s first theorem, then identify exactly where symmetry and convexity enter.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-642-62035-5">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Prove Minkowski&#x27;s first theorem, visualize sharp and non-sharp bodies in dimensions two and three, and apply it to one quadratic field.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Successive Minima &amp; Duality</h2></div>
+  <p class="section-intro">Measure anisotropic lattice scale with successive minima; relate primal and dual lattices through transference and polar bodies.</p><article class="lesson" data-tags="core theory build" data-id="lat-minima-simons">
+  <input class="check" type="checkbox" aria-label="Mark The Mathematics of Lattices I complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=LlPXfy6bKIY">The Mathematics of Lattices I</a>
+    <div class="meta">Daniele Micciancio · Simons Institute lattice boot camp · 68 min</div>
+    <p>The first focused boot-camp part develops bases, minima, dual lattices, and the geometric quantities used by transference bounds.</p>
+    <div class="lab"><strong>After watching:</strong> Compute successive minima and dual bases for three planar lattices, recording the norm used in every claim.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=LlPXfy6bKIY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-duality-iacr">
+  <input class="check" type="checkbox" aria-label="Mark Duality in Lattice-Based Cryptography complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=-xCDsWfrTkc">Duality in Lattice-Based Cryptography</a>
+    <div class="meta">Léo Ducas · IACR · 63 min</div>
+    <p>Although motivated by cryptography, the lecture&#x27;s dual-lattice viewpoint makes primal/dual geometry and transference operational.</p>
+    <div class="lab"><strong>After watching:</strong> Derive B*=(B^-1)^T, verify Λ**=Λ, and formulate one primal/dual shortest-vector relation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=-xCDsWfrTkc">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-minima-inequalities">
+  <input class="check" type="checkbox" aria-label="Mark Successive Minima-Type Inequalities complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=70MdKbLVdoY">Successive Minima-Type Inequalities</a>
+    <div class="meta">Simons Institute for the Theory of Computing · 33 min</div>
+    <p>A theorem-level lecture directly accompanies the reading&#x27;s quantitative treatment of successive minima and their inequalities.</p>
+    <div class="lab"><strong>After watching:</strong> State the bodies and lattice parameters in one successive-minima inequality, then test its scale on three planar examples.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=70MdKbLVdoY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-minima-gruber">
+  <input class="check" type="checkbox" aria-label="Mark Gruber–Lekkerkerker, Geometry of Numbers — Chapters 2–3 complete">
+  <div>
+    <a class="lesson-title" href="https://www.sciencedirect.com/bookseries/north-holland-mathematical-library/vol/37">Gruber–Lekkerkerker, Geometry of Numbers — Chapters 2–3</a>
+    <div class="meta">Peter Gruber &amp; C. G. Lekkerkerker · North-Holland Mathematical Library 37 · read</div>
+    <p>Develops successive minima, polar bodies, and the quantitative refinements absent from a quick convex-body introduction.</p>
+    <div class="lab"><strong>After reading:</strong> For three planar lattices, estimate λ1 and λ2 geometrically and compare their product with determinant bounds.</div>
+  </div>
+  <a class="watch" href="https://www.sciencedirect.com/bookseries/north-holland-mathematical-library/vol/37">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute successive minima and dual bases for planar examples, then prove one transference inequality with all norm choices stated.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Gaussians &amp; Poisson Summation</h2></div>
+  <p class="section-intro">Use Fourier duality to relate a lattice and its dual; understand theta series, smoothing, and discrete Gaussians as mathematics.</p><article class="lesson" data-tags="core theory build" data-id="lat-gaussian-regev">
+  <input class="check" type="checkbox" aria-label="Mark Discrete Gaussian and Subgaussian Analysis complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=LduOtwsfG7w">Discrete Gaussian and Subgaussian Analysis</a>
+    <div class="meta">Nicholas Genise &amp; Daniele Micciancio · Simons Institute · 62 min</div>
+    <p>A full research lecture develops modern discrete-Gaussian estimates instead of pointing to a dead DOI page.</p>
+    <div class="lab"><strong>After watching:</strong> Compute Gaussian mass on two toy lattices and test how the tail changes across candidate smoothing scales.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=LduOtwsfG7w">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-poisson-simons">
+  <input class="check" type="checkbox" aria-label="Mark The Mathematics of Lattices II complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=SZkTJMorxnM">The Mathematics of Lattices II</a>
+    <div class="meta">Daniele Micciancio · Simons Institute lattice boot camp · 64 min</div>
+    <p>The second boot-camp part supplies the Fourier and Gaussian machinery connecting a lattice to its dual.</p>
+    <div class="lab"><strong>After watching:</strong> Numerically test Poisson summation on Z and a skew planar lattice with an explicit truncation-error estimate.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=SZkTJMorxnM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-poisson-steins">
+  <input class="check" type="checkbox" aria-label="Mark Stein–Shakarchi, Fourier Analysis — Chapter 3 complete">
+  <div>
+    <a class="lesson-title" href="https://press.princeton.edu/books/hardcover/9780691113845/fourier-analysis">Stein–Shakarchi, Fourier Analysis — Chapter 3</a>
+    <div class="meta">Elias Stein &amp; Rami Shakarchi · Princeton Lectures in Analysis I · read</div>
+    <p>Supplies a clean analytic derivation of Poisson summation before lattice-specific applications.</p>
+    <div class="lab"><strong>After reading:</strong> Prove Poisson summation for a Schwartz function and test the Gaussian identity with increasing truncation radius.</div>
+  </div>
+  <a class="watch" href="https://press.princeton.edu/books/hardcover/9780691113845/fourier-analysis">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Numerically verify Poisson summation for two lattices and derive the Gaussian theta transformation with truncation error shown.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Lattice Reduction</h2></div>
+  <p class="section-intro">Study reduction as geometry plus an approximation theorem: dimension two first, then LLL and its potential-function proof.</p><article class="lesson" data-tags="core theory build" data-id="lat-reduction-lll">
+  <input class="check" type="checkbox" aria-label="Mark The LLL Algorithm complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Upg1l88Zlck">The LLL Algorithm</a>
+    <div class="meta">Christof Paar · Cryptography 101 · 30 min</div>
+    <p>A complete algorithmic walkthrough makes size reduction, Lovász swaps, and the reduced-basis output concrete.</p>
+    <div class="lab"><strong>After watching:</strong> Implement exact-arithmetic LLL and log every coefficient reduction, swap, and potential change.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Upg1l88Zlck">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="lat-reduction-mg">
+  <input class="check" type="checkbox" aria-label="Mark Algorithms for Lattice Problems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=o4Pl-0Q5-q0">Algorithms for Lattice Problems</a>
+    <div class="meta">Daniele Micciancio · Simons Institute · 73 min</div>
+    <p>Places basis reduction among the central computational lattice problems and clarifies approximation guarantees.</p>
+    <div class="lab"><strong>After watching:</strong> Compare Gauss reduction and LLL on generated bases, measuring orthogonality defect and shortest-vector quality.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=o4Pl-0Q5-q0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-reduction-nguyen">
+  <input class="check" type="checkbox" aria-label="Mark Nguyen–Vallée, The LLL Algorithm — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-642-02295-1">Nguyen–Vallée, The LLL Algorithm — Chapters 1–2</a>
+    <div class="meta">Phong Q. Nguyen &amp; Brigitte Vallée, eds. · Springer Information Security and Cryptography · read</div>
+    <p>Treats LLL as a mathematical algorithm with invariants, complexity, and approximation guarantees rather than as an attack button.</p>
+    <div class="lab"><strong>After reading:</strong> Implement rational LLL, log every size-reduction and swap, and empirically verify the potential decreases.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-642-02295-1">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement Gauss reduction and exact-arithmetic LLL, test approximation factors, and write a termination/correctness proof audit.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Packing &amp; Root Lattices</h2></div>
+  <p class="section-intro">Read minimum vectors as packing radii and root systems as symmetry; meet A_n, D_n, E8, Leech, and density bounds.</p><article class="lesson" data-tags="core theory" data-id="lat-viazovska">
+  <input class="check" type="checkbox" aria-label="Mark Sphere Packing and Beyond complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=IsE0Zoi98go">Sphere Packing and Beyond</a>
+    <div class="meta">Maryna Viazovska · IAS/PCMI · 63 min</div>
+    <p>Viazovska presents the geometric and analytic architecture around the optimal E8 packing in a full invited lecture.</p>
+    <div class="lab"><strong>After watching:</strong> Give a proof map separating the linear-programming bound, magic function, Fourier properties, and equality case.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=IsE0Zoi98go">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="lat-packing-borcherds">
+  <input class="check" type="checkbox" aria-label="Mark Sphere Packings in 8 Dimensions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=UKwHX3XFfcc">Sphere Packings in 8 Dimensions</a>
+    <div class="meta">Richard Borcherds · Berkeley · 32 min</div>
+    <p>A compact mathematical account reinforces why E8&#x27;s symmetry and modular-form structure certify optimality.</p>
+    <div class="lab"><strong>After watching:</strong> Construct an E8 Gram matrix, compute its determinant and minimum norm, and relate these to packing radius.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=UKwHX3XFfcc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="lat-packing-conway">
+  <input class="check" type="checkbox" aria-label="Mark Conway–Sloane, Sphere Packings, Lattices and Groups — Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4757-6568-7">Conway–Sloane, Sphere Packings, Lattices and Groups — Chapters 1–4</a>
+    <div class="meta">John Conway &amp; Neil Sloane · Springer · 3rd ed. · read</div>
+    <p>The atlas and reference for constructions, densities, theta series, and the exceptional geometry of E8 and Leech.</p>
+    <div class="lab"><strong>After reading:</strong> Construct A2, D4, and E8 from generators; compute determinant, minimum norm, and center density.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4757-6568-7">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Generate low-dimensional root lattices, compute Gram matrices and kissing configurations, and compare packing densities.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Homogeneous Dynamics</h2></div>
+  <p class="section-intro">Put unimodular lattices in SL(n,R)/SL(n,Z); study geodesic and unipotent flows, recurrence, equidistribution, and Diophantine correspondences.</p><article class="lesson" data-tags="core theory build" data-id="lat-homogeneous-ghosh">
+  <input class="check" type="checkbox" aria-label="Mark Dynamics on Homogeneous Spaces and Diophantine Approximation complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=VO6B9qQYqzw">Dynamics on Homogeneous Spaces and Diophantine Approximation</a>
+    <div class="meta">Anish Ghosh · CIRM · 66 min</div>
+    <p>A direct lecture on the Dani correspondence links orbit behavior on lattice spaces to Diophantine approximation.</p>
+    <div class="lab"><strong>After watching:</strong> Work out the correspondence for badly approximable reals and identify the compactness criterion used.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=VO6B9qQYqzw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="lat-homogeneous-ictp">
+  <input class="check" type="checkbox" aria-label="Mark Applications of Homogeneous Dynamics — Lecture 9 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=5aAvNIpYRUQ">Applications of Homogeneous Dynamics — Lecture 9</a>
+    <div class="meta">Jens Marklof &amp; Andreas Strömbergsson · ICTP · 60 min</div>
+    <p>A specific research-school lecture replaces the dead search page and supplies a sustained application of lattice flows.</p>
+    <div class="lab"><strong>After watching:</strong> State the acting group, homogeneous space, invariant measure, and principal orbit theorem used in the lecture.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=5aAvNIpYRUQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="lat-homogeneous-ew">
+  <input class="check" type="checkbox" aria-label="Mark Einsiedler–Ward, Ergodic Theory with a View Towards Number Theory — Chapters 5–9 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-0-85729-021-2">Einsiedler–Ward, Ergodic Theory with a View Towards Number Theory — Chapters 5–9</a>
+    <div class="meta">Manfred Einsiedler &amp; Thomas Ward · Springer GTM 259 · read</div>
+    <p>This is the designated home for homogeneous dynamics: lattices become points in a dynamical state space and arithmetic becomes orbit behavior.</p>
+    <div class="lab"><strong>After reading:</strong> Identify SL(2,R)/SL(2,Z) with unimodular planar lattices and prove how the diagonal flow changes basis-vector lengths.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-0-85729-021-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate the modular-surface geodesic flow or diagonal action on planar lattices and connect cusp excursions to Diophantine approximation.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Crypto Crossings</h2></div>
+  <p class="section-intro">Map mathematical inputs to existing lattice-crypto modules without duplicating SIS, LWE, schemes, parameters, or implementation.</p><article class="lesson" data-tags="core theory" data-id="lat-crypto-regev">
+  <input class="check" type="checkbox" aria-label="Mark Lattices: From Geometry to Cryptography complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=W7rp2dKE0K0">Lattices: From Geometry to Cryptography</a>
+    <div class="meta">Oded Regev · Institute for Advanced Study · 63 min</div>
+    <p>Regev&#x27;s survey makes the exact handoff from geometric lattice questions to worst-case hardness and LWE visible.</p>
+    <div class="lab"><strong>After watching:</strong> Label each theorem in the talk as geometry, complexity, or cryptography and map its prerequisite back into LAT.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=W7rp2dKE0K0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="lat-crypto-vinod">
+  <input class="check" type="checkbox" aria-label="Mark Lattices and Cryptography: A Match Made in Heaven complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=5LGwaICJ5sw">Lattices and Cryptography: A Match Made in Heaven</a>
+    <div class="meta">Vinod Vaikuntanathan · Institute for Quantum Computing · 61 min</div>
+    <p>A second expert survey reinforces the boundary between the mathematical toolkit here and constructions in PQC/FHE.</p>
+    <div class="lab"><strong>After watching:</strong> Create a dependency graph from minima, duality, Gaussian mass, and reduction to one lattice assumption.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=5LGwaICJ5sw">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="lat-crypto-pqc">
+  <input class="check" type="checkbox" aria-label="Mark Continue in PQC: SIS, LWE, reductions, and structured lattices complete">
+  <div>
+    <a class="lesson-title" href="../crypto/post-quantum-cryptography-self-assembled-mooc.html">Continue in PQC: SIS, LWE, reductions, and structured lattices</a>
+    <div class="meta">Existing PQC guide · outbound curriculum pointer</div>
+    <p>PQC owns worst-case/average-case reductions, SIS/LWE, Ring/Module-LWE, KEMs, parameters, and attacks; this guide owns the preceding geometry.</p>
+    <div class="lab"><strong>After reading:</strong> Open the PQC lattice module and annotate every use of a dual lattice, Gaussian, minimum, or reduction theorem with its LAT prerequisite.</div>
+  </div>
+  <a class="watch" href="../crypto/post-quantum-cryptography-self-assembled-mooc.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="lat-crypto-fhe">
+  <input class="check" type="checkbox" aria-label="Mark Continue in FHE: LWE noise, rings, and homomorphic schemes complete">
+  <div>
+    <a class="lesson-title" href="../crypto/fhe-self-assembled-mooc.html">Continue in FHE: LWE noise, rings, and homomorphic schemes</a>
+    <div class="meta">Existing FHE guide · outbound curriculum pointer</div>
+    <p>FHE owns the cryptosystem and noise-budget story. LAT supplies geometric and Fourier intuition without cloning encryption material.</p>
+    <div class="lab"><strong>After reading:</strong> Trace one FHE correctness/noise argument back to lattice-Gaussian or number-field structure, then return to the FHE guide for schemes.</div>
+  </div>
+  <a class="watch" href="../crypto/fhe-self-assembled-mooc.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Produce a prerequisite map from Minkowski, duality, Gaussian mass, and LLL to the exact PQC/FHE modules where each is applied.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Geometry-to-dynamics lattice atlas</h3><ol><li>Construct and visualize a family of determinant-one planar lattices.</li><li>Track minima, duals, theta coefficients, and LLL-reduced bases along a diagonal orbit.</li><li>Explain cusp excursions through a Diophantine approximation statement.</li><li>Deliver proofs, exact arithmetic, and reproducible figures in one notebook dossier.</li></ol></article><article class="card"><h3>Mathematics-to-crypto dependency map</h3><ol><li>Choose one SIS/LWE or FHE module from the existing guides.</li><li>Identify every imported lattice theorem and restate it independently of the cryptosystem.</li><li>Demonstrate one theorem computationally on toy lattices without implementing a scheme.</li><li>Document the precise point where LAT ends and PQC/FHE begins.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=IsE0Zoi98go">Sphere Packing and Beyond</a></h3><div class="meta">Maryna Viazovska · IAS/PCMI · 63 min</div><p>A post-packing research view from the mathematician who proved E8 optimality.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=VO6B9qQYqzw">Dynamics on Homogeneous Spaces and Diophantine Approximation</a></h3><div class="meta">Anish Ghosh · CIRM · 66 min</div><p>A concrete bridge among Diophantine approximation, lattice orbits, and homogeneous dynamics.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video spine</h3><ul class="source-list"><li><a href="https://www.youtube.com/watch?v=21IzHN9-CjE">Mathematics of Lattices</a></li><li><a href="https://www.youtube.com/watch?v=LlPXfy6bKIY">The Mathematics of Lattices I</a></li><li><a href="https://www.youtube.com/watch?v=SZkTJMorxnM">The Mathematics of Lattices II</a></li><li><a href="https://www.youtube.com/watch?v=W7rp2dKE0K0">Lattices: From Geometry to Cryptography</a></li></ul></article><article class="card"><h3>Written companions</h3><ul class="source-list"><li><a href="https://link.springer.com/book/10.1007/978-3-642-62035-5">Cassels — Chapters I–VIII</a></li><li><a href="https://www.sciencedirect.com/bookseries/north-holland-mathematical-library/vol/37">Gruber–Lekkerkerker — Chapters 1–3</a></li><li><a href="https://doi.org/10.1007/978-3-642-02295-1">Nguyen–Vallée, The LLL Algorithm — Chapters 1–3</a></li><li><a href="https://link.springer.com/book/10.1007/978-1-4757-6568-7">Conway–Sloane — Chapters 1–4</a></li><li><a href="https://press.princeton.edu/books/hardcover/9780691113845/fourier-analysis">Stein–Shakarchi, Fourier Analysis — Chapter 3</a></li><li><a href="https://doi.org/10.1007/978-0-85729-021-2">Einsiedler–Ward — Chapters 5–9</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/art/index.html">← Back to ART</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hardness meets the machine that runs it.">
+  <title>CTH - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#70d7c0;--accent-ink:#25856f;--deep:#186252}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="cth">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/sys/index.html" title="Back to Systems &amp; Protocols" aria-label="Back to Systems &amp; Protocols"><span class="arrow" aria-hidden="true">←</span>SYS</a><div class="brand">CTH <b>// G17 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/csc/index.html">CSC</a><a href="../campuses/sys/index.html">SYS</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/blockchain-self-assembled-mooc.html">DLT</a><a href="../crypto/confidential-computing-self-assembled-mooc.html">TEE</a><a href="../crypto/session-messaging-self-assembled-mooc.html">E2E</a><a href="plv.html">PLV</a><span class="here" aria-current="page">CTH</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/sys/appendix.html">SYA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Complexity &amp; Hardware · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>CTH</em> MOOC</span></h1>
+    <p class="manifesto">Hardness meets the machine that runs it.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>20</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 20</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Average-Case Complexity</a><a href="#module-1">01 · Fine-Grained Complexity</a><a href="#module-2">02 · Distributed Algorithms</a><a href="#module-3">03 · Caches &amp; Pipelines</a><a href="#module-4">04 · Speculation</a><a href="#module-5">05 · Memory Models &amp; Side Channels</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Machine explorer</h3><p>Take average/fine-grained foundations, one distributed proof, and the architecture/security core.</p><div class="meta"><span>16–22 h + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Evidence builder</h3><p>Complete all core proofs, benchmarks, litmus tests, and local leakage experiments.</p><div class="meta"><span>35–50 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Cross-layer deep dive</h3><p>Add optional Spanish work and trace one claim from complexity assumption through generated machine behavior.</p><div class="meta"><span>60–85 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Average-Case Complexity</h2></div>
+  <p class="section-intro">State distributions and reductions explicitly when worst-case hardness is insufficient.</p><article class="lesson" data-tags="core theory" data-id="cth-average-video">
+  <input class="check" type="checkbox" aria-label="Mark Average-Case Complexity Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=AmyAR6x1HEY">Average-Case Complexity Theory</a>
+    <div class="meta">Pravesh Kothari · Simons Institute · 49 min</div>
+    <p>Introduces distributional problems and reductions in the research setting where average-case assumptions matter.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a samplable distribution and audit whether a reduction preserves it.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=AmyAR6x1HEY">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="cth-average-meta">
+  <input class="check" type="checkbox" aria-label="Mark Analyzing Average-Case Complexity by Meta-Complexity complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=CxQyScT6EIM">Analyzing Average-Case Complexity by Meta-Complexity</a>
+    <div class="meta">Simons Institute · Meta-Complexity program · 62 min</div>
+    <p>Shows a modern use of average-case notions and forces careful separation of worst-case and distributional claims.</p>
+    <div class="lab"><strong>After watching:</strong> Write a distributional reduction with every size and probability parameter explicit.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=CxQyScT6EIM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="cth-average-ab">
+  <input class="check" type="checkbox" aria-label="Mark Arora–Barak — Chapter 18, Average-Case Complexity complete">
+  <div>
+    <a class="lesson-title" href="https://theory.cs.princeton.edu/complexity/book.pdf">Arora–Barak — Chapter 18, Average-Case Complexity</a>
+    <div class="meta">Sanjeev Arora &amp; Boaz Barak · author PDF</div>
+    <p>Defines distributional problems, average-case classes, and reduction requirements.</p>
+    <div class="lab"><strong>After reading:</strong> Construct one samplable distribution and identify why a worst-case reduction does not automatically preserve it.</div>
+  </div>
+  <a class="watch" href="https://theory.cs.princeton.edu/complexity/book.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write and defend an average-case problem, distributional reduction, and cryptographic relevance map.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Fine-Grained Complexity</h2></div>
+  <p class="section-intro">Ask whether quadratic or exponential baselines can be improved under explicit hypotheses.</p><article class="lesson" data-tags="core theory build" data-id="cth-fine-icm">
+  <input class="check" type="checkbox" aria-label="Mark Fine-Grained Questions in Algorithms and Complexity complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=x-HskkxUuVI">Fine-Grained Questions in Algorithms and Complexity</a>
+    <div class="meta">Virginia Vassilevska Williams · ICM 2018 · 47 min</div>
+    <p>The field&#x27;s central researcher organizes SETH, APSP, and 3SUM reductions around precise exponent improvements.</p>
+    <div class="lab"><strong>After watching:</strong> Draw a reduction graph and annotate every size blowup.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=x-HskkxUuVI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-fine-hardness">
+  <input class="check" type="checkbox" aria-label="Mark Hardness for Graph Problems: Reductions Based on APSP and SETH complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=rkZCzqtZOws">Hardness for Graph Problems: Reductions Based on APSP and SETH</a>
+    <div class="meta">Virginia Vassilevska Williams · Simons Institute · 59 min</div>
+    <p>Works through the reduction mechanics needed to defend a conditional lower bound rather than cite one loosely.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a baseline and identify exactly which exponent-saving hypothesis matters.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=rkZCzqtZOws">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="cth-fine-vw">
+  <input class="check" type="checkbox" aria-label="Mark Hardness in P: Equivalence Classes and Fine-Grained Complexity complete">
+  <div>
+    <a class="lesson-title" href="https://people.csail.mit.edu/virgi/eccentri.pdf">Hardness in P: Equivalence Classes and Fine-Grained Complexity</a>
+    <div class="meta">Virginia Vassilevska Williams · survey</div>
+    <p>Organizes conditional lower bounds around SETH, APSP, and 3SUM.</p>
+    <div class="lab"><strong>After reading:</strong> Draw a reduction graph and annotate size blowups precisely.</div>
+  </div>
+  <a class="watch" href="https://people.csail.mit.edu/virgi/eccentri.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a conditional-lower-bound map for one practical problem and benchmark its baseline.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Distributed Algorithms</h2></div>
+  <p class="section-intro">Prove safety and liveness under a named timing and failure model.</p><article class="lesson" data-tags="core theory" data-id="cth-dist-models">
+  <input class="check" type="checkbox" aria-label="Mark System Models complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=y8f7ZG_UnGI">System Models</a>
+    <div class="meta">Martin Kleppmann · Cambridge Distributed Systems · 21 min</div>
+    <p>Names timing, fault, and network assumptions before any safety or liveness claim is attempted.</p>
+    <div class="lab"><strong>After watching:</strong> State the model before proving a broadcast invariant.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=y8f7ZG_UnGI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-dist-consensus">
+  <input class="check" type="checkbox" aria-label="Mark Consensus complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=rN6ma561tak">Consensus</a>
+    <div class="meta">Martin Kleppmann · Cambridge Distributed Systems · 18 min</div>
+    <p>Builds the consensus specification from agreement, validity, and termination under explicit failures.</p>
+    <div class="lab"><strong>After watching:</strong> Model-check a small replicated protocol and classify each failure trace.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=rN6ma561tak">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="cth-dist-mit">
+  <input class="check" type="checkbox" aria-label="Mark MIT 6.852 Distributed Algorithms complete">
+  <div>
+    <a class="lesson-title" href="https://courses.csail.mit.edu/6.852/08/">MIT 6.852 Distributed Algorithms</a>
+    <div class="meta">MIT CSAIL · course notes and assignments</div>
+    <p>The written proof companion supplies impossibility and lower-bound exercises.</p>
+    <div class="lab"><strong>After reading:</strong> Complete one impossibility problem and one algorithm proof.</div>
+  </div>
+  <a class="watch" href="https://courses.csail.mit.edu/6.852/08/">Course</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Specify and model-check a replicated protocol, then prove one invariant by hand.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Caches &amp; Pipelines</h2></div>
+  <p class="section-intro">Relate locality, hazards, prediction, and out-of-order execution to observed performance.</p><article class="lesson" data-tags="core theory build" data-id="cth-pipeline-video">
+  <input class="check" type="checkbox" aria-label="Mark Pipelining complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=dKXbONPqBNY">Pipelining</a>
+    <div class="meta">Onur Mutlu · Carnegie Mellon Computer Architecture · 103 min</div>
+    <p>Derives pipeline hazards, bypassing, and control costs at the level needed to explain measured performance.</p>
+    <div class="lab"><strong>After watching:</strong> Build dependent instruction sequences and measure hazard costs.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=dKXbONPqBNY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-cache-video">
+  <input class="check" type="checkbox" aria-label="Mark Memory Interference and Quality of Service complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ojl_n00B4As">Memory Interference and Quality of Service</a>
+    <div class="meta">Onur Mutlu · ETH Zürich Computer Architecture · 71 min</div>
+    <p>Connects shared-cache and memory contention directly to multicore performance evidence.</p>
+    <div class="lab"><strong>After watching:</strong> Measure working-set transitions and compare misses with an AMAT prediction.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ojl_n00B4As">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-memory-caches">
+  <input class="check" type="checkbox" aria-label="Mark Memory &amp; Caches complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=4_smHyqgDTU">Memory &amp; Caches</a>
+    <div class="meta">Matt Godbolt · technical lecture · 71 min</div>
+    <p>A focused systems lecture connects cache hierarchy, locality, and measurement directly to the programming consequences developed in Drepper&#x27;s paper.</p>
+    <div class="lab"><strong>After watching:</strong> Predict the miss pattern of three stride experiments, then compare the prediction with counters.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=4_smHyqgDTU">▶ Watch</a>
+</article><article class="lesson" data-tags="core build" data-id="cth-perf-drepper">
+  <input class="check" type="checkbox" aria-label="Mark What Every Programmer Should Know About Memory complete">
+  <div>
+    <a class="lesson-title" href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">What Every Programmer Should Know About Memory</a>
+    <div class="meta">Ulrich Drepper · technical paper</div>
+    <p>Connects cache/TLB organization to measurable program behavior.</p>
+    <div class="lab"><strong>After reading:</strong> Design strides that isolate cache lines, sets, pages, and prefetching.</div>
+  </div>
+  <a class="watch" href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a cache/pipeline microbenchmark suite and explain results with counters.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Speculation</h2></div>
+  <p class="section-intro">Understand transient execution as microarchitecture, then connect it to published attacks without rebuilding TEE.</p><article class="lesson" data-tags="core theory build" data-id="cth-ooo-video">
+  <input class="check" type="checkbox" aria-label="Mark Out-of-Order Execution complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=bMrotwfPWCc">Out-of-Order Execution</a>
+    <div class="meta">Onur Mutlu · Carnegie Mellon Computer Architecture · 107 min</div>
+    <p>Establishes reorder buffers and speculative scheduling before treating transient execution as a security issue.</p>
+    <div class="lab"><strong>After watching:</strong> Diagram retirement, squash, and cache effects for a mispredicted path.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=bMrotwfPWCc">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-spectre-video">
+  <input class="check" type="checkbox" aria-label="Mark Exploiting Modern Microarchitectures: Meltdown and Spectre complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=zuBw1HFJMsM">Exploiting Modern Microarchitectures: Meltdown and Spectre</a>
+    <div class="meta">Jon Masters · Stanford Seminar · 84 min</div>
+    <p>Explains the distinct transient-execution mechanisms and their system-level mitigations in one technical seminar.</p>
+    <div class="lab"><strong>After watching:</strong> Create a prerequisite, leakage-primitive, scope, and mitigation comparison.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=zuBw1HFJMsM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-spectre">
+  <input class="check" type="checkbox" aria-label="Mark Spectre Attacks: Exploiting Speculative Execution complete">
+  <div>
+    <a class="lesson-title" href="https://spectreattack.com/spectre.pdf">Spectre Attacks: Exploiting Speculative Execution</a>
+    <div class="meta">Kocher et al. · IEEE S&amp;P 2019</div>
+    <p>The primary written reference gives the attack model and variants precisely.</p>
+    <div class="lab"><strong>After reading:</strong> Map branch prediction, transient access, and cache observation in a toy local harness.</div>
+  </div>
+  <a class="watch" href="https://spectreattack.com/spectre.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Reproduce a harmless local timing channel and document mitigations and limits.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Memory Models &amp; Side Channels</h2></div>
+  <p class="section-intro">Separate language, compiler, ISA, and microarchitectural ordering; measure leakage without vague constant-time claims.</p><article class="lesson" data-tags="core theory build" data-id="cth-memory-video">
+  <input class="check" type="checkbox" aria-label="Mark Memory Ordering and Consistency complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Suy09mzTbiQ">Memory Ordering and Consistency</a>
+    <div class="meta">Onur Mutlu · ETH Zürich Computer Architecture · 102 min</div>
+    <p>Separates coherence from consistency and works through allowed multicore observations.</p>
+    <div class="lab"><strong>After watching:</strong> Run store-buffering and message-passing litmus tests and explain outcomes.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Suy09mzTbiQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-lockfree-video">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to Lock-Free and Wait-Free Algorithms complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=JKBhtwIY_bU">Introduction to Lock-Free and Wait-Free Algorithms</a>
+    <div class="meta">Jeffrey Mendelsohn · ACCU Conference · 19 min</div>
+    <p>Connects progress guarantees to practical synchronization and the hardware behaviors code must survive.</p>
+    <div class="lab"><strong>After watching:</strong> Audit one lock-free routine at source and assembly levels.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=JKBhtwIY_bU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-constant-time-pornin">
+  <input class="check" type="checkbox" aria-label="Mark Non-Crypto Constant-Time Coding complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=FRHagmZ4KAo">Non-Crypto Constant-Time Coding</a>
+    <div class="meta">Thomas Pornin · NorthSec · 33 min</div>
+    <p>The BearSSL author&#x27;s focused talk explains how compilers and processors frustrate constant-time intent and generalizes the required coding discipline beyond cryptographic primitives.</p>
+    <div class="lab"><strong>After watching:</strong> Compile two branchless selection patterns at several optimization levels and audit their generated instructions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=FRHagmZ4KAo">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cth-timing-bearssl">
+  <input class="check" type="checkbox" aria-label="Mark Why Constant-Time Crypto? complete">
+  <div>
+    <a class="lesson-title" href="https://www.bearssl.org/constanttime.html">Why Constant-Time Crypto?</a>
+    <div class="meta">Thomas Pornin · BearSSL technical note</div>
+    <p>Connects language-level coding discipline to compiler and hardware realities.</p>
+    <div class="lab"><strong>After reading:</strong> Audit generated assembly and statistically compare two secret classes.</div>
+  </div>
+  <a class="watch" href="https://www.bearssl.org/constanttime.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Run litmus tests and audit a small routine at source, assembly, and timing levels.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Cross-layer systems dossier</h3><ol><li>Choose one protocol or security-sensitive primitive.</li><li>State its hardness, timing, and failure assumptions.</li><li>Measure cache, pipeline, ordering, and compiler behavior with reproducible evidence.</li><li>Separate formal guarantees from empirical observations and point TEE-specific material to the existing TEE guide.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.usenix.org/conference/usenixsecurity18/presentation/lipp">Spectre and Meltdown: Attacks and Defenses</a></h3><div class="meta">USENIX Security 2018 · conference page and video</div><p>Research-level operational context after the speculation papers.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Complexity and distribution</h3><ul class="source-list"><li><a href="https://theory.cs.princeton.edu/complexity/book.pdf">Arora–Barak, Computational Complexity</a></li><li><a href="https://people.csail.mit.edu/virgi/eccentri.pdf">Fine-Grained Complexity survey</a></li></ul></article><article class="card"><h3>Architecture and concurrency</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB">Cambridge Distributed Systems lecture series</a></li><li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp">Stanford CS149 Parallel Computing</a></li><li><a href="https://doi.org/10.2200/S00346ED1V01Y201104CAC016">Memory consistency primer</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/sys/index.html">← Back to SYS</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

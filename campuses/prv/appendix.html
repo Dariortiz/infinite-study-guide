@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement, prerequisites, and readiness for PRV.">
+  <title>PRA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#7b7b7b;--accent-ink:#767676;--deep:#2a2a2a}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="pra">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Mathematical Privacy" aria-label="Back to Mathematical Privacy"><span class="arrow" aria-hidden="true">←</span>PRV</a><div class="brand">PRA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/cry/index.html">CRY</a><a href="index.html">PRV</a><span class="divider" aria-hidden="true">|</span><a href="../../crypto/fhe-self-assembled-mooc.html">FHE</a><a href="../../crypto/zkp-self-assembled-mooc.html">ZKP</a><a href="../../crypto/post-quantum-cryptography-self-assembled-mooc.html">PQC</a><a href="../../crypto/mpc-self-assembled-mooc.html">MPC</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">PRA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Privacy Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>PRA</em> APPENDIX</span></h1>
+    <p class="manifesto">Placement, prerequisites, and readiness for PRV.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>11</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 11</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">PLC</span><h3>Placement only</h3><p>Complete PRE diagnostics and enter the first selected crypto guide.</p><div class="meta"><span>2–3 h</span></div></article><article class="card route"><span class="code">ONE</span><h3>One privacy primitive</h3><p>Demonstrate readiness and ownership boundaries for one primary guide.</p><div class="meta"><span>5–7 h</span></div></article><article class="card route"><span class="code">MAP</span><h3>Privacy architect</h3><p>Map all four guides and their mathematical/system crossings without repeating their content.</p><div class="meta"><span>9–12 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Route into the existing FHE, ZKP, PQC, and MPC guides; this appendix does not duplicate their curricula.</p><article class="lesson" data-tags="core theory build" data-id="pra-use">
+  <input class="check" type="checkbox" aria-label="Mark Privacy bundle map: FHE, ZKP, PQC, MPC complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/fhe-self-assembled-mooc.html">Privacy bundle map: FHE, ZKP, PQC, MPC</a>
+    <div class="meta">Existing curated crypto guides</div>
+    <p>The established crypto pages own all primitive instruction and exercises.</p>
+    <div class="lab"><strong>After reading:</strong> Choose one primary guide and one crossing; explain why each is needed.</div>
+  </div>
+  <a class="watch" href="../../crypto/fhe-self-assembled-mooc.html">Open FHE</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a privacy-route contract naming one primitive, security goal, and implementation artifact.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Test probability, algebra, number theory, complexity, and implementation safety through PRE.</p><article class="lesson" data-tags="core theory build" data-id="pra-placement-pre">
+  <input class="check" type="checkbox" aria-label="Mark PRE cryptography placement complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">PRE cryptography placement</a>
+    <div class="meta">Existing G0 prerequisite guide</div>
+    <p>Centralizes mathematical and implementation prerequisites without rewriting them here.</p>
+    <div class="lab"><strong>After reading:</strong> Complete PRE checks for modular arithmetic, probability, reductions, and byte-level coding.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><article class="lesson" data-tags="optional theory" data-id="pra-placement-es">
+  <input class="check" type="checkbox" aria-label="Mark Charla: criptografía y RSA complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=VWvmEkueF-Y">Charla: criptografía y RSA</a>
+    <div class="meta">ES · John H. Castillo · Universidad de Nariño · 49 min</div>
+    <p>A Spanish-language route through RSA and the number theory under it, so the placement check can be passed in either language.</p>
+    <div class="lab"><strong>After watching:</strong> Explain the public-key security goal and one modular-arithmetic argument in Spanish.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=VWvmEkueF-Y">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete a dated diagnostic and route each gap to PRE.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Use PRE for shared foundations and guide-local Module 0 material for specialized assumptions.</p><article class="lesson" data-tags="core theory" data-id="pra-prereq">
+  <input class="check" type="checkbox" aria-label="Mark PRE prerequisite map complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">PRE prerequisite map</a>
+    <div class="meta">Existing prerequisite curriculum</div>
+    <p>Avoids creating a shadow algebra, probability, or cryptography course.</p>
+    <div class="lab"><strong>After reading:</strong> For every failed check, name the PRE unit and a verifiable exit criterion.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Draw a dependency map from PRE checkpoints to exact crypto-guide entry modules.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Choose by privacy functionality and assumptions, not by acronym familiarity.</p><article class="lesson" data-tags="core theory build" data-id="pra-ready-fhe">
+  <input class="check" type="checkbox" aria-label="Mark FHE readiness: lattices, rings, and noise accounting complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/fhe-self-assembled-mooc.html">FHE readiness: lattices, rings, and noise accounting</a>
+    <div class="meta">C1 · existing FHE guide</div>
+    <p>Routes computation-on-ciphertexts to the complete established guide.</p>
+    <div class="lab"><strong>After reading:</strong> Pass its prerequisite/Module 0 checks and explain one noise-growth calculation.</div>
+  </div>
+  <a class="watch" href="../../crypto/fhe-self-assembled-mooc.html">Open FHE</a>
+</article><article class="lesson" data-tags="core theory build" data-id="pra-ready-zkp">
+  <input class="check" type="checkbox" aria-label="Mark ZKP readiness: statements, commitments, and soundness complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/zkp-self-assembled-mooc.html">ZKP readiness: statements, commitments, and soundness</a>
+    <div class="meta">C2 · existing ZKP guide</div>
+    <p>Routes proof-without-revelation to the existing protocol and arithmetization sequence.</p>
+    <div class="lab"><strong>After reading:</strong> Formalize one relation and distinguish completeness, soundness, and zero knowledge.</div>
+  </div>
+  <a class="watch" href="../../crypto/zkp-self-assembled-mooc.html">Open ZKP</a>
+</article><article class="lesson" data-tags="core theory" data-id="pra-ready-pqc">
+  <input class="check" type="checkbox" aria-label="Mark PQC readiness: threat model and replacement assumptions complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/post-quantum-cryptography-self-assembled-mooc.html">PQC readiness: threat model and replacement assumptions</a>
+    <div class="meta">C3 · existing PQC guide</div>
+    <p>Routes quantum-threat and migration work without cloning lattice or code modules.</p>
+    <div class="lab"><strong>After reading:</strong> Name the attacked primitive, quantum speedup, replacement family, and parameter concern.</div>
+  </div>
+  <a class="watch" href="../../crypto/post-quantum-cryptography-self-assembled-mooc.html">Open PQC</a>
+</article><article class="lesson" data-tags="core theory build" data-id="pra-ready-mpc">
+  <input class="check" type="checkbox" aria-label="Mark MPC readiness: corruption model and ideal functionality complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/mpc-self-assembled-mooc.html">MPC readiness: corruption model and ideal functionality</a>
+    <div class="meta">C4 · existing MPC guide</div>
+    <p>Routes joint private computation to its established simulation-based sequence.</p>
+    <div class="lab"><strong>After reading:</strong> Specify parties, corruption threshold, leakage, and one ideal functionality.</div>
+  </div>
+  <a class="watch" href="../../crypto/mpc-self-assembled-mooc.html">Open MPC</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Defend readiness for each selected guide with a proof and a small implementation.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Point outward to arithmetic, coding, systems, and information guides only where crypto consumes them.</p><article class="lesson" data-tags="core theory" data-id="pra-bridge-lattices">
+  <input class="check" type="checkbox" aria-label="Mark Lattices as mathematics → FHE/PQC consumption complete">
+  <div>
+    <a class="lesson-title" href="../../guides/lat.html">Lattices as mathematics → FHE/PQC consumption</a>
+    <div class="meta">G11 ↔ C1/C3 · cross-link</div>
+    <p>Keeps Minkowski and reduction mathematics in LAT while schemes and parameters remain in crypto.</p>
+    <div class="lab"><strong>After reading:</strong> Name one LAT theorem consumed by FHE or PQC and link the exact crypto module.</div>
+  </div>
+  <a class="watch" href="../../guides/lat.html">Open LAT</a>
+</article><article class="lesson" data-tags="core theory" data-id="pra-bridge-codes">
+  <input class="check" type="checkbox" aria-label="Mark Channel coding → code-based PQC complete">
+  <div>
+    <a class="lesson-title" href="../../guides/cod.html">Channel coding → code-based PQC</a>
+    <div class="meta">G12 ↔ C3 · cross-link</div>
+    <p>Keeps coding theory distinct from cryptographic trapdoor and attack models.</p>
+    <div class="lab"><strong>After reading:</strong> Trace one decoding problem from COD into its PQC use without duplicating either.</div>
+  </div>
+  <a class="watch" href="../../guides/cod.html">Open COD</a>
+</article><article class="lesson" data-tags="core build" data-id="pra-bridge-systems">
+  <input class="check" type="checkbox" aria-label="Mark PLV/CTH tools → crypto implementations complete">
+  <div>
+    <a class="lesson-title" href="../../guides/plv.html">PLV/CTH tools → crypto implementations</a>
+    <div class="meta">G16/G17 ↔ C1–C4 · cross-link</div>
+    <p>Compiler verification, SAT/SMT, complexity, and hardware are supporting tools, not replacement crypto curricula.</p>
+    <div class="lab"><strong>After reading:</strong> Choose one implementation claim and identify its PLV or CTH verification boundary.</div>
+  </div>
+  <a class="watch" href="../../guides/plv.html">Open PLV</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create a primitive-to-foundation ownership matrix with no copied lesson sequences.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Privacy route dossier</h3><ol><li>Choose a concrete privacy functionality and threat model.</li><li>Select the established crypto guide that owns it.</li><li>Attach PRE and guide-readiness evidence.</li><li>Map arithmetic, coding, information, language, and hardware dependencies as pointers only.</li></ol></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Existing crypto curricula</h3><ul class="source-list"><li><a href="../../crypto/prerequisites-self-assembled-mooc.html">PRE prerequisites</a></li><li><a href="../../crypto/fhe-self-assembled-mooc.html">FHE</a></li><li><a href="../../crypto/zkp-self-assembled-mooc.html">ZKP</a></li><li><a href="../../crypto/post-quantum-cryptography-self-assembled-mooc.html">PQC</a></li><li><a href="../../crypto/mpc-self-assembled-mooc.html">MPC</a></li></ul></article><article class="card"><h3>Supporting guide crossings</h3><ul class="source-list"><li><a href="../../guides/lat.html">LAT</a></li><li><a href="../../guides/cod.html">COD</a></li><li><a href="../../guides/plv.html">PLV</a></li><li><a href="../../guides/cth.html">CTH</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to PRV</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

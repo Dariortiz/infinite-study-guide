@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Limits become spaces; convergence becomes a tool.">
+  <title>ANA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#5fd7ff;--accent-ink:#0080aa;--deep:#1d5f74}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="ana">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/fnd/index.html" title="Back to Foundations" aria-label="Back to Foundations"><span class="arrow" aria-hidden="true">←</span>FND</a><div class="brand">ANA <b>// G1 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/fnd/index.html">FND</a><span class="divider" aria-hidden="true">|</span><a href="../crypto/prerequisites-self-assembled-mooc.html">PRE</a><span class="here" aria-current="page">ANA</span><a href="prb.html">PRB</a><a href="alg.html">ALG</a><a href="csf.html">CSF</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/fnd/appendix.html">FNA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Analysis · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>ANA</em> MOOC</span></h1>
+    <p class="manifesto">Limits become spaces; convergence becomes a tool.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>27</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 27</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Real Analysis</a><a href="#module-1">01 · Measure &amp; Integration</a><a href="#module-2">02 · Functional Analysis</a><a href="#module-3">03 · Fourier &amp; Distributions</a><a href="#module-4">04 · Complex Analysis Extras</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Analysis explorer</h3><p>Take all core units in real analysis, measure, Fourier, and the first functional-analysis pass; skip complex extras.</p><div class="meta"><span>8–11 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete every core unit and all five artifacts, emphasizing contraction mappings, operator approximation, and Fourier numerics.</p><div class="meta"><span>18–25 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add Royden, Ahlfors, the Spanish alternate lectures, and full proof sets around compact operators and distributions.</p><div class="meta"><span>30–45 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Real Analysis</h2></div>
+  <p class="section-intro">Make limits live in metric spaces and make compactness, completeness, and uniform convergence do work.</p><article class="lesson" data-tags="core theory" data-id="ana-real-metric">
+  <input class="check" type="checkbox" aria-label="Mark Cantor diagonalization and metric spaces complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=c8uDJt5-ZYM">Cantor diagonalization and metric spaces</a>
+    <div class="meta">Francis Su · Harvey Mudd Real Analysis · 76 min</div>
+    <p>Moves the course from the real line to metric spaces while using diagonalization to sharpen the distinction between countable and uncountable sets.</p>
+    <div class="lab"><strong>After watching:</strong> Prove that two familiar metrics generate the same topology, then give a metric where they do not.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=c8uDJt5-ZYM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-real-compact">
+  <input class="check" type="checkbox" aria-label="Mark Compactness and the Heine–Borel theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=AQHVdiXRXQA">Compactness and the Heine–Borel theorem</a>
+    <div class="meta">Francis Su · Harvey Mudd Real Analysis · 69 min</div>
+    <p>Makes compactness do proof work through covers and sequential criteria rather than treating Heine–Borel as a slogan.</p>
+    <div class="lab"><strong>After watching:</strong> Prove Heine–Borel in R and identify which direction fails in an infinite-dimensional normed space.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=AQHVdiXRXQA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-real-complete">
+  <input class="check" type="checkbox" aria-label="Mark Cauchy sequences and complete spaces complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=6-PSUkwGnnA">Cauchy sequences and complete spaces</a>
+    <div class="meta">Francis Su · Harvey Mudd Real Analysis · 65 min</div>
+    <p>Completeness is the hypothesis behind contraction arguments; this lecture develops it at the metric-space level.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the contraction mapping theorem and apply it to a recurrence or integral equation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=6-PSUkwGnnA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-real-uniform-convergence">
+  <input class="check" type="checkbox" aria-label="Mark Uniform convergence complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=SrWmamYA-E0">Uniform convergence</a>
+    <div class="meta">Marc Renault · Math 441 · 24 min · English</div>
+    <p>Targets the sequences-of-functions material in Abbott and makes the distinction between pointwise and uniform convergence explicit before the chapter proofs.</p>
+    <div class="lab"><strong>After watching:</strong> Test three function sequences for pointwise and uniform convergence, proving each claim directly from the definitions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=SrWmamYA-E0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-real-abbott">
+  <input class="check" type="checkbox" aria-label="Mark Abbott, Understanding Analysis — Chapters 2–6 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4939-2712-8">Abbott, Understanding Analysis — Chapters 2–6</a>
+    <div class="meta">Stephen Abbott · Springer · 2nd ed. · read</div>
+    <p>Supplies the ordered proof progression from sequences through continuity, differentiation, and sequences of functions.</p>
+    <div class="lab"><strong>After reading:</strong> Prove Banach&#x27;s fixed-point theorem and use it to solve one integral or recurrence equation.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4939-2712-8">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a complete contraction-mapping existence proof and a counterexample atlas separating the main modes of convergence.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Measure &amp; Integration</h2></div>
+  <p class="section-intro">Build measure from outer measure, then control integration, products, and convergence in Lp.</p><article class="lesson" data-tags="core theory" data-id="ana-measure-es-sigma">
+  <input class="check" type="checkbox" aria-label="Mark Álgebras, σ-álgebras y borelianos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=PQ6OZmiMQV0">Álgebras, σ-álgebras y borelianos</a>
+    <div class="meta">ES · Miguel Ángel García · UNAM Teoría de la Medida · 175 min</div>
+    <p>A full Spanish graduate lecture that develops the measurable-set machinery before integration.</p>
+    <div class="lab"><strong>After watching:</strong> Construct the Borel σ-algebra from a countable basis and prove every closure step.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=PQ6OZmiMQV0">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-measure-integral">
+  <input class="check" type="checkbox" aria-label="Mark Measurable and simple functions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=JCDqrRRSegk">Measurable and simple functions</a>
+    <div class="meta">IMPA · Master&#x27;s Measure Theory · 60 min</div>
+    <p>Builds the Lebesgue integral from measurable simple functions, the exact construction needed for the convergence theorems.</p>
+    <div class="lab"><strong>After watching:</strong> Approximate a nonnegative measurable function by an increasing sequence of simple functions and compute the integrals.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=JCDqrRRSegk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-measure-convergence">
+  <input class="check" type="checkbox" aria-label="Mark Convergence theorems for integrals complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=HhCEPmP54pE">Convergence theorems for integrals</a>
+    <div class="meta">IMPA · Master&#x27;s Measure Theory · 57 min</div>
+    <p>Puts monotone convergence, Fatou, and dominated convergence into one hypothesis-conscious sequence.</p>
+    <div class="lab"><strong>After watching:</strong> Audit all hypotheses for MCT, Fatou, and DCT and construct one failure example for each dropped condition.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=HhCEPmP54pE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-measure-fubini">
+  <input class="check" type="checkbox" aria-label="Mark Fubini&#x27;s theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=rVoHZBQxW-8">Fubini&#x27;s theorem</a>
+    <div class="meta">IMPA · Master&#x27;s Measure Theory · 85 min</div>
+    <p>Treats product measure and iterated integration rigorously enough to distinguish Tonelli from Fubini.</p>
+    <div class="lab"><strong>After watching:</strong> Find a function for which changing integration order is invalid, then repair the argument with sufficient hypotheses.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=rVoHZBQxW-8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-measure-radon-nikodym">
+  <input class="check" type="checkbox" aria-label="Mark Radon–Nikodym theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=sKQ6XLPymCg">Radon–Nikodym theorem</a>
+    <div class="meta">Instituto de Matemática Pura e Aplicada · Lecture 21 · 67 min · English</div>
+    <p>Adds the signed-measure and absolute-continuity theorem from Folland that the earlier integration lectures do not cover.</p>
+    <div class="lab"><strong>After watching:</strong> State the theorem with its σ-finiteness assumptions and compute a Radon–Nikodym derivative in one nontrivial example.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=sKQ6XLPymCg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-measure-folland">
+  <input class="check" type="checkbox" aria-label="Mark Folland, Real Analysis — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.wiley.com/en-us/Real+Analysis%3A+Modern+Techniques+and+Their+Applications%2C+2nd+Edition-p-9780471317166">Folland, Real Analysis — Chapters 1–2</a>
+    <div class="meta">Gerald Folland · Wiley · 2nd ed. · read</div>
+    <p>The rigorous spine for measures, measurable functions, integration, convergence, signed measures, and product measures.</p>
+    <div class="lab"><strong>After reading:</strong> Give a hypothesis audit for Tonelli, Fubini, monotone convergence, Fatou, and dominated convergence; add one failure example each.</div>
+  </div>
+  <a class="watch" href="https://www.wiley.com/en-us/Real+Analysis%3A+Modern+Techniques+and+Their+Applications%2C+2nd+Edition-p-9780471317166">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Construct a nontrivial measure, verify measurability, and justify an interchange of limit and integral theorem by theorem.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Functional Analysis</h2></div>
+  <p class="section-intro">Treat Banach and Hilbert spaces, bounded operators, duality, and compact spectral theory as working infrastructure.</p><article class="lesson" data-tags="core theory" data-id="ana-fa-banach">
+  <input class="check" type="checkbox" aria-label="Mark Basic Banach space theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=uoL4lQxfgwg">Basic Banach space theory</a>
+    <div class="meta">Casey Rodriguez · MIT 18.102 · 75 min</div>
+    <p>Bridges metric completeness to normed vector spaces and establishes the language used by all later operator theorems.</p>
+    <div class="lab"><strong>After watching:</strong> Prove that a named function space is Banach and identify where completeness enters.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=uoL4lQxfgwg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-fa-operators">
+  <input class="check" type="checkbox" aria-label="Mark Bounded linear operators complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=78vN4sO7FVU">Bounded linear operators</a>
+    <div class="meta">Casey Rodriguez · MIT 18.102 · 84 min</div>
+    <p>Develops operator norm and the boundedness-continuity equivalence needed for approximation and perturbation arguments.</p>
+    <div class="lab"><strong>After watching:</strong> Compute an operator norm analytically and estimate it numerically on successively richer trial spaces.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=78vN4sO7FVU">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-fa-hilbert">
+  <input class="check" type="checkbox" aria-label="Mark Hilbert spaces and Fourier series complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Yb69dAq4uh8">Hilbert spaces and Fourier series</a>
+    <div class="meta">Casey Rodriguez · MIT 18.102 · 76 min</div>
+    <p>Connects orthonormal bases to Fourier expansions and makes Hilbert-space geometry operational.</p>
+    <div class="lab"><strong>After watching:</strong> Project a function onto finite Fourier bases and prove the best-approximation property.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Yb69dAq4uh8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-fa-spectral">
+  <input class="check" type="checkbox" aria-label="Mark Spectral theorem for compact self-adjoint operators complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=-sfaHVFWBU8">Spectral theorem for compact self-adjoint operators</a>
+    <div class="meta">Casey Rodriguez · MIT 18.102 · 84 min</div>
+    <p>Closes the operator arc with the precise theorem governing the finite-dimensional approximations in the module artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Discretize a compact integral operator and compare computed eigenpairs across mesh refinements.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=-sfaHVFWBU8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-fa-hahn-banach">
+  <input class="check" type="checkbox" aria-label="Mark Hahn–Banach theorem and applications complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=X28DClXd_NM">Hahn–Banach theorem and applications</a>
+    <div class="meta">Winston Ou · Functional Analysis · 64 min · English</div>
+    <p>Supplies one of the fundamental Banach-space theorems assigned in Kreyszig, with applications rather than only a statement.</p>
+    <div class="lab"><strong>After watching:</strong> Reconstruct the extension argument and derive one separation or dual-space consequence from it.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=X28DClXd_NM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-fa-kreyszig">
+  <input class="check" type="checkbox" aria-label="Mark Kreyszig, Introductory Functional Analysis — Chapters 2–4 and 8–9 complete">
+  <div>
+    <a class="lesson-title" href="https://www.wiley.com/en-us/Introductory+Functional+Analysis+with+Applications-p-9780471504597">Kreyszig, Introductory Functional Analysis — Chapters 2–4 and 8–9</a>
+    <div class="meta">Erwin Kreyszig · Wiley · selected chapters · read</div>
+    <p>A compact first-half reference for Banach/Hilbert spaces, operators, fundamental theorems, and compact self-adjoint spectra.</p>
+    <div class="lab"><strong>After reading:</strong> State and prove one consequence each of Hahn–Banach, uniform boundedness, and the open mapping theorem.</div>
+  </div>
+  <a class="watch" href="https://www.wiley.com/en-us/Introductory+Functional+Analysis+with+Applications-p-9780471504597">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a finite-dimensional approximation of a compact integral operator and reconcile its computed spectrum with the theorem.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Fourier &amp; Distributions</h2></div>
+  <p class="section-intro">Use convolution, Fourier inversion, Schwartz space, and tempered distributions without turning this guide into a PDE degree.</p><article class="lesson" data-tags="core theory build" data-id="ana-fourier-convolution">
+  <input class="check" type="checkbox" aria-label="Mark The Fourier transform and convolution integrals complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=mOiY1fOROOg">The Fourier transform and convolution integrals</a>
+    <div class="meta">Steve Brunton · University of Washington · 11 min</div>
+    <p>Gives a concise derivation of the transform-convolution relationship before it is used in PDE calculations.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the convolution theorem under stated integrability assumptions and verify normalization with an FFT.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=mOiY1fOROOg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="ana-fourier-fejer">
+  <input class="check" type="checkbox" aria-label="Mark Fejér&#x27;s theorem and convergence of Fourier series complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=8IxHMVf3jcA">Fejér&#x27;s theorem and convergence of Fourier series</a>
+    <div class="meta">Casey Rodriguez · MIT 18.102 · 81 min</div>
+    <p>Separates pointwise Fourier convergence from Cesàro convergence and proves the approximate-identity mechanism.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a continuous function&#x27;s Fejér sums and compare their uniform convergence with raw partial sums.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=8IxHMVf3jcA">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-fourier-schwartz">
+  <input class="check" type="checkbox" aria-label="Mark Fourier transform on Schwartz functions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=9stK3GqKZR8">Fourier transform on Schwartz functions</a>
+    <div class="meta">Purdue University · Fourier Analysis lecture · 50 min</div>
+    <p>Provides the invariant function space needed before extending the Fourier transform to tempered distributions.</p>
+    <div class="lab"><strong>After watching:</strong> Prove that the Fourier transform maps Schwartz space to itself and track every seminorm estimate.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=9stK3GqKZR8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-distributions-fourier">
+  <input class="check" type="checkbox" aria-label="Mark Fourier transform of tempered distributions and convolution complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=jPOf9cwGG1U">Fourier transform of tempered distributions and convolution</a>
+    <div class="meta">NPTEL · Indian Institute of Science Bengaluru · 28 min · English</div>
+    <p>Directly develops the distributional Fourier transform and convolution operations used in Melrose&#x27;s chapter.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the Fourier transform of a distribution from duality and justify one convolution identity on test functions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=jPOf9cwGG1U">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="ana-distributions-notes">
+  <input class="check" type="checkbox" aria-label="Mark Tempered distributions and the Fourier transform complete">
+  <div>
+    <a class="lesson-title" href="https://math.mit.edu/~rbm/18-155-F17/Chapter3.pdf">Tempered distributions and the Fourier transform</a>
+    <div class="meta">Richard Melrose · MIT 18.155 notes · Chapter 3 · PDF</div>
+    <p>This written reference supplies the distributional definitions and proofs not compressed safely into a single introductory lecture.</p>
+    <div class="lab"><strong>After reading:</strong> Differentiate the Heaviside function distributionally and compute the transform of one Gaussian and one distribution.</div>
+  </div>
+  <a class="watch" href="https://math.mit.edu/~rbm/18-155-F17/Chapter3.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Derive and numerically verify a Fourier solution of the heat equation, including the distributional initial condition.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Complex Analysis Extras</h2></div>
+  <p class="section-intro">Keep residues and analytic continuation available as optional tools for transforms, generating functions, and asymptotics.</p><article class="lesson" data-tags="optional theory" data-id="ana-complex-intro">
+  <input class="check" type="checkbox" aria-label="Mark Complex Analysis: first lecture complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=RRhwSiN-qZk">Complex Analysis: first lecture</a>
+    <div class="meta">ICTP Postgraduate Diploma Programme · Complex Analysis · 95 min</div>
+    <p>Starts a graduate-level course with the analytic and geometric language needed for contour arguments.</p>
+    <div class="lab"><strong>After watching:</strong> Prove the Cauchy–Riemann criterion under explicit differentiability assumptions and test two examples.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=RRhwSiN-qZk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="ana-complex-cauchy">
+  <input class="check" type="checkbox" aria-label="Mark Complex integration, Cauchy and residue theorems complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=EyBDtUtyshk">Complex integration, Cauchy and residue theorems</a>
+    <div class="meta">Mathemaniac · Essence of Complex Analysis · 41 min</div>
+    <p>Connects contour integration, Cauchy&#x27;s theorem, and residues in one coherent geometric explanation.</p>
+    <div class="lab"><strong>After watching:</strong> Reconstruct the contour proof and state every analyticity and orientation hypothesis.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=EyBDtUtyshk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="ana-complex-residue">
+  <input class="check" type="checkbox" aria-label="Mark Residue theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Mpmlk1H1aQo">Residue theorem</a>
+    <div class="meta">NPTEL · Complex Analysis · 61 min</div>
+    <p>A full university lecture focused specifically on the residue theorem used by the module artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Evaluate a real integral by residues and defend the contour, poles, and vanishing-arc estimate.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Mpmlk1H1aQo">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="ana-complex-rouche">
+  <input class="check" type="checkbox" aria-label="Mark Argument principle and Rouché&#x27;s theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=kn-3FQvecqU">Argument principle and Rouché&#x27;s theorem</a>
+    <div class="meta">NPTEL · Complex Analysis · 52 min · English</div>
+    <p>Covers the zero-counting tools assigned in Ahlfors beyond the residue calculation already represented in the module.</p>
+    <div class="lab"><strong>After watching:</strong> Use Rouché&#x27;s theorem to count zeros in a specified disk and defend the boundary inequality.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=kn-3FQvecqU">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="ana-complex-ahlfors">
+  <input class="check" type="checkbox" aria-label="Mark Ahlfors, Complex Analysis — Chapters 4–5 complete">
+  <div>
+    <a class="lesson-title" href="https://www.mheducation.com/highered/product/complex-analysis-ahlfors.html">Ahlfors, Complex Analysis — Chapters 4–5</a>
+    <div class="meta">Lars Ahlfors · McGraw Hill · 3rd ed. · read</div>
+    <p>Optional theorem-level depth on complex integration, residues, argument principle, and conformal consequences.</p>
+    <div class="lab"><strong>After reading:</strong> Prove Rouché&#x27;s theorem and use it to count zeros in a nontrivial region.</div>
+  </div>
+  <a class="watch" href="https://www.mheducation.com/highered/product/complex-analysis-ahlfors.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Evaluate one real integral by residues and write a contour-choice defense that includes every decay estimate.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Convergence atlas</h3><ol><li>Build examples separating pointwise, uniform, almost-everywhere, in-measure, Lp, and weak convergence.</li><li>For every implication claimed, prove it or state the missing hypothesis.</li><li>Attach plots only after the proof map is complete.</li></ol></article><article class="card"><h3>Operator-to-PDE dossier</h3><ol><li>Choose a compact integral operator arising from a boundary-value or diffusion problem.</li><li>Prove boundedness and compactness under stated assumptions.</li><li>Discretize it, study spectral convergence, and defend all approximation choices.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLun8-Z_lTkC6KKx-T2OvCMfoIzSKO-Iv5">Math 139 Fourier Analysis recordings</a></h3><div class="meta">Winston Ou · full university course</div><p>A complete proof-oriented Fourier analysis course for continuing beyond the selected transform and convergence lectures.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLiD-IJzweXR8Le1wXTRr-oOQ6sqpJ5Op-">UNAM Teoría de la Medida course</a></h3><div class="meta">ES · UNAM · 17 recorded lectures</div><p>A coherent Spanish-language graduate course rather than an unfiltered channel listing.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Real &amp; measure analysis</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PL04BA7A9EB907EDAF">Harvey Mudd Real Analysis recordings</a></li><li><a href="https://www.youtube.com/playlist?list=PLiD-IJzweXR8Le1wXTRr-oOQ6sqpJ5Op-">UNAM Teoría de la Medida (ES)</a></li><li><a href="https://www.wiley.com/en-us/Real+Analysis%3A+Modern+Techniques+and+Their+Applications%2C+2nd+Edition-p-9780471317166">Folland, Real Analysis — Chapters 1–2</a></li></ul></article><article class="card"><h3>Functional &amp; Fourier analysis</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP63micsJp_--fRAjZXPrQzW_">MIT 18.102 Functional Analysis recordings</a></li><li><a href="https://math.mit.edu/~rbm/18-155-F17/Chapter3.pdf">Melrose, Tempered Distributions notes</a></li><li><a href="https://www.wiley.com/en-us/Introductory+Functional+Analysis+with+Applications-p-9780471504597">Kreyszig — selected chapters</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/fnd/index.html">← Back to FND</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

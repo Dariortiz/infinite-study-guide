@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Optional languages behind the languages.">
+  <title>XFD - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#86dbc2;--accent-ink:#28856a;--deep:#19624d}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="xfd">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/opt/index.html" title="Back to Optional Infinity" aria-label="Back to Optional Infinity"><span class="arrow" aria-hidden="true">←</span>OPT</a><div class="brand">XFD <b>// G21 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/opt/index.html">OPT</a><span class="divider" aria-hidden="true">|</span><a href="xcp.html">XCP</a><a href="xsp.html">XSP</a><a href="xds.html">XDS</a><span class="here" aria-current="page">XFD</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/opt/appendix.html">OPA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Foundations: Second Pass · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>XFD</em> MOOC</span></h1>
+    <p class="manifesto">Optional languages behind the languages.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>11</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 11</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Category Theory</a><a href="#module-1">01 · Schemes</a><a href="#module-2">02 · Malliavin Calculus</a><a href="#module-3">03 · Functional Analysis II</a><a href="#module-4">04 · Complex Analysis II</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">OPT</span><h3>One language</h3><p>Choose one optional module after the relevant foundation guide.</p><div class="meta"><span>12–20 h + reading</span></div></article><article class="card route"><span class="code">PAIR</span><h3>Paired foundations</h3><p>Pair categories with schemes, Malliavin with probability, or FA II with complex analysis.</p><div class="meta"><span>30–50 h</span></div></article><article class="card route"><span class="code">INF</span><h3>Infinite foundations</h3><p>Complete every optional unit; none is required by G1–G4.</p><div class="meta"><span>70–110 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Category Theory</h2></div>
+  <p class="section-intro">Learn universal properties, adjunctions, and limits as reusable mathematical interfaces.</p><article class="lesson" data-tags="optional theory" data-id="xfd-cat-video">
+  <input class="check" type="checkbox" aria-label="Mark Category Theory 1.1: Motivation and Philosophy complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=I8LbkfSSR58">Category Theory 1.1: Motivation and Philosophy</a>
+    <div class="meta">Bartosz Milewski · Category Theory for Programmers · 46 min</div>
+    <p>Milewski motivates morphisms and composition as reusable structure before the module turns to universal properties and Yoneda.</p>
+    <div class="lab"><strong>After watching:</strong> Translate one familiar construction into objects and arrows, then prove a universal property.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=I8LbkfSSR58">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xfd-cat-riehl">
+  <input class="check" type="checkbox" aria-label="Mark Category Theory in Context complete">
+  <div>
+    <a class="lesson-title" href="https://emilyriehl.github.io/files/context.pdf">Category Theory in Context</a>
+    <div class="meta">Emily Riehl · author PDF</div>
+    <p>The author&#x27;s current PDF is the rigorous companion for Yoneda, limits, adjunctions, and diagram-level proofs.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one construction by a universal property and formalize its uniqueness.</div>
+  </div>
+  <a class="watch" href="https://emilyriehl.github.io/files/context.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a diagram-and-proof portfolio centered on universal properties.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Schemes</h2></div>
+  <p class="section-intro">Glue affine spectra and sheaves into the basic language of modern algebraic geometry.</p><article class="lesson" data-tags="optional theory build" data-id="xfd-schemes-video">
+  <input class="check" type="checkbox" aria-label="Mark Schemes 1: Introduction complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BX3jiLdehA4">Schemes 1: Introduction</a>
+    <div class="meta">Richard Borcherds · recorded algebraic geometry course · 28 min</div>
+    <p>Borcherds gives a focused entry from classical varieties to the scheme-theoretic viewpoint used by the written spine.</p>
+    <div class="lab"><strong>After watching:</strong> Compute Spec of three small rings and identify the geometric information carried by nilpotents.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BX3jiLdehA4">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xfd-schemes-vakil">
+  <input class="check" type="checkbox" aria-label="Mark The Rising Sea — Parts II and III complete">
+  <div>
+    <a class="lesson-title" href="https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf">The Rising Sea — Parts II and III</a>
+    <div class="meta">Ravi Vakil · author notes</div>
+    <p>A detailed, motivated route to sheaves, schemes, morphisms, and geometry.</p>
+    <div class="lab"><strong>After reading:</strong> Compute Spec for three rings and glue two affine lines along an open subset.</div>
+  </div>
+  <a class="watch" href="https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute explicit affine schemes, stalks, and one gluing construction.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Malliavin Calculus</h2></div>
+  <p class="section-intro">Differentiate random functionals and connect nondegeneracy to smooth densities.</p><article class="lesson" data-tags="optional theory build" data-id="xfd-malliavin-video">
+  <input class="check" type="checkbox" aria-label="Mark Malliavin Calculus — Session 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=7BihbEz582A">Malliavin Calculus — Session 1</a>
+    <div class="meta">Erfan Salavati · recorded course · 60 min</div>
+    <p>The opening course session introduces differentiation on Wiener space at the pace needed for explicit cylindrical-functional calculations.</p>
+    <div class="lab"><strong>After watching:</strong> Compute Malliavin derivatives of three cylindrical functionals and verify one finite-dimensional integration-by-parts identity.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=7BihbEz582A">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xfd-malliavin-nualart">
+  <input class="check" type="checkbox" aria-label="Mark The Malliavin Calculus and Related Topics — Chapters 1 and 2 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-540-28329-4">The Malliavin Calculus and Related Topics — Chapters 1 and 2</a>
+    <div class="meta">David Nualart · Springer · 2nd ed.</div>
+    <p>Introduces the derivative, divergence, Ornstein–Uhlenbeck operator, and density criteria.</p>
+    <div class="lab"><strong>After reading:</strong> Calculate D of cylindrical functionals and prove the duality identity in a finite example.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-540-28329-4">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute Malliavin derivatives for Wiener functionals and verify an integration-by-parts identity.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Functional Analysis II</h2></div>
+  <p class="section-intro">Continue into unbounded operators, spectral theory, distributions, and operator algebras.</p><article class="lesson" data-tags="optional theory" data-id="xfd-fa-video">
+  <input class="check" type="checkbox" aria-label="Mark Adjoints of Unbounded Operators complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=aC4kqETA8C0">Adjoints of Unbounded Operators</a>
+    <div class="meta">Roland Speicher · Mathematics of Quantum Mechanics · 34 min</div>
+    <p>This focused lecture makes domains and adjoints explicit—the distinctions the module&#x27;s differential-operator artifact must preserve.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the domains of a model differentiation operator and its adjoint, then test symmetry and self-adjointness.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=aC4kqETA8C0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xfd-fa-reed-simon">
+  <input class="check" type="checkbox" aria-label="Mark Methods of Modern Mathematical Physics I — Chapters VII and VIII complete">
+  <div>
+    <a class="lesson-title" href="https://www.elsevier.com/books/methods-of-modern-mathematical-physics/reed/978-0-12-585001-8">Methods of Modern Mathematical Physics I — Chapters VII and VIII</a>
+    <div class="meta">Reed &amp; Simon · Academic Press</div>
+    <p>Develops spectral theory and unbounded operators with domains visible.</p>
+    <div class="lab"><strong>After reading:</strong> Determine closure, adjoint, and self-adjointness for a model differentiation operator.</div>
+  </div>
+  <a class="watch" href="https://www.elsevier.com/books/methods-of-modern-mathematical-physics/reed/978-0-12-585001-8">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Analyze one unbounded differential operator, including domain, adjoint, and spectrum.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Complex Analysis II</h2></div>
+  <p class="section-intro">Advance to Riemann surfaces, analytic continuation, and several complex variables.</p><article class="lesson" data-tags="optional theory" data-id="xfd-scv-video">
+  <input class="check" type="checkbox" aria-label="Mark Hartogs&#x27;s Extension Theorem in Several Complex Variables complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Xm_6f3E_zwM">Hartogs&#x27;s Extension Theorem in Several Complex Variables</a>
+    <div class="meta">COMPASS Seminar · SCV lecture · 61 min</div>
+    <p>A theorem-focused lecture exposes the central several-variable phenomenon that has no one-variable analogue.</p>
+    <div class="lab"><strong>After watching:</strong> Prove a basic Hartogs extension case and identify exactly which dimension assumption is used.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Xm_6f3E_zwM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xfd-riemann-video">
+  <input class="check" type="checkbox" aria-label="Mark Riemann Surfaces: Algebra, Analysis, Geometry — Lecture 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=fl8lhdpbXNM">Riemann Surfaces: Algebra, Analysis, Geometry — Lecture 1</a>
+    <div class="meta">Norbert A&#x27;Campo · ICTS lecture series · 71 min</div>
+    <p>The lecture develops Riemann surfaces as the natural domains for analytic continuation and multivalued functions.</p>
+    <div class="lab"><strong>After watching:</strong> Construct the Riemann surface of a square root and compute its branch data.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=fl8lhdpbXNM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xfd-complex-forster">
+  <input class="check" type="checkbox" aria-label="Mark Lectures on Riemann Surfaces — Chapters 1–19 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-1-4612-5961-9">Lectures on Riemann Surfaces — Chapters 1–19</a>
+    <div class="meta">Otto Forster · Springer</div>
+    <p>A compact route from complex manifolds and sheaves to meromorphic functions.</p>
+    <div class="lab"><strong>After reading:</strong> Build the Riemann surface of a multivalued function and compute branch data.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-1-4612-5961-9">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Construct an analytic continuation or compact Riemann-surface example and prove its key property.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Second-language proof portfolio</h3><ol><li>Choose one optional mathematical language.</li><li>State its prerequisite chain and central universal or analytic construction.</li><li>Work three explicit examples and one substantial proof.</li><li>Explain where the language changes a problem from another guide.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://stacks.math.columbia.edu/">Stacks Project workshops and resources</a></h3><div class="meta">Open collaborative reference</div><p>A long-term schemes reference after a coherent Vakil pass, not a first syllabus.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Modern languages</h3><ul class="source-list"><li><a href="https://emilyriehl.github.io/files/context.pdf">Riehl, Category Theory in Context</a></li><li><a href="https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf">Vakil, The Rising Sea</a></li></ul></article><article class="card"><h3>Advanced analysis</h3><ul class="source-list"><li><a href="https://link.springer.com/book/10.1007/978-3-540-28329-4">Nualart, Malliavin Calculus</a></li><li><a href="https://www.elsevier.com/books/methods-of-modern-mathematical-physics/reed/978-0-12-585001-8">Reed–Simon I</a></li><li><a href="https://link.springer.com/book/10.1007/978-1-4612-5961-9">Forster, Riemann Surfaces</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/opt/index.html">← Back to OPT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

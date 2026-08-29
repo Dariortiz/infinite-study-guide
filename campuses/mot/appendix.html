@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement, prerequisites, and readiness for MOT.">
+  <title>MTA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#767676;--accent-ink:#767676;--deep:#272727}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="mta">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Motion" aria-label="Back to Motion"><span class="arrow" aria-hidden="true">←</span>MOT</a><div class="brand">MTA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/mat/index.html">MAT</a><a href="index.html">MOT</a><span class="divider" aria-hidden="true">|</span><a href="../../guides/dyn.html">DYN</a><a href="../../guides/sto.html">STO</a><a href="../../guides/spz.html">SPZ</a><a href="../../guides/dsz.html">DSZ</a><a href="../../guides/sim.html">SIM</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">MTA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Motion Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>MTA</em> APPENDIX</span></h1>
+    <p class="manifesto">Placement, prerequisites, and readiness for MOT.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>14</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 14</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Placement route</h3><p>Complete both diagnostics, apply every skip-if gate, and choose one spine plus SIM support.</p><div class="meta"><span>4–6 h</span></div></article><article class="card route"><span class="code">BLD</span><h3>Readiness route</h3><p>Complete diagnostics and produce the dependency graph, readiness matrix, and route contract.</p><div class="meta"><span>8–12 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Bridge route</h3><p>Audit both spines, both zoos, SIM, and three cross-bundle transfers without duplicating their content.</p><div class="meta"><span>12–16 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Choose a spine before a zoo: deterministic evolution starts in DYN, stochastic evolution in STO, and approximation practice in SIM.</p><article class="lesson" data-tags="core theory" data-id="mta-use-spines">
+  <input class="check" type="checkbox" aria-label="Mark Choose a Motion spine: DYN or STO complete">
+  <div>
+    <a class="lesson-title" href="../../guides/dyn.html">Choose a Motion spine: DYN or STO</a>
+    <div class="meta">MTA routing note · links to DYN and STO</div>
+    <p>Prevents sampling specialized creatures before acquiring flow, generator, stability, and limit language.</p>
+    <div class="lab"><strong>After reading:</strong> Choose DYN, STO, or both; list the exact modules you can skip and the evidence for each skip.</div>
+  </div>
+  <a class="watch" href="../../guides/dyn.html">Open DYN</a>
+</article><article class="lesson" data-tags="core build" data-id="mta-use-build">
+  <input class="check" type="checkbox" aria-label="Mark Make SIM the laboratory layer complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sim.html">Make SIM the laboratory layer</a>
+    <div class="meta">MTA routing note · link to SIM</div>
+    <p>Places numerical error, uncertainty, and reproducibility beside every theoretical route.</p>
+    <div class="lab"><strong>After reading:</strong> Attach one SIM module to each chosen spine module and define the artifact it will harden.</div>
+  </div>
+  <a class="watch" href="../../guides/sim.html">Open SIM</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a one-page route contract naming your spine, deferred branches, weekly artifact cadence, and exit test.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Use short proof and implementation checks; placement is evidence, not familiarity.</p><article class="lesson" data-tags="core theory build" data-id="mta-place-deterministic">
+  <input class="check" type="checkbox" aria-label="Mark Deterministic placement: flows, spectra, stability complete">
+  <div>
+    <a class="lesson-title" href="../../guides/dyn.html">Deterministic placement: flows, spectra, stability</a>
+    <div class="meta">MTA diagnostic · DYN entrance</div>
+    <p>Checks whether the DYN spine can begin above ODE foundations without leaving proof gaps.</p>
+    <div class="lab"><strong>After reading:</strong> In 90 minutes: prove uniqueness under a Lipschitz hypothesis, classify a 2×2 flow, and certify one equilibrium with Lyapunov&#x27;s method.</div>
+  </div>
+  <a class="watch" href="../../guides/dyn.html">Open DYN</a>
+</article><article class="lesson" data-tags="core theory build" data-id="mta-place-stochastic">
+  <input class="check" type="checkbox" aria-label="Mark Stochastic placement: conditioning, chains, and simulation complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sto.html">Stochastic placement: conditioning, chains, and simulation</a>
+    <div class="meta">MTA diagnostic · STO entrance</div>
+    <p>Checks whether measure-theoretic probability is operational enough for filtrations, generators, and limits.</p>
+    <div class="lab"><strong>After reading:</strong> In 90 minutes: solve a hitting-time equation, verify a martingale identity, and simulate a CTMC by holding times.</div>
+  </div>
+  <a class="watch" href="../../guides/sto.html">Open STO</a>
+</article><article class="lesson" data-tags="optional theory" data-id="mta-place-spanish">
+  <input class="check" type="checkbox" aria-label="Mark Diagnóstico de procesos y sistemas dinámicos complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sto.html">Diagnóstico de procesos y sistemas dinámicos</a>
+    <div class="meta">ES · MTA bilingual diagnostic · links to STO/DYN</div>
+    <p>Makes Spanish mathematical vocabulary first-class rather than treating it as an afterthought.</p>
+    <div class="lab"><strong>After reading:</strong> Define flujo, filtración, generador, estabilidad, and tiempo de parada; give one correct example of each.</div>
+  </div>
+  <a class="watch" href="../../guides/sto.html">Abrir STO</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete a timed diagnostic packet and record pass, repair, or defer for each competency.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Repair only the dependency that blocks the next proof or build.</p><article class="lesson" data-tags="core theory" data-id="mta-prereq-dyn">
+  <input class="check" type="checkbox" aria-label="Mark DYN prerequisite gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/dyn.html">DYN prerequisite gate</a>
+    <div class="meta">MTA skip-if gate · analysis + linear algebra → DYN</div>
+    <p>States a concrete bypass rule for the deterministic spine.</p>
+    <div class="lab"><strong>After reading:</strong> Skip DYN ODE/linear foundations only if you can prove local uniqueness, compute e^{tA}, classify planar equilibria, and explain continuous dependence.</div>
+  </div>
+  <a class="watch" href="../../guides/dyn.html">Open DYN</a>
+</article><article class="lesson" data-tags="core theory" data-id="mta-prereq-sto">
+  <input class="check" type="checkbox" aria-label="Mark STO prerequisite gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sto.html">STO prerequisite gate</a>
+    <div class="meta">MTA skip-if gate · probability + measure → STO</div>
+    <p>States a concrete bypass rule for the stochastic spine.</p>
+    <div class="lab"><strong>After reading:</strong> Skip STO Markov preliminaries only if you can use conditional expectation as an L² projection, classify a chain, and derive first-step equations.</div>
+  </div>
+  <a class="watch" href="../../guides/sto.html">Open STO</a>
+</article><article class="lesson" data-tags="optional build" data-id="mta-prereq-sim">
+  <input class="check" type="checkbox" aria-label="Mark SIM implementation gate complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sim.html">SIM implementation gate</a>
+    <div class="meta">MTA skip-if gate · scientific computing → SIM</div>
+    <p>Ensures coding fluency includes error and reproducibility rather than syntax alone.</p>
+    <div class="lab"><strong>After reading:</strong> Skip SIM workflow foundations only if you can produce tested seeded code, confidence intervals, convergence plots, and a lockfile from scratch.</div>
+  </div>
+  <a class="watch" href="../../guides/sim.html">Open SIM</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Draw a dependency graph from analysis, probability, linear algebra, and computing into chosen Motion modules.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Enter zoos only after their spine concepts can be used without prompting.</p><article class="lesson" data-tags="core theory build" data-id="mta-ready-spz">
+  <input class="check" type="checkbox" aria-label="Mark Ready for SPZ? complete">
+  <div>
+    <a class="lesson-title" href="../../guides/spz.html">Ready for SPZ?</a>
+    <div class="meta">MTA readiness gate · STO → SPZ</div>
+    <p>The stochastic zoo assumes laws, filtrations, generators, martingales, and weak limits rather than reteaching them.</p>
+    <div class="lab"><strong>After reading:</strong> Open SPZ only if you can state the characteristic object and a valid simulator for a chain, diffusion, and jump process.</div>
+  </div>
+  <a class="watch" href="../../guides/spz.html">Open SPZ</a>
+</article><article class="lesson" data-tags="core theory build" data-id="mta-ready-dsz">
+  <input class="check" type="checkbox" aria-label="Mark Ready for DSZ? complete">
+  <div>
+    <a class="lesson-title" href="../../guides/dsz.html">Ready for DSZ?</a>
+    <div class="meta">MTA readiness gate · DYN → DSZ</div>
+    <p>The dynamics zoo assumes flows, linearization, Lyapunov stability, bifurcation, and invariant measures.</p>
+    <div class="lab"><strong>After reading:</strong> Open DSZ only if you can classify a fixed point, justify a trapping region, and distinguish topological from measure-theoretic behavior.</div>
+  </div>
+  <a class="watch" href="../../guides/dsz.html">Open DSZ</a>
+</article><article class="lesson" data-tags="optional build" data-id="mta-ready-sim">
+  <input class="check" type="checkbox" aria-label="Mark Ready to trust a simulation? complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sim.html">Ready to trust a simulation?</a>
+    <div class="meta">MTA readiness gate · SIM across all Motion guides</div>
+    <p>Every Motion artifact needs numerical validation proportional to the claim.</p>
+    <div class="lab"><strong>After reading:</strong> For one existing notebook, identify discretization, sampling, floating-point, and model error separately.</div>
+  </div>
+  <a class="watch" href="../../guides/sim.html">Open SIM</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create a readiness matrix for DYN, STO, SPZ, DSZ, and SIM with evidence links to proofs or notebooks.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Use explicit links where Motion depends on foundations or feeds arithmetic, information, privacy, and systems.</p><article class="lesson" data-tags="core theory build" data-id="mta-bridge-five-guides">
+  <input class="check" type="checkbox" aria-label="Mark Motion campus route map complete">
+  <div>
+    <a class="lesson-title" href="../../guides/dyn.html">Motion campus route map</a>
+    <div class="meta">MTA cross-link · DYN → STO → SPZ/DSZ ↔ SIM</div>
+    <p>Keeps the five guides connected without duplicating any guide&#x27;s curricular spine.</p>
+    <div class="lab"><strong>After reading:</strong> Draw your route as a directed graph and annotate each edge with the theorem or implementation skill transferred.</div>
+  </div>
+  <a class="watch" href="../../guides/dyn.html">Open DYN</a>
+</article><article class="lesson" data-tags="core theory" data-id="mta-bridge-homogeneous">
+  <input class="check" type="checkbox" aria-label="Mark Homogeneous dynamics belongs in G11 complete">
+  <div>
+    <a class="lesson-title" href="../../guides/lat.html">Homogeneous dynamics belongs in G11</a>
+    <div class="meta">MTA cross-link · DYN/DSZ → LAT G11</div>
+    <p>Prevents duplicate treatment: homogeneous dynamics is parked with lattices and geometry of numbers.</p>
+    <div class="lab"><strong>After reading:</strong> Record prerequisites from DYN ergodic dynamics, then defer flows on homogeneous spaces to the LAT module.</div>
+  </div>
+  <a class="watch" href="../../guides/lat.html">Open LAT</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="mta-bridge-process-limits">
+  <input class="check" type="checkbox" aria-label="Mark Process limits connect STO, SPZ, and SIM complete">
+  <div>
+    <a class="lesson-title" href="../../guides/sto.html">Process limits connect STO, SPZ, and SIM</a>
+    <div class="meta">MTA cross-link · STO limits → SPZ queues → SIM error analysis</div>
+    <p>Makes approximation claims travel with topology and numerical diagnostics.</p>
+    <div class="lab"><strong>After reading:</strong> Choose one queue or particle limit; name the topology, finite-size statistic, and simulation error budget.</div>
+  </div>
+  <a class="watch" href="../../guides/sto.html">Open STO</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Document three cross-bundle bridges with a source module, target module, and a concrete transfer artifact.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Motion route contract</h3><ol><li>Attach evidence for every claimed skip.</li><li>Choose DYN, STO, or a sequenced dual spine.</li><li>Pair theoretical modules with SIM artifacts.</li><li>Name zoo modules to defer until readiness gates pass.</li></ol></article><article class="card"><h3>Readiness defense</h3><ol><li>Present one deterministic proof.</li><li>Present one stochastic derivation.</li><li>Present one reproducible simulation with an error budget.</li><li>Defend the next five modules and the modules intentionally skipped.</li></ol></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Motion guides</h3><ul class="source-list"><li><a href="../../guides/dyn.html">DYN — Dynamical Systems Spine</a></li><li><a href="../../guides/sto.html">STO — Stochastic Processes Spine</a></li><li><a href="../../guides/spz.html">SPZ — Stochastic Process Zoo</a></li><li><a href="../../guides/dsz.html">DSZ — Dynamical Systems Zoo</a></li><li><a href="../../guides/sim.html">SIM — Numerics &amp; Simulation</a></li></ul></article><article class="card"><h3>Routing bridges</h3><ul class="source-list"><li><a href="../../guides/lat.html">LAT — Homogeneous Dynamics is parked in G11</a></li><li><a href="../../guides/ana.html">ANA — Analysis prerequisites</a></li><li><a href="../../guides/prb.html">PRB — Probability prerequisites</a></li><li><a href="../../guides/csf.html">CSF — Computing prerequisites</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to MOT</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

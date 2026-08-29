@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Add structured redundancy; survive noise.">
+  <title>COD - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#e98bf5;--accent-ink:#c913e1;--deep:#8e279b}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="cod">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/art/index.html" title="Back to Arithmetic" aria-label="Back to Arithmetic"><span class="arrow" aria-hidden="true">←</span>ART</a><div class="brand">COD <b>// G12 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/art/index.html">ART</a><span class="divider" aria-hidden="true">|</span><a href="num.html">NUM</a><a href="lat.html">LAT</a><span class="here" aria-current="page">COD</span><span class="divider" aria-hidden="true">|</span><a href="../campuses/art/appendix.html">ARA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Channel Coding · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>COD</em> MOOC</span></h1>
+    <p class="manifesto">Add structured redundancy; survive noise.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>7</b><span>modules</span></div>
+  <div class="metric"><b>32</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 32</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Bounds &amp; Capacity</a><a href="#module-1">01 · Linear Codes</a><a href="#module-2">02 · Cyclic, BCH &amp; Reed–Solomon</a><a href="#module-3">03 · Trellises &amp; Viterbi</a><a href="#module-4">04 · LDPC, Polar &amp; Expander Codes</a><a href="#module-5">05 · Lattice Codes</a><a href="#module-6">06 · Crypto Crossings</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Coding explorer</h3><p>Take every core unit in bounds, linear and algebraic codes, Viterbi, one modern family, lattice codes, and all three crossing pointers.</p><div class="meta"><span>10–13 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete every core artifact and implement syndrome, Reed–Solomon/BCH, Viterbi, belief-propagation, and nested-lattice experiments.</p><div class="meta"><span>22–32 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add list decoding, polar and expander codes, and Zamir; keep source compression in SRC and protocol details in the existing crypto guides.</p><div class="meta"><span>40–55 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Bounds &amp; Capacity</h2></div>
+  <p class="section-intro">Separate combinatorial distance bounds from Shannon&#x27;s noisy-channel theorem; understand rate, reliability, typicality, and random coding.</p><article class="lesson" data-tags="core theory build" data-id="cod-bounds-hamming">
+  <input class="check" type="checkbox" aria-label="Mark The Hamming Bound complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=aSLkf0fkir8">The Hamming Bound</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 10 min</div>
+    <p>A concise derivation isolates the sphere-packing argument behind the first essential finite-block bound.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the q-ary Hamming bound and compute it for three small parameter sets.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=aSLkf0fkir8">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-capacity-mit">
+  <input class="check" type="checkbox" aria-label="Mark Capacity of the Binary Symmetric Channel complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=BbNAZNgqxos">Capacity of the Binary Symmetric Channel</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 15 min</div>
+    <p>The lecture cleanly separates Shannon capacity from minimum-distance bounds and computes the BSC benchmark.</p>
+    <div class="lab"><strong>After watching:</strong> Plot BSC capacity against crossover probability and compare it with rates of three finite block codes.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=BbNAZNgqxos">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-bounds-nptel">
+  <input class="check" type="checkbox" aria-label="Mark Bounds on the Size of a Code complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=uiYXFDqdlQ4">Bounds on the Size of a Code</a>
+    <div class="meta">An Introduction to Coding Theory · Adrish Banerjee · 33 min</div>
+    <p>This dedicated bounds lecture directly accompanies Roth&#x27;s treatment of Hamming-space packing and finite-block code-size limits.</p>
+    <div class="lab"><strong>After watching:</strong> Compare the hypotheses and conclusions of the Hamming, Singleton, and Gilbert–Varshamov bounds on one parameter table.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=uiYXFDqdlQ4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-bounds-roth">
+  <input class="check" type="checkbox" aria-label="Mark Roth, Introduction to Coding Theory — Chapters 1–2 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511808968">Roth, Introduction to Coding Theory — Chapters 1–2</a>
+    <div class="meta">Ron Roth · Cambridge University Press · read</div>
+    <p>Develops Hamming spaces, minimum distance, decoding radius, and the principal finite-block bounds cleanly.</p>
+    <div class="lab"><strong>After reading:</strong> Derive Hamming and Singleton bounds, compute the GV lower bound numerically, and identify which statements are existential.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511808968">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Plot finite-block Hamming, Singleton, and Gilbert–Varshamov bounds beside an empirical binary symmetric channel reliability curve.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Linear Codes</h2></div>
+  <p class="section-intro">Use generator and parity-check matrices, syndrome decoding, duality, weight enumerators, and MacWilliams identities as algebraic structure.</p><article class="lesson" data-tags="core theory build" data-id="cod-linear-wootters">
+  <input class="check" type="checkbox" aria-label="Mark Linear Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Mja5tTSI23A">Linear Codes</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 10 min</div>
+    <p>A focused conceptual introduction explains why linear subspaces make encoding, distance, and algebraic construction tractable.</p>
+    <div class="lab"><strong>After watching:</strong> Generate every word of a small q-ary linear code and compute its dimension and minimum distance.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Mja5tTSI23A">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-linear-matrices">
+  <input class="check" type="checkbox" aria-label="Mark Generator and Parity-Check Matrices complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=M2Spgt3_3tE">Generator and Parity-Check Matrices</a>
+    <div class="meta">Adrish Banerjee · NPTEL/IIT Kanpur Coding Theory · 30 min</div>
+    <p>This full lecture develops the matrix representation needed for the module&#x27;s syndrome and dual-code computations.</p>
+    <div class="lab"><strong>After watching:</strong> Construct G and H for a Hamming code and verify GH^T=0 and dim C + dim C-perp = n.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=M2Spgt3_3tE">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="cod-linear-es">
+  <input class="check" type="checkbox" aria-label="Mark Códigos lineales complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=n5ogFj4XNkM">Códigos lineales</a>
+    <div class="meta">ES · Jorge Andrés Ramírez Saldarriaga · clase de códigos · 17 min</div>
+    <p>A specific Spanish lesson on linear codes replaces the unrelated digital-information overview.</p>
+    <div class="lab"><strong>After watching:</strong> Rebuild the lecture&#x27;s smallest code example and write a bilingual glossary for generator, parity check, syndrome, and distance.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=n5ogFj4XNkM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-linear-syndrome">
+  <input class="check" type="checkbox" aria-label="Mark Syndrome, Error Correction and Error Detection complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Nx73Lhllu7M">Syndrome, Error Correction and Error Detection</a>
+    <div class="meta">An Introduction to Coding Theory · Adrish Banerjee · 19 min</div>
+    <p>A focused derivation of syndrome decoding directly supports the standard-array and dual-code machinery in Huffman–Pless.</p>
+    <div class="lab"><strong>After watching:</strong> Compute every syndrome for a small parity-check matrix and map each coset leader to its correction rule.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Nx73Lhllu7M">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-linear-pless">
+  <input class="check" type="checkbox" aria-label="Mark Huffman–Pless, Fundamentals of Error-Correcting Codes — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511807077">Huffman–Pless, Fundamentals of Error-Correcting Codes — Chapters 1–3</a>
+    <div class="meta">W. Cary Huffman &amp; Vera Pless · Cambridge University Press · read</div>
+    <p>A proof-oriented route through linear codes, duality, standard arrays, and weight distributions.</p>
+    <div class="lab"><strong>After reading:</strong> Implement row-space generation and syndrome decoding over GF(q), then verify dim C + dim C⊥ = n.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511807077">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a finite-field linear-code toolkit that enumerates codewords, distances, syndromes, duals, and weight enumerators.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Cyclic, BCH &amp; Reed–Solomon</h2></div>
+  <p class="section-intro">Represent cyclic codes as ideals, design BCH zeros, and decode Reed–Solomon codes through polynomial interpolation and key equations.</p><article class="lesson" data-tags="core theory build" data-id="cod-rs-intro">
+  <input class="check" type="checkbox" aria-label="Mark Reed–Solomon Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=yQkEnde2lNg">Reed–Solomon Codes</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 10 min</div>
+    <p>Evaluation codes make the polynomial structure and optimal distance of Reed–Solomon codes immediately visible.</p>
+    <div class="lab"><strong>After watching:</strong> Encode three low-degree polynomials over a finite field and verify the minimum-distance formula.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=yQkEnde2lNg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-bch-video">
+  <input class="check" type="checkbox" aria-label="Mark BCH Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GvjLPJFAUOw">BCH Codes</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 23 min</div>
+    <p>A dedicated lecture constructs BCH codes over smaller alphabets and explains the designed-distance guarantee.</p>
+    <div class="lab"><strong>After watching:</strong> Build one primitive narrow-sense BCH generator polynomial and test every error pattern up to its decoding radius.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GvjLPJFAUOw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="cod-rs-guruswami">
+  <input class="check" type="checkbox" aria-label="Mark The Guruswami–Sudan Algorithm complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=1-OvDXBiFKY">The Guruswami–Sudan Algorithm</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 24 min</div>
+    <p>This specific lecture replaces the dead monograph page with the interpolation-and-factorization mechanism for list decoding.</p>
+    <div class="lab"><strong>After watching:</strong> Implement the interpolation constraints for a tiny Reed–Solomon instance and enumerate candidate messages.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=1-OvDXBiFKY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-bch-generators">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to BCH Codes: Generator Polynomials complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=16aggpH4Meg">Introduction to BCH Codes: Generator Polynomials</a>
+    <div class="meta">NPTEL IIT Delhi · 47 min</div>
+    <p>The lecture constructs BCH generator polynomials from prescribed roots, directly matching the central algebraic construction in Roth&#x27;s assigned chapters.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the minimal-polynomial factors for one narrow-sense BCH code and verify its designed zeros.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=16aggpH4Meg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-cyclic-roth">
+  <input class="check" type="checkbox" aria-label="Mark Roth, Introduction to Coding Theory — Chapters 3–6 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511808968">Roth, Introduction to Coding Theory — Chapters 3–6</a>
+    <div class="meta">Ron Roth · Cambridge University Press · read</div>
+    <p>Builds cyclic, BCH, and Reed–Solomon codes from polynomial algebra and proves their designed-distance guarantees.</p>
+    <div class="lab"><strong>After reading:</strong> Construct a primitive narrow-sense BCH code, derive its generator polynomial, and verify the designed distance on a tractable instance.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511808968">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="cod-rs-zkp-pointer">
+  <input class="check" type="checkbox" aria-label="Mark Continue in ZKP: Reed–Solomon proximity and FRI complete">
+  <div>
+    <a class="lesson-title" href="../crypto/zkp-self-assembled-mooc.html">Continue in ZKP: Reed–Solomon proximity and FRI</a>
+    <div class="meta">Existing ZKP guide · outbound curriculum pointer</div>
+    <p>This module owns Reed–Solomon algebra and decoding; the ZKP guide owns low-degree testing, proximity proofs, and FRI protocol composition.</p>
+    <div class="lab"><strong>After reading:</strong> Open the FRI unit and label each imported coding fact—distance, evaluation domain, folding, or proximity—without re-deriving the protocol here.</div>
+  </div>
+  <a class="watch" href="../crypto/zkp-self-assembled-mooc.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement a small BCH or Reed–Solomon encoder and bounded-distance decoder over a finite field, with injected-error tests.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Trellises &amp; Viterbi</h2></div>
+  <p class="section-intro">Read convolutional codes as finite-state machines and Viterbi decoding as dynamic programming / maximum-likelihood inference on a trellis.</p><article class="lesson" data-tags="core theory build" data-id="cod-trellis-encoding">
+  <input class="check" type="checkbox" aria-label="Mark Convolutional Codes: Encoding complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=hWNP5r26hvM">Convolutional Codes: Encoding</a>
+    <div class="meta">Adrish Banerjee · NPTEL/IIT Kanpur Coding Theory · 46 min</div>
+    <p>A full lecture builds convolutional encoders before decoding, exposing shift-register state and code rate.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a rate-1/2 encoder and draw its state diagram and trellis for six time steps.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=hWNP5r26hvM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-viterbi-video">
+  <input class="check" type="checkbox" aria-label="Mark Viterbi Decoding of Convolutional Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=AgpBxBHj1mE">Viterbi Decoding of Convolutional Codes</a>
+    <div class="meta">Adrish Banerjee · NPTEL/IIT Kanpur Coding Theory · 35 min</div>
+    <p>The lecture derives path metrics and survivor selection directly on the trellis used by the module artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Implement hard- and soft-decision branch metrics and compare traceback decisions on the same noisy word.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=AgpBxBHj1mE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-viterbi-forney">
+  <input class="check" type="checkbox" aria-label="Mark The Viterbi Algorithm complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/PROC.1973.9030">The Viterbi Algorithm</a>
+    <div class="meta">G. David Forney Jr. · Proceedings of the IEEE 61(3) · 1973 · paper</div>
+    <p>The definitive tutorial links trellis decoding, dynamic programming, hidden-state inference, and maximum likelihood.</p>
+    <div class="lab"><strong>After reading:</strong> Derive the path metric from channel likelihoods and implement traceback with explicit survivor-state storage.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/PROC.1973.9030">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement a convolutional encoder and Viterbi decoder, then compare hard- and soft-decision performance over an AWGN channel.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>LDPC, Polar &amp; Expander Codes</h2></div>
+  <p class="section-intro">Move from algebraic block codes to sparse graphs, iterative decoding, polarization, and explicit constructions approaching capacity.</p><article class="lesson" data-tags="core theory build" data-id="cod-ldpc-video">
+  <input class="check" type="checkbox" aria-label="Mark Low-Density Parity-Check Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=IN_ezsRroMI">Low-Density Parity-Check Codes</a>
+    <div class="meta">Adrish Banerjee · NPTEL/IIT Kanpur Coding Theory · 51 min</div>
+    <p>Introduces Tanner-graph structure and sparse parity checks before iterative decoding is layered on top.</p>
+    <div class="lab"><strong>After watching:</strong> Build a Tanner graph from a sparse H and identify its rate estimate, cycles, and local constraints.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=IN_ezsRroMI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-ldpc-bp">
+  <input class="check" type="checkbox" aria-label="Mark Belief-Propagation Decoding for LDPC Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=zAQB-jhYWOc">Belief-Propagation Decoding for LDPC Codes</a>
+    <div class="meta">Adrish Banerjee · NPTEL/IIT Kanpur Coding Theory · 41 min</div>
+    <p>A complete message-passing lecture gives the exact variable/check updates required by the artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Implement sum-product decoding and exhibit a short-cycle or trapping-set failure.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=zAQB-jhYWOc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="cod-polar-video">
+  <input class="check" type="checkbox" aria-label="Mark Polar Codes: Introduction complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=Zg4G7DXPdLQ">Polar Codes: Introduction</a>
+    <div class="meta">Harish Vangala · Polar Codes series · 20 min</div>
+    <p>A specific introductory lecture explains channel combining and splitting before successive-cancellation decoding.</p>
+    <div class="lab"><strong>After watching:</strong> Construct the N=8 transform, estimate synthetic-channel reliabilities, and choose a frozen set.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=Zg4G7DXPdLQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-ldpc-density">
+  <input class="check" type="checkbox" aria-label="Mark Factor Graphs, Belief Propagation, and Density Evolution 1/2 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=R1JW2dxj1gQ">Factor Graphs, Belief Propagation, and Density Evolution 1/2</a>
+    <div class="meta">Institut Henri Poincaré · 54 min</div>
+    <p>A research-school lecture develops factor graphs, belief propagation, and density evolution at the level used by Richardson–Urbanke.</p>
+    <div class="lab"><strong>After watching:</strong> Write the variable/check update distributions for one LDPC ensemble and identify the threshold iteration numerically.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=R1JW2dxj1gQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-ldpc-ru">
+  <input class="check" type="checkbox" aria-label="Mark Richardson–Urbanke, Modern Coding Theory — Chapters 2–4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9780511791338">Richardson–Urbanke, Modern Coding Theory — Chapters 2–4</a>
+    <div class="meta">Tom Richardson &amp; Rüdiger Urbanke · Cambridge University Press · read</div>
+    <p>The modern spine for factor graphs, message passing, density evolution, and LDPC threshold phenomena.</p>
+    <div class="lab"><strong>After reading:</strong> Implement sum-product decoding on a Tanner graph and exhibit a trapping or short-cycle failure.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9780511791338">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement belief propagation for a small LDPC code or successive cancellation for a polar code and chart its failure modes.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Lattice Codes</h2></div>
+  <p class="section-intro">Use Euclidean lattices for modulation, shaping, and coding; connect volume-to-noise ratio to capacity without folding the topic into lattice cryptography.</p><article class="lesson" data-tags="core theory build" data-id="cod-lattice-forney">
+  <input class="check" type="checkbox" aria-label="Mark Lattice Codes and Shaping complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=DNoNTre2Cf4">Lattice Codes and Shaping</a>
+    <div class="meta">Robert Gallager · MIT 6.451 · 80 min</div>
+    <p>The official MIT lecture develops Euclidean lattices, Voronoi regions, shaping, and coding gain in the communication setting.</p>
+    <div class="lab"><strong>After watching:</strong> Compare square and hexagonal shaping regions and simulate nearest-neighbor decoding under Gaussian noise.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=DNoNTre2Cf4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-lattice-zamir-video">
+  <input class="check" type="checkbox" aria-label="Mark Lattice Coding for Signals and Networks — Part 1 complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=LVk5ten0rq0">Lattice Coding for Signals and Networks — Part 1</a>
+    <div class="meta">Ram Zamir · São Paulo Coding School · 82 min</div>
+    <p>Zamir introduces nested lattices and dither as the systematic bridge from lattice geometry to channel coding.</p>
+    <div class="lab"><strong>After watching:</strong> Build a two-dimensional nested-lattice code, label its quotient classes, and measure shaping loss.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=LVk5ten0rq0">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="cod-lattice-zamir">
+  <input class="check" type="checkbox" aria-label="Mark Zamir, Lattice Coding for Signals and Networks — Chapters 2–5 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1017/CBO9781139045520">Zamir, Lattice Coding for Signals and Networks — Chapters 2–5</a>
+    <div class="meta">Ram Zamir · Cambridge University Press · read</div>
+    <p>Optional systematic depth on good lattices, dither, nested codes, and network information theory.</p>
+    <div class="lab"><strong>After reading:</strong> Explain shaping gain versus coding gain and calculate both for one two-dimensional constellation.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1017/CBO9781139045520">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Simulate a low-dimensional nested-lattice code with shaping and nearest-neighbor decoding; compare it with uncoded QAM.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Crypto Crossings</h2></div>
+  <p class="section-intro">Route coding facts to code-based KEMs, FRI, and data availability while leaving cryptographic assumptions and protocols in their existing guides.</p><article class="lesson" data-tags="core theory" data-id="cod-crossing-mceliece">
+  <input class="check" type="checkbox" aria-label="Mark The McEliece Cryptosystem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=fLwMvbfr76g">The McEliece Cryptosystem</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 11 min</div>
+    <p>A coding-theory lecture identifies exactly where an ordinary decoder becomes a cryptographic trapdoor construction.</p>
+    <div class="lab"><strong>After watching:</strong> Separate the code parameters, decoding guarantee, disguise, and hardness assumption in a one-page map.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=fLwMvbfr76g">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-crossing-frs">
+  <input class="check" type="checkbox" aria-label="Mark Folded Reed–Solomon Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=p3QlbqYKys8">Folded Reed–Solomon Codes</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 9 min</div>
+    <p>Folded evaluation codes are the right coding bridge toward list decoding and the low-degree proximity ideas used by FRI.</p>
+    <div class="lab"><strong>After watching:</strong> Construct a tiny folded codeword and label which properties are coding facts versus proof-system machinery.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=p3QlbqYKys8">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="cod-crossing-regenerating">
+  <input class="check" type="checkbox" aria-label="Mark Regenerating Codes complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=J1gFpb8T-no">Regenerating Codes</a>
+    <div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 10 min</div>
+    <p>Regenerating codes provide a concrete distributed-storage bridge before adversarial data-availability sampling is introduced elsewhere.</p>
+    <div class="lab"><strong>After watching:</strong> Model one repair problem and distinguish reconstruction threshold, repair bandwidth, and adversarial availability.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=J1gFpb8T-no">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="cod-pqc-pointer">
+  <input class="check" type="checkbox" aria-label="Mark Continue in PQC: Goppa codes, syndromes, and decoding hardness complete">
+  <div>
+    <a class="lesson-title" href="../crypto/post-quantum-cryptography-self-assembled-mooc.html">Continue in PQC: Goppa codes, syndromes, and decoding hardness</a>
+    <div class="meta">Existing PQC guide · outbound curriculum pointer</div>
+    <p>PQC owns McEliece/Niederreiter, ISD, HQC, security reductions, parameters, and implementation; COD owns the underlying channel-code mathematics.</p>
+    <div class="lab"><strong>After reading:</strong> Annotate the PQC code module with which facts are ordinary coding theorems and which are cryptographic hardness assumptions.</div>
+  </div>
+  <a class="watch" href="../crypto/post-quantum-cryptography-self-assembled-mooc.html">Read</a>
+</article><article class="lesson" data-tags="core theory" data-id="cod-zkp-pointer">
+  <input class="check" type="checkbox" aria-label="Mark Continue in ZKP: low-degree testing and FRI complete">
+  <div>
+    <a class="lesson-title" href="../crypto/zkp-self-assembled-mooc.html">Continue in ZKP: low-degree testing and FRI</a>
+    <div class="meta">Existing ZKP guide · outbound curriculum pointer</div>
+    <p>ZKP owns proof composition and soundness. Bring Reed–Solomon distance and list-decoding intuition from COD, then study the protocol there.</p>
+    <div class="lab"><strong>After reading:</strong> Trace one FRI soundness argument to a distance/proximity statement and identify what is protocol-specific.</div>
+  </div>
+  <a class="watch" href="../crypto/zkp-self-assembled-mooc.html">Read</a>
+</article><article class="lesson" data-tags="core theory build" data-id="cod-chain-pointer">
+  <input class="check" type="checkbox" aria-label="Mark Continue in Consensus &amp; Settlement: erasure-coded data availability complete">
+  <div>
+    <a class="lesson-title" href="../crypto/blockchain-self-assembled-mooc.html">Continue in Consensus &amp; Settlement: erasure-coded data availability</a>
+    <div class="meta">Existing blockchain guide · outbound curriculum pointer</div>
+    <p>The systems guide owns sampling, adversarial withholding, consensus, and settlement; COD supplies erasure-code rate and reconstruction facts.</p>
+    <div class="lab"><strong>After reading:</strong> Model one data-availability scheme as an erasure channel, then return to the blockchain guide for the adversarial sampling argument.</div>
+  </div>
+  <a class="watch" href="../crypto/blockchain-self-assembled-mooc.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create a crossing matrix that maps code family, theorem, decoder, and adversarial model to PQC, ZKP, and blockchain guide modules.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Decoder laboratory</h3><ol><li>Choose one algebraic, one trellis, and one graph-based code at comparable rates.</li><li>Implement encoding and decoding with reproducible channel simulations.</li><li>Measure block and bit error rates with confidence intervals and complexity counters.</li><li>Explain each observed waterfall, floor, or failure using distance, state, or graph structure.</li></ol></article><article class="card"><h3>One theorem, three applications</h3><ol><li>Choose Reed–Solomon, Goppa, or erasure-code mathematics.</li><li>Prove one central coding theorem and implement a toy decoder or reconstructor.</li><li>Map its use to ZKP, PQC, or data availability through the existing guide.</li><li>Separate ordinary decoding guarantees from cryptographic or adversarial assumptions.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=1-OvDXBiFKY">The Guruswami–Sudan Algorithm</a></h3><div class="meta">Mary Wootters · Stanford Algebraic Coding Theory · 24 min</div><p>A research-facing destination for polynomial interpolation and Reed–Solomon list decoding.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=LVk5ten0rq0">Lattice Coding for Signals and Networks</a></h3><div class="meta">Ram Zamir · São Paulo Coding School · 82 min</div><p>A full school lecture on the Euclidean coding bridge from shaping to networks.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video courses</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLkvhuSoxwjI_UudECvFYArvG0cLbFlzSr">Wootters, Stanford Algebraic Coding Theory</a></li><li><a href="https://www.youtube.com/playlist?list=PLEAYkSg4uSQ2wTNWLajW5Wax_PJuVfCja">Banerjee, NPTEL/IIT Kanpur Coding Theory</a></li><li><a href="https://www.youtube.com/watch?v=DNoNTre2Cf4">MIT 6.451 lattice-coding lecture</a></li></ul></article><article class="card"><h3>Written companions</h3><ul class="source-list"><li><a href="https://doi.org/10.1017/CBO9780511808968">Roth, Introduction to Coding Theory — Chapters 1–6</a></li><li><a href="https://doi.org/10.1017/CBO9780511807077">Huffman–Pless — Chapters 1–7</a></li><li><a href="https://doi.org/10.1109/PROC.1973.9030">Forney, The Viterbi Algorithm</a></li><li><a href="https://doi.org/10.1017/CBO9780511791338">Richardson–Urbanke — Chapters 2–4</a></li><li><a href="https://doi.org/10.1017/CBO9781139045520">Zamir — Chapters 2–5</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/art/index.html">← Back to ART</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

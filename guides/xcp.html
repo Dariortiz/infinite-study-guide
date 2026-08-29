@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Optional paths beyond lossless source coding.">
+  <title>XCP - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#ff9d80;--accent-ink:#e03300;--deep:#923d24}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="xcp">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/opt/index.html" title="Back to Optional Infinity" aria-label="Back to Optional Infinity"><span class="arrow" aria-hidden="true">←</span>OPT</a><div class="brand">XCP <b>// G18 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/opt/index.html">OPT</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">XCP</span><a href="xsp.html">XSP</a><a href="xds.html">XDS</a><a href="xfd.html">XFD</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/opt/appendix.html">OPA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Compression Second Careers · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>XCP</em> MOOC</span></h1>
+    <p class="manifesto">Optional paths beyond lossless source coding.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>8</b><span>modules</span></div>
+  <div class="metric"><b>17</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 17</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Lossy &amp; Rate–Distortion</a><a href="#module-1">01 · Neural Codecs</a><a href="#module-2">02 · Production Compressors</a><a href="#module-3">03 · Compressed Sensing</a><a href="#module-4">04 · Succinct Indexes</a><a href="#module-5">05 · Delta &amp; Distributed Compression</a><a href="#module-6">06 · Integer Codes</a><a href="#module-7">07 · Algorithmic Information</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">OPT</span><h3>Pick-one sampler</h3><p>Choose one optional career and complete its reading and artifact.</p><div class="meta"><span>8–15 h</span></div></article><article class="card route"><span class="code">BLD</span><h3>Two-track builder</h3><p>Pair one codec track with one structures or sensing track.</p><div class="meta"><span>25–40 h</span></div></article><article class="card route"><span class="code">INF</span><h3>Infinite route</h3><p>Complete every optional unit; none is required by SRC or ARC.</p><div class="meta"><span>70–110 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Lossy &amp; Rate–Distortion</h2></div>
+  <p class="section-intro">Move from the SRC theorem statement to transforms, quantization, and perceptual tradeoffs.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-lossy-ee274">
+  <input class="check" type="checkbox" aria-label="Mark Lossy Source Coding and Rate–Distortion Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=6OkD3xXCDq8">Lossy Source Coding and Rate–Distortion Theory</a>
+    <div class="meta">Charles Bouman · Purdue Digital Image Processing I · 51 min</div>
+    <p>Derives rate–distortion ideas in the image-coding setting used by the module&#x27;s transform-codec artifact.</p>
+    <div class="lab"><strong>After watching:</strong> Derive one scalar rate–distortion example, then compare its prediction with an empirical DCT codec sweep.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=6OkD3xXCDq8">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-lossy-goyal">
+  <input class="check" type="checkbox" aria-label="Mark Theoretical Foundations of Transform Coding complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/5.959340">Theoretical Foundations of Transform Coding</a>
+    <div class="meta">Vivek Goyal · IEEE Signal Processing Magazine · 2001</div>
+    <p>Connects transforms, scalar quantization, and coding gain.</p>
+    <div class="lab"><strong>After reading:</strong> Implement block DCT quantization and sweep rate versus MSE and perceptual artifacts.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/5.959340">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a transform codec and plot empirical rate–distortion curves.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Neural Codecs</h2></div>
+  <p class="section-intro">Learn end-to-end rate–distortion optimization only after classical lossy coding.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-neural-ee274">
+  <input class="check" type="checkbox" aria-label="Mark Learned Image Compression complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=x_q7cZviXkY">Learned Image Compression</a>
+    <div class="meta">Jona Ballé · Picture Coding Symposium 2018 · 58 min</div>
+    <p>A foundational author explains learned transforms, quantization surrogates, and entropy models inside an operational rate–distortion framework.</p>
+    <div class="lab"><strong>After watching:</strong> Diagram the encoder, entropy model, and decoder, then reproduce one small rate–distortion ablation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=x_q7cZviXkY">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-neural-balle">
+  <input class="check" type="checkbox" aria-label="Mark End-to-end Optimized Image Compression complete">
+  <div>
+    <a class="lesson-title" href="https://arxiv.org/abs/1611.01704">End-to-end Optimized Image Compression</a>
+    <div class="meta">Ballé, Laparra &amp; Simoncelli · ICLR 2017</div>
+    <p>The foundational learned-codec paper exposes analysis transforms, quantization surrogates, and entropy models.</p>
+    <div class="lab"><strong>After reading:</strong> Train on a small disclosed dataset and compare against a classical baseline.</div>
+  </div>
+  <a class="watch" href="https://arxiv.org/abs/1611.01704">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Reproduce a small learned image codec and audit its entropy model.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Production Compressors</h2></div>
+  <p class="section-intro">Read optimized implementations after algorithm families are already understood.</p><article class="lesson" data-tags="optional build" data-id="xcp-zstd">
+  <input class="check" type="checkbox" aria-label="Mark Beyond Zstandard: The Future of Data Compression complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=PyPViJiCewM">Beyond Zstandard: The Future of Data Compression</a>
+    <div class="meta">Yann Collet · Linux Foundation · 32 min</div>
+    <p>Zstandard&#x27;s author explains the engineering constraints and entropy-coding direction behind a production compressor.</p>
+    <div class="lab"><strong>After watching:</strong> Trace one block through the reference implementation and profile sequence generation versus entropy coding.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=PyPViJiCewM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-zstd-rfc">
+  <input class="check" type="checkbox" aria-label="Mark RFC 8878: Zstandard Compression Format complete">
+  <div>
+    <a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8878.html">RFC 8878: Zstandard Compression Format</a>
+    <div class="meta">Yann Collet &amp; Murray Kucherawy · IETF · specification</div>
+    <p>The stable format specification is the right written companion when implementation compatibility matters more than an informal overview.</p>
+    <div class="lab"><strong>After reading:</strong> Write a frame parser for headers and block boundaries, then test it against files produced by the reference CLI.</div>
+  </div>
+  <a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8878.html">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Profile one production codec path and explain ratio/speed choices from source.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Compressed Sensing</h2></div>
+  <p class="section-intro">Treat sparse linear measurement as a different meaning of compression.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-cs-stanford">
+  <input class="check" type="checkbox" aria-label="Mark Measurements vs. Bits: Compressed Sensors and Information Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=E6slZz6iVoA">Measurements vs. Bits: Compressed Sensors and Information Theory</a>
+    <div class="meta">Stanford EE · research colloquium · 76 min</div>
+    <p>Separates analog measurement complexity from coded bit rate and makes the sparsity assumptions behind compressed sensing explicit.</p>
+    <div class="lab"><strong>After watching:</strong> Map recovery success over sparsity and measurement count, then explain where a bit budget changes the result.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=E6slZz6iVoA">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-cs-candes">
+  <input class="check" type="checkbox" aria-label="Mark An Introduction to Compressive Sampling complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/MSP.2007.914731">An Introduction to Compressive Sampling</a>
+    <div class="meta">Candès &amp; Wakin · IEEE Signal Processing Magazine · 2008</div>
+    <p>A concise route through sparsity, incoherence, RIP, and ℓ1 recovery.</p>
+    <div class="lab"><strong>After reading:</strong> Compare ℓ1 and least-squares recovery over sparsity and measurement grids.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/MSP.2007.914731">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Recover sparse signals by basis pursuit and map empirical phase transitions.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Succinct Indexes</h2></div>
+  <p class="section-intro">Store searchable structure near information-theoretic space.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-succinct-mit">
+  <input class="check" type="checkbox" aria-label="Mark Succinct Structures I complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=3Y2weLDiUWw">Succinct Structures I</a>
+    <div class="meta">Erik Demaine · MIT 6.851 · 80 min</div>
+    <p>Develops rank/select and succinct trees from the word-RAM perspective needed to reason about both space bounds and query time.</p>
+    <div class="lab"><strong>After watching:</strong> Implement a two-level rank structure and report overhead in bits plus query latency.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=3Y2weLDiUWw">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-succinct-navarro">
+  <input class="check" type="checkbox" aria-label="Mark Compact Data Structures — Chapters 2, 6, and 9 complete">
+  <div>
+    <a class="lesson-title" href="https://www.cambridge.org/core/books/compact-data-structures/68A5983E6F117607440DEC9E9D0B1F15">Compact Data Structures — Chapters 2, 6, and 9</a>
+    <div class="meta">Gonzalo Navarro · Cambridge · selected chapters</div>
+    <p>Provides practical bitvectors, compressed text indexes, and succinct-tree machinery.</p>
+    <div class="lab"><strong>After reading:</strong> Implement rank/select and report bits per element plus query latency.</div>
+  </div>
+  <a class="watch" href="https://www.cambridge.org/core/books/compact-data-structures/68A5983E6F117607440DEC9E9D0B1F15">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build rank/select and an FM-index with measured space and query time.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Delta &amp; Distributed Compression</h2></div>
+  <p class="section-intro">Exploit related objects, content-defined chunks, or correlated sources.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-rsync">
+  <input class="check" type="checkbox" aria-label="Mark The Rsync Algorithm complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=X3Stha8pxXc">The Rsync Algorithm</a>
+    <div class="meta">Camilo Aguilar · Papers We Love NYC · 31 min</div>
+    <p>Walks through rolling checksums, signatures, and remote block matching without relying on the now-unavailable report page.</p>
+    <div class="lab"><strong>After watching:</strong> Implement signature and match phases, then measure shifted-file transfer size.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=X3Stha8pxXc">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xcp-slepian-video">
+  <input class="check" type="checkbox" aria-label="Mark Slepian–Wolf Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=yzzhUjOQTqM">Slepian–Wolf Theorem</a>
+    <div class="meta">Shashank Vatedka · Network Information Theory 2021 · 65 min</div>
+    <p>Gives a theorem-level derivation of the distributed source-coding region for correlated sources.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the corner points of the achievable region for a binary correlated-source model.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=yzzhUjOQTqM">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xcp-slepian-wolf">
+  <input class="check" type="checkbox" aria-label="Mark Noiseless Coding of Correlated Information Sources complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1109/TIT.1973.1055037">Noiseless Coding of Correlated Information Sources</a>
+    <div class="meta">Slepian &amp; Wolf · IEEE TIT · 1973</div>
+    <p>Gives the distributed source-coding limit without confusing it with ordinary deduplication.</p>
+    <div class="lab"><strong>After reading:</strong> Draw the achievable rate region and solve one binary correlated-source example.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1109/TIT.1973.1055037">Paper</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build a delta-sync prototype and compare fixed and content-defined chunking.</div>
+</section><section id="module-6" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 06</span><h2>Integer Codes</h2></div>
+  <p class="section-intro">Use short universal codes for residuals, gaps, counts, and timestamps.</p><article class="lesson" data-tags="optional theory build" data-id="xcp-integer-golomb">
+  <input class="check" type="checkbox" aria-label="Mark Golomb and Rice Codes with Examples complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=GfCu9tn0dLk">Golomb and Rice Codes with Examples</a>
+    <div class="meta">Worldmapper · data-compression lesson · 10 min</div>
+    <p>A compact worked construction makes quotient/remainder parsing concrete before implementation.</p>
+    <div class="lab"><strong>After watching:</strong> Round-trip Golomb and Rice codes and choose the parameter minimizing length for geometric samples.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=GfCu9tn0dLk">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="xcp-integer-notes">
+  <input class="check" type="checkbox" aria-label="Mark Integer Encoding: Elias and Rice Codes complete">
+  <div>
+    <a class="lesson-title" href="https://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformaticanetworking/ae/ae2011/chap8.pdf">Integer Encoding: Elias and Rice Codes</a>
+    <div class="meta">University of Pisa · Algorithm Engineering notes · Chapter 8</div>
+    <p>The written companion derives gamma, delta, and Rice lengths and connects parameter choice to source distributions.</p>
+    <div class="lab"><strong>After reading:</strong> Prove unique decodability for one code and compare empirical redundancy across geometric parameters.</div>
+  </div>
+  <a class="watch" href="https://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformaticanetworking/ae/ae2011/chap8.pdf">PDF</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement Golomb–Rice and Elias codes and select parameters from a source model.</div>
+</section><section id="module-7" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 07</span><h2>Algorithmic Information</h2></div>
+  <p class="section-intro">Go beyond useful prefix complexity into randomness and universal induction.</p><article class="lesson" data-tags="optional theory" data-id="xcp-ait-video">
+  <input class="check" type="checkbox" aria-label="Mark Kolmogorov Complexity for Meta-Complexity complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=z_aM48mb9hY">Kolmogorov Complexity for Meta-Complexity</a>
+    <div class="meta">Simons Institute · research lecture · 61 min</div>
+    <p>Shows how incompressibility becomes a proof object while keeping computability limitations visible.</p>
+    <div class="lab"><strong>After watching:</strong> Formalize one incompressibility argument and identify every place uncomputability blocks an algorithm.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=z_aM48mb9hY">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory" data-id="xcp-ait-li">
+  <input class="check" type="checkbox" aria-label="Mark Li–Vitányi — Chapters 4 and 5 complete">
+  <div>
+    <a class="lesson-title" href="https://link.springer.com/book/10.1007/978-3-030-11298-1">Li–Vitányi — Chapters 4 and 5</a>
+    <div class="meta">Li &amp; Vitányi · Springer · 4th ed.</div>
+    <p>Extends prefix complexity toward randomness and universal probability.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one characterization result and state all uncomputability barriers.</div>
+  </div>
+  <a class="watch" href="https://link.springer.com/book/10.1007/978-3-030-11298-1">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a proof portfolio distinguishing Martin-Löf randomness, semimeasures, and practical coding.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Compression boundary atlas</h3><ol><li>Choose three meanings of compression represented here.</li><li>For each, state its signal/source model and objective.</li><li>Build one reproducible implementation.</li><li>Explain why its guarantees do not substitute for lossless universal source coding.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=PyPViJiCewM">Beyond Zstandard: The Future of Data Compression</a></h3><div class="meta">Yann Collet · Linux Foundation · 32 min</div><p>A production-oriented research and engineering bridge after the format-level work.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Optional compression tracks</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPj4uhbgUAaEKwNNak8xgkz">Stanford EE274 — lossy and learned compression</a></li><li><a href="https://arxiv.org/abs/1611.01704">Ballé et al., learned compression</a></li><li><a href="https://www.cambridge.org/core/books/compact-data-structures/68A5983E6F117607440DEC9E9D0B1F15">Navarro, Compact Data Structures</a></li><li><a href="https://datatracker.ietf.org/doc/html/rfc8878.html">RFC 8878 — Zstandard format</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/opt/index.html">← Back to OPT</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

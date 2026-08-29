@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free, video-first, self-assembled MOOC for learning TLS 1.3, HPKE, Noise, Signal, MLS, and session-state cryptography.">
+  <title>E2E - Infinite Study Guide</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23c2187a'/%3E%3Cg fill='none' stroke='%23ff5ab8' stroke-width='2' opacity='.55'%3E%3Ccircle cx='18' cy='20' r='8.5'/%3E%3Ccircle cx='30' cy='20' r='8.5'/%3E%3Ccircle cx='24' cy='29' r='8.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 14v20M5 14h9M5 24h7M5 34h9'/%3E%3Cpath d='M19 18.2c.4-2.6 2.8-4.2 6.2-4.2 3.6 0 6.3 2 6.3 5.1 0 2.6-1.6 4-5.4 6.4l-7 4.5v.8h14'/%3E%3Cpath d='M35 14v20M35 14h9M35 24h7M35 34h9'/%3E%3C/g%3E%3C/svg%3E">
+  <script>(function(){var K='mooc-theme';function read(){try{var q=new URLSearchParams(location.search).get('theme');if(q==='light'||q==='dark')return q;var t=localStorage.getItem(K);if(t==='light'||t==='dark')return t}catch(e){}try{return matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}catch(e){return'dark'}}function stamp(t){document.querySelectorAll('a[href]').forEach(function(a){var raw=a.getAttribute('href');if(!raw||/^(https?:|mailto:|javascript:|data:|#)/i.test(raw))return;var m=raw.match(/^([^?#]+\.html)(\?[^#]*)?(#.*)?$/i);if(!m)return;var p=new URLSearchParams((m[2]||'').replace(/^\?/,''));p.set('theme',t);a.setAttribute('href',m[1]+'?'+p.toString()+(m[3]||''))})}function apply(t,persist){document.documentElement.dataset.theme=t;try{if(persist!==false)localStorage.setItem(K,t)}catch(e){}stamp(t)}apply(read(),true);document.addEventListener('DOMContentLoaded',function(){stamp(document.documentElement.dataset.theme);var btn=document.getElementById('theme');if(btn)btn.addEventListener('click',function(){apply(document.documentElement.dataset.theme==='light'?'dark':'light')})});window.addEventListener('storage',function(e){if(e.key===K&&(e.newValue==='light'||e.newValue==='dark'))apply(e.newValue,false)})})();</script>
+  <script>document.documentElement.className+=' fonts-loading';</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&amp;family=DM+Serif+Display&amp;family=Fraunces:opsz,wght@9..144,600;9..144,750&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,750&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#fdeef8; --muted:#c49ab4; --bg:#160814; --bg2:#210e1c; --panel:#2a1424; --panel2:#351a2d;
+      --line:#5a2a4a; --fuchsia:#ff5ab8; --orchid:#e8a0d8; --leaf:#58d0a2; --gold:#e0c56e; --burgundy:#bd4564;
+      --shadow:0 25px 75px rgba(0,0,0,.45); --card-shadow:0 9px 28px rgba(0,0,0,.22); --radius:17px; --max:1240px;
+    }
+    [data-theme="light"] {
+      --ink:#2c1024; --muted:#7c5a70; --bg:#fdf2f8; --bg2:#f6e0ec; --panel:#fffbfd; --panel2:#fceef6;
+      --line:#e8c4d8; --fuchsia:#c2187a; --orchid:#a84588; --leaf:#10775a; --gold:#8a6a12; --burgundy:#7b1734;
+      --shadow:0 22px 60px rgba(122,28,80,.14); --card-shadow:0 8px 24px rgba(122,28,80,.09);
+    }
+    [data-theme="dark"] { color-scheme: dark; }
+    [data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0; color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 7%, color-mix(in srgb, var(--fuchsia) 14%, transparent), transparent 30rem),
+        radial-gradient(circle at 92% 16%, color-mix(in srgb, var(--orchid) 12%, transparent), transparent 32rem),
+        var(--bg);
+      font: 16px/1.66 Manrope, ui-sans-serif, system-ui, sans-serif;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .28;
+      background-image: radial-gradient(circle, color-mix(in srgb, var(--fuchsia) 40%, transparent) 1.1px, transparent 1.1px);
+      background-size: 30px 30px; background-position: 2px 2px;
+      mask-image: linear-gradient(to bottom, #000, transparent 78%);
+    }
+    a { color: var(--orchid); text-underline-offset: 3px; }
+    button, input { font: inherit; }
+    .topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(16px); }
+    .topbar-inner { width: min(var(--max), calc(100% - 32px)); min-height: 66px; margin: auto; display: flex; align-items: center; gap: 13px; }
+    .brand { font-weight: 800; letter-spacing: -.025em; white-space: nowrap; }
+    .brand-topic { display: inline-block; width: 2.19em; }
+    .brand b { color: var(--fuchsia); }
+    .search { width: min(390px, 34%); margin-left: auto; padding: 9px 15px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; outline: none; }
+    .search:focus { border-color: var(--fuchsia); box-shadow: 0 0 0 3px color-mix(in srgb, var(--fuchsia) 16%, transparent); }
+    .icon-btn { width: 40px; height: 40px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 50%; cursor: pointer; }
+    .hero { width: min(var(--max), calc(100% - 32px)); margin: 76px auto 44px; display: grid; grid-template-columns: 1.28fr .72fr; gap: 34px; align-items: end; }
+    .kicker, .mono { font-family: "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .13em; font-size: .74rem; }
+    .kicker { color: var(--orchid); }
+    h1 { max-width: 920px; margin: 8px 0 17px; font-family: Manrope, ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.7rem, 6.4vw, 5.7rem); line-height: clamp(2.565rem, 6.08vw, 5.415rem); letter-spacing: -.052em; }
+    h1 .title-text { font-family: "DM Serif Display", serif; font-size: 1.0492em; font-weight: 400; }
+    h1 .signature { font-family: Allura, cursive; color: var(--burgundy); font-size: 1.12em; font-weight: 400; letter-spacing: 0; padding-right: .08em; }
+    h1 em { display: inline-block; width: 1.83em; text-align: center; color: var(--fuchsia); font-style: normal; }
+    .manifesto { max-width: 780px; margin: -5px 0 14px; font-size: clamp(1.35rem, 2.3vw, 1.95rem); font-weight: 780; line-height: 1.18; letter-spacing: -.035em; min-height: 1.18em; }
+    .manifesto em { color: var(--fuchsia); font-style: normal; }
+    .lede { max-width: 790px; color: var(--muted); font-size: 1.08rem; min-height: 6.64em; }
+    .formula { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 16.2em; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, var(--panel2), var(--panel)); box-shadow: var(--shadow); }
+    .formula::after { content: "ratchet"; position: absolute; right: 6px; bottom: -18px; color: color-mix(in srgb, var(--fuchsia) 10%, transparent); font: 750 4.4rem "Source Serif 4", serif; transform: rotate(-8deg); }
+    .formula code { display: block; position: relative; z-index: 1; color: var(--fuchsia); font: 600 1rem/1.8 "IBM Plex Mono", monospace; }
+    .formula p { position: relative; z-index: 1; margin-bottom: 0; color: var(--muted); }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
+    .dashboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 24px; }
+    .metric { padding: 17px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .metric b { display: block; color: var(--fuchsia); font-size: 1.35rem; line-height: 1.1; }
+    .metric span { color: var(--muted); font-size: .82rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; padding: 12px; border: 1px solid var(--line); border-radius: 15px; background: var(--panel); }
+    .filter { padding: 8px 12px; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+    .filter.active { color: var(--bg); background: var(--fuchsia); border-color: var(--fuchsia); font-weight: 800; }
+    .progress-label { margin-left: auto; align-self: center; color: var(--muted); font-size: .84rem; }
+    .layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 35px; align-items: start; }
+    .layout nav { position: sticky; top: 90px; max-height: calc(100vh - 110px); overflow: auto; padding-right: 17px; border-right: 1px solid var(--line); }
+    .layout nav .mono { margin: 0 0 9px 10px; color: var(--muted); }
+    .layout nav a { display: block; padding: 7px 10px; color: var(--muted); text-decoration: none; border-radius: 8px; font-size: .88rem; }
+    .layout nav a:hover { color: var(--ink); background: var(--panel); }
+    .series { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 22px; }
+    .series a, .series span { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: var(--muted); font: 600 .7rem/1.2 "IBM Plex Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
+    .series a:hover { color: var(--ink); border-color: var(--fuchsia); }
+    .series .here { color: var(--bg); background: var(--fuchsia); border-color: var(--fuchsia); }
+    .series .soon { opacity: .55; }
+    main { min-width: 0; }
+    section { margin: 0 0 68px; }
+    h2 { margin: 0 0 8px; font-family: "Source Serif 4", serif; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.06; letter-spacing: -.03em; }
+    #routes h2 { font-family: Fraunces, serif; }
+    h3 { margin: 25px 0 10px; font-size: 1.22rem; letter-spacing: -.02em; }
+    p { margin: 8px 0 13px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.25rem; }
+    li { margin: 5px 0; }
+    .section-intro { max-width: 890px; margin-top: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .card { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(155deg, var(--panel), color-mix(in srgb, var(--panel2) 72%, var(--panel))); box-shadow: var(--card-shadow); }
+    .card h3 { margin-top: 0; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .path { border-top: 3px solid var(--fuchsia); }
+    .path:nth-child(2) { border-color: var(--orchid); }
+    .path:nth-child(3) { border-color: var(--leaf); }
+    .tag { display: inline-flex; margin: 2px 3px 2px 0; padding: 3px 7px; color: var(--muted); border: 1px solid currentColor; border-radius: 99px; font: 600 .67rem/1.2 "IBM Plex Mono", monospace; letter-spacing: .05em; text-transform: uppercase; }
+    .core { color: var(--fuchsia); } .theory { color: var(--orchid); } .build { color: var(--leaf); } .optional { color: var(--gold); }
+    .tag.core { background: color-mix(in srgb, var(--fuchsia) 11%, transparent); }
+    .tag.theory { background: color-mix(in srgb, var(--orchid) 11%, transparent); }
+    .tag.build { background: color-mix(in srgb, var(--leaf) 11%, transparent); }
+    .tag.optional { background: color-mix(in srgb, var(--gold) 11%, transparent); }
+    .tag.hours { color: var(--muted); }
+    button.tag { cursor: pointer; font-family: "IBM Plex Mono", monospace; }
+    button.tag:hover { filter: brightness(1.2); }
+    .lesson-tags { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 7px; }
+    .key { display: grid; gap: 10px; }
+    .key div { display: grid; grid-template-columns: 118px 1fr; gap: 12px; align-items: baseline; }
+    .key span:last-child { color: var(--muted); font-size: .92rem; }
+    .muted { color: var(--muted); font-size: .92rem; }
+    .module-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 15px; }
+    .module-no { color: var(--fuchsia); font: 600 .8rem "IBM Plex Mono", monospace; }
+    .module-head h2 { margin: 0; }
+    .lesson { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 15px; align-items: start; margin: 11px 0; padding: 18px; border: 1px solid var(--line); border-radius: 15px; background: var(--panel); transition: transform .15s ease, border-color .15s ease; }
+    .lesson:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--fuchsia) 55%, var(--line)); }
+    .lesson.done { opacity: .58; }
+    .lesson.done .lesson-title { text-decoration: line-through; }
+    .check { appearance: none; width: 25px; height: 25px; margin: 2px 0 0; border: 1px solid var(--fuchsia); border-radius: 7px; cursor: pointer; transform: rotate(45deg); }
+    .check:checked { background: var(--fuchsia); box-shadow: inset 0 0 0 5px var(--panel); }
+    .lesson-title { display: block; color: var(--ink); font-weight: 780; text-decoration: none; line-height: 1.35; }
+    .lesson-title:hover { color: var(--fuchsia); }
+    .meta { margin-top: 4px; color: var(--muted); font: 500 .76rem "IBM Plex Mono", monospace; }
+    .lesson p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .watch { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; color: var(--bg); background: var(--fuchsia); border-radius: 999px; text-decoration: none; font-size: .77rem; font-weight: 800; white-space: nowrap; }
+    .lab { margin-top: 9px; padding: 10px 12px; color: var(--ink); background: color-mix(in srgb, var(--leaf) 8%, var(--panel2)); border-left: 3px solid var(--leaf); border-radius: 0 9px 9px 0; font-size: .87rem; }
+    .callout { margin: 16px 0; padding: 16px 18px; background: color-mix(in srgb, var(--fuchsia) 8%, var(--panel)); border-left: 4px solid var(--fuchsia); border-radius: 0 12px 12px 0; }
+    .callout.warn { border-color: var(--gold); background: color-mix(in srgb, var(--gold) 8%, var(--panel)); }
+    .decision { display: grid; grid-template-columns: 165px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .decision:last-child { border-bottom: 0; }
+    .decision strong { color: var(--fuchsia); }
+    details { margin: 10px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    summary { padding: 13px 16px; cursor: pointer; font-weight: 750; }
+    details > div { padding: 0 16px 15px; color: var(--muted); }
+    .hidden { display: none !important; }
+    .no-results { display: none; padding: 30px; text-align: center; color: var(--muted); }
+    footer { margin-top: 45px; padding: 34px 0 70px; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; margin-top: 48px; }
+      .layout { grid-template-columns: 1fr; }
+      .layout nav { display: none; }
+      .dashboard { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 660px) {
+      .topbar-inner { flex-wrap: wrap; padding: 9px 0; }
+      .search { order: 3; width: 100%; }
+      .grid { grid-template-columns: 1fr; }
+      .lesson { grid-template-columns: 32px 1fr; }
+      .watch { grid-column: 2; justify-self: start; }
+      .progress-label { width: 100%; margin-left: 0; }
+      .decision, .key div { grid-template-columns: 1fr; gap: 2px; }
+    }
+    @media print {
+      body::before, .topbar, .controls, .layout nav, .series, .watch { display: none; }
+      .hero, .wrap { width: 100%; margin: 0; }
+      .hero { display: block; }
+      .layout { display: block; }
+      section { margin-bottom: 28px; }
+      .card, .lesson, details { break-inside: avoid; box-shadow: none; }
+      details > div { display: block !important; }
+    }
+      html.fonts-loading body > * { visibility: hidden; }
+  </style>
+<style>
+.backlink{display:inline-flex;align-items:center;gap:7px;padding:7px 13px 7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);text-decoration:none;font:700 .72rem "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+.backlink:hover{border-color:var(--sky);color:var(--sky)}.backlink .arrow{font-size:1.02rem;line-height:1}
+a.icon-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-size:1.02rem}a.icon-btn:hover{border-color:var(--sky);color:var(--sky)}
+.wrap>.series:first-child{margin:24px 0 0}.series .divider{padding:6px 2px;border:0;background:none;opacity:.45}
+/* These pages were laid out on their own measurements before they joined the site, which left their hero
+   starting lower and its box a column-width off from every generated guide. The frame is taken from the
+   generated pages so a guide is framed the same way whichever kind it is. */
+.hero{margin-top:34px;margin-bottom:36px}
+/* Scoped to the generated pages' own breakpoint: these pages collapse the hero twenty pixels later, and an
+   unscoped two-column rule here would hold the columns open past the point where they stop fitting. */
+@media(min-width:901px){.hero{grid-template-columns:1.35fr .65fr;gap:32px}}
+@media print{.hero{margin:0}}
+.formula{min-height:14rem}
+.topbar-inner{gap:12px}
+.search{width:min(370px,40%)}
+/* Headline metrics, also from the generated pages. These pages set the h1 in Manrope and then scale the serif
+   span inside it by 1.02em, on a slightly smaller clamp and tighter tracking, and their kicker takes the body
+   line height where the generated one resets it. The kicker was the taller of the two, which is what pushed
+   the title down. The stone code and burgundy signature are theirs and stay; only the measurements change. */
+.hero .kicker{font:600 .73rem/normal "IBM Plex Mono",monospace;letter-spacing:.13em}
+h1{max-width:none;margin:8px 0 15px;font:400 clamp(2.8rem,6vw,5.7rem)/.95 "DM Serif Display",serif;letter-spacing:-.045em}
+h1 .title-text{font-size:1em}
+/* The script also opts out of the headline's tracking and pads its own gap, which set the signature 36px wider
+   than the generated one and pushed the code and word along with it. */
+h1 .signature{font-size:1.08em;letter-spacing:inherit;padding-right:0}
+/* The negative top margin here closed a gap under a headline that no longer sits where it did. */
+.manifesto{margin-top:0}
+html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:0}
+html.motion-in .motion-line{animation:legacy-line-in .2s cubic-bezier(.22,1,.36,1) var(--motion-delay,0ms) both}
+html.motion-in .motion-pop{animation:legacy-surface-in .36s cubic-bezier(.22,1,.36,1) var(--motion-delay,0ms) both}
+@keyframes legacy-line-in{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(3px)}to{opacity:1;clip-path:inset(0);transform:none}}
+@keyframes legacy-surface-in{0%{opacity:0;transform:scale(var(--pop-in,.93)) translateY(var(--pop-lift,10px))}58%{opacity:1;transform:scale(var(--pop-over,1.02)) translateY(calc(var(--pop-lift,10px) * -.2))}100%{opacity:1;transform:none}}
+.series>.motion-pop,.motion-pop:is(.backlink,.icon-btn,.search){--pop-in:.96;--pop-lift:3px;--pop-over:1.012}
+body.is-leaving>:not(script){opacity:0;transition:opacity .12s cubic-bezier(.4,0,.2,1)}
+.brand.is-typing{position:relative}.brand.is-typing>.brand-source{visibility:hidden}
+.typed-path{position:absolute;inset:0 auto auto 0;white-space:nowrap}.typed-path b{color:var(--stone,var(--sky))}
+.typed-path.is-active::after{content:"|";display:inline-block;margin-left:2px;color:var(--stone,var(--sky));font-weight:500;animation:legacy-type-cursor .7s steps(1,end) infinite}
+@keyframes legacy-type-cursor{50%{opacity:0}}
+::view-transition-old(root),::view-transition-new(root){animation-duration:380ms;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+::view-transition-old(root){animation-name:legacy-theme-old}::view-transition-new(root){animation-name:legacy-theme-new}
+@keyframes legacy-theme-old{to{opacity:0}}@keyframes legacy-theme-new{from{opacity:0}}
+.card,.lesson,.backlink,.icon-btn,.series a,.pill,.filter,.tag,.watch,.side a,.search,.check,.topbar{transition:color 160ms ease,background-color 260ms ease,border-color 260ms ease,box-shadow 260ms ease,transform 260ms cubic-bezier(.22,1,.36,1),filter 260ms ease,opacity 260ms ease}
+.card:hover,.lesson:hover{transform:translateY(-3px)}.backlink:hover,.series a:hover,.pill:hover,.watch:hover{transform:translateY(-1px)}
+.settle{opacity:0}.settle.is-in{animation:legacy-surface-in .36s cubic-bezier(.22,1,.36,1) both}
+.topbar.is-scrolled{box-shadow:0 10px 30px -18px rgba(0,0,0,.55)}
+nav[aria-label="On this page"] a.is-current{color:var(--ink);box-shadow:inset 2px 0 0 var(--sky,currentColor)}
+:focus-visible{outline:2px solid var(--sky,currentColor);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:1}html.motion-in :is(.motion-line,.motion-pop){animation:none}.typed-path{display:none}.brand.is-typing>.brand-source{visibility:visible}body.is-leaving>:not(script){opacity:1;transition:none}::view-transition-old(root),::view-transition-new(root){animation:none}.card,.lesson,.backlink,.icon-btn,.series a,.pill,.filter,.tag,.watch,.side a,.search,.check,.topbar{transition:none}.settle,.settle.is-in{opacity:1;transform:none;animation:none}}
+@media print{.settle,.settle.is-in{opacity:1;transform:none;animation:none}html.motion-pending :is(.brand,.backlink,.icon-btn,.search,.wrap>.series:first-child>*,.hero .kicker,.hero h1,.hero .manifesto,.hero .lede,.formula,.metric,.controls,.card,.lesson,main>section>h2,main>section>.section-intro,.layout>nav,footer){opacity:1}html.motion-in :is(.motion-line,.motion-pop){animation:none}}
+</style>
+<script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+<script defer src="../assets/motion.js"></script>
+</head>
+<body data-guide="e2e">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="backlink" href="../campuses/sys/index.html" title="Back to Systems &amp; Protocols" aria-label="Back to Systems &amp; Protocols"><span class="arrow" aria-hidden="true">←</span>SYS</a>
+      <div class="brand"><span class="brand-topic">E2E</span> <b>// SELF-ASSEMBLED MOOC</b></div>
+      <input id="search" class="search" type="search" placeholder="Search TLS, HPKE, Noise, Signal, MLS…" aria-label="Search the guide">
+      <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a>
+      <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+  <div class="wrap"><nav class="series" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/csc/index.html">CSC</a><a href="../campuses/sys/index.html">SYS</a><span class="divider" aria-hidden="true">|</span><a href="blockchain-self-assembled-mooc.html">DLT</a><a href="confidential-computing-self-assembled-mooc.html">TEE</a><span class="here" aria-current="page">E2E</span><a href="../guides/plv.html">PLV</a><a href="../guides/cth.html">CTH</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/sys/appendix.html">SYA · Appendix</a></nav></div>
+
+  <div class="hero">
+    <div>
+      <div class="kicker">Session &amp; messaging · video-first</div>
+      <h1><span class="signature">Darío's</span> <span class="title-text"><em>E2E</em> MOOC</span></h1>
+      <p class="manifesto">Authenticate the channel. <em>Forget the past.</em></p>
+      <p class="lede">A personalized course built from IETF RFCs, Cloudflare and CCC talks, the Noise specification, Signal protocol papers, and MLS. The focus is TLS 1.3 key schedules, HPKE as a protocol system, Noise handshakes, Signal ratchets, and group messaging. KEMs, hybrid TLS cipher suites, ciphertext compute, proofs, MPC, settlement, and TEEs remain sibling guides.</p>
+    </div>
+    <aside class="formula">
+      <code>HKDF(secret, transcript)<br>DH<sub>i</sub> → root<sub>i+1</sub><br>AEAD(k<sub>n</sub>, msg<sub>n</sub>, AD)</code>
+      <p>A session is a state machine: authenticate identities, bind the transcript, derive keys, then ratchet so compromise cannot decrypt the past.</p>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="dashboard">
+      <div class="metric"><b>~24 h</b><span>core video route</span></div>
+      <div class="metric"><b>~48 h</b><span>full deep route</span></div>
+      <div class="metric"><b>10</b><span>sequenced modules</span></div>
+      <div class="metric"><b id="done-count">0 / 40</b><span>watch units completed</span></div>
+    </div>
+    <div class="controls" aria-label="Content filters">
+      <button class="filter active" data-filter="all">All units</button>
+      <button class="filter" data-filter="core">Core route</button>
+      <button class="filter" data-filter="theory">Theory &amp; math</button>
+      <button class="filter" data-filter="build">Implementation</button>
+      <button class="filter" data-filter="optional">Optional depth</button>
+      <span class="progress-label">Checks are read from progress.json.</span>
+    </div>
+
+    <div class="layout">
+      <nav aria-label="On this page">
+        <div class="mono">Course map</div>
+        <a href="#routes">Choose a route</a>
+        <a href="#module-0">0 · Meaning &amp; threat model</a>
+        <a href="#module-1">1 · Session primitives</a>
+        <a href="#module-2">2 · TLS 1.3 handshake</a>
+        <a href="#module-3">3 · TLS attacks &amp; 0-RTT</a>
+        <a href="#module-4">4 · HPKE as a system</a>
+        <a href="#module-5">5 · Noise framework</a>
+        <a href="#module-6">6 · Signal ratchets</a>
+        <a href="#module-7">7 · Identity &amp; prekeys</a>
+        <a href="#module-8">8 · MLS groups</a>
+        <a href="#module-9">9 · Deployment &amp; composition</a>
+        <a href="#chooser">Architecture map</a>
+        <a href="#practice">Capstones</a>
+        <a href="#conferences">Conference extras</a>
+        <a href="#sources">Reference shelf</a>
+      </nav>
+      <main id="content">
+        <div id="no-results" class="no-results">No matching unit. Clear the search or choose another filter.</div>
+
+        <section id="routes">
+          <h2>Choose your route</h2>
+          <p class="section-intro">No single university course covers TLS 1.3, HPKE, Noise, Signal, and MLS as one state-machine curriculum. RFCs and designer talks are the spine; labs force you to draw key schedules instead of memorizing cipher names.</p>
+          <div class="grid-3">
+            <article class="card path"><div class="tag hours">~24 hours</div><h3>Session engineer</h3><p>Complete every <span class="tag core">core</span> unit. Trace TLS 1.3 and one Noise pattern, implement HPKE seal/open, and sketch X3DH plus a double ratchet on paper before touching a library.</p></article>
+            <article class="card path"><div class="tag hours">~48 hours</div><h3>Protocol deep dive</h3><p>Complete every unit: 0-RTT replay, GREASE, ECH, PQXDH, SESAME, sealed sender, MLS epochs, WireGuard, QUIC, and both capstones.</p></article>
+            <article class="card path"><div class="tag hours">Build-first</div><h3>Messaging route</h3><p>Take Modules 0–1, then 4–8. Ship a toy ratchet or MLS client, but return to TLS 1.3 (Modules 2–3) before calling a transport “secure.”</p></article>
+          </div>
+          <div class="grid" style="margin-top:15px">
+            <article class="card"><h3>Labels</h3><div class="key"><div><span class="tag core">Core</span><span>Required spine.</span></div><div><span class="tag theory">Theory</span><span>Threat models, schedules, proofs.</span></div><div><span class="tag build">Build</span><span>Traces, code, interop.</span></div><div><span class="tag optional">Optional</span><span>PQ hybrids, formal papers, ops.</span></div></div></article>
+            <article class="card"><h3>Prerequisites</h3><p>Public-key encryption, DH/ECDH, signatures, AEAD, hashes, and HKDF. Comfort reading RFCs and Rust, Go, or Python. Complete the PQC guide before hybrid KEMs and PQXDH internals; complete MPC before threshold identity keys.</p></article>
+          </div>
+          <div class="callout warn"><strong>Stay in this guide:</strong> this guide owns session state machines—TLS 1.3 handshake and key schedule, HPKE as a protocol (not merely a KEM wrapper), Noise patterns, Signal (X3DH/PQXDH + Double Ratchet), identity/prekeys, and MLS. Hybrid KEM combiners and lattice/code primitives are guide 3. FHE, ZK, MPC, consensus, and TEEs stay in their own guides.</div>
+          <div class="callout warn"><strong>Threat-model rule:</strong> “encrypted” is not a claim. Name authentication vs confidentiality, forward secrecy vs post-compromise security, 0-RTT replay, transcript binding, identity vs prekey compromise, group membership, and what metadata still leaks (timing, size, graph).</div>
+        </section>
+
+        <section id="module-0" data-topic="core theory">
+          <div class="module-head"><span class="module-no">MODULE 00</span><h2>What a session is—and what it must survive</h2></div>
+          <p class="section-intro">Goal: separate channel authentication, confidentiality, forward secrecy, post-compromise security, and transcript binding before naming a protocol.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-dh"><input class="check" type="checkbox" aria-label="Mark Diffie-Hellman intuition complete"><div><a class="lesson-title" href="https://www.youtube.com/watch?v=NmM9HA2MQGI">Secret Key Exchange (Diffie-Hellman)</a><div class="meta">Computerphile · DH as session setup</div><p>Shared secrets from public values. A session still needs authentication, transcripts, and a plan for key compromise after the handshake.</p><div class="lab"><strong>Checkpoint:</strong> for TLS, Signal, and MLS, write who authenticates whom, what is forward-secret, and what an identity-key leak still enables.</div></div><a class="watch" href="https://www.youtube.com/watch?v=NmM9HA2MQGI">▶ YouTube</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-threats"><input class="check" type="checkbox" aria-label="Mark session threat model complete"><div><a class="lesson-title" href="https://signal.org/docs/">Signal Protocol documentation index</a><div class="meta">Signal · threat-model vocabulary</div><p>Scan the index for authentication, deniability, and compromise stories. Use it as a glossary, not as the full protocol yet.</p></div><a class="watch" href="https://signal.org/docs/">↗ Docs</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-properties"><input class="check" type="checkbox" aria-label="Mark cryptographic properties complete"><div><a class="lesson-title" href="https://eprint.iacr.org/2016/1013.pdf">A Formal Security Analysis of the Signal Messaging Protocol</a><div class="meta">Cohn-Gordon, Cremers, Dowling, Garratt, Stebila · ePrint 2016/1013 preview</div><p>Optional first pass: the property names (FS, PCS, authentication) that later modules will make concrete. Return after Module 6.</p></div><a class="watch" href="https://eprint.iacr.org/2016/1013.pdf">↗ Read</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-decision"><input class="check" type="checkbox" aria-label="Mark session decision record complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc9325">RFC 9325: Recommendations for Secure Use of TLS and DTLS</a><div class="meta">IETF BCP · operational threat model</div><p>Version, ciphers, certificates, and anti-downgrade as deployment policy, not as a substitute for reading TLS 1.3.</p><div class="lab"><strong>Artifact:</strong> write an ADR: TLS vs Noise vs Signal vs MLS vs “just HPKE once” for one product. Name FS, PCS, groups, and metadata.</div></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc9325">↗ RFC</a></article>
+        </section>
+
+        <section id="module-1" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 01</span><h2>HKDF, AEAD, and domain-separated transcripts</h2></div>
+          <p class="section-intro">Goal: treat every session as extract-then-expand plus authenticated encryption with associated data, keyed by a hash of the exact bytes both sides saw.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-hkdf"><input class="check" type="checkbox" aria-label="Mark HKDF complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc5869">RFC 5869: HMAC-based Extract-and-Expand KDF</a><div class="meta">IETF · Extract, Expand, salt, info</div><p>Session protocols are mostly HKDF labels. Mis-labeling info strings is a real vulnerability class.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc5869">↗ RFC</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-aead"><input class="check" type="checkbox" aria-label="Mark AEAD complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc5116">RFC 5116: An Interface and Algorithms for AEAD</a><div class="meta">IETF · nonce, AD, tag, key</div><p>Confidentiality plus integrity; associated data binds headers and transcripts. Nonce reuse is catastrophic.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc5116">↗ RFC</a></article>
+          <article class="lesson" data-tags="core theory build" data-id="sess-transcript"><input class="check" type="checkbox" aria-label="Mark transcript hashing complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.4.1">TLS 1.3 Transcript-Hash</a><div class="meta">RFC 8446 §4.4.1 · handshake context</div><p>Keys depend on the hash of handshake messages, not on “whatever we intended.” Downgrade and mix-and-match attacks live here.</p><div class="lab"><strong>Derive:</strong> list every byte that enters ClientHello…Finished for a TLS 1.3 1-RTT handshake; mark what a MITM can still change.</div></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.4.1">↗ RFC</a></article>
+          <article class="lesson" data-tags="optional build" data-id="sess-domain"><input class="check" type="checkbox" aria-label="Mark domain separation lab complete"><div><a class="lesson-title" href="https://soatok.blog/2021/11/17/understanding-hkdf/">Understanding HKDF</a><div class="meta">Soatok · extract/expand intuition</div><p>Why salt, IKM, and info exist; how TLS, HPKE, and Noise all reuse the same idea with different labels.</p><div class="lab"><strong>Build:</strong> implement HKDF-SHA256 extract/expand; derive two keys with different info strings from one shared secret; prove they differ.</div></div><a class="watch" href="https://soatok.blog/2021/11/17/understanding-hkdf/">↗ Read</a></article>
+        </section>
+
+        <section id="module-2" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 02</span><h2>TLS 1.3 handshake and key schedule</h2></div>
+          <p class="section-intro">Goal: follow ClientHello through Finished, then draw the RFC 8446 key schedule until early, handshake, and application traffic secrets are no longer slogans.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-tls13-overview"><input class="check" type="checkbox" aria-label="Mark TLS 1.3 overview complete"><div><a class="lesson-title" href="https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/">TLS 1.3 Overview and Q&amp;A</a><div class="meta">Nick Sullivan · Cloudflare</div><p>1-RTT, dropped legacy, encrypted extensions, and why the handshake looks shorter on a sequence diagram.</p></div><a class="watch" href="https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/">↗ Read</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-tls13-deploy"><input class="check" type="checkbox" aria-label="Mark TLS 1.3 deployment talk complete"><div><a class="lesson-title" href="https://media.ccc.de/v/33c3-8348-deploying_tls_1_3_the_great_the_good_and_the_bad">Deploying TLS 1.3: The Great, the Good and the Bad</a><div class="meta">Filippo Valsorda &amp; Nick Sullivan · 33C3</div><p>Middleboxes, fallback, and the politics of shipping a cleaner handshake on a hostile network.</p></div><a class="watch" href="https://media.ccc.de/v/33c3-8348-deploying_tls_1_3_the_great_the_good_and_the_bad">▶ CCC</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-rfc8446"><input class="check" type="checkbox" aria-label="Mark RFC 8446 complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446: The Transport Layer Security Protocol Version 1.3</a><div class="meta">IETF · full protocol</div><p>Read §2 (overview), §4 (handshake), and §7.1 (key schedule) first. Certificates and 0-RTT wait until Module 3.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8446">↗ RFC</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-key-schedule"><input class="check" type="checkbox" aria-label="Mark TLS key schedule lab complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8446#section-7.1">TLS 1.3 Key Schedule</a><div class="meta">RFC 8446 §7.1 · HKDF-Expand-Label</div><p>Early Secret, Handshake Secret, Master Secret, and the traffic secrets derived from them.</p><div class="lab"><strong>Draw:</strong> from (EC)DHE shared secret to client/server handshake and application traffic secrets. Label every HKDF-Expand-Label input.</div></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8446#section-7.1">↗ RFC</a></article>
+        </section>
+
+        <section id="module-3" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 03</span><h2>Certificates, 0-RTT, downgrade, and ossification</h2></div>
+          <p class="section-intro">Goal: treat implementation and deployment as part of the protocol: replay of early data, middlebox ossification, and certificate verification failures.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-0rtt"><input class="check" type="checkbox" aria-label="Mark 0-RTT complete"><div><a class="lesson-title" href="https://blog.trailofbits.com/2019/03/25/what-application-developers-need-to-know-about-tls-early-data-0rtt/">What Application Developers Need to Know About TLS Early Data (0-RTT)</a><div class="meta">Trail of Bits · replay and idempotency</div><p>0-RTT is not 1-RTT with a shorter RTT. Replay and lack of forward secrecy for early data are application bugs if you enable it blindly.</p><div class="lab"><strong>Policy:</strong> list which of your HTTP methods or RPC calls are safe under replay; disable 0-RTT for the rest.</div></div><a class="watch" href="https://blog.trailofbits.com/2019/03/25/what-application-developers-need-to-know-about-tls-early-data-0rtt/">↗ Read</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-grease"><input class="check" type="checkbox" aria-label="Mark GREASE complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc8701">RFC 8701: Applying GREASE to TLS Extensibility</a><div class="meta">IETF · anti-ossification</div><p>Random unknown values keep middleboxes from freezing the handshake. Extensibility is a security property of the ecosystem.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc8701">↗ RFC</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-attacks"><input class="check" type="checkbox" aria-label="Mark TLS attack survey complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc7457">RFC 7457: Summarizing Known Attacks on TLS and DTLS</a><div class="meta">IETF · historical attack catalog</div><p>Padding oracles, compression, renegotiation, triple handshake. TLS 1.3 removed many classes; do not reintroduce them in “compatibility” modes.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc7457">↗ RFC</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-rustls"><input class="check" type="checkbox" aria-label="Mark TLS implementation complete"><div><a class="lesson-title" href="https://docs.rs/rustls/latest/rustls/">rustls documentation</a><div class="meta">rustls · modern TLS stack</div><p>Certificate verification, ALPN, and session resumption as APIs you can inspect. Prefer a memory-safe stack while learning the state machine.</p><div class="lab"><strong>Trace:</strong> capture a TLS 1.3 handshake (Wireshark or SSLKEYLOGFILE). Match ClientHello, ServerHello, EncryptedExtensions, Certificate, Finished to RFC 8446.</div></div><a class="watch" href="https://docs.rs/rustls/latest/rustls/">↗ Docs</a></article>
+        </section>
+
+        <section id="module-4" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 04</span><h2>HPKE as a protocol system</h2></div>
+          <p class="section-intro">Goal: use RFC 9180 as a complete KEM + KDF + AEAD construction with modes and info/AAD—not as a one-line “wrap a KEM.” Hybrid KEMs themselves remain guide 3.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-hpke-blog"><input class="check" type="checkbox" aria-label="Mark HPKE explainer complete"><div><a class="lesson-title" href="https://blog.cloudflare.com/hybrid-public-key-encryption/">Hybrid Public Key Encryption</a><div class="meta">Cloudflare · RFC 9180 explainer</div><p>Base, PSK, Auth, and AuthPSK modes; encapsulated key; exporter. Why HPKE shows up in ECH, MLS, and privacy-preserving relays.</p></div><a class="watch" href="https://blog.cloudflare.com/hybrid-public-key-encryption/">↗ Read</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-rfc9180"><input class="check" type="checkbox" aria-label="Mark RFC 9180 complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc9180">RFC 9180: Hybrid Public Key Encryption</a><div class="meta">IETF · HPKE</div><p>Read Setup, Seal/Open, and Export. Domain separation via info and suite IDs is mandatory.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc9180">↗ RFC</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-ech"><input class="check" type="checkbox" aria-label="Mark ECH complete"><div><a class="lesson-title" href="https://blog.cloudflare.com/encrypted-client-hello/">Encrypted Client Hello</a><div class="meta">Cloudflare · HPKE applied to TLS</div><p>Encrypting SNI/ClientHello inner with HPKE. Metadata protection is a session problem; the KEM choice is a PQC problem.</p></div><a class="watch" href="https://blog.cloudflare.com/encrypted-client-hello/">↗ Read</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-hpke-lab"><input class="check" type="checkbox" aria-label="Mark HPKE lab complete"><div><a class="lesson-title" href="https://www.rfc-editor.org/rfc/rfc9180.html#name-test-vectors">HPKE test vectors</a><div class="meta">RFC 9180 · Appendix A</div><p>Interoperability is the spec. Match a public test vector before inventing your own encoding.</p><div class="lab"><strong>Build:</strong> Seal/Open with DHKEM(X25519)+HKDF-SHA256+ChaCha20Poly1305 (or AES-128-GCM). Bind application context in <code>info</code> and a header in AAD.</div></div><a class="watch" href="https://www.rfc-editor.org/rfc/rfc9180.html#name-test-vectors">↗ Vectors</a></article>
+        </section>
+
+        <section id="module-5" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 05</span><h2>The Noise protocol framework</h2></div>
+          <p class="section-intro">Goal: read handshake patterns as token sequences that mix DH, symmetric keys, and payloads—then recognize WireGuard as Noise_IK, not as a special VPN cipher.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-noise-ccc"><input class="check" type="checkbox" aria-label="Mark Noise talk complete"><div><a class="lesson-title" href="https://media.ccc.de/v/34c3-9222-the_noise_protocol_framework">The Noise Protocol Framework</a><div class="meta">Trevor Perrin · 34C3</div><p>Why a framework beats one-off handshake designs; patterns, prologue, and payload encryption.</p></div><a class="watch" href="https://media.ccc.de/v/34c3-9222-the_noise_protocol_framework">▶ CCC</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-noise-spec"><input class="check" type="checkbox" aria-label="Mark Noise specification complete"><div><a class="lesson-title" href="https://noiseprotocol.org/noise.html">The Noise Protocol Framework</a><div class="meta">Trevor Perrin · specification</div><p>Read the handshake language, XX/IK/NK, and the security properties table. Do not skip prologue and payload rules.</p></div><a class="watch" href="https://noiseprotocol.org/noise.html">↗ Spec</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-noise-explorer"><input class="check" type="checkbox" aria-label="Mark Noise Explorer complete"><div><a class="lesson-title" href="https://noiseexplorer.com/">Noise Explorer</a><div class="meta">Symbolic analysis of Noise patterns</div><p>Machine-checked claims for patterns. Use it to compare XX vs IK vs NK, not to skip reading the spec.</p></div><a class="watch" href="https://noiseexplorer.com/">↗ Tool</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-wireguard"><input class="check" type="checkbox" aria-label="Mark WireGuard complete"><div><a class="lesson-title" href="https://www.wireguard.com/papers/wireguard.pdf">WireGuard: Next Generation Kernel Network Tunnel</a><div class="meta">Jason A. Donenfeld · Noise_IK in production</div><p>Static identities, cookies, transport keys, and a deliberately small protocol. VPN is the application; Noise is the session.</p><div class="lab"><strong>Map:</strong> write WireGuard initiation/response as Noise_IK tokens; name what cookies protect and what they do not.</div></div><a class="watch" href="https://www.wireguard.com/papers/wireguard.pdf">↗ PDF</a></article>
+        </section>
+
+        <section id="module-6" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 06</span><h2>Signal: X3DH, PQXDH, and the Double Ratchet</h2></div>
+          <p class="section-intro">Goal: separate initial key agreement from the ongoing ratchet; then add the post-quantum encapsulation that PQXDH layers on X3DH without changing the ratchet story.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-signal-cp"><input class="check" type="checkbox" aria-label="Mark Signal overview complete"><div><a class="lesson-title" href="https://www.youtube.com/watch?v=DXv1boalsDI">The Signal Protocol</a><div class="meta">Computerphile · messaging threat model</div><p>Why SMS/OTR-era designs fail at asynchronous mobile messaging; what “end-to-end” still leaks.</p></div><a class="watch" href="https://www.youtube.com/watch?v=DXv1boalsDI">▶ YouTube</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-x3dh"><input class="check" type="checkbox" aria-label="Mark X3DH complete"><div><a class="lesson-title" href="https://signal.org/docs/specifications/x3dh/">The X3DH Key Agreement Protocol</a><div class="meta">Signal · identity, signed prekey, one-time prekeys</div><p>Asynchronous DH with a prekey bundle. Mutual authentication depends on identity keys; deniability is a separate claim.</p></div><a class="watch" href="https://signal.org/docs/specifications/x3dh/">↗ Spec</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-double-ratchet"><input class="check" type="checkbox" aria-label="Mark Double Ratchet complete"><div><a class="lesson-title" href="https://www.youtube.com/watch?v=9sO2qdTci-s">The Double Ratchet</a><div class="meta">Computerphile · DH + symmetric ratchet</div><p>Root key, chain keys, skipped message keys. Forward secrecy and healing after compromise are different arrows on the same diagram.</p></div><a class="watch" href="https://www.youtube.com/watch?v=9sO2qdTci-s">▶ YouTube</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-dr-spec"><input class="check" type="checkbox" aria-label="Mark Double Ratchet spec complete"><div><a class="lesson-title" href="https://signal.org/docs/specifications/doubleratchet/">The Double Ratchet Algorithm</a><div class="meta">Signal · canonical specification</div><p>Header encryption, skipped keys, and out-of-order delivery. Pair with PQXDH when you need a post-quantum initial secret.</p><div class="lab"><strong>Simulate:</strong> on paper, send three messages, skip one, then a DH ratchet. Show which keys are deleted and which skipped keys you must cache.</div></div><a class="watch" href="https://signal.org/docs/specifications/doubleratchet/">↗ Spec</a></article>
+        </section>
+
+        <section id="module-7" data-topic="core theory optional">
+          <div class="module-head"><span class="module-no">MODULE 07</span><h2>Identity, prekeys, sealed sender, and multi-device</h2></div>
+          <p class="section-intro">Goal: treat the directory, prekey server, and multi-device state as part of the protocol—not as “just the app.”</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-pqxdh"><input class="check" type="checkbox" aria-label="Mark PQXDH complete"><div><a class="lesson-title" href="https://signal.org/docs/specifications/pqxdh/">The PQXDH Key Agreement Protocol</a><div class="meta">Signal · X3DH + post-quantum KEM</div><p>Hybrid initial secret. KEM details belong to guide 3; this unit owns how the extra shared secret enters the session.</p></div><a class="watch" href="https://signal.org/docs/specifications/pqxdh/">↗ Spec</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-sealed"><input class="check" type="checkbox" aria-label="Mark sealed sender complete"><div><a class="lesson-title" href="https://signal.org/blog/sealed-sender/">Technology preview: Sealed Sender</a><div class="meta">Signal · metadata reduction</div><p>Hiding sender certificates from the server. Certificates and delivery receipts still exist; this is not anonymity.</p></div><a class="watch" href="https://signal.org/blog/sealed-sender/">↗ Read</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-sesame"><input class="check" type="checkbox" aria-label="Mark SESAME complete"><div><a class="lesson-title" href="https://signal.org/docs/specifications/sesame/">SESAME: Session Management for Signal</a><div class="meta">Signal · multi-device sessions</div><p>Many devices, many sessions, fan-out. Group and multi-device state is where “I implemented Double Ratchet” stops being sufficient.</p></div><a class="watch" href="https://signal.org/docs/specifications/sesame/">↗ Spec</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-formal"><input class="check" type="checkbox" aria-label="Mark Signal formal analysis complete"><div><a class="lesson-title" href="https://eprint.iacr.org/2016/1013.pdf">A Formal Security Analysis of the Signal Messaging Protocol</a><div class="meta">Cohn-Gordon et al. · full paper</div><p>What the proof covers and what it abstracts away (PKI, implementation, metadata). Read after you can draw X3DH + DR yourself.</p></div><a class="watch" href="https://eprint.iacr.org/2016/1013.pdf">↗ Read</a></article>
+        </section>
+
+        <section id="module-8" data-topic="core theory build">
+          <div class="module-head"><span class="module-no">MODULE 08</span><h2>MLS: group messaging as a tree of secrets</h2></div>
+          <p class="section-intro">Goal: replace pairwise fan-out with a ratchet tree, epochs, and commits—then name what happens when a member is added, removed, or compromised.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-mls-talk"><input class="check" type="checkbox" aria-label="Mark MLS talk complete"><div><a class="lesson-title" href="https://www.youtube.com/watch?v=zrjmpyc8YrE">Messaging Layer Security</a><div class="meta">Raphael Robert · protocol overview</div><p>Why Signal-style pairwise sessions do not scale to large groups; epochs, commits, and application messages.</p></div><a class="watch" href="https://www.youtube.com/watch?v=zrjmpyc8YrE">▶ YouTube</a></article>
+          <article class="lesson" data-tags="core theory" data-id="sess-rfc9420"><input class="check" type="checkbox" aria-label="Mark RFC 9420 complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc9420">RFC 9420: The Messaging Layer Security Protocol</a><div class="meta">IETF · MLS</div><p>Read the architecture chapters and the ratchet tree. HPKE is the leaf encryption primitive; the tree is the session.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc9420">↗ RFC</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-rfc9750"><input class="check" type="checkbox" aria-label="Mark MLS architecture complete"><div><a class="lesson-title" href="https://www.rfc-editor.org/rfc/rfc9750.html">RFC 9750: The Messaging Layer Security Architecture</a><div class="meta">IETF · deployment model</div><p>Delivery service, authentication service, and clients. MLS is not a complete product: identity and ordering still live outside the crypto.</p></div><a class="watch" href="https://www.rfc-editor.org/rfc/rfc9750.html">↗ RFC</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-openmls"><input class="check" type="checkbox" aria-label="Mark OpenMLS complete"><div><a class="lesson-title" href="https://openmls.tech/">OpenMLS</a><div class="meta">Rust MLS implementation</div><p>Create a group, add a member, encrypt an application message, and inspect epoch secrets.</p><div class="lab"><strong>Build:</strong> two-member group, send a message, add a third member, confirm the first cannot decrypt after removal (or document why your tree still allows it).</div></div><a class="watch" href="https://openmls.tech/">↗ Docs</a></article>
+        </section>
+
+        <section id="module-9" data-topic="core theory build optional">
+          <div class="module-head"><span class="module-no">MODULE 09</span><h2>QUIC, PQ messaging, and composition</h2></div>
+          <p class="section-intro">Goal: see TLS inside QUIC, post-quantum messaging as a session design (not a KEM catalog), and when to stop and use a sibling guide instead.</p>
+          <article class="lesson" data-tags="core theory" data-id="sess-quic"><input class="check" type="checkbox" aria-label="Mark QUIC TLS complete"><div><a class="lesson-title" href="https://datatracker.ietf.org/doc/html/rfc9001">RFC 9001: Using TLS to Secure QUIC</a><div class="meta">IETF · TLS 1.3 as QUIC handshake</div><p>QUIC is not “TLS over UDP.” Packet protection, key updates, and 0-RTT interact with the transport.</p></div><a class="watch" href="https://datatracker.ietf.org/doc/html/rfc9001">↗ RFC</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-pq3"><input class="check" type="checkbox" aria-label="Mark iMessage PQ3 complete"><div><a class="lesson-title" href="https://security.apple.com/blog/imessage-pq3/">iMessage with PQ3</a><div class="meta">Apple Security · PQ ratchet snapshot</div><p>A production hybrid messaging design. Treat it as a session case study; lattice details stay in the PQC guide.</p></div><a class="watch" href="https://security.apple.com/blog/imessage-pq3/">↗ Read</a></article>
+          <article class="lesson" data-tags="optional theory" data-id="sess-wg-talk"><input class="check" type="checkbox" aria-label="Mark WireGuard talk complete"><div><a class="lesson-title" href="https://www.youtube.com/watch?v=yngxCEIJacc">WireGuard: Next Generation Secure Network Tunnel</a><div class="meta">Jason Donenfeld · Netdev / public talk</div><p>Implementation constraints, timers, and why a small handshake beats a large IPsec surface.</p></div><a class="watch" href="https://www.youtube.com/watch?v=yngxCEIJacc">▶ YouTube</a></article>
+          <article class="lesson" data-tags="core build" data-id="sess-compose"><input class="check" type="checkbox" aria-label="Mark composition lab complete"><div><a class="lesson-title" href="https://github.com/signalapp/libsignal">libsignal</a><div class="meta">Signal · reference implementation</div><p>Read the session APIs, not the whole repo. Compare with rustls and OpenMLS as three different session shapes.</p><div class="lab"><strong>Capstone seed:</strong> pick one: TLS 1.3 trace + 0-RTT policy; HPKE + Noise_XX toy; or X3DH + ten-message ratchet with skipped keys.</div></div><a class="watch" href="https://github.com/signalapp/libsignal">↗ Code</a></article>
+        </section>
+
+        <section id="chooser">
+          <h2>Session architecture map</h2>
+          <p class="section-intro">First decide whether you need a live authenticated channel, a one-shot encapsulation, a pairwise ratchet, or a group epoch. Then pick the protocol whose state machine matches that decision.</p>
+          <h3>When session crypto is the wrong primitive</h3>
+          <div class="decision"><strong>Use sessions</strong><span>Two or more parties need an authenticated, evolving channel: TLS, Noise, Signal, or MLS. Compromise of long-term keys should not decrypt the past (FS); healing after leak is a separate requirement (PCS).</span></div>
+          <div class="decision"><strong>Use FHE</strong><span>An evaluator must compute on ciphertext without a session between data owners and the server that yields plaintext. See the <a href="fhe-self-assembled-mooc.html">FHE guide</a>. TLS may still protect the ciphertext in transit.</span></div>
+          <div class="decision"><strong>Use ZK</strong><span>Anyone must verify a statement from public proof, not from a private channel. See the <a href="zkp-self-assembled-mooc.html">ZK guide</a>.</span></div>
+          <div class="decision"><strong>Use PQC</strong><span>The primitive itself must be quantum-safe (KEM, signature, hybrid combiner). This guide consumes those primitives inside HPKE, PQXDH, and hybrid TLS; it does not teach lattice math. See the <a href="post-quantum-cryptography-self-assembled-mooc.html">PQC guide</a>.</span></div>
+          <div class="decision"><strong>Use MPC</strong><span>Several organizations must jointly compute or hold a key without a single session endpoint becoming the oracle. See the <a href="mpc-self-assembled-mooc.html">MPC guide</a>.</span></div>
+          <div class="decision"><strong>Use the chain</strong><span>You need shared history, availability, and settlement among mutually distrustful writers—not a confidential pipe. See the <a href="blockchain-self-assembled-mooc.html">chain guide</a>.</span></div>
+          <div class="decision"><strong>Use a TEE</strong><span>You need to isolate compute from a privileged host and attest a measurement. Attestation can authenticate a workload into TLS; it does not replace ratchets. See the <a href="confidential-computing-self-assembled-mooc.html">TEE guide</a>.</span></div>
+          <h3>Which session shape</h3>
+          <div class="decision"><strong>TLS 1.3</strong><span>Client–server on the public Internet, certificates or raw public keys, 1-RTT (and carefully constrained 0-RTT). Default for HTTPS, gRPC, and most APIs.</span></div>
+          <div class="decision"><strong>HPKE</strong><span>One-shot or few-shot encapsulation with explicit modes and exporters. Building block for ECH, MLS, and privacy relays—not a full duplex ratchet by itself.</span></div>
+          <div class="decision"><strong>Noise</strong><span>Custom two-party handshakes with a small pattern language (XX, IK, NK, …). WireGuard is the canonical production example.</span></div>
+          <div class="decision"><strong>Signal DR</strong><span>Asynchronous pairwise messaging with prekeys, FS, and PCS. Multi-device and groups need extra protocols (SESAME, or MLS).</span></div>
+          <div class="decision"><strong>MLS</strong><span>Dynamically changing groups with a ratchet tree and epochs. Requires an authentication service and a delivery service outside the RFC.</span></div>
+          <div class="callout warn"><strong>Common mistake:</strong> enabling TLS 1.3 0-RTT or “just HPKE” for a chat app and calling it Signal. Replay, identity, prekeys, skipped message keys, and group membership are separate designs.</div>
+        </section>
+
+        <section id="practice">
+          <h2>Capstones and study loop</h2>
+          <div class="grid">
+            <article class="card"><h3>Transport capstone</h3><ol>
+              <li>Trace a real TLS 1.3 handshake to RFC 8446 message names.</li>
+              <li>Draw the key schedule from (EC)DHE to application traffic secrets.</li>
+              <li>Write a 0-RTT accept/deny list for your application.</li>
+              <li>HPKE Seal/Open against an RFC 9180 test vector.</li>
+              <li>Map one VPN or mesh product to a Noise pattern.</li>
+            </ol></article>
+            <article class="card"><h3>Messaging capstone</h3><ol>
+              <li>Compute an X3DH (or PQXDH) shared secret from a prekey bundle.</li>
+              <li>Run a double ratchet for ≥8 messages with one skip.</li>
+              <li>State what identity-key vs prekey compromise enables.</li>
+              <li>Create an MLS group, add/remove a member, and show epoch change.</li>
+              <li>List remaining metadata leaks (server, size, timing, graph).</li>
+            </ol></article>
+            <article class="card"><h3>Weekly cadence</h3><ul>
+              <li><strong>Watch:</strong> draw the state machine, not the logo.</li>
+              <li><strong>Derive:</strong> one HKDF label or DH mix.</li>
+              <li><strong>Build:</strong> a vector, a trace, or a toy ratchet.</li>
+              <li><strong>Break:</strong> replay, skip, downgrade, or wrong info string.</li>
+              <li><strong>Explain:</strong> FS vs PCS vs authentication.</li>
+            </ul></article>
+            <article class="card"><h3>Minimum portfolio</h3><ul>
+              <li>TLS 1.3 handshake diagram + key schedule.</li>
+              <li>0-RTT policy memo.</li>
+              <li>HPKE interop against test vectors.</li>
+              <li>Noise pattern map for one product.</li>
+              <li>X3DH + Double Ratchet simulation.</li>
+              <li>MLS epoch add/remove notes.</li>
+            </ul></article>
+          </div>
+          <h3>Exit criteria</h3>
+          <details open><summary>TLS and HPKE</summary><div>You can explain 1-RTT vs 0-RTT, draw RFC 8446 §7.1, verify certificates as a policy, and use HPKE modes/info/AAD without treating HPKE as “just a KEM.”</div></details>
+          <details><summary>Noise and messaging</summary><div>You can read a Noise pattern, map WireGuard to IK, compute X3DH, step a double ratchet including skipped keys, and explain PQXDH’s extra secret.</div></details>
+          <details><summary>Groups and deployment</summary><div>You can describe MLS epochs and trees, name authentication vs delivery services, and place QUIC and PQ3 as session compositions rather than new primitives.</div></details>
+          <details><summary>Place in the seven</summary><div>You reject session crypto when the need is ciphertext compute, public proof, joint computation, consensus, or hardware attestation. You pull KEMs from the PQC guide instead of inventing combiners here.</div></details>
+        </section>
+
+        <section id="conferences">
+          <h2>Conference extras</h2>
+          <p class="section-intro">Deployment talks and adjacent protocols—not hidden prerequisites. Re-check RFCs before implementation; handshake greasing and PQ hybrids move.</p>
+          <div class="callout">Archives: <a href="https://media.ccc.de/">media.ccc.de</a> · <a href="https://www.youtube.com/@IETF">IETF</a> · <a href="https://rwc.iacr.org/">Real World Crypto</a> · <a href="https://noiseprotocol.org/">Noise</a>.</div>
+          <h3>TLS and transport</h3>
+          <div class="grid-3">
+            <article class="card"><h3><a href="https://media.ccc.de/v/33c3-8348-deploying_tls_1_3_the_great_the_good_and_the_bad">33C3 TLS 1.3</a></h3><p>Valsorda and Sullivan on shipping 1.3; pair with RFC 8446 after Module 2.</p></article>
+            <article class="card"><h3><a href="https://datatracker.ietf.org/doc/html/rfc9000">RFC 9000 QUIC</a></h3><p>Transport around RFC 9001. Congestion and streams are not session crypto.</p></article>
+            <article class="card"><h3><a href="https://www.rfc-editor.org/rfc/rfc8446.html">RFC 8446 HTML</a></h3><p>Alternate rendering of the TLS 1.3 specification.</p></article>
+          </div>
+          <h3>Noise and messaging</h3>
+          <div class="grid-3">
+            <article class="card"><h3><a href="https://media.ccc.de/v/34c3-9222-the_noise_protocol_framework">34C3 Noise</a></h3><p>Perrin’s framework talk; read the spec the same week.</p></article>
+            <article class="card"><h3><a href="https://signal.org/docs/specifications/xeddsa/">XEdDSA and VXEdDSA</a></h3><p>Signal signature constructions used with identity keys.</p></article>
+            <article class="card"><h3><a href="https://messaginglayersecurity.rocks/">MLS project</a></h3><p>Working-group home, implementations, and interop notes.</p></article>
+          </div>
+          <h3>Hybrids and metadata</h3>
+          <div class="grid-3">
+            <article class="card"><h3><a href="https://security.apple.com/blog/imessage-pq3/">iMessage PQ3</a></h3><p>Production PQ messaging; KEM math stays in guide 3.</p></article>
+            <article class="card"><h3><a href="https://blog.cloudflare.com/encrypted-client-hello/">Encrypted Client Hello</a></h3><p>HPKE protecting ClientHello inner; still TLS.</p></article>
+            <article class="card"><h3><a href="https://datatracker.ietf.org/wg/mimi/about/">IETF MIMI</a></h3><p>More Interoperable Messaging; identity and interop above MLS.</p></article>
+          </div>
+        </section>
+
+        <section id="sources">
+          <h2>Reference shelf</h2>
+          <p class="section-intro">Primary specifications and implementations. The sequenced route remains video-first.</p>
+          <div class="grid">
+            <article class="card"><h3>RFCs</h3><ul>
+              <li><a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446 · TLS 1.3</a></li>
+              <li><a href="https://datatracker.ietf.org/doc/html/rfc9180">RFC 9180 · HPKE</a></li>
+              <li><a href="https://datatracker.ietf.org/doc/html/rfc9420">RFC 9420 · MLS</a></li>
+              <li><a href="https://datatracker.ietf.org/doc/html/rfc9001">RFC 9001 · QUIC-TLS</a></li>
+            </ul></article>
+            <article class="card"><h3>Messaging specs</h3><ul>
+              <li><a href="https://noiseprotocol.org/noise.html">Noise specification</a></li>
+              <li><a href="https://signal.org/docs/specifications/x3dh/">X3DH</a> · <a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a></li>
+              <li><a href="https://signal.org/docs/specifications/doubleratchet/">Double Ratchet</a></li>
+              <li><a href="https://www.wireguard.com/papers/wireguard.pdf">WireGuard paper</a></li>
+            </ul></article>
+            <article class="card"><h3>Software</h3><ul>
+              <li><a href="https://github.com/rustls/rustls">rustls</a> · <a href="https://www.openssl.org/">OpenSSL</a></li>
+              <li><a href="https://github.com/signalapp/libsignal">libsignal</a></li>
+              <li><a href="https://github.com/openmls/openmls">OpenMLS</a></li>
+              <li><a href="https://www.wireguard.com/">WireGuard</a></li>
+            </ul></article>
+            <article class="card"><h3>Curation policy</h3><p>Scope: session &amp; messaging. Sibling routes: <a href="fhe-self-assembled-mooc.html">FHE</a>, <a href="zkp-self-assembled-mooc.html">ZKP</a>, <a href="post-quantum-cryptography-self-assembled-mooc.html">PQC</a>, <a href="mpc-self-assembled-mooc.html">MPC</a>, <a href="blockchain-self-assembled-mooc.html">DLT</a>, and <a href="confidential-computing-self-assembled-mooc.html">TEE</a>. Priority went to RFCs, designer talks, and primary protocol specifications. Hybrid KEMs stay in PQC; this guide owns the state machines that consume them. Wi-Fi (WPA) and historical SSL 3.0 deep dives stay out of the core route.</p><p class="meta">Links and availability checked August 28, 2026.</p></article>
+          </div>
+          <div class="callout warn"><strong>Version rule:</strong> TLS stacks, HPKE suites, Signal PQXDH parameters, MLS ciphersuites, and ECH drafts move. Record library version, suite IDs, protocol version, and test-vector commit with every result.</div>
+        </section>
+      </main>
+    </div>
+    <footer>Independent study guide. Not affiliated with any listed university, foundation, project, or organization. Video copyrights remain with their publishers. Progress is stored in progress.json, which this page only reads.</footer>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.getElementById('theme');
+    const search = document.getElementById('search');
+    const noResults = document.getElementById('no-results');
+    const lessons = [...document.querySelectorAll('.lesson')];
+    const sections = [...document.querySelectorAll('main section')];
+    const doneCount = document.getElementById('done-count');
+    const progressKey = 'session-mooc-progress-v1';
+    let activeFilter = 'all';
+    let savedProgress = {};
+
+
+    lessons.forEach(lesson => {
+      const tagBox = lesson.querySelector('.lesson-tags') || document.createElement('div');
+      tagBox.className = 'lesson-tags';
+      if (!tagBox.parentNode) lesson.children[1].appendChild(tagBox);
+      (lesson.dataset.tags || '').split(' ').filter(Boolean).forEach(tag => {
+        const label = document.createElement('button');
+        label.className = `tag ${tag}`;
+        label.textContent = tag === 'theory' ? 'Theory / math' : tag === 'build' ? 'Implementation' : tag === 'optional' ? 'Optional depth' : 'Core';
+        label.type = 'button';
+        label.addEventListener('click', () => setFilter(tag));
+        tagBox.appendChild(label);
+      });
+    });
+
+    function updateProgress() {
+      const complete = lessons.filter(lesson => lesson.querySelector('.check').checked).length;
+      doneCount.textContent = `${complete} / ${lessons.length}`;
+    }
+    lessons.forEach(lesson => {
+      const box = lesson.querySelector('.check');
+      box.checked = Boolean(savedProgress[lesson.dataset.id]);
+      lesson.classList.toggle('done', box.checked);
+      box.addEventListener('change', () => {
+        savedProgress[lesson.dataset.id] = box.checked;
+        lesson.classList.toggle('done', box.checked);
+        updateProgress();
+      });
+    });
+    updateProgress();
+
+    function applyFilters() {
+      const query = search.value.trim().toLowerCase();
+      let visibleLessons = 0, visibleStandaloneSections = 0;
+      lessons.forEach(lesson => {
+        const tags = (lesson.dataset.tags || '').split(' ');
+        const show = (activeFilter === 'all' || tags.includes(activeFilter)) && (!query || lesson.textContent.toLowerCase().includes(query));
+        lesson.classList.toggle('hidden', !show);
+        if (show) visibleLessons++;
+      });
+      sections.forEach(section => {
+        const sectionLessons = [...section.querySelectorAll('.lesson')];
+        if (sectionLessons.length) section.classList.toggle('hidden', !sectionLessons.some(lesson => !lesson.classList.contains('hidden')));
+        else {
+          const match = !query || section.textContent.toLowerCase().includes(query);
+          section.classList.toggle('hidden', query && !match);
+          if (match) visibleStandaloneSections++;
+        }
+      });
+      noResults.style.display = visibleLessons || visibleStandaloneSections ? 'none' : 'block';
+    }
+    function setFilter(filter) {
+      activeFilter = filter;
+      document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item.dataset.filter === filter));
+      applyFilters();
+    }
+    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => setFilter(button.dataset.filter)));
+    search.addEventListener('input', applyFilters);
+  </script>
+  <script>(function(){var d=document.documentElement,done=false;function reveal(){if(done)return;done=true;d.classList.remove('fonts-loading')}setTimeout(reveal,1200);if(document.fonts&&document.fonts.ready){var f=document.fonts,n=function(p){return p.catch(function(){})};Promise.all([n(f.load('1em Allura')),n(f.load('400 4rem "DM Serif Display"')),n(f.load('800 1rem Manrope')),n(f.load('600 1rem "Source Serif 4"')),n(f.load('600 1rem Fraunces'))]).then(function(){return f.ready}).then(reveal)}else{reveal()}})();</script>
+<script>(function(){
+  var guide=(document.body.getAttribute('data-guide')||'').toLowerCase();
+  if(!guide)return;
+  var src=document.querySelector('script[src*="motion.js"]');
+  var url=src?new URL('../progress.json',src.src):new URL('../progress.json',location.href);
+  function paint(saved){
+    var lessons=document.querySelectorAll('.lesson'), n=0;
+    Array.prototype.forEach.call(lessons,function(lesson){
+      var box=lesson.querySelector('.check');
+      if(!box)return;
+      box.checked=Boolean(saved[lesson.getAttribute('data-id')]);
+      lesson.classList.toggle('done',box.checked);
+      if(box.checked)n++;
+    });
+    var done=document.getElementById('done-count');
+    if(done)done.textContent=n+' / '+lessons.length;
+  }
+  fetch(url,{cache:'no-cache'}).then(function(r){return r.ok?r.json():{}}).then(function(data){
+    var block=data&&typeof data==='object'?data[guide]:null;
+    paint(block&&typeof block==='object'?block:{});
+  }).catch(function(){});
+})();</script>
+</body>
+</html>

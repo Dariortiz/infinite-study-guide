@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement, prerequisites, and readiness for INF.">
+  <title>IFA - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>:root{--accent:#707070;--accent-ink:#707070;--deep:#242424}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../../assets/site.js"></script>
+  <script defer src="../../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="ifa">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="index.html" title="Back to Information" aria-label="Back to Information"><span class="arrow" aria-hidden="true">←</span>INF</a><div class="brand">IFA <b>// APP // BUNDLE APPENDIX</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../../index.html">ALL</a><a href="../../domains/mat/index.html">MAT</a><a href="index.html">INF</a><span class="divider" aria-hidden="true">|</span><a href="../../guides/src.html">SRC</a><a href="../../guides/arc.html">ARC</a><a href="../../guides/scx.html">SCX</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">IFA · Appendix</span></nav><div class="hero">
+  <div><div class="kicker">Information Appendix · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>IFA</em> APPENDIX</span></h1>
+    <p class="manifesto">Placement, prerequisites, and readiness for INF.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>5</b><span>modules</span></div>
+  <div class="metric"><b>10</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 10</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · How to Use This Bundle</a><a href="#module-1">01 · Placement &amp; Diagnostics</a><a href="#module-2">02 · Prerequisite Map</a><a href="#module-3">03 · Guide Readiness</a><a href="#module-4">04 · Cross-Bundle Bridges</a><a href="#practice">Capstones</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">PLC</span><h3>Placement only</h3><p>Complete diagnostics and route directly into the first unmet prerequisite.</p><div class="meta"><span>2–3 h</span></div></article><article class="card route"><span class="code">BLD</span><h3>Information builder</h3><p>Add implementation checks and choose artifacts across SRC, ARC, and SCX.</p><div class="meta"><span>4–6 h</span></div></article><article class="card route"><span class="code">DIP</span><h3>Bilingual readiness</h3><p>Complete all checks in both working vocabularies and document cross-bundle dependencies.</p><div class="meta"><span>6–8 h</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>How to Use This Bundle</h2></div>
+  <p class="section-intro">Choose theorem, implementation, or security-composition depth without conflating source and channel coding.</p><article class="lesson" data-tags="core theory build" data-id="ifa-use-map">
+  <input class="check" type="checkbox" aria-label="Mark Information bundle map: SRC → ARC → SCX complete">
+  <div>
+    <a class="lesson-title" href="../../guides/src.html">Information bundle map: SRC → ARC → SCX</a>
+    <div class="meta">Internal guide route · bilingual notes welcome</div>
+    <p>The source theorem, codec implementation, and leakage analysis are distinct layers.</p>
+    <div class="lab"><strong>After reading:</strong> Choose one SRC model, one ARC implementation family, and one SCX threat model.</div>
+  </div>
+  <a class="watch" href="../../guides/src.html">Open guide</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Publish a one-page route contract naming what you will build and what you will skip.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Placement &amp; Diagnostics</h2></div>
+  <p class="section-intro">Skip prerequisites only when you can derive and implement them.</p><article class="lesson" data-tags="core theory build" data-id="ifa-placement-pre">
+  <input class="check" type="checkbox" aria-label="Mark PRE: probability, algorithms, and entropy placement complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">PRE: probability, algorithms, and entropy placement</a>
+    <div class="meta">Existing prerequisite guide · placement</div>
+    <p>Checks the mathematical and computational vocabulary assumed by entropy-rate and coding units.</p>
+    <div class="lab"><strong>After reading:</strong> Prove Kraft&#x27;s inequality, compute a Markov stationary law, and implement bit packing.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><article class="lesson" data-tags="optional theory" data-id="ifa-placement-shannon-es-video">
+  <input class="check" type="checkbox" aria-label="Mark Teorema de Shannon - Parte 1/4 - TECNUN complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ZUKyU0gf5zI">Teorema de Shannon - Parte 1/4 - TECNUN</a>
+    <div class="meta">ES · Tecnun Universidad de Navarra · 64 min</div>
+    <p>A Spanish university lecture develops Shannon&#x27;s theorem from the entropy and source-coding vocabulary exercised by the bilingual diagnostic.</p>
+    <div class="lab"><strong>After watching:</strong> State the source-coding claim and work one entropy calculation in Spanish, then annotate the equivalent English notation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ZUKyU0gf5zI">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="ifa-placement-es">
+  <input class="check" type="checkbox" aria-label="Mark Teorema de codificación de fuente de Shannon — ejercicios resueltos complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=b8uq_M7i2MI">Teorema de codificación de fuente de Shannon — ejercicios resueltos</a>
+    <div class="meta">ES · Óscar Ciordia · Teoría de la Información · 18 min</div>
+    <p>A worked Spanish source-coding diagnostic replaces the unrelated computing-course page that previously occupied this slot.</p>
+    <div class="lab"><strong>After watching:</strong> Solve the exercise independently, then annotate the entropy and expected-length notation in English.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=b8uq_M7i2MI">▶ Watch</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Complete a dated diagnostic with proofs, code, and explicit remediation links.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Prerequisite Map</h2></div>
+  <p class="section-intro">Map each missing skill to PRE rather than duplicating a foundations course.</p><article class="lesson" data-tags="core theory" data-id="ifa-prereq-map">
+  <input class="check" type="checkbox" aria-label="Mark Prerequisites guide complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/prerequisites-self-assembled-mooc.html">Prerequisites guide</a>
+    <div class="meta">PRE · existing curriculum</div>
+    <p>Centralizes discrete probability, coding, complexity, and implementation readiness.</p>
+    <div class="lab"><strong>After reading:</strong> For each failed diagnostic, link one PRE unit and a concrete exit test.</div>
+  </div>
+  <a class="watch" href="../../crypto/prerequisites-self-assembled-mooc.html">Open PRE</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Create a dependency graph from probability, processes, algorithms, and crypto literacy to selected units.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Guide Readiness</h2></div>
+  <p class="section-intro">Enter SRC for limits, ARC for machinery, and SCX only after authenticated-channel literacy.</p><article class="lesson" data-tags="core theory" data-id="ifa-ready-src">
+  <input class="check" type="checkbox" aria-label="Mark SRC readiness: entropy rate before universality complete">
+  <div>
+    <a class="lesson-title" href="../../guides/src.html">SRC readiness: entropy rate before universality</a>
+    <div class="meta">G13 · Source Coding</div>
+    <p>Prevents LZ experiments from replacing the theorem setting.</p>
+    <div class="lab"><strong>After reading:</strong> Compute one entropy rate and explain stationarity and ergodicity assumptions.</div>
+  </div>
+  <a class="watch" href="../../guides/src.html">Open SRC</a>
+</article><article class="lesson" data-tags="core build" data-id="ifa-ready-arc">
+  <input class="check" type="checkbox" aria-label="Mark ARC readiness: strings, integer arithmetic, and tests complete">
+  <div>
+    <a class="lesson-title" href="../../guides/arc.html">ARC readiness: strings, integer arithmetic, and tests</a>
+    <div class="meta">G14 · Compression Algorithms</div>
+    <p>Makes codec work reproducible and decoder-first.</p>
+    <div class="lab"><strong>After reading:</strong> Implement a bit reader/writer with property tests before choosing a codec.</div>
+  </div>
+  <a class="watch" href="../../guides/arc.html">Open ARC</a>
+</article><article class="lesson" data-tags="core theory" data-id="ifa-ready-scx">
+  <input class="check" type="checkbox" aria-label="Mark SCX readiness: composition after Session/E2E complete">
+  <div>
+    <a class="lesson-title" href="../../guides/scx.html">SCX readiness: composition after Session/E2E</a>
+    <div class="meta">G15 · Compression × Cryptography</div>
+    <p>Length leakage needs a security model; SCX points outward for AEAD.</p>
+    <div class="lab"><strong>After reading:</strong> State attacker control and observable leakage before opening an oracle paper.</div>
+  </div>
+  <a class="watch" href="../../guides/scx.html">Open SCX</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Defend your starting module in each guide with evidence from the diagnostics.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Cross-Bundle Bridges</h2></div>
+  <p class="section-intro">Cross-link processes, channel coding, and Session/E2E without cloning them.</p><article class="lesson" data-tags="core theory" data-id="ifa-bridge-cod">
+  <input class="check" type="checkbox" aria-label="Mark COD is channel coding; SRC is source coding complete">
+  <div>
+    <a class="lesson-title" href="../../guides/cod.html">COD is channel coding; SRC is source coding</a>
+    <div class="meta">G12 ↔ G13 · curriculum bridge</div>
+    <p>Separates redundancy removal from redundancy added for noisy channels.</p>
+    <div class="lab"><strong>After reading:</strong> Classify ten techniques as source, channel, transform, or security composition.</div>
+  </div>
+  <a class="watch" href="../../guides/cod.html">Open COD</a>
+</article><article class="lesson" data-tags="core theory" data-id="ifa-bridge-e2e">
+  <input class="check" type="checkbox" aria-label="Mark Session/E2E owns records and AEAD complete">
+  <div>
+    <a class="lesson-title" href="../../crypto/session-messaging-self-assembled-mooc.html">Session/E2E owns records and AEAD</a>
+    <div class="meta">C7 · existing crypto guide</div>
+    <p>Keeps protocol mechanics in their established home.</p>
+    <div class="lab"><strong>After reading:</strong> Record the exact E2E modules required before SCX and do not duplicate them.</div>
+  </div>
+  <a class="watch" href="../../crypto/session-messaging-self-assembled-mooc.html">Open E2E</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Draw one source-to-codec-to-channel-to-adversary diagram with ownership labels.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>Information route contract</h3><ol><li>Record diagnostic evidence.</li><li>Name the first SRC, ARC, and SCX modules you will take.</li><li>Separate source coding, channel coding, and cryptographic composition.</li><li>Link every missing prerequisite to PRE or an existing guide.</li></ol></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Internal entry points</h3><ul class="source-list"><li><a href="../../crypto/prerequisites-self-assembled-mooc.html">PRE prerequisites</a></li><li><a href="../../guides/src.html">SRC source coding</a></li><li><a href="../../guides/arc.html">ARC compression algorithms</a></li><li><a href="../../guides/scx.html">SCX compression × cryptography</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="index.html">← Back to INF</a><a class="pill" href="../../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>

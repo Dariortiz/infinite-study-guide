@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arithmetic as algebra, analysis, probability, and motion.">
+  <title>NUM - Infinite Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>:root{--accent:#ffb45f;--accent-ink:#b66100;--deep:#784d1e}</style>
+  <!-- The theme has to be settled before the first paint or the page arrives in the wrong colour and
+       corrects itself in view; site.js repeats this read and owns the toggle. -->
+  <script>(function(){var K='mooc-theme',r=document.documentElement;
+try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
+if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
+try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+  <script defer src="../assets/site.js"></script>
+  <script defer src="../assets/motion.js"></script>
+</head>
+<body data-level="guide" data-guide="num">
+<header class="topbar"><div class="topbar-inner">
+  <a class="backlink" href="../campuses/art/index.html" title="Back to Arithmetic" aria-label="Back to Arithmetic"><span class="arrow" aria-hidden="true">←</span>ART</a><div class="brand">NUM <b>// G10 // INDIVIDUAL GUIDE</b></div>
+  <input id="search" class="search" type="search" placeholder="Search lessons, speakers, and theorems…" aria-label="Search this page">
+  <a class="icon-btn" href="../index.html" title="Central homepage" aria-label="Central homepage">⌂</a><button id="theme" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+</div></header><div class="wrap"><nav class="crumbs" aria-label="Curriculum navigation"><a href="../index.html">ALL</a><a href="../domains/mat/index.html">MAT</a><a href="../campuses/art/index.html">ART</a><span class="divider" aria-hidden="true">|</span><span class="here" aria-current="page">NUM</span><a href="lat.html">LAT</a><a href="cod.html">COD</a><span class="divider" aria-hidden="true">|</span><a href="../campuses/art/appendix.html">ARA · Appendix</a></nav><div class="hero">
+  <div><div class="kicker">Number Theory · infinite study guide</div>
+    <h1><span class="signature">Darío's</span> <span class="title-text"><em>NUM</em> MOOC</span></h1>
+    <p class="manifesto">Arithmetic as algebra, analysis, probability, and motion.</p>
+    <p class="lede">A video-first spine backed by named chapters, proof checkpoints, and simulations. Every module ends in an artifact; progress is stored in progress.json, which this page only reads.</p>
+  </div>
+  <aside class="formula"><code>definition → theorem<br>theorem → experiment<br>experiment → artifact</code><p>From countable chains to diffusion limits: define the law, expose the filtration, derive the generator, then test the approximation.</p></aside>
+</div><div class="metrics">
+  <div class="metric"><b>6</b><span>modules</span></div>
+  <div class="metric"><b>23</b><span>study units</span></div>
+  <div class="metric"><b>N/A</b><span>listed video</span></div>
+  <div class="metric"><b id="done-count">0 / 23</b><span>completed</span></div>
+</div><div class="controls" aria-label="Content filters">
+  <button class="filter active" data-filter="all">All units</button><button class="filter" data-filter="core">Core route</button>
+  <button class="filter" data-filter="theory">Theory &amp; math</button><button class="filter" data-filter="build">Build &amp; simulation</button>
+  <button class="filter" data-filter="optional">Optional depth</button><span class="progress-label">Checks are read from progress.json.</span>
+</div><div class="layout"><nav class="side"><div class="mono">Course map</div>
+<a href="#routes">Choose a route</a><a href="#module-0">00 · Elementary Number Theory</a><a href="#module-1">01 · Algebraic Number Theory</a><a href="#module-2">02 · Local &amp; p-adic Methods</a><a href="#module-3">03 · Analytic Number Theory</a><a href="#module-4">04 · Probabilistic Number Theory</a><a href="#module-5">05 · Arithmetic Dynamics</a><a href="#practice">Capstones</a><a href="#conferences">Conference extras</a><a href="#sources">Sources</a></nav>
+<main><div id="no-results" class="no-results">Nothing matches that search or filter.</div>
+<section id="routes"><h2>Choose your route</h2><p class="section-intro">Choose a coherent depth. Video totals are clocked; named book chapters remain reading rather than invented hour estimates.</p>
+<div class="grid-3"><article class="card route"><span class="code">EXP</span><h3>Arithmetic explorer</h3><p>Take every core unit in elementary, algebraic, local, and analytic number theory; finish one proof artifact per module.</p><div class="meta"><span>8–10 h video + reading</span></div></article><article class="card route"><span class="code">BLD</span><h3>Balanced builder</h3><p>Complete all core units and artifacts, including quadratic-field, p-adic, prime-counting, Erdős–Kac, and orbit notebooks.</p><div class="meta"><span>18–26 h + reading</span></div></article><article class="card route"><span class="code">DIP</span><h3>Deep dive</h3><p>Add Neukirch, Davenport, pretentious multiplicative functions, and the ergodic bridge; stop before class field theory unless it becomes a new specialization.</p><div class="meta"><span>35–50 h + reading</span></div></article></div><div class="callout"><strong>Label rule:</strong> Each unit is core or optional, never both. Theory and build may combine with either. Conference extras are outside every route and carry no labels.</div></section><section id="module-0" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 00</span><h2>Elementary Number Theory</h2></div>
+  <p class="section-intro">Rebuild proof-based arithmetic: divisibility, congruences, orders, primitive roots, continued fractions, and quadratic reciprocity.</p><article class="lesson" data-tags="core theory" data-id="num-elementary-sutherland">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to Number Theory complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=EzE6it9kAsI">Introduction to Number Theory</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 44 min</div>
+    <p>A proof-oriented opening that surveys the arithmetic questions and structures developed throughout the module.</p>
+    <div class="lab"><strong>After watching:</strong> Write a dependency map from divisibility and congruences to quadratic reciprocity and continued fractions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=EzE6it9kAsI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-elementary-crt">
+  <input class="check" type="checkbox" aria-label="Mark The Chinese Remainder Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=q99aBlC5Xfk">The Chinese Remainder Theorem</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 35 min</div>
+    <p>A focused derivation of CRT that turns a central congruence tool into a proof rather than a memorized recipe.</p>
+    <div class="lab"><strong>After watching:</strong> Prove CRT for pairwise-coprime moduli, construct the idempotents, and verify one three-modulus example.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=q99aBlC5Xfk">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="num-elementary-primos-es">
+  <input class="check" type="checkbox" aria-label="Mark Propiedades de los enteros complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=v14bBIGq5KI">Propiedades de los enteros</a>
+    <div class="meta">ES · Rodrigo Hernández-Gutiérrez · UAM Teoría de Números · 53 min</div>
+    <p>A full Spanish university lecture establishes integer arithmetic and proof vocabulary instead of offering only popular-level context.</p>
+    <div class="lab"><strong>After watching:</strong> Produce a bilingual glossary and prove one divisibility statement from the lecture in both notations.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=v14bBIGq5KI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-elementary-reciprocity">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to number theory lecture 33. Quadratic reciprocity complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=k8qJaV7qGL4">Introduction to number theory lecture 33. Quadratic reciprocity</a>
+    <div class="meta">Richard E Borcherds · 33 min</div>
+    <p>A theorem-specific proof lecture directly accompanies the reciprocity endpoint of the Ireland–Rosen reading.</p>
+    <div class="lab"><strong>After watching:</strong> Reconstruct the proof&#x27;s Legendre-symbol steps and use them to evaluate three quadratic-residue questions.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=k8qJaV7qGL4">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory" data-id="num-elementary-ireland-rosen">
+  <input class="check" type="checkbox" aria-label="Mark Ireland–Rosen, A Classical Introduction to Modern Number Theory — Chapters 1–5 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4757-2103-4">Ireland–Rosen, A Classical Introduction to Modern Number Theory — Chapters 1–5</a>
+    <div class="meta">Kenneth Ireland &amp; Michael Rosen · Springer GTM 84 · 2nd ed. · read</div>
+    <p>Supplies the durable theorem-and-proof spine for arithmetic functions, congruences, quadratic residues, and reciprocity.</p>
+    <div class="lab"><strong>After reading:</strong> Prove one supplementary law and use it to predict and then verify a Legendre-symbol table.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4757-2103-4">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Write a proof portfolio for CRT, one order calculation, Pell&#x27;s equation, and quadratic reciprocity, with a small verifier that never substitutes for the proof.</div>
+</section><section id="module-1" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 01</span><h2>Algebraic Number Theory</h2></div>
+  <p class="section-intro">Pass from quadratic and cyclotomic examples to rings of integers, ideals, class groups, ramification, and splitting.</p><article class="lesson" data-tags="core theory build" data-id="num-ant-mit785">
+  <input class="check" type="checkbox" aria-label="Mark Algebraic Number Theory: Foundations complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=F659tUopJMg">Algebraic Number Theory: Foundations</a>
+    <div class="meta">U. K. Anandavardhanan · IIT Bombay MA524 · 83 min</div>
+    <p>The opening of a full graduate course sets the number-field agenda and the algebraic prerequisites for ideals and ramification.</p>
+    <div class="lab"><strong>After watching:</strong> Follow the opening examples into one quadratic field and identify its candidate algebraic integers.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=F659tUopJMg">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-ant-gaussian">
+  <input class="check" type="checkbox" aria-label="Mark Gaussian Integers complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=MymWx2wJL7Y">Gaussian Integers</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 36 min</div>
+    <p>Gaussian integers provide the smallest concrete laboratory for norms, units, primes, and factorization beyond Z.</p>
+    <div class="lab"><strong>After watching:</strong> Classify the units, factor five rational primes in Z[i], and justify each split or inert case.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=MymWx2wJL7Y">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-ant-dedekind">
+  <input class="check" type="checkbox" aria-label="Mark Lec 26 Ring of Integers are Dedekind Domains complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=wplkVUY_j3E">Lec 26 Ring of Integers are Dedekind Domains</a>
+    <div class="meta">NPTEL - Indian Institute of Science, Bengaluru · 48 min</div>
+    <p>This focused lecture supplies the Dedekind-domain theorem that turns the reading&#x27;s rings of integers into a setting with unique ideal factorization.</p>
+    <div class="lab"><strong>After watching:</strong> List the Dedekind hypotheses for a ring of integers and trace how they support factorization of one nonprincipal ideal.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=wplkVUY_j3E">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-ant-marcus">
+  <input class="check" type="checkbox" aria-label="Mark Marcus, Number Fields — Chapters 1–5 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-319-90233-3">Marcus, Number Fields — Chapters 1–5</a>
+    <div class="meta">Daniel A. Marcus · Springer Universitext · 2nd ed. · read</div>
+    <p>Keeps the abstract ideal machinery anchored in explicit quadratic and cyclotomic computations.</p>
+    <div class="lab"><strong>After reading:</strong> Show unique factorization fails in one ring, then restore factorization at the ideal level and compute a class-group bound.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-319-90233-3">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Compute the ring of integers, discriminant, prime splitting, units, and ideal class evidence for one quadratic field.</div>
+</section><section id="module-2" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 02</span><h2>Local &amp; p-adic Methods</h2></div>
+  <p class="section-intro">Replace Euclidean size by valuations; learn completions, Hensel lifting, and local solvability before class field theory.</p><article class="lesson" data-tags="core theory build" data-id="num-padic-mit785">
+  <input class="check" type="checkbox" aria-label="Mark Hensel and Newton&#x27;s Method complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=nrH2vs04TyQ">Hensel and Newton&#x27;s Method</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 31 min</div>
+    <p>Connects Hensel lifting to Newton iteration, making the local correction mechanism computationally explicit.</p>
+    <div class="lab"><strong>After watching:</strong> Lift a simple root modulo p to modulo p^8 and log the valuation gained at every iteration.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=nrH2vs04TyQ">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-padic-intro">
+  <input class="check" type="checkbox" aria-label="Mark p-adic Numbers complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=1HTq2zq2RtY">p-adic Numbers</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 28 min</div>
+    <p>Introduces the non-Archimedean metric immediately after Hensel lifting, so completion answers a concrete arithmetic need.</p>
+    <div class="lab"><strong>After watching:</strong> Construct two rational Cauchy sequences in Q_p and contrast their behavior in the real metric.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=1HTq2zq2RtY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-padic-gouvea">
+  <input class="check" type="checkbox" aria-label="Mark Gouvêa, p-adic Numbers — Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-3-642-59058-0">Gouvêa, p-adic Numbers — Chapters 1–4</a>
+    <div class="meta">Fernando Q. Gouvêa · Springer Universitext · 2nd ed. · read</div>
+    <p>Builds the metric and completion carefully before introducing analysis, making p-adic approximations concrete rather than mystical.</p>
+    <div class="lab"><strong>After reading:</strong> Compute two Cauchy sequences in Q_p, one convergent and one misleading in the real metric, and explain both valuations.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-3-642-59058-0">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Implement p-adic precision arithmetic and use Hensel&#x27;s lemma to lift a root while tracking exactly why each hypothesis holds.</div>
+</section><section id="module-3" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 03</span><h2>Analytic Number Theory</h2></div>
+  <p class="section-intro">Use Dirichlet series, Euler products, characters, and complex analysis to explain prime density without making the full PNT proof an entrance exam.</p><article class="lesson" data-tags="core theory build" data-id="num-analytic-dirichlet">
+  <input class="check" type="checkbox" aria-label="Mark Dirichlet Series complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=A4n-Zy6OAwE">Dirichlet Series</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 31 min</div>
+    <p>Builds the transform language that packages multiplicative functions and leads naturally to Euler products.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the Dirichlet series of two arithmetic functions and prove one convolution-product identity.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=A4n-Zy6OAwE">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-analytic-primes-mit">
+  <input class="check" type="checkbox" aria-label="Mark The Prime Number Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=TxuIK_Rg0lI">The Prime Number Theorem</a>
+    <div class="meta">Richard Borcherds · Berkeley Math 115 · 27 min</div>
+    <p>States the prime-density result in the same course that developed Dirichlet series, keeping the analytic mechanism visible.</p>
+    <div class="lab"><strong>After watching:</strong> Compare π(x), Li(x), and x/log x numerically, then state precisely what the theorem does and does not bound.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=TxuIK_Rg0lI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-analytic-products">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to number theory lecture 46. Products of Dirichlet series complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=lAAXBUuU9wY">Introduction to number theory lecture 46. Products of Dirichlet series</a>
+    <div class="meta">Richard E Borcherds · 18 min</div>
+    <p>The product formula gives a direct video companion to the reading&#x27;s arithmetic-function and Dirichlet-convolution development.</p>
+    <div class="lab"><strong>After watching:</strong> Derive the coefficient rule for a product of two Dirichlet series and identify it with Dirichlet convolution.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=lAAXBUuU9wY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-analytic-apostol">
+  <input class="check" type="checkbox" aria-label="Mark Apostol, Introduction to Analytic Number Theory — Chapters 1–8 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-1-4757-5579-4">Apostol, Introduction to Analytic Number Theory — Chapters 1–8</a>
+    <div class="meta">Tom M. Apostol · Springer UTM · read</div>
+    <p>A measured route from arithmetic functions and Dirichlet convolution to characters and primes in progressions.</p>
+    <div class="lab"><strong>After reading:</strong> Implement the Möbius and divisor sums, verify two convolution identities, and prove one identity before testing it.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-1-4757-5579-4">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Derive an Euler product and a prime-counting bound, then numerically compare π(x), Li(x), and x/log x with an explicit error discussion.</div>
+</section><section id="module-4" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 04</span><h2>Probabilistic Number Theory</h2></div>
+  <p class="section-intro">Treat arithmetic functions statistically: normal order, additive functions, Erdős–Kac, random multiplicative models, and prime-gap heuristics.</p><article class="lesson" data-tags="core theory build" data-id="num-prob-erdos-kac">
+  <input class="check" type="checkbox" aria-label="Mark Introduction to the Erdős–Kac Theorem complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=VFZF78xGY4M">Introduction to the Erdős–Kac Theorem</a>
+    <div class="meta">SMC · IISER Pune Probabilistic Number Theory · 55 min</div>
+    <p>A dedicated course lecture develops the central limit phenomenon for prime factors at theorem level.</p>
+    <div class="lab"><strong>After watching:</strong> Compute the normalized number of distinct prime factors up to growing cutoffs and compare its histogram with a Gaussian.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=VFZF78xGY4M">▶ Watch</a>
+</article><article class="lesson" data-tags="optional theory build" data-id="num-prob-course">
+  <input class="check" type="checkbox" aria-label="Mark Probabilistic Number Theory: Full Course complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/playlist?list=PLZbgNdSTyWDZvNQE3RIj7-K1K2E1Ok2HY">Probabilistic Number Theory: Full Course</a>
+    <div class="meta">Kaneenika Sinha · SMC/IISER Pune · 18 lectures</div>
+    <p>This is the rare case where a playlist fits the lesson: the module spans average order, density, Turán–Kubilius, mean values, and Erdős–Kac.</p>
+    <div class="lab"><strong>After watching:</strong> Choose the lectures on normal order and Turán–Kubilius, then use their bounds to justify the Erdős–Kac experiment.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/playlist?list=PLZbgNdSTyWDZvNQE3RIj7-K1K2E1Ok2HY">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-prob-normal-order">
+  <input class="check" type="checkbox" aria-label="Mark Normal order of an additive function and introduction to the Turan-Kubilius inequality complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=ww3g9938YeI">Normal order of an additive function and introduction to the Turan-Kubilius inequality</a>
+    <div class="meta">SMC_IISER Pune · 57 min</div>
+    <p>A precise lecture on normal order and Turán–Kubilius directly matches the probabilistic machinery developed in the assigned Tenenbaum chapters.</p>
+    <div class="lab"><strong>After watching:</strong> State the normal-order definition, reproduce the variance bound, and test it on the distinct-prime-factor function.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=ww3g9938YeI">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-prob-tenenbaum">
+  <input class="check" type="checkbox" aria-label="Mark Tenenbaum, Introduction to Analytic and Probabilistic Number Theory — Part III, Chapters 1–4 complete">
+  <div>
+    <a class="lesson-title" href="https://bookstore.ams.org/gsm-163/">Tenenbaum, Introduction to Analytic and Probabilistic Number Theory — Part III, Chapters 1–4</a>
+    <div class="meta">Gérald Tenenbaum · AMS GSM 163 · 3rd ed. · read</div>
+    <p>Provides a serious bridge from mean values to normal orders and probabilistic limit laws on the integers.</p>
+    <div class="lab"><strong>After reading:</strong> Measure the empirical distribution of the number of distinct prime factors and compare it with the Erdős–Kac scaling.</div>
+  </div>
+  <a class="watch" href="https://bookstore.ams.org/gsm-163/">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Run an Erdős–Kac experiment over a growing range and defend the normalization, dependence caveats, and finite-size behavior.</div>
+</section><section id="module-5" class="module" data-search>
+  <div class="module-head"><span class="module-no">MODULE 05</span><h2>Arithmetic Dynamics</h2></div>
+  <p class="section-intro">Iterate rational maps over number fields and finite fields; connect heights, periodic points, and the Gauss map without moving homogeneous dynamics out of LAT.</p><article class="lesson" data-tags="core theory build" data-id="num-gauss-khinchin">
+  <input class="check" type="checkbox" aria-label="Mark One- and Multi-dimensional Continued Fractions complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=a5Eh8vLUl9Q">One- and Multi-dimensional Continued Fractions</a>
+    <div class="meta">Banach Center · Geometry and topology seminar · 53 min</div>
+    <p>A genuine lecture places continued fractions and their dynamics in a broader geometric setting, replacing the dead book page.</p>
+    <div class="lab"><strong>After watching:</strong> Simulate the Gauss map, estimate its digit distribution, and connect one orbit statistic to Diophantine approximation.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=a5Eh8vLUl9Q">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-arithdyn-survey">
+  <input class="check" type="checkbox" aria-label="Mark Arithmetic Dynamics: A Survey complete">
+  <div>
+    <a class="lesson-title" href="https://www.youtube.com/watch?v=boCvRf91tUM">Arithmetic Dynamics: A Survey</a>
+    <div class="meta">Joseph Silverman · International Mathematical Union · 47 min</div>
+    <p>The field&#x27;s principal textbook author explains how iteration, heights, and periodic points become arithmetic questions.</p>
+    <div class="lab"><strong>After watching:</strong> Iterate two quadratic maps over Q and modulo several primes; compare periodic-point evidence without inferring a local-global theorem.</div>
+  </div>
+  <a class="watch" href="https://www.youtube.com/watch?v=boCvRf91tUM">▶ Watch</a>
+</article><article class="lesson" data-tags="core theory build" data-id="num-arithdyn-silverman">
+  <input class="check" type="checkbox" aria-label="Mark Silverman, The Arithmetic of Dynamical Systems — Chapters 1–3 complete">
+  <div>
+    <a class="lesson-title" href="https://doi.org/10.1007/978-0-387-69904-2">Silverman, The Arithmetic of Dynamical Systems — Chapters 1–3</a>
+    <div class="meta">Joseph H. Silverman · Springer GTM 241 · read</div>
+    <p>Introduces rational maps, heights, good reduction, and periodic points as genuinely arithmetic dynamical objects.</p>
+    <div class="lab"><strong>After reading:</strong> For two quadratic maps, enumerate periodic points modulo several primes and compare with rational-orbit evidence.</div>
+  </div>
+  <a class="watch" href="https://doi.org/10.1007/978-0-387-69904-2">Read</a>
+</article><div class="artifact"><strong>Exit artifact:</strong> Build an orbit explorer over Q and finite fields, compute canonical-height evidence, and state one local-global question the data cannot settle.</div>
+</section><section id="practice"><h2>Capstones & exit criteria</h2><p class="section-intro">A finished route ends in an artifact you can run and a statement you can defend.</p><div class="grid"><article class="card"><h3>One quadratic field, end to end</h3><ol><li>Determine its ring of integers, integral basis, discriminant, and unit evidence.</li><li>Factor several rational primes and explain splitting through minimal polynomials and ideals.</li><li>Use Minkowski&#x27;s bound to constrain the class group, then hand the embedded lattice viewpoint to LAT.</li><li>Deliver reproducible computations plus proofs that identify every theorem used.</li></ol></article><article class="card"><h3>Arithmetic as probability and motion</h3><ol><li>Choose continued fractions, additive arithmetic functions, or polynomial iteration.</li><li>State the probability space or dynamical system, invariant quantity, and arithmetic observable.</li><li>Run a finite experiment with uncertainty or finite-size diagnostics.</li><li>Explain which asymptotic theorem supports the pattern and which claims remain heuristic.</li></ol></article></div></section><section id="conferences"><h2>Conference extras</h2><p class="section-intro">Unlabeled research bridges: watch these after the sequenced spine, not instead of it.</p><div class="grid"><article class="card conference-card"><h3><a href="https://www.youtube.com/watch?v=boCvRf91tUM">Arithmetic Dynamics: A Survey</a></h3><div class="meta">Joseph Silverman · International Mathematical Union · 47 min</div><p>A research-facing view of the module&#x27;s orbit, height, and periodic-point questions.</p></article><article class="card conference-card"><h3><a href="https://www.youtube.com/playlist?list=PLZbgNdSTyWDZvNQE3RIj7-K1K2E1Ok2HY">Probabilistic Number Theory Course</a></h3><div class="meta">Kaneenika Sinha · SMC/IISER Pune · 18 lectures</div><p>A full path from average orders and density through Turán–Kubilius to the Erdős–Kac theorem.</p></article></div></section><section id="sources"><h2>Reference shelf</h2><p class="section-intro">Named editions and chapter ranges; every link is an author, publisher, DOI, or official course home.</p><div class="grid"><article class="card"><h3>Video courses</h3><ul class="source-list"><li><a href="https://www.youtube.com/playlist?list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8">Borcherds, Berkeley Math 115</a></li><li><a href="https://www.youtube.com/playlist?list=PLR3C3NSCyhZQLANHMMCiSrTg6OJcSMpzD">IIT Bombay MA524 Algebraic Number Theory</a></li><li><a href="https://www.youtube.com/playlist?list=PLx1OKAJ_nQJcS9f1YjnuajNT4Wq_zld_o">UAM Teoría de Números (ES)</a></li></ul></article><article class="card"><h3>Written companions</h3><ul class="source-list"><li><a href="https://doi.org/10.1007/978-1-4757-2103-4">Ireland–Rosen — Chapters 1–13</a></li><li><a href="https://doi.org/10.1007/978-3-319-90233-3">Marcus, Number Fields — Chapters 1–6</a></li><li><a href="https://doi.org/10.1007/978-3-642-59058-0">Gouvêa, p-adic Numbers — Chapters 1–4</a></li><li><a href="https://doi.org/10.1007/978-1-4757-5579-4">Apostol, Analytic Number Theory — Chapters 1–13</a></li><li><a href="https://bookstore.ams.org/gsm-163/">Tenenbaum — Part III, Chapters 1–4</a></li><li><a href="https://doi.org/10.1007/978-0-387-69904-2">Silverman, Arithmetic Dynamics — Chapters 1–4</a></li></ul></article></div></section>
+</main></div><nav class="pagenav" aria-label="Back navigation"><a class="pill" href="../campuses/art/index.html">← Back to ART</a><a class="pill" href="../index.html">⌂ Central homepage</a></nav><footer>Independent infinite-time curriculum. No institution, enrollment, or degree implied. Resource copyrights remain with their publishers.</footer></div></body></html>
