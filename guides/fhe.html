@@ -517,7 +517,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
         <a href="#module-4">4 · BGV / BFV / CKKS</a>
         <a href="#module-5">5 · TFHE</a>
         <a href="#module-6">6 · Compilers & security</a>
-        <a href="#scheme-map">Scheme &amp; primitive chooser</a>
+        <a href="#chooser">Scheme &amp; primitive chooser</a>
         <a href="#practice">Capstone & study loop</a>
         <a href="#conferences">Conference extras</a>
         <a href="#sources">Reference shelf</a>
@@ -842,7 +842,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           </article>
         </section>
 
-        <section id="scheme-map">
+        <section id="chooser">
           <h2>Scheme and primitive chooser</h2>
           <p class="section-intro">First decide whether FHE is the right object. Only then choose a scheme by algebra and data layout—not by whichever library you installed first.</p>
           <h3>When FHE is the wrong primitive</h3>
@@ -890,9 +890,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           <details open><summary>Foundations</summary><div>You can define correctness, compactness, semantic security, leveled FHE, and bootstrapping; explain LWE noise; and distinguish the main lattice problems without conflating them.</div></details>
           <details><summary>Scheme literacy</summary><div>Given an operation graph and data type, you can justify BGV/BFV vs. CKKS vs. TFHE, estimate multiplicative depth, identify costly operations, and describe the packing strategy.</div></details>
           <details><summary>Implementation</summary><div>You can run encrypted computation in a maintained library, validate against cleartext, measure error and latency, separate client/server artifacts, and avoid inventing parameters.</div></details>
-          <details><summary>Systems judgment</summary><div>You can explain what the compiler must lower and optimize, what the security estimator contributes, and why API success does not establish deployment security.</div></details>
-          <details><summary>Place in the seven</summary><div>You can reject FHE when several parties hold inputs (MPC), when you only need a public proof (ZK), when the product is a hardware TCB (TEE), or when a key must reveal f(x) in the clear (functional encryption). You do not treat those as missing FHE lectures.</div></details>
-        </section>
+          <details><summary>Systems judgment</summary><div>You can explain what the compiler must lower and optimize, what the security estimator contributes, and why API success does not establish deployment security.</div></details>        </section>
 
         <section id="conferences">
           <h2>Conference extras</h2>

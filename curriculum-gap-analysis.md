@@ -114,10 +114,11 @@ subjects (CSF's "Computability" module is about Turing machines/decidability, a 
 foundational logic). A search for "Gödel" and "model theory" across every guide returned nothing.
 
 ### 8. Anonymous communication networks
-MPC's credentials module covers anonymous *credentials* (issuance/showing/unlinkability for identity
-tokens) but nothing covers anonymous *communication* — mixnets, onion routing, or traffic-analysis
-resistance as their own subject. This is a narrower, more specific gap than my first pass's "privacy tech
-beyond ZK/MPC" — the credentials half of that space is already handled; the network-layer half isn't.
+MPC's credentials module gestures at anonymous *credentials* (issuance/showing/unlinkability for identity
+tokens — see the sufficiency note below, where this turns out to be thinner than it first looked) but
+nothing anywhere covers anonymous *communication* — mixnets, onion routing, or traffic-analysis resistance
+as their own subject. This is a narrower, more specific gap than my first pass's "privacy tech beyond
+ZK/MPC" — it's specifically the network layer that's missing.
 
 ### 9. Quantum computing as its own subject (algorithms/complexity, not just resistance)
 PQC treats quantum computers strictly as *the threat model to defend against* (Shor/Grover appear only as
@@ -135,3 +136,65 @@ circuits, BQP, quantum algorithms beyond Shor/Grover, or quantum information the
 - If ML is added, FHE and PQC both already gesture at ML workloads as *use cases* (encrypted inference,
   side-channel-resistant inference) — worth checking those guides for lessons that assume ML background
   the curriculum doesn't yet provide.
+
+## Follow-up: is the existing coverage of the five "corrected" topics actually sufficient?
+
+The five items retracted above (category theory, scheme theory, anonymous credentials, side-channel
+cryptanalysis, distributed-systems theory) are all real, but "present" isn't the same question as
+"sufficient." Checked lesson counts, explicit scope statements, and cross-guide references for each to
+find out whether any of them are thin enough to warrant a dedicated or expanded guide. The verdicts split
+three ways.
+
+### Sufficient as designed: side-channel cryptanalysis
+
+The split across CTH (Module 05), PQC (Module 08), TEE (Module 6), and TRC (Module 03) is not shallow
+coverage hiding behind four different titles — each slice reaches real depth for its own threat model:
+CTH goes to Spectre/Meltdown/Rowhammer at the microarchitecture and memory-model level; PQC has a full
+module on timing/power/EM/fault/rejection-sampling leakage specific to lattice, code, and hash-based
+schemes, anchored by named PQCrypto-conference breaks (HQC power analysis, chosen-ciphertext side
+channels). Each guide explicitly disclaims the others' territory (CTH: "enclave attestation and
+confidential-computing-specific mitigations are deliberately left to the TEE guide"). A cache-timing
+attack on AES and a power attack on a lattice KEM are different subjects wearing the same name;
+centralizing them into one cryptanalysis guide would flatten a distinction the curriculum is right to
+keep. **No action needed.**
+
+### Sufficient for its stated scope: distributed-systems theory (CTH)
+
+CTH's Module 02 is exactly three lessons — Kleppmann's "System Models," Kleppmann's "Consensus," and MIT
+6.852 for impossibility/lower-bound proofs. That reads thin in isolation, but DLT already supplies ~47
+hours of the *applied* consensus side (BFT protocols, fork choice, finality gadgets) — together they form
+a real theory-to-practice pipeline for consensus specifically. What CTH does *not* cover — replication
+strategies, distributed transactions (2PC/3PC), sharding, distributed databases, CRDTs, gossip protocols —
+isn't a deeper version of what's already there; it's a different subject (distributed *systems
+engineering* rather than distributed *algorithm theory*). If that gets added, it should be a new guide,
+not an expansion of CTH's existing module — CTH's module is already doing exactly what it says it does.
+
+### Genuinely under-scoped: anonymous credentials (MPC Module 10)
+
+This is the one that should actually be expanded, or split out. The module is two lessons total
+(Lysyanskaya's BIU lecture and a Real World Crypto talk on Privacy Pass's ancestor), explicitly tagged
+`optional`, and its own section intro frames credentials as a footnote to MPC's real business ("specialized
+two-party protocols... not a SPDZ program"). Checked ZKP on the theory that BBS+ signatures or
+selective-disclosure proofs might live there instead — they don't; a search for "credential," "BBS," and
+"verifiable credential" across `zkp.html` returns nothing. So the entire real-world footprint of this
+space — Privacy Pass now shipping in Chrome/Firefox, the EU digital identity wallet, ISO 18013-5 mobile
+driver's licenses, the W3C Verifiable Credentials standard — rests on two lectures with no dedicated home.
+It sits naturally at the ZKP/MPC intersection, and neither guide currently claims it. Given how much
+production and standards attention this area gets right now, it's a stronger candidate for a dedicated
+guide (or a much heavier module with an explicit ownership boundary against ZKP and MPC) than most items
+on the "confirmed gaps" list above.
+
+### Appropriately light, not actually a gap: category theory and scheme theory (XFD)
+
+Went looking for demand-pull from elsewhere in the curriculum that would justify deepening these two —
+found none. Checked whether PQC's isogeny-based schemes needed scheme theory: they don't get a real module
+at all, only a "broken candidate" postmortem in conference extras (SIDH/SIKE), so there's no live
+isogeny content pulling for algebraic-geometry depth. Checked whether TRC's or ZKP's elliptic-curve
+material needed it: both stay deliberately at the "group + bilinear pairing" engineering level — point
+addition, scalar multiplication, curve choice (P-256 vs. Curve25519) — never the scheme-theoretic
+viewpoint. Checked whether PLV's operational semantics and type-theory work reached for categorical
+semantics: it doesn't, by design, staying accessible through Coq/TLA+/SMT instead. XFD's two-lesson
+treatment of each (one video "focused entry," one canonical-reference excerpt) is honestly what it claims
+to be — a pointer toward a graduate dialect for someone who wants it, not a load-bearing prerequisite
+anything else in the curriculum is straining against. **No action needed** unless the goal shifts to
+mathematical completeness for its own sake rather than serving the rest of the curriculum.
