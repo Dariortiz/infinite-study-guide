@@ -25,6 +25,12 @@
     };
     if(!(reduce&&reduce.matches)&&document.startViewTransition)document.startViewTransition(update);
     else update();
+    if(!(reduce&&reduce.matches)){
+      button.classList.remove('theme-flip');
+      void button.offsetWidth;
+      button.classList.add('theme-flip');
+      setTimeout(function(){button.classList.remove('theme-flip')},450);
+    }
   },true);
   /* Internal page links get a short element fade before navigation. No overlay or background colour is
      involved. Modified clicks, downloads, anchors, and external links retain their native behaviour. */
@@ -134,7 +140,45 @@
     if(bar===undefined)bar=document.querySelector('.topbar');
     if(bar)bar.classList.toggle('is-scrolled',(window.pageYOffset||root.scrollTop||0)>6);
   }
-  addEventListener('scroll',markScrolled,{passive:true});
+  /* A slim fill on the topbar's top edge reads how far down the page you are. One injected element
+     covers every template, so no page needs its own markup for it. */
+  var progressFill;
+  function initScrollProgress(){
+    var bar=document.createElement('div');
+    bar.className='scroll-progress';
+    bar.setAttribute('aria-hidden','true');
+    progressFill=document.createElement('span');
+    bar.appendChild(progressFill);
+    document.body.insertBefore(bar,document.body.firstChild);
+  }
+  function updateScrollProgress(){
+    if(!progressFill)return;
+    var max=root.scrollHeight-innerHeight;
+    var ratio=max>0?Math.min(1,Math.max(0,(window.pageYOffset||root.scrollTop||0)/max)):0;
+    progressFill.style.transform='scaleX('+ratio+')';
+  }
+  /* A quiet way back up on the pages long enough to need it. Injected rather than templated, like the
+     progress bar above, and reuses .icon-btn so it matches the theme toggle without new styling. */
+  var backTop;
+  function initBackToTop(){
+    backTop=document.createElement('button');
+    backTop.type='button';
+    backTop.className='icon-btn back-to-top';
+    backTop.setAttribute('aria-label','Back to top');
+    backTop.title='Back to top';
+    backTop.textContent='↑';
+    backTop.addEventListener('click',function(){
+      scrollTo({top:0,behavior:(reduce&&reduce.matches)?'auto':'smooth'});
+    });
+    document.body.appendChild(backTop);
+  }
+  function updateBackToTop(){
+    if(!backTop)return;
+    backTop.classList.toggle('is-visible',(window.pageYOffset||root.scrollTop||0)>innerHeight*.9);
+  }
+  function onScroll(){markScrolled();updateScrollProgress();updateBackToTop()}
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',updateScrollProgress,{passive:true});
   /* Cards and lessons that start below the first screen settle in as they are reached, once each. They are
      only hidden after this script runs, so the page stays fully readable without scripting. */
   function settleOnApproach(){
@@ -182,6 +226,9 @@
         if(current)current.classList.remove('is-current');
         link.classList.add('is-current');
         current=link;
+        /* The link's own list scrolls independently of the page (.side has its own overflow), so the
+           highlighted entry can otherwise drift out of view while the reader keeps scrolling the guide. */
+        if(!(reduce&&reduce.matches)&&link.scrollIntoView)link.scrollIntoView({block:'nearest',behavior:'smooth'});
       });
     },{rootMargin:'-90px 0px -68% 0px'});
     Object.keys(byId).forEach(function(id){
@@ -189,13 +236,43 @@
       if(target)spy.observe(target);
     });
   }
+  /* Jumping via the course map lands the reader on a new heading with no cue beyond the scroll itself.
+     A brief wash on arrival marks the spot, timed to the actual scroll rather than a guessed duration
+     where the browser supports it. */
+  function flashOnArrival(){
+    var links=document.querySelectorAll('.side a[href^="#"],nav[aria-label="On this page"] a[href^="#"]');
+    if(!links.length)return;
+    document.addEventListener('click',function(e){
+      if(reduce&&reduce.matches)return;
+      var link=e.target&&e.target.closest?e.target.closest('.side a[href^="#"],nav[aria-label="On this page"] a[href^="#"]'):null;
+      if(!link)return;
+      var target=document.getElementById(link.getAttribute('href').slice(1));
+      if(!target)return;
+      var head=target.querySelector('.module-head,h2')||target;
+      var fired=false;
+      function fire(){
+        if(fired)return;
+        fired=true;
+        removeEventListener('scrollend',fire);
+        head.classList.remove('target-flash');
+        void head.offsetWidth;
+        head.classList.add('target-flash');
+        setTimeout(function(){head.classList.remove('target-flash')},900);
+      }
+      if('onscrollend' in window)addEventListener('scrollend',fire,{once:true});
+      setTimeout(fire,600);
+    });
+  }
   document.addEventListener('DOMContentLoaded',function(){
-    markScrolled();settleOnApproach();enterPage();followCourseMap();
+    initScrollProgress();initBackToTop();markScrolled();updateScrollProgress();updateBackToTop();
+    settleOnApproach();enterPage();followCourseMap();flashOnArrival();
   });
   /* A back/forward-cache restore can retain the outgoing class from the moment this page was left. */
   window.addEventListener('pageshow',function(event){
     if(!event.persisted)return;
     leaving=false;
     document.body.classList.remove('is-leaving');
+    updateScrollProgress();
+    updateBackToTop();
   });
 })();

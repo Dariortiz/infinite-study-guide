@@ -8,11 +8,20 @@
     update();
   }
   apply(read());
+  /* Search-as-you-type and filter clicks both reshuffle which cards/lessons are visible. Wrapping the
+     DOM update in a view transition crossfades the change instead of snapping it — skipped while one is
+     already in flight so a fast typist never queues overlapping fades. */
+  let activeTransition=null;
+  function withTransition(fn){
+    if(reduce.matches||!document.startViewTransition||activeTransition){fn();return}
+    activeTransition=document.startViewTransition(fn);
+    activeTransition.finished.catch(()=>{}).finally(()=>{activeTransition=null});
+  }
   document.addEventListener('DOMContentLoaded',()=>{
     const theme=document.getElementById('theme');if(theme)theme.addEventListener('click',()=>apply(root.dataset.theme==='light'?'dark':'light',true));
     const search=document.getElementById('search'), cards=[...document.querySelectorAll('[data-search]')], empty=document.getElementById('no-results');
     const lessons=[...document.querySelectorAll('.lesson')];
-    if(search&&!lessons.length)search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const show=!q||c.textContent.toLowerCase().includes(q);c.classList.toggle('hidden',!show);if(show)n++});if(empty)empty.style.display=n?'none':'block'});
+    if(search&&!lessons.length)search.addEventListener('input',()=>withTransition(()=>{const q=search.value.trim().toLowerCase();let n=0;cards.forEach(c=>{const show=!q||c.textContent.toLowerCase().includes(q);c.classList.toggle('hidden',!show);if(show)n++});if(empty)empty.style.display=n?'none':'block'}));
     if(lessons.length){
       const brand=document.querySelector('.brand');
       const guide=((document.body.dataset.guide)||(brand&&brand.firstChild&&brand.firstChild.textContent.trim())||'guide').toLowerCase();
@@ -31,9 +40,7 @@
         if(empty)empty.style.display=visibleLessons||visibleStandalone?'none':'block';
       }
       function setFilter(filter){
-        const update=()=>{activeFilter=filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter===filter));applyFilters()};
-        if(!reduce.matches&&document.startViewTransition){document.startViewTransition(update);return}
-        update();
+        withTransition(()=>{activeFilter=filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter===filter));applyFilters()});
       }
       const tagOrder=['core','theory','build','optional'];
       lessons.forEach(lesson=>{
@@ -45,7 +52,7 @@
         box.addEventListener('change',()=>{lesson.classList.toggle('done',box.checked);replay(box,'pop');updateProgress(true)});
       });
       document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>setFilter(button.dataset.filter)));
-      if(search)search.addEventListener('input',applyFilters);
+      if(search)search.addEventListener('input',()=>withTransition(applyFilters));
       const src=document.querySelector('script[src*="site.js"]');
       const url=src?new URL('../progress.json',src.src):new URL('progress.json',location.href);
       fetch(url,{cache:'no-cache'}).then(r=>r.ok?r.json():{}).then(data=>{

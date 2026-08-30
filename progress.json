@@ -193,7 +193,9 @@
     "sto-donsker-durrett": false,
     "sto-limits-kolmogorov-tightness": false,
     "sto-convergence-billingsley": false,
-    "sto-skorokhod-whitt": false
+    "sto-skorokhod-whitt": false,
+    "sto-ldp-touchette": false,
+    "sto-ldp-durrett": false
   },
   "spz": {
     "spz-point-poisson": false,
@@ -415,6 +417,7 @@
     "src-lz-intro": false,
     "src-lz78-vatedka": false,
     "src-lz78-paper": false,
+    "src-ctw-kt": false,
     "src-ctw-context": false,
     "src-ctw-willems-talk": false,
     "src-ctw-willems": false,
@@ -1024,6 +1027,8 @@
     "trc-sha3-sponge": false,
     "trc-hmac": false,
     "trc-cmac": false,
+    "trc-hkdf": false,
+    "trc-password-hashing": false,
     "trc-modarith": false,
     "trc-modexp": false,
     "trc-dlp": false,
@@ -1039,6 +1044,7 @@
     "trc-ec-arithmetic": false,
     "trc-ecdh": false,
     "trc-curve-choice": false,
+    "trc-pake": false,
     "trc-sig-landscape": false,
     "trc-ecdsa-nonce-ps3": false,
     "trc-eddsa-ed25519": false,
