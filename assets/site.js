@@ -1,4 +1,8 @@
 (function(){
+  // Resource links (videos, articles, books, conference pages) are the absolute
+  // http(s) hrefs; internal navigation always uses relative paths. Open the former
+  // in a new tab so following a source doesn't lose the guide.
+  document.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer'});
   const K='mooc-theme', root=document.documentElement;
   function read(){try{const q=new URLSearchParams(location.search).get('theme');if(q==='light'||q==='dark')return q;const t=localStorage.getItem(K);if(t==='light'||t==='dark')return t}catch(e){}return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}
   const reduce=matchMedia('(prefers-reduced-motion:reduce)');
