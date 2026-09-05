@@ -222,6 +222,7 @@ nav[aria-label="On this page"] a.is-current{color:var(--ink);box-shadow:inset 2p
 try{var q=new URLSearchParams(location.search).get('theme');var t=(q==='light'||q==='dark')?q:localStorage.getItem(K);
 if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark';r.dataset.theme=t}catch(e){}
 try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('motion-pending')}catch(e){}})();</script>
+<script defer src="../assets/site.js"></script>
 <script defer src="../assets/motion.js"></script>
 </head>
 <body data-guide="e2e">
@@ -507,99 +508,6 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
     <footer>Independent study guide. Not affiliated with any listed university, foundation, project, or organization. Video copyrights remain with their publishers. Progress is stored in progress.json, which this page only reads.</footer>
   </div>
 
-  <script>
-    const root = document.documentElement;
-    const themeButton = document.getElementById('theme');
-    const search = document.getElementById('search');
-    const noResults = document.getElementById('no-results');
-    const lessons = [...document.querySelectorAll('.lesson')];
-    const sections = [...document.querySelectorAll('main section')];
-    const doneCount = document.getElementById('done-count');
-    const progressKey = 'session-mooc-progress-v1';
-    let activeFilter = 'all';
-    let savedProgress = {};
-
-
-    lessons.forEach(lesson => {
-      const tagBox = lesson.querySelector('.lesson-tags') || document.createElement('div');
-      tagBox.className = 'lesson-tags';
-      if (!tagBox.parentNode) lesson.children[1].appendChild(tagBox);
-      (lesson.dataset.tags || '').split(' ').filter(Boolean).forEach(tag => {
-        const label = document.createElement('button');
-        label.className = `tag ${tag}`;
-        label.textContent = tag === 'theory' ? 'Theory / math' : tag === 'build' ? 'Implementation' : tag === 'optional' ? 'Optional depth' : 'Core';
-        label.type = 'button';
-        label.addEventListener('click', () => setFilter(tag));
-        tagBox.appendChild(label);
-      });
-    });
-
-    function updateProgress() {
-      const complete = lessons.filter(lesson => lesson.querySelector('.check').checked).length;
-      doneCount.textContent = `${complete} / ${lessons.length}`;
-    }
-    lessons.forEach(lesson => {
-      const box = lesson.querySelector('.check');
-      box.checked = Boolean(savedProgress[lesson.dataset.id]);
-      lesson.classList.toggle('done', box.checked);
-      box.addEventListener('change', () => {
-        savedProgress[lesson.dataset.id] = box.checked;
-        lesson.classList.toggle('done', box.checked);
-        updateProgress();
-      });
-    });
-    updateProgress();
-
-    function applyFilters() {
-      const query = search.value.trim().toLowerCase();
-      let visibleLessons = 0, visibleStandaloneSections = 0;
-      lessons.forEach(lesson => {
-        const tags = (lesson.dataset.tags || '').split(' ');
-        const show = (activeFilter === 'all' || tags.includes(activeFilter)) && (!query || lesson.textContent.toLowerCase().includes(query));
-        lesson.classList.toggle('hidden', !show);
-        if (show) visibleLessons++;
-      });
-      sections.forEach(section => {
-        const sectionLessons = [...section.querySelectorAll('.lesson')];
-        if (sectionLessons.length) section.classList.toggle('hidden', !sectionLessons.some(lesson => !lesson.classList.contains('hidden')));
-        else {
-          const match = !query || section.textContent.toLowerCase().includes(query);
-          section.classList.toggle('hidden', query && !match);
-          if (match) visibleStandaloneSections++;
-        }
-      });
-      noResults.style.display = visibleLessons || visibleStandaloneSections ? 'none' : 'block';
-    }
-    function setFilter(filter) {
-      activeFilter = filter;
-      document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item.dataset.filter === filter));
-      applyFilters();
-    }
-    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => setFilter(button.dataset.filter)));
-    search.addEventListener('input', applyFilters);
-  </script>
   <script>(function(){var d=document.documentElement,done=false;function reveal(){if(done)return;done=true;d.classList.remove('fonts-loading')}setTimeout(reveal,1200);if(document.fonts&&document.fonts.ready){var f=document.fonts,n=function(p){return p.catch(function(){})};Promise.all([n(f.load('1em Allura')),n(f.load('400 4rem "DM Serif Display"')),n(f.load('800 1rem Manrope')),n(f.load('600 1rem "Source Serif 4"')),n(f.load('600 1rem Fraunces'))]).then(function(){return f.ready}).then(reveal)}else{reveal()}})();</script>
-<script>(function(){
-  var guide=(document.body.getAttribute('data-guide')||'').toLowerCase();
-  if(!guide)return;
-  var src=document.querySelector('script[src*="motion.js"]');
-  var url=src?new URL('../progress.json',src.src):new URL('../progress.json',location.href);
-  function paint(saved){
-    var lessons=document.querySelectorAll('.lesson'), n=0;
-    Array.prototype.forEach.call(lessons,function(lesson){
-      var box=lesson.querySelector('.check');
-      if(!box)return;
-      box.checked=Boolean(saved[lesson.getAttribute('data-id')]);
-      lesson.classList.toggle('done',box.checked);
-      if(box.checked)n++;
-    });
-    var done=document.getElementById('done-count');
-    if(done)done.textContent=n+' / '+lessons.length;
-  }
-  fetch(url,{cache:'no-cache'}).then(function(r){return r.ok?r.json():{}}).then(function(data){
-    var block=data&&typeof data==='object'?data[guide]:null;
-    paint(block&&typeof block==='object'?block:{});
-  }).catch(function(){});
-})();</script>
 </body>
 </html>

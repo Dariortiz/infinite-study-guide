@@ -263,22 +263,9 @@
       setTimeout(fire,600);
     });
   }
-  /* site.js already does this for the generated pages, but the copied crypto guides (fhe, zkp, pqc, mpc,
-     tee, e2e, dlt, trc, pre) load only this file, so the rule lives here too: every outbound link opens in
-     its own tab so following one never loses the reader's place in the guide. Internal .html navigation is
-     untouched and keeps its same-tab fade. Harmless to repeat on pages that also run site.js. */
-  function externalLinksNewTab(){
-    document.querySelectorAll('a[href^="http://"],a[href^="https://"]').forEach(function(a){
-      if(!a.hasAttribute('target'))a.setAttribute('target','_blank');
-      var rel=(a.getAttribute('rel')||'').split(/\s+/).filter(Boolean);
-      if(rel.indexOf('noopener')===-1)rel.push('noopener');
-      if(rel.indexOf('noreferrer')===-1)rel.push('noreferrer');
-      a.setAttribute('rel',rel.join(' '));
-    });
-  }
   document.addEventListener('DOMContentLoaded',function(){
     initScrollProgress();initBackToTop();markScrolled();updateScrollProgress();updateBackToTop();
-    settleOnApproach();enterPage();followCourseMap();flashOnArrival();externalLinksNewTab();
+    settleOnApproach();enterPage();followCourseMap();flashOnArrival();
   });
   /* A back/forward-cache restore can retain the outgoing class from the moment this page was left. */
   window.addEventListener('pageshow',function(event){
