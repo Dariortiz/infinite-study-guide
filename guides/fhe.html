@@ -491,10 +491,10 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
 
   <div class="wrap">
     <div class="dashboard">
-      <div class="metric"><b>~18 h</b><span>core video route</span></div>
-      <div class="metric"><b>~24 h</b><span>full deep route</span></div>
+      <div class="metric"><b>~21 h</b><span>core video route</span></div>
+      <div class="metric"><b>~28 h</b><span>full deep route</span></div>
       <div class="metric"><b>7</b><span>sequenced modules</span></div>
-      <div class="metric"><b id="done-count">0 / 26</b><span>watch units completed</span></div>
+      <div class="metric"><b id="done-count">0 / 34</b><span>watch units completed</span></div>
     </div>
 
     <div class="controls" aria-label="Content filters">
@@ -531,17 +531,17 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           <p class="section-intro">The default route is intentionally broad. Use the filters above to isolate theory or implementation, but keep at least one video from each side in every study week.</p>
           <div class="grid-3">
             <article class="card path">
-              <div class="tag hours">~12 hours</div>
+              <div class="tag hours">~13 hours</div>
               <h3>Systems explorer</h3>
               <p>Watch all items marked <span class="tag core">core</span>, but choose only one lattice overview and one TFHE introduction. Best for understanding the landscape quickly.</p>
             </article>
             <article class="card path">
-              <div class="tag hours">~18 hours</div>
+              <div class="tag hours">~21 hours</div>
               <h3>Balanced builder</h3>
               <p>The recommended route: every core video plus OpenFHE Python, Concrete ML, and the TFHE-rs speedrun. Build each small exercise before moving on.</p>
             </article>
             <article class="card path">
-              <div class="tag hours">~24 hours</div>
+              <div class="tag hours">~28 hours</div>
               <h3>Cryptography deep dive</h3>
               <p>Complete everything, including alternate explanations, both retrospectives, security parameters, and compiler architecture.</p>
             </article>
@@ -554,7 +554,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             <div><span class="tag build">build</span><span>Shows or motivates working code—libraries, compilers, parameters, benchmarks. Each has an exercise attached.</span></div>
             <div><span class="tag optional">optional</span><span>Extra depth or a second explanation of something already covered. Skip on a first pass without losing the thread.</span></div>
           </div>
-          <p class="muted">Twenty of the twenty-six videos are <span class="tag core">core</span>; the other six are <span class="tag optional">optional</span>, so a pill combination like <span class="tag core">core</span> <span class="tag optional">optional</span> never appears. A handful of talks that both explain a construction and demo it carry three pills.</p>
+          <p class="muted">Twenty-five of the thirty-four videos are <span class="tag core">core</span>; the other nine are <span class="tag optional">optional</span>, so a pill combination like <span class="tag core">core</span> <span class="tag optional">optional</span> never appears. A handful of talks that both explain a construction and demo it carry three pills.</p>
           <div class="callout"><strong>Prerequisites:</strong> comfort with linear algebra, modular arithmetic, basic probability, and one programming language. You do not need prior lattice cryptography. Rust is useful only for the TFHE-rs branch; Python is enough for the first implementation pass.</div>
           <div class="callout warn"><strong>Stay in this guide:</strong> this guide is ciphertext compute—schemes, noise, compilers, parameters. Functional encryption is extras only (the output is in the clear). Do not wait here for proofs (guide 2), MPC (4), consensus (5), TEEs (6), or Signal (7).</div>
         </section>
@@ -574,9 +574,9 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           </article>
         </section>
 
-        <section id="module-1" data-topic="core theory optional">
+        <section id="module-1" data-topic="core theory">
           <div class="module-head"><span class="module-no">MODULE 01</span><h2>Math: lattices, LWE, and noisy linear algebra</h2></div>
-          <p class="section-intro">Recognize a lattice basis, the geometry behind SVP/BDD, the LWE sample form, and the role of noise in both security and correctness.</p>
+          <p class="section-intro">Recognize a lattice basis, the geometry behind SVP/BDD, the LWE sample form, and the role of noise in both security and correctness — then take the FHE-specific step LAT does not: from a hard problem to an actual encryption scheme with homomorphic properties, and from LWE to the ring-structured LWE every scheme after this module is built on.</p>
           <article class="lesson" data-tags="core theory" data-id="lattices-1">
             <input class="check" type="checkbox" aria-label="Mark Continue in LAT: successive minima and duality complete">
             <div>
@@ -597,14 +597,25 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             </div>
             <a class="watch" href="lat.html#module-2">Read</a>
           </article>
-          <article class="lesson" data-tags="optional theory" data-id="micciancio-karp">
+          <article class="lesson" data-tags="core theory" data-id="micciancio-karp">
             <input class="check" type="checkbox" aria-label="Mark Micciancio Karp lecture complete">
             <div>
               <a class="lesson-title" href="https://www.youtube.com/watch?v=OUVs_NdiY5Q">Lattices, Post-Quantum Security and Homomorphic Encryption</a>
-              <div class="meta">Daniele Micciancio · Simons Institute · 58:53 · alternate explanation</div>
-              <p>A cleaner single-lecture arc from subset sum to lattices, LWE, multiplication, and bootstrapping. Watch after the pair above, or substitute it on the faster route.</p>
+              <div class="meta">Daniele Micciancio · Simons Institute · 58:53</div>
+              <p>Promoted to core: this is the one lecture in the guide that actually walks from subset sum to lattices to an LWE-based encryption scheme to homomorphic multiplication to bootstrapping in a single arc. Everything else in this module is either pure math (LAT) or a library demo (Module 2) — this is the missing middle.</p>
+              <div class="lab"><strong>Checkpoint:</strong> write out keygen/encrypt/decrypt for a toy LWE-based scheme and show, on paper, why adding two ciphertexts adds their noise terms while multiplying them makes the noise (and the ciphertext) grow non-linearly.</div>
             </div>
             <a class="watch" href="https://www.youtube.com/watch?v=OUVs_NdiY5Q">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory" data-id="peikert-ring-lwe">
+            <input class="check" type="checkbox" aria-label="Mark Ring-LWE lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=Lo-_ZBqGa7I">Algebraic Lattices and Ring Learning with Errors</a>
+              <div class="meta">Chris Peikert · Simons Institute Lattices Boot Camp · 1:14:40</div>
+              <p>LAT and the lecture above give you LWE over plain vectors. Every scheme from Module 4 onward (BGV, BFV, CKKS, TFHE) is built over Ring-LWE instead. This is the bridge: why the polynomial ring Z[x]/(x^n+1), what the extra algebraic structure buys in ciphertext compactness and speed, and what it costs in attack surface.</p>
+              <div class="lab"><strong>Checkpoint:</strong> state why an RLWE ciphertext packs n LWE-style values into roughly the space of one, and name one Ring-LWE-specific structural attack consideration that plain LWE does not have.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=Lo-_ZBqGa7I">▶ YouTube</a>
           </article>
         </section>
 
@@ -707,6 +718,36 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             </div>
             <a class="watch" href="https://www.youtube.com/watch?v=iQlgeL64vfo">▶ YouTube</a>
           </article>
+          <article class="lesson" data-tags="core theory" data-id="ckks-approx-security">
+            <input class="check" type="checkbox" aria-label="Mark CKKS approximate security lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=1pcNGXqyiTo">On the Security of Homomorphic Encryption on Approximate Numbers</a>
+              <div class="meta">Eurocrypt · IACR · 23:45</div>
+              <p>Moved up from conference extras because it is load-bearing, not optional depth. CKKS is not "BFV with rounding": decryption oracles, IND-CPA<sup>D</sup>, and key-recovery attacks on approximate schemes mean a naive decrypt-and-return-the-result API can leak the secret key outright.</p>
+              <div class="lab"><strong>Checkpoint:</strong> explain why handing decrypted CKKS output back to whoever submitted the ciphertext is a different security question than doing the same with BFV or BGV output.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=1pcNGXqyiTo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core theory build" data-id="mono-key-switching">
+            <input class="check" type="checkbox" aria-label="Mark key switching lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=RxAcWxxTe5o">A New Perspective on Key Switching for BGV-like Schemes</a>
+              <div class="meta">Johannes Mono · Ruhr University Bochum · FHE.org meetup, Feb 2024</div>
+              <p>This module's own objectives above ask you to understand relinearization/key switching, but nothing earlier actually derives it. This talk does: why a ciphertext multiplication leaves a term under a squared secret key, how gadget decomposition plus a key-switching key fold it back into a normal ciphertext, and why key switching is the single costliest primitive in BFV/BGV/CKKS.</p>
+              <div class="lab"><strong>Build:</strong> in your Module 2 OpenFHE or SEAL example, print ciphertext size right after a multiplication and again after relinearization, and connect the drop to the decomposition base parameter.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=RxAcWxxTe5o">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="core build" data-id="halevi-linear-transforms">
+            <input class="check" type="checkbox" aria-label="Mark HElib linear transformations lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=LXmGVPcCVag">Faster Homomorphic Linear Transformations in HElib</a>
+              <div class="meta">Shai Halevi · CRYPTO 2018 · IACR</div>
+              <p>Packing and rotations are also named as objectives above but never taught directly. This is the source lecture: how a matrix-vector product over packed slots becomes a sequence of rotate-and-multiply-add steps, and how a baby-step/giant-step layout cuts the number of rotations you pay for.</p>
+              <div class="lab"><strong>Build:</strong> extend your packed CKKS example to a small encrypted matrix-vector product using rotations; count rotations used versus one-rotation-per-row.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=LXmGVPcCVag">▶ YouTube</a>
+          </article>
           <article class="lesson" data-tags="core build" data-id="concrete-compiler">
             <input class="check" type="checkbox" aria-label="Mark Concrete compiler tutorial complete">
             <div>
@@ -733,6 +774,16 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
               <p>A quick view of client/server deployment artifacts. Use it to identify the trust boundary, not as complete deployment training.</p>
             </div>
             <a class="watch" href="https://www.youtube.com/watch?v=TmCg-e_dPJo">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional theory build" data-id="chartier-sign-rns">
+            <input class="check" type="checkbox" aria-label="Mark homomorphic sign evaluation lecture complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=JXp31FhgSwY">Homomorphic Sign Evaluation with a RNS Representation of Integers</a>
+              <div class="meta">Philippe Chartier · Inria · FHE.org meetup, Jan 2025</div>
+              <p>CKKS and BFV/BGV have no native comparison, max, or ReLU operator — every "if" becomes a polynomial approximation of the sign function, which is exactly what the Concrete ML demos above use under the hood. This talk also introduces RNS (residue number system) representation: the trick every real library uses to do fast modular arithmetic on a large modulus by splitting it into small independent residues.</p>
+              <div class="lab"><strong>Checkpoint:</strong> explain why a comparison costs multiplicative depth that an addition does not, and what raising a minimax polynomial's degree trades off against that depth budget.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=JXp31FhgSwY">▶ YouTube</a>
           </article>
           <article class="lesson" data-tags="optional build" data-id="concrete-dataframes">
             <input class="check" type="checkbox" aria-label="Mark encrypted DataFrames tutorial complete">
@@ -790,7 +841,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
 
         <section id="module-6" data-topic="core optional theory build">
           <div class="module-head"><span class="module-no">MODULE 06</span><h2>Systems, compilers, and secure parameters</h2></div>
-          <p class="section-intro">See why FHE needs compilers and automated parameter selection—and why “it decrypts correctly” is not a security argument.</p>
+          <p class="section-intro">See why FHE needs compilers and automated parameter selection—and why “it decrypts correctly” is not a security argument, whether the threat is a bad parameter choice, a leaky implementation, or more than one party holding key material.</p>
           <article class="lesson" data-tags="core build" data-id="heir-research">
             <input class="check" type="checkbox" aria-label="Mark HEIR compiler talk complete">
             <div>
@@ -831,6 +882,35 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             </div>
             <a class="watch" href="https://www.youtube.com/watch?v=3CKGn-JMgz4">▶ YouTube</a>
           </article>
+          <article class="lesson" data-tags="optional theory build" data-id="seal-side-channel">
+            <input class="check" type="checkbox" aria-label="Mark SEAL side-channel attack talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=caLwFrw1RbU">Single-Trace Side-Channel Attack on SEAL Homomorphic Encryption Library</a>
+              <div class="meta">Furkan Aydin · North Carolina State University · FHE.org meetup</div>
+              <p>The concrete proof of this module's opening claim. A single power trace captured during SEAL's Gaussian sampling step recovered the secret message, collapsing the effective security level from 2^128 to under 2^5 — with the underlying lattice math completely untouched. Correct ciphertext algebra and a leak-free implementation are independent problems.</p>
+              <div class="lab"><strong>Audit:</strong> for a library you have run locally, name one step that touches secret data (sampling, NTT, key generation) and check whether its implementation is documented as constant-time.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=caLwFrw1RbU">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional build" data-id="medha-hardware">
+            <input class="check" type="checkbox" aria-label="Mark Medha hardware accelerator talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=nVEBt5efG20">Medha: Microcoded Hardware Accelerator for Computing on Encrypted Data</a>
+              <div class="meta">Ahmet Can Mert &amp; Aikata · Graz University of Technology · FHE.org meetup</div>
+              <p>The BASALISC talk in conference extras frames FHE hardware as a design problem; this one shows a working answer — a programmable, microcoded FPGA accelerator for RNS-CKKS reporting large throughput gains over an optimized Microsoft SEAL baseline — and draws the line between what stays software (scheduling, key management) and what moves to silicon.</p>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=nVEBt5efG20">▶ YouTube</a>
+          </article>
+          <article class="lesson" data-tags="optional theory" data-id="threshold-fhe">
+            <input class="check" type="checkbox" aria-label="Mark threshold FHE talk complete">
+            <div>
+              <a class="lesson-title" href="https://www.youtube.com/watch?v=reOlD8adB5o">Low Communication Threshold Fully Homomorphic Encryption</a>
+              <div class="meta">Alain Passelègue · Inria &amp; ENS Lyon · FHE.org meetup, Feb 2025</div>
+              <p>Everything above this line assumes one key pair and one data owner. Threshold FHE splits the secret key across N parties so decryption needs a quorum of them — the construction the scheme chooser gestures at under "multi-key / threshold" without explaining. Covers why naive threshold decryption leaks noise information to each party and how to keep ciphertexts and decryption shares small anyway.</p>
+              <div class="lab"><strong>Checkpoint:</strong> explain why a decryption share cannot simply be "your fraction of the secret key applied to the ciphertext" without smudging noise, and what breaks if it is.</div>
+            </div>
+            <a class="watch" href="https://www.youtube.com/watch?v=reOlD8adB5o">▶ YouTube</a>
+          </article>
           <article class="lesson" data-tags="optional theory" data-id="gentry-decade">
             <input class="check" type="checkbox" aria-label="Mark Gentry retrospective complete">
             <div>
@@ -856,6 +936,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
           <div class="decision"><strong>CKKS</strong><span>Approximate real/complex vector arithmetic. Usually the first choice for linear algebra and many ML inference workloads; precision, scale, rescaling, and polynomial approximations are part of program design.</span></div>
           <div class="decision"><strong>TFHE / FHEW</strong><span>Boolean or fixed-width integer work with fast functional/programmable bootstrapping. Strong for comparisons, bitwise logic, and lookup tables; large vector arithmetic may favor CKKS/BFV/BGV.</span></div>
           <div class="decision"><strong>Hybrid schemes</strong><span>Switch schemes when a workload combines vectorized smooth arithmetic with a few non-smooth operations. OpenFHE, for example, supports CKKS↔FHEW/TFHE scheme switching, but conversion is not free.</span></div>
+          <div class="decision"><strong>Multi-key / threshold</strong><span>Several parties should jointly hold decryption power over one ciphertext stream, or a single owner wants no single point of key compromise. That is a key-management layer on top of any scheme above, not a fifth scheme — see Module 6.</span></div>
           <div class="callout warn"><strong>Common mistake:</strong> “fully homomorphic” means arbitrary circuits are possible in principle. It does not mean every operation is practical, that the library chose secure parameters, or that FHE beats MPC, a TEE, or a proof for this product.</div>
         </section>
 
@@ -924,17 +1005,12 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             </article>
           </div>
 
-          <h3>Security notions that the core course only flags</h3>
+          <h3>IND-CPA<sup>D</sup> depth: making exact schemes robust</h3>
           <div class="grid">
-            <article class="card">
-              <div class="tag optional">23:45</div>
-              <h3><a href="https://www.youtube.com/watch?v=1pcNGXqyiTo">On the Security of Homomorphic Encryption on Approximate Numbers</a></h3>
-              <p>Eurocrypt / IACR. Why CKKS is not just “BFV with rounding”: decryption oracles, IND-CPA<sup>D</sup>, and key-recovery attacks on approximate schemes. Watch this before treating CKKS decryption output as a public log.</p>
-            </article>
             <article class="card">
               <div class="tag optional">23:57</div>
               <h3><a href="https://www.youtube.com/watch?v=zKw41oxN4ok">Strong IND-CPA<sup>D</sup> Security for FHE (Essentially) for Free</a></h3>
-              <p>Marc Joye · FHE.org 2025. How exact schemes can be made robust against decryption-oracle attacks without throwing away the usual FHE API.</p>
+              <p>Marc Joye · FHE.org 2025. The follow-up to the decryption-oracle talk now in Module 4: how exact (BFV/BGV) schemes can be made robust against decryption-oracle attacks without throwing away the usual FHE API.</p>
             </article>
           </div>
 
@@ -993,7 +1069,18 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
                 <li><a href="https://intensecrypto.org/public/lec_15_FHE.html">Boaz Barak’s FHE lecture notes</a></li>
                 <li><a href="https://cseweb.ucsd.edu/classes/wi23/cse208-a/">UCSD CSE 208A — Micciancio</a></li>
                 <li><a href="https://eprint.iacr.org/2023/1402.pdf">Fully Homomorphic Encryption: A Mathematical Introduction</a></li>
+                <li><a href="https://arxiv.org/abs/2509.05884">Introduction to Number Theoretic Transform</a> — the polynomial-multiplication machinery every RLWE scheme's implementation depends on; no video in this guide derives it directly</li>
+                <li><a href="https://eprint.iacr.org/2014/106">Halevi &amp; Shoup · Algorithms in HElib</a> — the paper behind the CRYPTO 2018 packing/rotations talk in Module 4</li>
                 <li><a href="https://eprint.iacr.org/2010/543">Boneh–Sahai–Waters · Functional Encryption (definitions)</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Books</h3>
+              <ul>
+                <li>Gentry · <a href="https://crypto.stanford.edu/craig/craig-thesis.pdf">A Fully Homomorphic Encryption Scheme</a> — Stanford PhD dissertation, 2009. The original construction, in full; free.</li>
+                <li>Peikert · <a href="https://eprint.iacr.org/2015/939.pdf">A Decade of Lattice Cryptography</a> — Foundations and Trends in Theoretical Computer Science, 2016. The standard LWE/Ring-LWE survey underneath every scheme in this guide; free.</li>
+                <li>Lauter, Dai &amp; Laine (eds.) · <a href="https://link.springer.com/book/10.1007/978-3-030-77287-1">Protecting Privacy through Homomorphic Encryption</a> — Springer, 2021. Practitioner-written: the HE standard, and applied chapters from Microsoft's Private AI Bootcamp.</li>
+                <li><a href="https://arxiv.org/abs/2503.05136">The Beginner's Textbook for Fully Homomorphic Encryption</a> — 2025. A free, from-scratch, self-contained treatment; the closest thing this field has to a course textbook.</li>
               </ul>
             </article>
             <article class="card">
@@ -1018,7 +1105,7 @@ try{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)r.classList.add('m
             <article class="card">
               <h3>Curation policy</h3>
               <p>Scope: ciphertext compute. Sibling routes: <a href="zkp.html">ZKP</a>, <a href="pqc.html">PQC</a>, <a href="mpc.html">MPC</a>, <a href="dlt.html">DLT</a>, <a href="tee.html">TEE</a>, and <a href="e2e.html">E2E</a>. Priority went to primary instructors and official channels. Conference research talks stay in <a href="#conferences">Conference extras</a> unless they teach a reusable concept that belongs in the core route. Functional encryption is extras only.</p>
-              <p class="meta">Links and availability checked August 28, 2026.</p>
+              <p class="meta">Links and availability checked September 5, 2026.</p>
             </article>
           </div>
           <div class="callout warn"><strong>Current-tool snapshot:</strong> use Microsoft SEAL 4.4 or later for direct applications because 4.4 included security hardening. OpenFHE, TFHE-rs, Concrete, Concrete ML, TenSEAL, and HEIR evolve independently—pin versions for a lab and record them with your results. Zama software is source-available under BSD-3-Clause-Clear with additional patent-license terms relevant to commercial use.</div>
